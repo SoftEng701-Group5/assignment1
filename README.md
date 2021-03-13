@@ -36,6 +36,11 @@ Committing: Always commit to origin, not to upstream!
 ### Merging Your Changes
 Everytime you want to update the shared repository with your changes, you need to make a Pull Request (PR). This is a formal merge request that allows other team members to review your code before it's pushed onto the shared repository.
 
+First, make sure your code is up-to-date with the share repository
+1) Run `git pull upstream main` to sync your branch with the master branch
+2) Run `git pull upstream [your-branch]` to sync your local branch with the shared branch
+- Note: If you are the only person working on your branch you can skip this step
+
 Features:
 1) First, make sure you have a feature branch on the shared repository. Go into the repository, select on the branches dropdown, and type the name of the feature branch you have been working from. This should be named 'feature-[something]'
 2) If no branches show up, click 'Create branch: [branch-name]'
