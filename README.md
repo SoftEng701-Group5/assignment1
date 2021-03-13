@@ -36,10 +36,9 @@ Committing: Always commit to origin, not to upstream!
 ### Merging Your Changes
 Everytime you want to update the shared repository with your changes, you need to make a Pull Request (PR). This is a formal merge request that allows other team members to review your code before it's pushed onto the shared repository.
 
-First, make sure your code is up-to-date with the share repository
+First, make sure your code is up-to-date with the shared repository
 1) Run `git pull upstream main` to sync your branch with the master branch
-2) Run `git pull upstream [your-branch]` to sync your local branch with the shared branch
-- Note: If you are the only person working on your branch you can skip this step
+2) Run `git pull upstream feature-[your-branch]` to sync your local branch with the shared feature branch. This makes sure that any other work on the feature, e.g. by other group members, is included with your work.
 
 Features:
 1) First, make sure you have a feature branch on the shared repository. Go into the repository, select on the branches dropdown, and type the name of the feature branch you have been working from. This should be named 'feature-[something]'
@@ -58,3 +57,9 @@ With your PR open, you should wait for 2 approvals on your pull request. Your re
 Most PRs should be associated with an issue. To link an issue and a PR, go to the 'issues' tab, select the relevant issue, click on 'Linked pull requests' in the lower-right of the page, and select the PR you just created. When your PR is merged, the issue will be automatically closed.
 
 When you get 2 approvals, make sure that the green merge button has 'Squash and Merge' selected, and then you can merge your PR.
+
+### Releases
+We will be collating features in feature branches, so that groups can collate their feature work.
+When features are done, and can be pushed onto the main branch, we can make a release PR.
+
+This is the same as regular PR, but it will be from the upstream/feature branch onto upstream/main.
