@@ -1,5 +1,5 @@
 function App() {
-	return <div className="App">
+	return <div className="app">
 		<h1>Hello</h1>
 	</div>;
 }
