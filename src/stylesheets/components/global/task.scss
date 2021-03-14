@@ -1,0 +1,39 @@
+.task-header {
+  width: 422px;
+  height: 74px;
+
+  background: #47465c;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}
+
+.task-checkbox, .task-checkbox--checked {
+  width: 35px;
+  height: 35px;
+  background: transparent;
+  border: 5px solid white;
+  border-radius: 999px;
+
+  box-sizing: border-box;
+  box-shadow: 0px 0px 6px 1px rgba(255, 236, 236, 0.25);
+
+}
+
+.task-checkbox--checked {
+    background: #c4c4c4;
+}
+
+
+.task-title {
+  width: 158px;
+  height: 39px;
+
+  font-family: Hind Madurai;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 28px;
+  line-height: 39px;
+  /* identical to box height */
+
+  color: #ffffff;
+}
