@@ -18,7 +18,7 @@ function Task() {
       <>
     <div className="task-header">
         <div className={"task-checkbox" + (isChecked ? "--checked" : "")}  onClick={handleCheckBoxClick}></div>
-        <label className="task-title">Heading</label>
+        <label className={"task-title" + (isChecked ? "--checked" : "")}>Heading</label>
         <button onClick={handleIconClick}>Open</button>
     </div>
 

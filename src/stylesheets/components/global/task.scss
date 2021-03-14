@@ -24,7 +24,7 @@
 }
 
 
-.task-title {
+.task-title, .task-title--checked {
   width: 158px;
   height: 39px;
 
@@ -36,4 +36,9 @@
   /* identical to box height */
 
   color: #ffffff;
+}
+
+.task-title--checked {
+    text-decoration: line-through;
+    font-style: italic;
 }
