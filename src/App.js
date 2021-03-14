@@ -3,6 +3,8 @@ import LoginView from "./pages/loginView";
 import HomeView from "./pages/homeView";
 import PageNotFoundView from "./pages/pageNotFoundView";
 import Navbar from "./components/Navbar";
+import TimerModal from './TimerModal/TimerModal';
+import TimerRightSide from "./TimerModal/TimerRightSide";
 
 function App() {
   return (
@@ -18,6 +20,13 @@ function App() {
             <Route exact path="/home">
               <HomeView />
             </Route>
+
+              <Route path={"/timerModal"}>
+                  <TimerModal onPlay={() => console.log("Play Pressed")}
+                              onResize={() => console.log("Resize Pressed")}
+                              children={TimerRightSide()}/>
+              </Route>
+
             {/* Fallback - if none of the above routes are hit */}
             <Route>
               <PageNotFoundView />
