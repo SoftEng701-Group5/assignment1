@@ -3,7 +3,7 @@ import React from "react";
 function DashboardIcon() {
   return (
     <svg
-      className="navbar-icon"
+      className="navbar__icon"
       width="40"
       height="40"
       viewBox="0 0 40 40"

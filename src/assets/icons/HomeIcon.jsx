@@ -3,7 +3,7 @@ import React from "react";
 function HomeIcon() {
   return (
     <svg
-      className="navbar-icon"
+      className="navbar__icon"
       width="38"
       height="34"
       viewBox="0 0 38 34"

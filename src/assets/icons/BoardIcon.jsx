@@ -3,7 +3,7 @@ import React from "react";
 function BoardIcon() {
   return (
     <svg
-      className="navbar-icon"
+      className="navbar__icon"
       width="36"
       height="36"
       viewBox="0 0 36 36"

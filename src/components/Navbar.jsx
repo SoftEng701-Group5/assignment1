@@ -7,20 +7,20 @@ import LogoutIcon from "../assets/icons/LogoutIcon";
 import { useLocation, Link } from "react-router-dom";
 import DefaultAvatar from "../assets/images/default-avatar.png";
 
-function Navbar(props) {
+function Navbar() {
   const [hovering, setHovering] = useState(false);
   const location = useLocation();
   return (
     <div className="navbar">
-      <div className="nav-icongroup-container">
+      <div>
         <Link to={"/home"} className="button-link">
-          <div className="nav-icon-container">
+          <div className="navbar__icon__group">
             {location.pathname === "/home" && <div className="selected-box" />}
             <HomeIcon />
           </div>
         </Link>
         <Link to={"/dashboard"} className="button-link">
-          <div className="nav-icon-container">
+          <div className="navbar__icon__group">
             {location.pathname === "/dashboard" && (
               <div className="selected-box" />
             )}
@@ -28,7 +28,7 @@ function Navbar(props) {
           </div>
         </Link>
         <Link to={"/board"} className="button-link">
-          <div className="nav-icon-container">
+          <div className="navbar__icon__group">
             {location.pathname === "/board" && <div className="selected-box" />}
             <BoardIcon />
           </div>
@@ -36,23 +36,17 @@ function Navbar(props) {
       </div>
 
       <div
-        className="account-container"
         onMouseEnter={() => setHovering(true)}
         onMouseLeave={() => setHovering(false)}
       >
         <div
-          className="account-menu-container"
-          style={{
-            height: hovering ? "fit-content" : "50px",
-            padding: hovering && "30px 0 80px 0",
-            opacity: hovering ? 1 : 0,
-          }}
+          className={"navbar__account" + (hovering ? "--hover" : "")}
         >
           <SettingsIcon />
           <LogoutIcon />
         </div>
 
-        <img className="user-avatar" src={DefaultAvatar} alt="avatar" />
+        <img className="navbar__useravatar" src={DefaultAvatar} alt="avatar" />
       </div>
     </div>
   );
