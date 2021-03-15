@@ -1,16 +1,19 @@
 import React from "react";
 
-function RightChevron() {
+function PlusIcon(props) {
   return (
     <svg
       version="1.1"
       id="Layer_1"
       x="0px"
       y="0px"
-      viewBox="0 0 407.436 407.436"
-      style={{fill: "white", height: "40%"}}
+      viewBox="0 0 455 455"
+      style={{height: "50%", fill: "white"}}
     >
-      <polygon points="112.814,0 91.566,21.178 273.512,203.718 91.566,386.258 112.814,407.436 315.869,203.718 " />
+      <polygon
+        points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 
+	455,242.5 "
+      />
       <g></g>
       <g></g>
       <g></g>
@@ -30,4 +33,4 @@ function RightChevron() {
   );
 }
 
-export default RightChevron;
+export default PlusIcon;
