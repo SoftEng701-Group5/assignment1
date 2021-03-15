@@ -1,8 +1,6 @@
 import React, {  useState } from "react";
 import firebaseApp from "../firebase.js";
 
-//Daniel
-
 export const AuthContext = React.createContext();
 /**
  * This provider component provides all the child components with the firebase user object.
