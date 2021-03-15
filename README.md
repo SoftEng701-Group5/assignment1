@@ -40,7 +40,7 @@ First, make sure your code is up-to-date with the shared repository
 1) Run `git pull upstream main` to sync your branch with the master branch
 2) Run `git pull upstream feature-[your-branch]` to sync your local branch with the shared feature branch. This makes sure that any other work on the feature, e.g. by other group members, is included with your work.
 
-Features:
+Groupwork Features: If you are working in your group on a feature, and need to give your group access to your work, without pushing it to main 
 1) First, make sure you have a feature branch on the shared repository. Go into the repository, select on the branches dropdown, and type the name of the feature branch you have been working from. This should be named 'feature-[something]'
 2) If no branches show up, click 'Create branch: [branch-name]'
 3) Go to your forked repository, and onto the branch that you want push
@@ -50,7 +50,9 @@ Features:
 7) On the right-hand side, select 2 'Reviewers' to review your PR, and give it a label
 8) Click 'Create pull request'
 
-Bugfixes can be done the same as feature PRs, but if needed can be pushed directly into upstream/main
+Independent Features & Bugfixes: Can go straight onto upstream/main
+- If you have a piece of finished work that you need to give the rest of the team access to, you can set the base branch to 'main'
+- The rest of the PR process should be kept the same
 
 With your PR open, you should wait for 2 approvals on your pull request. Your reviewers may ask you to change some of the code. If you need to make changes, you can make them and and push them to your origin branch. They will then appear in the pull request.
 
@@ -59,7 +61,4 @@ Most PRs should be associated with an issue. To link an issue and a PR, go to th
 When you get 2 approvals, make sure that the green merge button has 'Squash and Merge' selected, and then you can merge your PR.
 
 ### Releases
-We will be collating features in feature branches, so that groups can collate their feature work.
-When features are done, and can be pushed onto the main branch, we can make a release PR.
-
-This is the same as regular PR, but it will be from the upstream/feature branch onto upstream/main.
+For group-based features, you should collect the work on a feature branch. When the work is done, you can make a PR from upstream/feature-[your-feature] to upstream/main. The rest of the PR process should be kept the same.
