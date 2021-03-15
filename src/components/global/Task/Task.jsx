@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import RightChevron from "../../assets/icons/RightChevron";
+import RightChevron from "../../../assets/icons/RightChevron";
+import Subtask from "./Subtask";
 
 function Task() {
   const [isChecked, setIsChecked] = useState(false);
@@ -14,19 +15,23 @@ function Task() {
   };
 
   return (
-    <div className={"task-container" + (isExpanded ? "--expanded" : "")} >
+    <div className={"task-container" + (isExpanded ? "--expanded" : "")}>
       <div className="task-header-container">
         <div
           className={"task-checkbox" + (isChecked ? "--checked" : "")}
           onClick={handleCheckBoxClick}
-        ></div>
+        />
         <span className={"task-title" + (isChecked ? "--checked" : "")}>
           Long task name
         </span>
-        <RightChevron handleOnClick={handleIconClick} isRotated={isExpanded}/>
+        <RightChevron handleOnClick={handleIconClick} isRotated={isExpanded} />
       </div>
 
-      {<div className={"task-details-container" + (isExpanded ? "--expanded" : "")}>Hello I'm Open</div>}
+      <div
+        className={"task-details-container" + (isExpanded ? "--expanded" : "")}
+      >
+        <Subtask />
+      </div>
     </div>
   );
 }
