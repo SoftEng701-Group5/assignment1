@@ -1,6 +1,6 @@
 import React from "react";
 
-function BoardIcon(props) {
+function BoardIcon() {
   return (
     <svg
       className="navbar-icon"

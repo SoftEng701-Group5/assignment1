@@ -1,6 +1,6 @@
 import React from "react";
 
-function HomeIcon(props) {
+function HomeIcon() {
   return (
     <svg
       className="navbar-icon"

@@ -1,6 +1,6 @@
 import React from "react";
 
-function DashboardIcon(props) {
+function DashboardIcon() {
   return (
     <svg
       className="navbar-icon"

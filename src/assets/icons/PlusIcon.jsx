@@ -1,6 +1,6 @@
 import React from "react";
 
-function PlusIcon(props) {
+function PlusIcon() {
   return (
     <svg
       version="1.1"

@@ -1,6 +1,6 @@
 import React from "react";
 
-function LogoutIcon(props) {
+function LogoutIcon() {
   return (
     <svg
       version="1.1"
@@ -24,28 +24,7 @@ function LogoutIcon(props) {
 			c4.704,4.752,12.319,4.752,17.011,0l82.997-84.2C386.113,196.588,386.161,188.756,381.481,184.088z"
           />
         </g>
-        <g></g>
-        <g></g>
-        <g></g>
-        <g></g>
-        <g></g>
-        <g></g>
       </g>
-      <g></g>
-      <g></g>
-      <g></g>
-      <g></g>
-      <g></g>
-      <g></g>
-      <g></g>
-      <g></g>
-      <g></g>
-      <g></g>
-      <g></g>
-      <g></g>
-      <g></g>
-      <g></g>
-      <g></g>
     </svg>
   );
 }

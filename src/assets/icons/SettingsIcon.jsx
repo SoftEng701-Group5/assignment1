@@ -1,6 +1,6 @@
 import React from "react";
 
-function SettingsIcon(props) {
+function SettingsIcon() {
   return (
     <svg
       version="1.1"
