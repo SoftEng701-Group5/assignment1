@@ -1,7 +1,22 @@
-.task-container {
+.task-container, .task-container--expanded {
   position: relative;
+  width: 100%;  
+}
+
+.task-container {
+  height: $task-header-height;
+}
+
+.task-container--expanded {
+  height: $task-header-height + $task-details-height;
+}
+
+.task-header-container, .task-details-container, .task-details-container--expanded {
   width: 100%;
-  z-index: 1000;
+  
+  padding-bottom: 4px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
 }
 
 .task-header-container {
@@ -11,13 +26,9 @@
 
   align-items: center;
   padding: 0 20px;
-  width: 100%;
-  height: 74px;
+  height: $task-header-height;
 
-  background: #47465c;
-  box-sizing: border-box;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 20px;
+  background: $task-header-background;
 }
 
 .task-checkbox,
@@ -39,15 +50,8 @@
 .task-title,
 .task-title--checked {
   width: 100%;
-
   text-align: left;
-  font-family: Hind Madurai;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 28px;
-  line-height: 39px;
-
-  color: #ffffff;
+  font-size: 1.5rem;
 }
 
 .task-title--checked {
@@ -55,8 +59,15 @@
   font-style: italic;
 }
 
-.task-details-container {
+.task-details-container, .task-details-container--expanded {
   position: absolute;
   top: 0;
   left: 0;
+  height: $task-details-height;
+  z-index: -1;
+  padding-top: $task-header-height;
+}
+
+.task-details-container--expanded {
+  background: $task-details-background;
 }

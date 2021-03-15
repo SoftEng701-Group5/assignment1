@@ -3,18 +3,18 @@ import RightChevron from "../../assets/icons/RightChevron";
 
 function Task() {
   const [isChecked, setIsChecked] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const handleCheckBoxClick = () => {
     setIsChecked(!isChecked);
   };
 
   const handleIconClick = () => {
-    setIsOpen(!isOpen);
+    setIsExpanded(!isExpanded);
   };
 
   return (
-    <div className="task-container">
+    <div className={"task-container" + (isExpanded ? "--expanded" : "")} >
       <div className="task-header-container">
         <div
           className={"task-checkbox" + (isChecked ? "--checked" : "")}
@@ -23,10 +23,10 @@ function Task() {
         <span className={"task-title" + (isChecked ? "--checked" : "")}>
           Long task name
         </span>
-        <RightChevron handleOnClick={handleIconClick} isRotated={isOpen}/>
+        <RightChevron handleOnClick={handleIconClick} isRotated={isExpanded}/>
       </div>
 
-      {isOpen && <div className="task-details-container">Hello I'm Open</div>}
+      {<div className={"task-details-container" + (isExpanded ? "--expanded" : "")}>Hello I'm Open</div>}
     </div>
   );
 }
