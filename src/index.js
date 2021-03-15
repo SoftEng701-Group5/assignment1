@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom';
 import App from './App';
 
 import './stylesheets/index.scss';
+import {TimerContextProvider} from "./components/TimerModal/TimerContextProvider";
 
 ReactDOM.render(
-	<React.StrictMode>
-		<App />
-	</React.StrictMode>,
-	document.getElementById('root')
+    <React.StrictMode>
+        <TimerContextProvider>
+            <App/>
+        </TimerContextProvider>
+    </React.StrictMode>,
+    document.getElementById('root')
 );
