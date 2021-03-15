@@ -1,8 +1,8 @@
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import LoginView from './pages/loginView';
 import PageNotFoundView from './pages/pageNotFoundView';
-import TimerModal from './TimerModal/TimerModal';
-import TimerRightSide from "./TimerModal/TimerRightSide";
+import TimerModal from './components/TimerModal/TimerModal';
+import TimerRightSide from "./components/TimerModal/TimerRightSide";
 
 function App() {
     return (
