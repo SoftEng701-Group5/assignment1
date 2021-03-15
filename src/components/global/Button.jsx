@@ -1,13 +1,14 @@
 import React from "react";
-import RightChevron from "../../assets/icons/RightChevron";
+import { getIcon } from "./componentFunctions";
 import { Link } from "react-router-dom";
 
 function Button(props) {
+  const {path, text, icon, height, fontSize} = props;
   return (
-    <Link to={props.path} className="button-link">
-      <div className="button-container">
-        <span className="button-text">{props.text}</span>
-        <RightChevron />
+    <Link to={path} className="button-link">
+      <div className="button-container" style={{height}}>
+        <span className="button-text" style={{fontSize}}>{text}</span>
+        {getIcon(icon)}
       </div>
     </Link>
   );
