@@ -44,7 +44,7 @@ function Navbar(props) {
           className="account-menu-container"
           style={{
             height: hovering ? "fit-content" : "50px",
-            padding: hovering && "30px 0 70px 0",
+            padding: hovering && "30px 0 80px 0",
             opacity: hovering ? 1 : 0,
           }}
         >

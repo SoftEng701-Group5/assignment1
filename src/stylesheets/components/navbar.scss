@@ -70,9 +70,9 @@
 }
 
 .account-menu-container {
-  background: $primary;
-  height: 50px;
-  width: 50px;
+  background: $primary-selected;
+  height: 60px;
+  width: 60px;
   border-radius: 999px;
 
   display: flex;
@@ -84,8 +84,8 @@
 }
 
 .user-avatar {
-  height: 50px;
-  width: 50px;
+  height: 60px;
+  width: 60px;
   border-radius: 50%;
 
   position: absolute;
