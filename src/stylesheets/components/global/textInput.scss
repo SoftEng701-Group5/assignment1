@@ -1,0 +1,19 @@
+.text-input {
+    width: 100%;
+    padding: 8px 0;
+
+    &--label {
+        display: block;
+        margin-bottom: 10px;
+    }
+    &--input {
+        width: 100%;
+        background: rgba(153, 153, 153, 0.35);
+        border-radius: 99px;
+        border: none;
+        outline: none;
+        padding: 10px 15px;
+        color: white;
+        font-size: 1.125em;
+    }
+}
