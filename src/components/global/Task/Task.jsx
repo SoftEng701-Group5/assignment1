@@ -27,9 +27,11 @@ function Task(props) {
       <div
         className={"task-details-container" + (isExpanded ? "--expanded" : "")}
       >
-        {subtasks.map((s) => (
-          <Subtask subtaskName={s.subtaskName} checked={s.checked} />
-        ))}
+        <div className="subtask-list-container">
+          {subtasks.map((s) => (
+            <Subtask key={s.id} subtaskName={s.subtaskName} checked={s.checked} />
+          ))}
+        </div>
       </div>
     </div>
   );

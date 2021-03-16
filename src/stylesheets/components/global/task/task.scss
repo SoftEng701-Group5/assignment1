@@ -9,7 +9,7 @@
 }
 
 .task-container--expanded {
-  height: $task-header-height + $task-details-height;
+  height: $task-details-height + $task-details-height;
 }
 
 .task-header-container,
