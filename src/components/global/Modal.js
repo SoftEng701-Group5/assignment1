@@ -1,19 +1,19 @@
 import ReactDOM from 'react-dom';
-import styles from './Modal.module.css';
+import "../../stylesheets/components/global/modal.scss"
 
 const modalRoot = document.querySelector('#modal-root');
 
-export default function Modal({ dismissOnClickOutside, onCancel, style, children, show }) {
+export default function Modal({ dismissOnClickOutside, onCancel, children, show }) {
     if(!show){
         return null;
     }
     return ReactDOM.createPortal(
-        <div className={styles.modalContainer} onClick={e => {
+        <div className="modalContainerBg" onClick={e => {
             if (dismissOnClickOutside && e.target.parentElement === modalRoot) {
                 onCancel();
             }
         }}>
-            <div className="box" style={style}>
+            <div className="modalContainer">
                 {children}
             </div>
         </div>

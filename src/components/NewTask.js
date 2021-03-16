@@ -1,8 +1,5 @@
-
-import NewTaskModal from "./newTaskModal";
-import Button from "./global/Button";
+import NewTaskModal from "./global/Modal";
 import { useState } from "react";
-import { useHistory } from 'react-router-dom';
 
 export default function AddTask() {
     const [display, setDisplay] = useState(false)
@@ -17,10 +14,12 @@ export default function AddTask() {
         resetValues();
     }
 
+
     function handleAddNewTask() {
         setDisplay(false);
         resetValues();
     }
+
 
     function resetValues() {
         setDeadline('');
@@ -29,12 +28,11 @@ export default function AddTask() {
         setName('');
     }
 
-    
 
     return (
         <div>
             <button onClick={() => setDisplay(true)}>Add Task</button>
-            <NewTaskModal style={{ width: '50%', height: 'auto' }} dismissOnClickOutside={true} onCancel={handleCancelNewTask} 
+            <NewTaskModal dismissOnClickOutside={true} onCancel={handleCancelNewTask}
                 show={display} children={
                 <div>
                      <h2>Add Task</h2>

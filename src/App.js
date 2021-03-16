@@ -12,6 +12,7 @@ function App() {
 					{/* Route to login page */}
 					<Route exact path="/">
 						<LoginView />
+						{/*TODO: Remove this*/}
 						<TempNavBar/>
 					</Route>
 					{/* Fallback - if none of the above routes are hit */}
