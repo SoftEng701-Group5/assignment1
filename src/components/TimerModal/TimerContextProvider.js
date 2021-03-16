@@ -10,7 +10,7 @@ Bi-directional rendering of components that uses the context.
  */
 function TimerContextProvider({children}) {
 
-    const [timer, setTimer] = useState(defaultTimer);
+    let [timer, setTimer] = useState(defaultTimer);
     const [play, setPlay] = useState(defaultPlay);
 
     return (

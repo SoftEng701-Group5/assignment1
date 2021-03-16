@@ -9,67 +9,19 @@ export default function TimerBundle() {
     const [timer, setTimer] = useContext(TimerContext)
     const [play, setPlay] = useContext(PlayContext)
 
-    function decrementTimer() {
-        let nextTimer = null;
-
-        if (!(timer.seconds === "00")) {
-            nextTimer = decrementSec();
-        } else if (!(timer.minutes === "00")) {
-            nextTimer = decrementMin()
-        } else if (!(timer.hours === "00")) {
-            nextTimer = decrementHr();
-        }
-
-        return nextTimer;
-
-    }
-
-    function decrementSec() {
-        let sec = timer.seconds;
-        sec--;
-        if (sec < 10) {
-            sec = "0" + sec.toString();
-        }
-
-        return {hours: timer.hours, minutes: timer.minutes, seconds: sec}
-    }
-
-     function decrementMin() {
-        let min = timer.minutes;
-        let sec = 59;
-        min--;
-        if (min < 10) {
-            min = "0" + min.toString();
-        }
-
-        return {hours: timer.hours, minutes: min, seconds: sec}
-    }
-
-    function decrementHr() {
-        let hr = timer.hours;
-        hr--;
-        let min = 59;
-        let sec = 59;
-
-        if (hr < 10) {
-            hr = "0" + hr.toString();
-        }
-
-        return {hours: hr, minutes: min, seconds: sec}
-    }
-
     useEffect(() => {
+
         if (play) {
-            setTimeout(() => setTimer(decrementTimer()), 1000);
+            setTimeout(() => setTimer(timer.seconds !== 0 && {seconds: timer.seconds - 1}), 1000);
         }
-    }, [play, timer]);
 
-
+    }, [play, timer, setTimer]);
 
     return (
         <div>
             <Timer startTime={timer}/>
-            <TimerPlay play={play} setPlay={setPlay} buttonStyle={style.playButton} divPlay={style.playButtonDiv} divPause={style.pauseButtonDiv}/>
+            <TimerPlay play={play} setPlay={setPlay} buttonStyle={style.playButton} divPlay={style.playButtonDiv}
+                       divPause={style.pauseButtonDiv}/>
         </div>
     );
 
