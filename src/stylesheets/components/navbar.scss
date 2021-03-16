@@ -63,11 +63,19 @@
   align-items: center;
   transition: all 0.5s ease;
 
+  svg {
+    transition: all 0.5s ease;
+  }
+
   &--hover {
     @extend .navbar__account;
 
-    padding: 30px 0 80px 0;
+    padding: 30px 0 60px 0;
     opacity: 1;
+
+    svg {
+      margin-bottom: 25px;
+    }
   }
 }
 
