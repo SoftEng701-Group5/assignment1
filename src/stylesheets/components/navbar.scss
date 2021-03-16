@@ -67,11 +67,15 @@
   align-items: center;
 
   transition: all 0.5s ease;
+
+  * {
+    margin-bottom: 25px;
+  }
 }
 
 .navbar__account--hover {
   height: fit-content;
-  padding: 30px 0 80px 0;
+  padding: 30px 0 60px 0;
   opacity: 1;
 }
 
