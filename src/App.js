@@ -3,6 +3,7 @@ import LoginView from "./pages/loginView";
 import HomeView from "./pages/homeView";
 import PageNotFoundView from "./pages/pageNotFoundView";
 import Navbar from "./components/Navbar";
+import BoardView from "./pages/boardView";
 
 function App() {
   return (
@@ -19,6 +20,12 @@ function App() {
             <Route exact path="/home">
               <Navbar />
               <HomeView />
+            </Route>
+
+            {/* Board view - navbar present */}
+            <Route exact path="/board">
+              <Navbar />
+              <BoardView />
             </Route>
             
             {/* Fallback - if none of the above routes are hit */}
