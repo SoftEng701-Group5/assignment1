@@ -23,7 +23,8 @@ function App() {
                         </Route>
 
                         <Route path={"/timerModal"}>
-                            <TimerModal children={TimerSection()} assignmentAndNoteSection={AssignmentAndNotes()}/>
+                            <TimerModal children={TimerSection("Work")}
+                                        assignmentAndNoteSection={AssignmentAndNotes()}/>
                         </Route>
 
                         {/* Fallback - if none of the above routes are hit */}

@@ -4,7 +4,7 @@ import Timer from "./Timer";
 import TimerPlay from "./TimerPlay";
 import style from "./Modal.module.scss";
 
-export default function TimerBundle() {
+export default function TimerBundle({timerTitle}) {
 
     const [timer, setTimer] = useContext(TimerContext)
     const [play, setPlay] = useContext(PlayContext)
@@ -18,11 +18,15 @@ export default function TimerBundle() {
     }, [play, timer, setTimer]);
 
     return (
+
         <div>
+            <h2> {timerTitle} </h2>
+            {console.log(timerTitle)}
             <Timer startTime={timer}/>
             <TimerPlay play={play} setPlay={setPlay} buttonStyle={style.playButton} divPlay={style.playButtonDiv}
                        divPause={style.pauseButtonDiv}/>
         </div>
-    );
+    )
+        ;
 
 }
