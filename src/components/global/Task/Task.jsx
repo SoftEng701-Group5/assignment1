@@ -3,7 +3,7 @@ import RightChevron from "../../../assets/icons/RightChevron";
 import Subtask from "./Subtask";
 
 function Task(props) {
-  const { taskName, checked, subtasks } = props;
+  const { name, checked, subtasks } = props;
 
   const [isChecked, setIsChecked] = useState(checked);
   const [isExpanded, setIsExpanded] = useState(false);
@@ -19,7 +19,7 @@ function Task(props) {
           onClick={handleCheckBoxClick}
         />
         <span className={"task-title" + (isChecked ? "--checked" : "")}>
-          {taskName}
+          {name}
         </span>
         <RightChevron handleOnClick={handleIconClick} isRotated={isExpanded} />
       </div>
@@ -28,8 +28,8 @@ function Task(props) {
         className={"task-details-container" + (isExpanded ? "--expanded" : "")}
       >
         <div className="subtask-list-container">
-          {subtasks.map((s) => (
-            <Subtask key={s.id} subtaskName={s.subtaskName} checked={s.checked} />
+          {subtasks.map((subtask) => (
+            <Subtask key={subtask.id} name={subtask.name} checked={subtask.checked} />
           ))}
         </div>
       </div>

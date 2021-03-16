@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 function Subtask(props) {
-  const { subtaskName, checked } = props;
+  const { name, checked } = props;
 
   const [isChecked, setIsChecked] = useState(checked);
   const handleCheckBoxClick = () => setIsChecked(!isChecked);
@@ -14,7 +14,7 @@ function Subtask(props) {
         onClick={handleCheckBoxClick}
       />
       <span className={"subtask-title" + (isChecked ? "--checked" : "")}>
-        {subtaskName}
+        {name}
       </span>
     </div>
   );
