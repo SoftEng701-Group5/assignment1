@@ -1,11 +1,14 @@
 import React from "react";
-import Button from "../components/global/Button";
+import BoardImage from '../assets/images/BoardImage';
 
 function BoardView() {
   return (
-    <div className="boards"> {
-        <h2>Board-View</h2>
-    }
+    <div className="boards" style={{
+        position: "absolute",
+        right: 200,
+        bottom: 200
+    }}>
+        <BoardImage />
     </div>
   );
 }
