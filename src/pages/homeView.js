@@ -5,6 +5,7 @@ function homeView() {
   return (
     <div>
       <Button icon={"rightArrow"} text={"Dashboard"} path={"/home"} />
+        Dashboard
     </div>
   );
 }
