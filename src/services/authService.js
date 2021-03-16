@@ -1,9 +1,9 @@
-import firebaseApp from "./firebase";
+import firebaseConnection from "./firebase";
 /**
  * Signs the user out of the firebase application
  */
 const signOut = () => {
-    firebaseApp.auth().signOut();
+    firebaseConnection.auth().signOut();
 };
 /**
  * Signs the user into the firebase application
@@ -12,7 +12,7 @@ const signOut = () => {
  */
 const signIn = async (email, password) => {
     try{
-        await firebaseApp
+        await firebaseConnection
         .auth()
         .signInWithEmailAndPassword(email, password);
     }catch(error){
@@ -26,7 +26,7 @@ const signIn = async (email, password) => {
  */
 const signUp = async (email, password) => {
     try{
-        await firebaseApp
+        await firebaseConnection
         .auth()
         .createUserWithEmailAndPassword(email, password);
     }catch(error){

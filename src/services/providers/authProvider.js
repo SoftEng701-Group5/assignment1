@@ -1,5 +1,5 @@
 import React, {  useState } from "react";
-import firebaseApp from "../firebase.js";
+import firebaseConnection from "../firebase.js";
 
 export const AuthContext = React.createContext();
 /**
@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }) => {
 
   // Adds an observer to the authentication state of the firebase app
   // When authentication state is change, sets the "currentUser" const to the changed value
-  firebaseApp.auth().onAuthStateChanged((user) => {
+  firebaseConnection.auth().onAuthStateChanged((user) => {
     setCurrentUser(user)
   });
 

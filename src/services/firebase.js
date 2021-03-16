@@ -4,7 +4,7 @@ require('firebase/auth')
 /**
  * Initialize Firebase application with parameters
  */
-const firebaseApp = firebase.initializeApp({
+const firebaseConnection = firebase.initializeApp({
     apiKey: "AIzaSyBziUug99HMl-cwPOzWnwHnzJxH_BmG-N8",
     authDomain: "se701-group-5-assignment-1.firebaseapp.com",
     projectId: "se701-group-5-assignment-1",
@@ -12,4 +12,4 @@ const firebaseApp = firebase.initializeApp({
     messagingSenderId: "357803904307",
 });
 
-export default firebaseApp;
+export default firebaseConnection;
