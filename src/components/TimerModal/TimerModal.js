@@ -2,14 +2,14 @@ import ReactDOM from 'react-dom';
 import style from './Modal.module.scss';
 const modalRoot = document.querySelector('#modal-root');
 
-export default function Modal({children, leftSide }) {
+export default function Modal({children, AssignmentAndNoteSection }) {
 
     return ReactDOM.createPortal(
         <div className={style.modalContainer}>
 
             {/*Components are displayed here*/}
             <div >
-                {leftSide}
+                {AssignmentAndNoteSection}
             </div>
 
             <div>

@@ -1,4 +1,4 @@
-export default function LeftSideNotes({notes}) {
+export default function Notes({notes}) {
 
     return (
         <div style={{margin: '10px', backgroundColor: 'navy'}}>

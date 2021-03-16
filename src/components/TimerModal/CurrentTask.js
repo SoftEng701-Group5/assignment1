@@ -1,4 +1,4 @@
-export default function LeftSideCurrentTask({task}) {
+export default function CurrentTask({task}) {
 
     return (
         <div style={{margin: '10px', backgroundColor:'navy'}}>

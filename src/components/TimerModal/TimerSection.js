@@ -4,7 +4,7 @@ import TimerBundle from "./TimerBundle";
 import style from "./Modal.module.scss"
 
 
-export default function TimerRightSide() {
+export default function TimerSection() {
 
     return (
         <div>

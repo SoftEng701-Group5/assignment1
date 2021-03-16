@@ -1,7 +1,5 @@
 export const defaultTimer = {
-    hours : "00",
-    minutes : "30",
-    seconds : "00"
+    seconds : 1500
 }
 
 export const defaultPlay = false
