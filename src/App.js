@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import LoginView from "./pages/loginView";
 import SignUpView from "./pages/signUpView";
 import HomeView from "./pages/homeView";
@@ -36,11 +36,18 @@ function App() {
             </Switch>
           </div>
 
+<<<<<<< HEAD
           <div className="circle1" />
           <div className="circle2" />
         </div>
       </Router>
     </AuthProvider>
+=======
+        <div className="circle1" />
+        <div className="circle2" />
+      </div>
+    </ Router>
+>>>>>>> a63ea09... changed to HashRouter for github pages
   );
 }
 
