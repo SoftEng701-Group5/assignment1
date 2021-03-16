@@ -23,9 +23,7 @@ function App() {
             </Route>
 
               <Route path={"/timerModal"}>
-                  <TimerModal onPlay={() => console.log("Play Pressed")}
-                              onResize={() => console.log("Resize Pressed")}
-                              children={TimerRightSide()} leftSide={TimerLeftSide()}/>
+                  <TimerModal children={TimerRightSide()} leftSide={TimerLeftSide()}/>
               </Route>
 
             {/* Fallback - if none of the above routes are hit */}
