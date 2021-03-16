@@ -1,6 +1,6 @@
 import React from "react";
 
-function MinimizeIcon(props) {
+function MinimizeIcon() {
   return (
     <svg
       version="1.1"
