@@ -1,6 +1,6 @@
 import React from "react";
 
-function ExpandIcon(props) {
+function ExpandIcon() {
   return (
     <svg
       version="1.1"

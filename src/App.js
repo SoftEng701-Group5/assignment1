@@ -2,11 +2,13 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LoginView from "./pages/loginView";
 import HomeView from "./pages/homeView";
 import PageNotFoundView from "./pages/pageNotFoundView";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <Router>
       <div className="background">
+        <Navbar />
         <div className="main-content">
           <Switch>
             {/* Route to login page */}
@@ -23,7 +25,7 @@ function App() {
           </Switch>
         </div>
 
-		<div className="circle1" />
+        <div className="circle1" />
         <div className="circle2" />
       </div>
     </Router>

@@ -1,6 +1,6 @@
 import React from "react";
 
-function SettingsIcon(props) {
+function SettingsIcon() {
   return (
     <svg
       version="1.1"
@@ -8,7 +8,7 @@ function SettingsIcon(props) {
       x="0px"
       y="0px"
       viewBox="0 0 478.703 478.703"
-      style={{height: "50%", fill: "white"}}
+      style={{width: "50%", height: "50%", fill: "white"}}
     >
       <g>
         <g>

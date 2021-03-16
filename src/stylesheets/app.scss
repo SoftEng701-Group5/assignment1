@@ -41,7 +41,8 @@ code {
 
 .background {
   background: $background;
-  height: 100vh;
+  min-height: 100vh;
+  display: flex;
 }
 
 .circle1,
@@ -74,4 +75,5 @@ code {
   position: relative;
   text-align: center;
   z-index: 1;
+  width: calc(100vw - $navbar-width);
 }

@@ -1,9 +1,13 @@
 $background: linear-gradient(225deg, #2e2d40 0%, #3c3a61 100%);
+$solid-background: #2e2d40;
 $primary: #135ef2;
 $primary-gradient: #5295ed;
+$primary-selected: #f2913d;
 
 $button-shadow: 4px 4px 5px
   rgba(
     $color: black,
     $alpha: 0.25,
   );
+
+$navbar-width: 90px;
