@@ -45,28 +45,24 @@ export default function SignUpView( ) {
             <div className="sign-up--container">
                 <h1>Sign Up</h1>
                 <TextInput 
-                  inputName={"first-name"} 
                   label={"First Name:"} 
                   textValue={firstName} 
                   onChangeHandler={setFirstName} 
                   placeholderValue={firstNameInfoText}
                 />
                 <TextInput 
-                  inputName={"last-name"} 
                   label={"Last Name:"} 
                   textValue={lastName} 
                   onChangeHandler={setLastName}
                   placeholderValue={lastNameInfoText} 
                 />
                 <TextInput 
-                  inputName={"email"} 
                   label={"Email:"} 
                   textValue={email} 
                   onChangeHandler={setEmail}
                   placeholderValue={emailInfoText}
                 />
                 <TextInput 
-                  inputName={"password"} 
                   label={"Password:"} 
                   textValue={password} 
                   onChangeHandler={setPassword} 
