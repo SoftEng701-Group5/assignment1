@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom';
-import style from './Modal.module.css';
+import style from './Modal.module.scss';
 const modalRoot = document.querySelector('#modal-root');
 
 export default function Modal({onPlay, onResize, children, leftSide }) {

@@ -1,6 +1,9 @@
-export default function TimerPlay({play, setPlay}) {
+export default function TimerPlay({play, setPlay, buttonStyle, divPlay, divPause}) {
 
     return (
-        <button onClick={() => setPlay(!play)}> {console.log(play)} Play </button>
+        <button className={buttonStyle} onClick={() => setPlay(!play)}>
+            <div className={play ? divPause : divPlay}>
+            </div>
+        </button>
     );
 }

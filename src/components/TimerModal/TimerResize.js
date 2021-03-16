@@ -1,5 +1,14 @@
-export default function TimerPlay() {
+export default function TimerResize({resizeStyle, arrow, line}) {
+
     return (
-        <button> Resize </button>
+        <button className={resizeStyle}>
+            <div>
+                <div className={arrow}>
+
+                </div>
+            </div>
+        </button>
+
     );
+
 }
