@@ -17,7 +17,7 @@ function BoardIcon() {
         height="34"
         rx="5"
         stroke="white"
-        stroke-width="2"
+        strokeWidth="2"
       />
       <path
         d="M5 7.5C5 5.567 6.567 4 8.5 4V4C10.433 4 12 5.567 12 7.5V27.5C12 29.433 10.433 31 8.5 31V31C6.567 31 5 29.433 5 27.5V7.5Z"
