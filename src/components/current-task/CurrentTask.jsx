@@ -12,6 +12,7 @@ function CurrentTask() {
 				<span>
 					<Task
 						baseClass='current-task-current-task'
+						expanded
 						name='Current task name is really longas asdfasdfasdfasdfasdfasdfasdfaasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfas'
 						subtasks={[]}
 					/>

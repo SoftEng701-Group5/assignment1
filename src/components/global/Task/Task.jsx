@@ -3,10 +3,10 @@ import RightChevron from '../../../assets/icons/RightChevron';
 import Subtask from './Subtask';
 
 function Task(props) {
-	const { name, baseClass = 'task', checked, subtasks } = props;
+	const { name, baseClass = 'task', checked, expanded, subtasks } = props;
 
 	const [isChecked, setIsChecked] = useState(checked);
-	const [isExpanded, setIsExpanded] = useState(false);
+	const [isExpanded, setIsExpanded] = useState(expanded);
 
 	const handleCheckBoxClick = () => setIsChecked(!isChecked);
 	const handleIconClick = () => setIsExpanded(!isExpanded);
