@@ -1,4 +1,4 @@
-.modalContainer {
+.modal-container {
     position: absolute;
     top: 0;
     left: 0;
@@ -14,7 +14,7 @@
     z-index: 100;
 }
 
-.playButtonDiv {
+.button-play-div {
     text-align: center;
     margin: 12px 12px 12px 22px;
     width: 20px;
@@ -25,7 +25,7 @@
     border-color: transparent transparent transparent white;
 }
 
-.pauseButtonDiv {
+.button-pause-div {
     text-align: center;
     margin: 12px 12px 12px 22px;
     width: 20px;
@@ -36,7 +36,7 @@
     border-color: transparent white transparent white;
 }
 
-.playButton {
+.button-play {
     align-items: center;
     justify-content: center;
     width: 60px;
@@ -50,7 +50,7 @@
 }
 
 
-.resizeButton {
+.button-resize {
     align-items: center;
     justify-content: center;
     width: 60px;
@@ -68,10 +68,10 @@ button:focus {
     outline: none;
 }
 
-button:active.playButton {
+button:active.button-play {
     background-image: linear-gradient(to right, #f1913e, red);
 }
 
-button:active.resizeButton {
+button:active.button-resize {
     background-image: linear-gradient(to right, #1560f2, blue);
 }

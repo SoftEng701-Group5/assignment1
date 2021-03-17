@@ -1,7 +1,7 @@
-export default function TimerResize({resizeStyle}) {
+export default function TimerResize(props) {
 
     return (
-        <button className={resizeStyle}>
+        <button className="button-resize">
         </button>
 
     );

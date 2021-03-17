@@ -2,7 +2,7 @@ import {useContext, useEffect} from "react";
 import {PlayContext, TimerContext} from "./TimerContextProvider";
 import Timer from "./Timer";
 import TimerPlay from "./TimerPlay";
-import style from "./Modal.module.scss";
+import style from "./Modal.scss";
 
 export default function TimerBundle(props) {
 
@@ -25,8 +25,7 @@ export default function TimerBundle(props) {
         <div>
             <h2> {timerTitle} </h2>
             <Timer startTime={timer}/>
-            <TimerPlay play={play} setPlay={setPlay} buttonStyle={style.playButton} divPlay={style.playButtonDiv}
-                       divPause={style.pauseButtonDiv}/>
+            <TimerPlay play={play} setPlay={setPlay} />
         </div>
     )
         ;
