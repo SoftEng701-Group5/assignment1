@@ -1,0 +1,9 @@
+.right-chevron, .right-chevron--rotated {
+    fill: white; 
+    height: 40%; 
+    transition: all 0.3s ease;
+}
+
+.right-chevron--rotated {
+    transform: rotate(90deg);
+}
