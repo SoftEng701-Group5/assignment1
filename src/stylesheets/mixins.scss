@@ -1,8 +1,9 @@
-@mixin accordion($content-height, $header-grid-template-columns) {
+@mixin accordion($content-height, $header-background, $content-background) {
 	&-container,
 	&-container--expanded {
 		position: relative;
 		width: 100%;
+		margin-bottom: 16px;
 	}
 
 	&-container {
@@ -26,21 +27,26 @@
 	&-header-container {
 		position: relative;
 		z-index: 2;
-		display: grid;
-		grid-template-columns: $header-grid-template-columns;
-		column-gap: 16px;
+		display: flex;
+		justify-content: space-between;
 
 		align-items: center;
 		padding: 0 20px;
 		height: $accordion-header-height;
 
-		background: $accordion-header-background;
+		background: $header-background;
 	}
 
-	&-title {
-		width: 100%;
+	&-title,
+	&-title--checked {
+		flex: 1;
+		flex-wrap: nowrap;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
 		text-align: left;
-		font-size: 1.5rem;
+		font-size: 1.2rem;
+		margin-right: 16px;
 	}
 
 	&-content-container,
@@ -53,6 +59,6 @@
 	}
 
 	&-content-container--expanded {
-		background: $accordion-content-background;
+		background: $content-background;
 	}
 }

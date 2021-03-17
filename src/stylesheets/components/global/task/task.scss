@@ -1,16 +1,20 @@
 .task {
-	@include accordion($task-content-height, (35px 1fr 40px));
+	@include accordion(
+		$task-content-height,
+		$task-header-background,
+		$task-content-background
+	);
 }
 
 .task-checkbox,
 .task-checkbox--checked {
-	width: 35px;
-	height: 35px;
+	width: 25px;
+	height: 25px;
 	background: transparent;
-	border: 5px solid white;
+	border: 3px solid white;
 	border-radius: 50%;
+	margin-right: 16px;
 
-	box-sizing: border-box;
 	box-shadow: 0px 0px 6px 1px rgba(255, 236, 236, 0.25);
 }
 

@@ -1,3 +1,7 @@
 .current-task-notes {
-	@include accordion($current-task-notes-content-height, (1fr 40px));
+	@include accordion(
+		$current-task-notes-content-height,
+		$current-task-header-background,
+		$current-task-content-background
+	);
 }
