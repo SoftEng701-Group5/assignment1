@@ -16,7 +16,6 @@ const fetchTasks = async (user_id) => {
     const db = firebaseConnection.firestore();
     const data = await db.collection("Tasks").where("User_id", "==", user_id).get();
     const tasks = data.docs.map(doc => ({ ...doc.data(), Task_id: doc.id }));
-    console.log(tasks);
     return tasks;
 }
 
