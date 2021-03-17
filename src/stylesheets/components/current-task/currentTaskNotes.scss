@@ -7,6 +7,9 @@
 }
 
 .current-task-notes-list {
-	list-style-type: square;
 	padding-left: 50px;
+
+	li {
+		display: list-item;
+	}
 }

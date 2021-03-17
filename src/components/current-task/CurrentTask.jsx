@@ -11,7 +11,6 @@ function CurrentTask() {
 			<div className='current-task-content-container'>
 				<span>
 					<Task
-						baseClass='current-task-current-task'
 						expanded
 						name='Current task name is really really long'
 						subtasks={[
