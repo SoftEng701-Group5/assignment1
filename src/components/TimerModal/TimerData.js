@@ -1,8 +1,6 @@
-export const defaultTimer = {
-    hours : "00",
-    minutes : "30",
-    seconds : "00"
+/* Default timer set to 25 minutes (1500 seconds) */
+export let defaultTimer = {
+    seconds: 1500
 }
-
 export const defaultPlay = false
 

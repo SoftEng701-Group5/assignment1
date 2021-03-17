@@ -1,11 +1,12 @@
 import ReactDOM from 'react-dom';
-import style from './Modal.module.css';
+
 const modalRoot = document.querySelector('#modal-root');
 
-export default function Modal({onPlay, onResize, children, leftSide }) {
+export default function Modal(props) {
 
+    const {children, assignmentAndNoteSection} = props;
     return ReactDOM.createPortal(
-        <div className={style.modalContainer}>
+        <div className="modal-container">
 
             {/*Components are displayed here*/}
             <div >
@@ -13,10 +14,12 @@ export default function Modal({onPlay, onResize, children, leftSide }) {
             </div>
 
             <div>
-                {children}
+                {assignmentAndNoteSection}
             </div>
 
-            
+            <div>
+                {children}
+            </div>
 
         </div>
         , modalRoot
