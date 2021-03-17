@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import TextInput from '../components/global/TextInput';
 import Button from '../components/global/Button';
 import { Link } from "react-router-dom";
+import SignUpBGImage from '../assets/images/SignupImage';
 
 export default function SignUpView( ) {
     const [ firstName, setFirstName ] = useState("");
@@ -77,6 +78,9 @@ export default function SignUpView( ) {
                         Log in here
                     </Link>
                 </div>
+            </div>
+            <div class="sign-up--bg">
+                <SignUpBGImage />
             </div>
         </div>
     );

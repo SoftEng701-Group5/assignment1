@@ -32,4 +32,23 @@
             color: $primary;
         }
     }
+
+    &--bg {
+        position: absolute;
+        z-index: -1;
+        bottom: 0;
+        height: calc(min(80vh, 40vw));
+        width: calc(min(80vh, 40vw));
+        
+        @media (max-width: 600px) {
+            opacity: 0.5;
+        }
+
+        svg {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+    }
 }
