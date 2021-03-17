@@ -1,6 +1,7 @@
 import React from "react";
 
-function PlusIcon() {
+function PlusIcon(props) {
+  const { handleOnClick } = props;
   return (
     <svg
       version="1.1"
@@ -9,6 +10,7 @@ function PlusIcon() {
       y="0px"
       viewBox="0 0 455 455"
       style={{height: "50%", fill: "white"}}
+      onClick={handleOnClick}
     >
       <polygon
         points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 
