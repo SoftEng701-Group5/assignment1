@@ -11,7 +11,7 @@
 
 .current-task-current-task {
 	@include accordion(
-		$current-task-notes-content-height,
+		$task-content-height,
 		$current-task-header-background,
 		$current-task-content-background
 	);

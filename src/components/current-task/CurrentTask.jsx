@@ -13,10 +13,18 @@ function CurrentTask() {
 					<Task
 						baseClass='current-task-current-task'
 						expanded
-						name='Current task name is really longas asdfasdfasdfasdfasdfasdfasdfaasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfas'
-						subtasks={[]}
+						name='Current task name is really really long'
+						subtasks={[
+							{ id: 0, name: 'subtask1' },
+							{ id: 1, name: 'subtask2' },
+						]}
 					/>
-					<CurrentTaskNotes />
+					<CurrentTaskNotes
+						notes={[
+							'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+							'Maecenas porttitor eget purus sit amet commodo. Ut non interdum mi. Donec tortor eros, luctus rutrum purus eget, ultricies fringilla enim.',
+						]}
+					/>
 				</span>
 				<div className='current-task-stub-timer'></div>
 			</div>

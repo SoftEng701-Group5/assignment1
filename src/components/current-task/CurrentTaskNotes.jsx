@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import RightChevron from '../../assets/icons/RightChevron';
 
-function CurrentTaskNotes() {
+function CurrentTaskNotes(props) {
+	const { notes } = props;
 	const [isExpanded, setIsExpanded] = useState(false);
 
 	const handleIconClick = () => setIsExpanded(!isExpanded);
@@ -27,7 +28,9 @@ function CurrentTaskNotes() {
 					(isExpanded ? '--expanded' : '')
 				}
 			>
-				Some notes!
+				<ul className='current-task-notes-list'>
+					{notes && notes.map((note) => <li>{note}</li>)}
+				</ul>
 			</div>
 		</div>
 	);

@@ -45,13 +45,14 @@ function Task(props) {
 				}
 			>
 				<div className='subtask-list-container'>
-					{subtasks.map((subtask) => (
-						<Subtask
-							key={subtask.id}
-							name={subtask.name}
-							checked={subtask.checked}
-						/>
-					))}
+					{subtasks &&
+						subtasks.map((subtask) => (
+							<Subtask
+								key={subtask.id}
+								name={subtask.name}
+								checked={subtask.checked}
+							/>
+						))}
 				</div>
 			</div>
 		</div>
