@@ -23,7 +23,7 @@ function homeView() {
           <br />
           <span>John</span>
         </h1>
-        <Button icon={"rightArrow"} text={"Dashboard"} path={"/home"} />
+        <Button icon={"rightArrow"} text={"Dashboard"}/>
       </div>
       <DateTime />
       <HomepageImage />
