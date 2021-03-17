@@ -10,6 +10,8 @@ function IconButton(props) {
       style={{ width: size, height: size }}
       onClick={() => onClick()}
       onKeyDown={() => onClick()}
+      role="button"
+      tabIndex="0"
     >
       {getIcon(icon)}
     </div>

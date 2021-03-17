@@ -18,6 +18,10 @@ function Task(props) {
           className={`task-checkbox${  isChecked ? "--checked" : ""}`}
           onClick={handleCheckBoxClick}
           onKeyDown={handleCheckBoxClick}
+          role="checkbox"
+          aria-label="checkbox"
+          tabIndex="0"
+          aria-checked={isChecked}
         />
         <span className={`task-title${  isChecked ? "--checked" : ""}`}>
           {name}

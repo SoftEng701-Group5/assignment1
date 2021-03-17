@@ -13,6 +13,10 @@ function Subtask(props) {
         className={`subtask-checkbox${  isChecked ? "--checked" : ""}`}
         onClick={handleCheckBoxClick}
         onKeyDown={handleCheckBoxClick}
+        role="checkbox"
+        aria-label="checkbox"
+        tabIndex="0"
+        aria-checked={isChecked}
       />
       <span className={`subtask-title${  isChecked ? "--checked" : ""}`}>
         {name}
