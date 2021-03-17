@@ -10,18 +10,19 @@ export default function TimerBundle({timerTitle}) {
     const [play, setPlay] = useContext(PlayContext)
 
     useEffect(() => {
+        let interval = null;
 
         if (play) {
-            setTimeout(() => setTimer(timer.seconds !== 0 && {seconds: timer.seconds - 1}), 1000);
+            interval = setTimeout(() => setTimer(timer.seconds !== 0 && {seconds: timer.seconds - 1}), 1000);
         }
 
+        return () => clearTimeout(interval);
     }, [play, timer, setTimer]);
 
     return (
 
         <div>
             <h2> {timerTitle} </h2>
-            {console.log(timerTitle)}
             <Timer startTime={timer}/>
             <TimerPlay play={play} setPlay={setPlay} buttonStyle={style.playButton} divPlay={style.playButtonDiv}
                        divPause={style.pauseButtonDiv}/>
