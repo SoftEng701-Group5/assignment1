@@ -1,4 +1,4 @@
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LoginView from "./pages/loginView";
 import HomeView from "./pages/homeView";
 import PageNotFoundView from "./pages/pageNotFoundView";
