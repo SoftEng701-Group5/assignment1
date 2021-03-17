@@ -18,13 +18,6 @@
 	background: $task-checkbox-color;
 }
 
-.task-title,
-.task-title--checked {
-	width: 100%;
-	text-align: left;
-	font-size: 1.5rem;
-}
-
 .task-title--checked {
 	text-decoration: line-through;
 	font-style: italic;
