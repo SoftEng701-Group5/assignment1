@@ -1,7 +1,7 @@
-export default function Notes({notes}) {
+export default function Notes(props) {
 
     return (
-        <div style={{margin: '10px', backgroundColor: 'navy'}}>
+        <div className="current-task">
             <h2>Notes</h2>
             <div>
 
@@ -9,5 +9,5 @@ export default function Notes({notes}) {
 
             </div>
         </div>
-        );
+    );
 }

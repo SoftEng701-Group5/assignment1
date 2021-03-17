@@ -6,7 +6,7 @@ export default function TimerSection(timerTitle) {
     return (
         <div>
             <TimerBundle timerTitle={timerTitle}/>
-            <TimerResize />
+            <TimerResize/>
         </div>
     );
 }

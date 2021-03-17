@@ -25,7 +25,7 @@ export default function TimerBundle(props) {
         <div>
             <h2> {timerTitle} </h2>
             <Timer startTime={timer}/>
-            <TimerPlay play={play} setPlay={setPlay} />
+            <TimerPlay play={play} setPlay={setPlay}/>
         </div>
     )
         ;
