@@ -42,8 +42,8 @@ export default function SignUpView( ) {
     }
 
     return (
-        <div className="sign-up--root">
-            <div className="sign-up--container">
+        <div className="sign-up__root">
+            <div className="sign-up__container">
                 <h1>Sign Up</h1>
                 <TextInput 
                   label={"First Name:"} 
@@ -72,14 +72,14 @@ export default function SignUpView( ) {
                 <div onClick={signUp}>
                     <Button icon={"rightArrow"} text={"Sign Up"} />
                 </div>
-                <div className="sign-up--bottom-text">
+                <div className="sign-up__bottom-text">
                     Already have an account?
-                    <Link to="/" className="sign-up--bottom-text--link">
+                    <Link to="/" className="sign-up__bottom-text__link">
                         Log in here
                     </Link>
                 </div>
             </div>
-            <div class="sign-up--bg">
+            <div className="sign-up__bg">
                 <SignUpBGImage />
             </div>
         </div>
