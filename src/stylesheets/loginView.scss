@@ -1,33 +1,43 @@
-.login_layout {
+.login {
+  &_layout {
     text-align: left;
-    margin-top: 5%;
-    margin-left: 10%;
-}
+    margin: 5% 10%;
+    width: 100%;
+  }
 
-.welcome {
-    font-size: 4vw;
+  .welcome {
+    font-size: 4em;
     padding-bottom: 1.5vw;
-}
+  }
 
-.login_form {
-    font-size: 1.5vw;
+  &_signup_link {
+    color: #135ef2;
+  }
+
+  .email_container,
+  .password_container {
+    display: block;
+    height: auto;
+    color: white;
+    font-size: 1.5em;
     padding-top: 1vw;
     padding-bottom: 1vw;
-    color: white;
-}
+    max-width: 500px;
+    width: 100%;
+  }
 
-a {
-    color: grey;
-}
-
-.login_input {
-    display: block;
-    width: 25vw;
-    height: auto;
-    border-radius: 999px;
-    border: none;
-    outline: none;
-    color: white;
-    background-color: #282828;
-    padding: 15px;
+  &_background {
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    position: absolute;
+    height: calc(min(80vh, 40vw));
+    width: calc(min(80vh, 40vw));
+    svg {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+    }
+  }
 }

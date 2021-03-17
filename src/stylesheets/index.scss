@@ -1,10 +1,11 @@
-@import "variables.scss";
-@import "App.scss";
-@import "./components/global/button.scss";
-@import "./components/global/iconButton.scss";
-@import "./components/global/task/task.scss";
-@import "./components/global/task/subtask.scss";
-@import "./components/global/textInput.scss";
+@import 'variables.scss';
+@import 'App.scss';
+@import './components/global/button.scss';
+@import './components/global/iconButton.scss';
+@import './components/global/task/task.scss';
+@import './components/global/task/subtask.scss';
+@import './components/global/textInput.scss';
 
-@import "./assets/right-chevron.scss";
-@import "./components/navbar.scss";
+@import './assets/right-chevron.scss';
+@import './components/navbar.scss';
+@import './loginView.scss';
