@@ -1,77 +1,82 @@
 .modal-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.3);
-    z-index: 100;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 100;
 }
 
 .button-play-div {
-    text-align: center;
-    margin: 12px 12px 12px 22px;
-    width: 20px;
-    height: 20px;
-    border-style: solid;
-    color: white;
-    border-width: 10px 0 10px 20px;
-    border-color: transparent transparent transparent white;
+  text-align: center;
+  margin: 12px 12px 12px 22px;
+  width: 20px;
+  height: 20px;
+  border-style: solid;
+  color: white;
+  border-width: 10px 0 10px 20px;
+  border-color: transparent transparent transparent white;
 }
 
 .button-pause-div {
-    text-align: center;
-    margin: 12px 12px 12px 22px;
-    width: 20px;
-    height: 20px;
-    border-style: double;
-    color: white;
-    border-width: 0 0 0 14px;
-    border-color: transparent white transparent white;
+  text-align: center;
+  margin: 12px 12px 12px 22px;
+  width: 20px;
+  height: 20px;
+  border-style: double;
+  color: white;
+  border-width: 0 0 0 14px;
+  border-color: transparent white transparent white;
 }
 
 .button-play {
-    align-items: center;
-    justify-content: center;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    border-color: indianred;
-    background-image: linear-gradient(to right, #d89a64, #f1913e);
-    border-style: solid;
-    border-width: thin;
-    cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border-color: indianred;
+  background-image: linear-gradient(to right, #d89a64, #f1913e);
+  border-style: solid;
+  border-width: thin;
+  cursor: pointer;
 }
 
 
 .button-resize {
-    align-items: center;
-    justify-content: center;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    border-color: indianred;
-    background-image: linear-gradient(to right, #4f92ed, #1560f2);
-    border-style: solid;
-    border-width: thin;
-    cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border-color: indianred;
+  background-image: linear-gradient(to right, #4f92ed, #1560f2);
+  border-style: solid;
+  border-width: thin;
+  cursor: pointer;
 
 }
 
 button:focus {
-    outline: none;
+  outline: none;
 }
 
 button:active.button-play {
-    background-image: linear-gradient(to right, #f1913e, red);
+  background-image: linear-gradient(to right, #f1913e, red);
 }
 
 button:active.button-resize {
-    background-image: linear-gradient(to right, #1560f2, blue);
+  background-image: linear-gradient(to right, #1560f2, blue);
+}
+
+.current-task {
+  margin: 10px;
+  background-color: navy
 }

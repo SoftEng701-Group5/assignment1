@@ -1,7 +1,8 @@
-export default function CurrentTask({task}) {
+export default function CurrentTask(props) {
 
+    const {task} = props;
     return (
-        <div style={{margin: '10px', backgroundColor:'navy'}}>
+        <div className="current-task">
             <h2>Assignment 1</h2>
             <div>
                 Subtask 1<br/>subtask 2
@@ -17,7 +18,7 @@ export default function CurrentTask({task}) {
                 Priority: High
             </div>
 
-            
+
         </div>
-        );
+    );
 }
