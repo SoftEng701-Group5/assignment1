@@ -1,7 +1,6 @@
 import React from "react";
 
-// eslint-disable-next-line no-unused-vars
-function HomepageImage(props) {
+function HomepageImage() {
   return (
     <svg
       id="0fa3c922-2890-4e83-a6a7-5bb6074ca9fa"

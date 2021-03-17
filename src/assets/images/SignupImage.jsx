@@ -1,7 +1,6 @@
 import React from "react";
 
-// eslint-disable-next-line no-unused-vars
-function SignupImage(props) {
+function SignupImage() {
   return (
     <svg
       id="b6fe4ea4-91cd-4e88-acbb-2663d3326f54"
