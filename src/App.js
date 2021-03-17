@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LoginView from "./pages/loginView";
+import SignUpView from "./pages/signUpView";
 import HomeView from "./pages/homeView";
 import PageNotFoundView from "./pages/pageNotFoundView";
 import Navbar from "./components/Navbar";
@@ -13,6 +14,9 @@ function App() {
             {/* Login/Signup page - no navbar*/}
             <Route exact path="/">
               <LoginView />
+            </Route>
+            <Route exact path="/signup">
+              <SignUpView />
             </Route>
 
             {/* User pages - navbar present */}
