@@ -15,7 +15,7 @@ export default function LoginView() {
 
   return (
     <>
-      <div className='login_layout'>
+      <div className='login'>
         <h1 className='welcome'>Welcome</h1>
         <div className='email_container'>
           <TextInput label='Email:' onChangeHandler={setEmail} type='email' />
@@ -31,7 +31,6 @@ export default function LoginView() {
           <Button icon={'rightArrow'} text={'Login'} />
         </div>
         Don't have an account?&nbsp;
-        {/* <a href='/signup'>Sign Up here</a> */}
         <Link to='/signup' className='login_signup_link'>
           Sign Up here
         </Link>

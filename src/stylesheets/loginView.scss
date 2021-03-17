@@ -1,9 +1,7 @@
 .login {
-  &_layout {
-    text-align: left;
-    margin: 5% 10%;
-    width: 100%;
-  }
+  text-align: left;
+  margin: 5% 10%;
+  width: 100%;
 
   .welcome {
     font-size: 4em;
@@ -29,7 +27,7 @@
   &_background {
     right: 0;
     bottom: 0;
-    z-index: 0;
+    z-index: -1;
     position: absolute;
     height: calc(min(80vh, 40vw));
     width: calc(min(80vh, 40vw));
