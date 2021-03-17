@@ -1,8 +1,9 @@
+import IconButton from "../global/IconButton";
+
 export default function TimerResize(props) {
 
     return (
-        <button className="button-resize">
-        </button>
+        <IconButton icon={"minimize"} size={"6"} onClick={() => console.log("Resize on click")}/>
 
     );
 

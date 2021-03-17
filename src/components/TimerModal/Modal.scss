@@ -5,35 +5,12 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  margin: 0;
   padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 100;
-}
-
-.button-play-div {
-  text-align: center;
-  margin: 12px 12px 12px 22px;
-  width: 20px;
-  height: 20px;
-  border-style: solid;
-  color: white;
-  border-width: 10px 0 10px 20px;
-  border-color: transparent transparent transparent white;
-}
-
-.button-pause-div {
-  text-align: center;
-  margin: 12px 12px 12px 22px;
-  width: 20px;
-  height: 20px;
-  border-style: double;
-  color: white;
-  border-width: 0 0 0 14px;
-  border-color: transparent white transparent white;
 }
 
 .button-play {
@@ -48,7 +25,6 @@
   border-width: thin;
   cursor: pointer;
 }
-
 
 .button-resize {
   align-items: center;
