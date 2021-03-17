@@ -1,5 +1,5 @@
 import React from "react";
-import { getIcon } from "./componentFunctions";
+import getIcon from "./componentFunctions";
 
 function IconButton(props) {
   const { icon, size, onClick } = props;
@@ -9,6 +9,9 @@ function IconButton(props) {
       className="icon-button-container"
       style={{ width: size, height: size }}
       onClick={() => onClick()}
+      onKeyDown={() => onClick()}
+      role="button"
+      tabIndex="0"
     >
       {getIcon(icon)}
     </div>
