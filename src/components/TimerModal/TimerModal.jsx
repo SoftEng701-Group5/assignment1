@@ -2,8 +2,9 @@ import ReactDOM from 'react-dom';
 import style from './Modal.module.scss';
 const modalRoot = document.querySelector('#modal-root');
 
-export default function Modal({children, assignmentAndNoteSection }) {
+export default function Modal(props) {
 
+    const {children, assignmentAndNoteSection } = props;
     return ReactDOM.createPortal(
         <div className={style.modalContainer}>
 
@@ -15,8 +16,6 @@ export default function Modal({children, assignmentAndNoteSection }) {
             <div>
                 {children}
             </div>
-
-            
 
         </div>
         , modalRoot

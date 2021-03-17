@@ -1,5 +1,6 @@
-export default function Timer({startTime}) {
+export default function Timer(props) {
 
+    const {startTime} = props;
     const minutes = Math.floor(startTime.seconds / 60);
     const seconds = startTime.seconds % 60;
 

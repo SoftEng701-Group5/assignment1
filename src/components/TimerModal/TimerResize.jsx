@@ -1,12 +1,7 @@
-export default function TimerResize({resizeStyle, arrow, line}) {
+export default function TimerResize({resizeStyle}) {
 
     return (
         <button className={resizeStyle}>
-            <div>
-                <div className={arrow}>
-
-                </div>
-            </div>
         </button>
 
     );

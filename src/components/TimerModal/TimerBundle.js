@@ -4,8 +4,9 @@ import Timer from "./Timer";
 import TimerPlay from "./TimerPlay";
 import style from "./Modal.module.scss";
 
-export default function TimerBundle({timerTitle}) {
+export default function TimerBundle(props) {
 
+    const {timerTitle} = props;
     const [timer, setTimer] = useContext(TimerContext)
     const [play, setPlay] = useContext(PlayContext)
 
