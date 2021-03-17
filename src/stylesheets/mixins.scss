@@ -1,0 +1,58 @@
+@mixin accordion($content-height, $header-grid-template-columns) {
+	&-container,
+	&-container--expanded {
+		position: relative;
+		width: 100%;
+	}
+
+	&-container {
+		height: $accordion-header-height + 4px;
+	}
+
+	&-container--expanded {
+		height: $content-height + 4px;
+	}
+
+	&-header-container,
+	&-content-container,
+	&-content-container--expanded {
+		width: 100%;
+
+		padding-bottom: 4px;
+		box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+		border-radius: 20px;
+	}
+
+	&-header-container {
+		position: relative;
+		z-index: 2;
+		display: grid;
+		grid-template-columns: $header-grid-template-columns;
+		column-gap: 16px;
+
+		align-items: center;
+		padding: 0 20px;
+		height: $accordion-header-height;
+
+		background: $accordion-header-background;
+	}
+
+	&-title {
+		width: 100%;
+		text-align: left;
+		font-size: 1.5rem;
+	}
+
+	&-content-container,
+	&-content-container--expanded {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: $content-height;
+		padding-top: $accordion-header-height + 20px;
+	}
+
+	&-content-container--expanded {
+		background: $accordion-content-background;
+	}
+}

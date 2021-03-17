@@ -4,16 +4,19 @@ $primary: #135ef2;
 $primary-gradient: #5295ed;
 $primary-selected: #f2913d;
 
-$task-header-background: #47465c;
-$task-details-background: rgba(71, 70, 92, 0.69);
+$accordion-header-background: #47465c;
+$accordion-content-background: rgba(71, 70, 92, 0.69);
+$accordion-header-height: 74px;
+
+$task-content-height: 300px;
+$current-task-notes-content-height: 250px;
+
 $task-checkbox-color: #c4c4c4;
-$task-header-height: 74px;
-$task-details-height: 300px;
 
 $button-shadow: 4px 4px 5px
-  rgba(
-    $color: black,
-    $alpha: 0.25,
-  );
+	rgba(
+		$color: black,
+		$alpha: 0.25,
+	);
 
 $navbar-width: 90px;
