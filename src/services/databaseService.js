@@ -55,7 +55,7 @@ const createTask = async (start_date, label, description, name, user_id, end_dat
  */
 const updateTask = async (task_id, newTaskData) => {
     const db = firebaseConnection.firestore();
-    db.collection('Tasks').doc(task_id).set(newTaskData);
+    db.collection("Tasks").doc(task_id).set(newTaskData);
 }
 
 /**
