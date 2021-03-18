@@ -1,4 +1,5 @@
 import ReactDOM from 'react-dom';
+import style from "./Modal.scss";
 
 const modalRoot = document.querySelector('#modal-root');
 

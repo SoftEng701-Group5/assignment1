@@ -23,7 +23,7 @@ function App() {
                         </Route>
 
                         <Route path="/timerModal">
-                            <TimerModal TimerSection={TimerSection("Work")}
+                            <TimerModal timerSection={TimerSection("Work")}
                                         assignmentAndNoteSection={AssignmentAndNotes()}/>
                         </Route>
 

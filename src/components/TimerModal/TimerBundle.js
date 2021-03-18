@@ -2,7 +2,6 @@ import React, {useContext, useEffect} from "react";
 import {PlayContext, TimerContext} from "./TimerContextProvider";
 import Timer from "./Timer";
 import TimerPlay from "./TimerPlay";
-import style from "./Modal.scss";
 
 export default function TimerBundle(props) {
 
