@@ -1,19 +1,24 @@
 .text-input {
-    width: 100%;
-    padding: 8px 0;
+	width: 100%;
+	padding: 8px 0;
 
-    &__label {
-        display: block;
-        margin-bottom: 10px;
-    }
-    &__input {
-        width: 100%;
-        background: $text-input-bg;
-        border-radius: 99px;
-        border: none;
-        outline: none;
-        padding: 10px 15px;
-        color: white;
-        font-size: 1.125em;
-    }
+	&__label {
+		display: block;
+		margin-bottom: 10px;
+	}
+	&__input,
+	&__input--centered {
+		width: 100%;
+		background: $text-input-bg;
+		border-radius: 99px;
+		border: none;
+		outline: none;
+		padding: 10px 15px;
+		color: white;
+		font-size: 1.125em;
+	}
+
+	&__input--centered {
+		text-align: center;
+	}
 }

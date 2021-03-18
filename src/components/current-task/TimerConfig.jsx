@@ -8,11 +8,12 @@ const IntervalInput = (props) => {
 			{title}
 			<div className='timer-config__interval-input'>
 				<TextInput
+					centered
 					className='timer-config__input-field'
 					textValue={textValue}
 				/>
 				<span className='timer-config__input-separator'>:</span>
-				<TextInput textValue='00' />
+				<TextInput centered textValue='00' />
 			</div>
 		</div>
 	);
