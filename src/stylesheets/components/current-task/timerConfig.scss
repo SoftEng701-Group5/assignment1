@@ -1,0 +1,20 @@
+.timer-config {
+	width: 100%;
+	height: 100%;
+
+	&__interval-input {
+		display: flex;
+		align-items: center;
+		margin-bottom: 16px;
+	}
+
+	&__input-field {
+		flex: 1;
+	}
+
+	&__input-separator {
+		width: 16px;
+		margin: 0px 8px;
+		font-size: 1.5rem;
+	}
+}
