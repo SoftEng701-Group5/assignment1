@@ -1,6 +1,6 @@
 import React from "react";
 
-function BoardImage(props) {
+function BoardImage() {
   return (
     <svg
       id="b6f9fa20-f559-433f-8a1e-35a1783b27e2"

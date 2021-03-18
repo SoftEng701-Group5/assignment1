@@ -10,10 +10,15 @@ function Subtask(props) {
   return (
     <div className="subtask-container">
       <div
-        className={"subtask-checkbox" + (isChecked ? "--checked" : "")}
+        className={`subtask-checkbox${  isChecked ? "--checked" : ""}`}
         onClick={handleCheckBoxClick}
+        onKeyDown={handleCheckBoxClick}
+        role="checkbox"
+        aria-label="checkbox"
+        tabIndex="0"
+        aria-checked={isChecked}
       />
-      <span className={"subtask-title" + (isChecked ? "--checked" : "")}>
+      <span className={`subtask-title${  isChecked ? "--checked" : ""}`}>
         {name}
       </span>
     </div>
