@@ -28,8 +28,11 @@ export default function TimerSection(props) {
                 {timerTitle}
             </div>
             <Timer startTime={timer}/>
+            <div className="button-align">
                 <TimerPlay play={play} setPlay={setPlay}/>
                 <TimerResize/>
+            </div>
+
         </div>
     );
 

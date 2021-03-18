@@ -45,7 +45,15 @@ button:active.button-play {
 }
 
 .timer {
-  padding-top: 20px;
+  padding-top: 14px;
   font-size: 76px;
   font-weight: 1000;
+}
+
+.button-align {
+  margin-top: 36px;
+  display: inline-flex;
+  position: relative;
+  justify-content: space-between;
+  gap: 12px;
 }
