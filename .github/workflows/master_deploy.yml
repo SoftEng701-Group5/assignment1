@@ -8,9 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [12.x]
+        node-version: [10.x]
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
@@ -19,7 +19,7 @@ jobs:
         run: npm install
       - name: Deploy to GH Pages
         run: |
-          git config --global user.email ${{secrets.EMAIL}}
-          git config --global user.name ${{secrets.USERNAME}}
-          git remote set-url origin https://${{secrets.PERSONAL_ACCESS_TOKEN}}@github.com/${{secrets.USERNAME}}/assignment1.git
+          git config --global user.email lucas2005gao@gmail.com
+          git config --global user.name lucas2005gao
+          git remote set-url origin https://${{secrets.PERSONAL_ACCESS_TOKEN}}@github.com/lucas2005gao/assignment1.git
           npm run deploy
