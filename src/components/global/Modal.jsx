@@ -1,3 +1,4 @@
+import React from 'react'
 import ReactDOM from 'react-dom';
 import "../../stylesheets/components/global/modal.scss"
 
@@ -7,8 +8,9 @@ export default function Modal({ dismissOnClickOutside, onCancel, children, show 
     if(!show){
         return null;
     }
+
     return ReactDOM.createPortal(
-        <div className="modalContainerBg" onClick={e => {
+        <div className="modalContainerBg" aria-hidden="true" onClick={e => {
             if (dismissOnClickOutside && e.target.parentElement === modalRoot) {
                 onCancel();
             }

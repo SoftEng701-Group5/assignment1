@@ -3,6 +3,7 @@
   width: fit-content;
   background: rgb(19, 94, 242);
   background: linear-gradient(270deg, $primary 0%, $primary-gradient 100%);
+  box-shadow: $button-shadow;
   border-radius: 999px;
   padding: 0px 20px;
   margin: 20px 0px;
@@ -12,6 +13,12 @@
 
   font-weight: 300;
   font-size: 2rem;
+
+  @media screen and (max-width: $tablet-media) {
+    font-size: 1.5rem;
+    height: 50px;
+    padding: 0px 10px;
+  }
 }
 
 .button-container:hover {
