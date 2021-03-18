@@ -6,9 +6,18 @@ export default function AssignmentAndNoteSection() {
 
     return (
 
-        <div>
-            <Notes/>
-            <CurrentTask/>
+        <div className="current-task-notes-container" >
+            <div className="current-task-modal">
+                <CurrentTask/>
+
+            </div>
+
+            <div className="notes-modal">
+                <Notes/>
+
+            </div>
+            
+            
         </div>
     );
 }
