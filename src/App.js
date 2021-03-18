@@ -15,7 +15,6 @@ function App() {
             {/* Login/Signup page - no navbar */}
             <Route exact path="/">
               <LoginView />
-              {/* TODO: Remove this */}
             </Route>
 
             {/* User pages - navbar present */}
