@@ -18,19 +18,21 @@ export default function LoginView() {
     const processedEmail = email.trim();
     const processedPassword = password.trim();
     
-    console.log(processedEmail, processedPassword);
-
-    if (processedPassword && processedEmail) {
-      history.push('/home');
+    // 
+    let validLogin = true;
+    if (!processedEmail) {
+      setEmailInfoText("Please enter your email address");
+      validLogin = false;
     } 
-    else {
-      if (!processedEmail) {
-        setEmailInfoText("Please enter your email address");
-      } 
-      if (!processedPassword) {
-        setPasswordInfoText("Please enter your password");
-      }
+    if (!processedPassword) {
+      setPasswordInfoText("Please enter your password");
+      validLogin = false;
     }
+
+    if (validLogin) {
+      history.push("/home");
+    }
+    
   };
 
   return (
