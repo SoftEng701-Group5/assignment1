@@ -5,11 +5,8 @@
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/user-event": "^12.8.1",
-<<<<<<< HEAD
     "history": "^5.0.0",
-=======
     "eslint-plugin-jest": "^24.3.2",
->>>>>>> 2d731fc18ecae2073e836bc982ade5923292e233
     "node-sass": "^5.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -44,12 +41,11 @@
     ]
   },
   "devDependencies": {
-<<<<<<< HEAD
+
     "@testing-library/react": "^11.2.5",
     "enzyme": "^3.11.0",
     "jest": "^26.6.0",
-    "jest-enzyme": "^7.1.2"
-=======
+    "jest-enzyme": "^7.1.2",
     "eslint": "^7.22.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.1.0",
@@ -59,6 +55,6 @@
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "prettier": "^2.2.1"
->>>>>>> 2d731fc18ecae2073e836bc982ade5923292e233
+
   }
 }

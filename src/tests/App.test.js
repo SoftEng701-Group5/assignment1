@@ -1,9 +1,6 @@
 import React from "react";
-<<<<<<< HEAD
 import {render, screen, fireEvent, cleanup} from '@testing-library/react';
-=======
-import { render, screen } from '@testing-library/react';
->>>>>>> 2d731fc18ecae2073e836bc982ade5923292e233
+
 import App from '../App';
 import userEvent from "@testing-library/user-event"
 import{createMemoryHistory} from 'history'
@@ -15,6 +12,11 @@ import NavBar from '../components/Navbar';
 import Button from '../components/global/Button';
 
 afterEach(cleanup)
+//helper function, might be moved to be used for all navigation tests
+const renderWithRouter = (ui, {route='/'} = {}) => {
+    window.history.pushState({}, 'Test page', route)
+    return render(ui, {wrapper: BrowserRouter});
+}
 /*
 test('renders app without crashing', () => {
   render(<App />);
@@ -55,14 +57,14 @@ test('full app rendering/navigating', () =>{
       </Router>
   )
   //verify page content for expected route
-  //should use a data-testid or role query, but can do this as a simple way
+  //should use a data-test id or role query, but can do this as a simple way
   expect(screen.getByText(/Login/i)).toBeInTheDocument()
   const leftClick = {button: 0}
   userEvent.click(screen.getByText(/Login/i), leftClick)
   expect(screen.getByText(/Dashboard/i)).toBeInTheDocument()
 })*/
 
-test('Clicking login brings you to dashboard', () =>{
+test('Clicking login brings you to Home', () =>{
     render(<App/>);
     fireEvent.click(screen.getByText("Login"));
     expect(screen.getByText("Dashboard")).toBeInTheDocument();
@@ -71,13 +73,32 @@ test('Clicking login brings you to dashboard', () =>{
 
 //Render with a bad address, expecting to get the pageNotFoundView
 test("Land on invalid page", () =>{
-    //helper function, might be moved to be used for all navigation tests
-    const renderWithRouter = (ui, {route='/'} = {}) => {
-        window.history.pushState({}, 'Test page', route)
-        return render(ui, {wrapper: BrowserRouter});
-    }
     renderWithRouter(<App></App>, {route: '/bad/address'})
 
     expect(screen.getByText(/error/i)).toBeInTheDocument();
 })
 //test("")
+
+//Edit test once trello board is actually fleshed out
+test("Land on Trello page", () => {
+    renderWithRouter(<App/>, {route:'/board'})
+    expect(screen.getByText(/Task/i)).toBeInTheDocument();
+})
+//don't think this test will actually work, will need to figure out how nav
+//buttons actually work
+test("Navbar takes you to different pages", () => {
+    renderWithRouter(<App/>. {route: '/home'})
+    fireEvent.click(screen.getByRole('button-link', {name:/board/i})
+    expect(screen.getByText(/Task/i)).toBeInTheDocument();)
+
+    fireEvent.click(screen.getByRole('button-link', {name:/home/i}))
+    expect(screen.getByText(/Dashboard/i)).toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole('button-link'), {name:/dashboard/i})
+    expect(screen.getByText(/Timer/i)).toBeInTheDocument();
+
+    //this might not work either, likely remove
+    fireEvent.keyDown(screen.getByRole('button-link', name:/home/i))
+    expect(screen.getByText(/Dashboard/i)).toBeInTheDocument();
+})
+
