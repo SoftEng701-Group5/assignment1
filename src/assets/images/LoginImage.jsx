@@ -1,6 +1,6 @@
 import React from "react";
 
-function LoginImage(props) {
+function LoginImage() {
   return (
     <svg
       id="acfbc938-e2dc-4f86-bbdc-1a249e77319a"

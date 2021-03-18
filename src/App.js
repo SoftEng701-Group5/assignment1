@@ -1,3 +1,4 @@
+import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LoginView from "./pages/loginView";
 import SignUpView from "./pages/signUpView";
@@ -11,7 +12,7 @@ function App() {
       <div className="background">
         <div className="main-content">
           <Switch>
-            {/* Login/Signup page - no navbar*/}
+            {/* Login/Signup page - no navbar */}
             <Route exact path="/">
               <LoginView />
             </Route>
@@ -24,7 +25,7 @@ function App() {
               <Navbar />
               <HomeView />
             </Route>
-            
+
             {/* Fallback - if none of the above routes are hit */}
             <Route>
               <PageNotFoundView />
