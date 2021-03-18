@@ -1,9 +1,12 @@
 export default function Notes(props) {
 
     return (
-        <div className="current-task">
-            <h2>Notes</h2>
-            <div>
+        <div >
+            <div className="task-notes-title">
+                <h2>Notes</h2>
+            </div>
+            
+            <div className="notes-container"> 
 
                 Testing notes<br/>testing notes
 

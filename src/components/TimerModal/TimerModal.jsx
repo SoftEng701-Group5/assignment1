@@ -9,11 +9,6 @@ export default function Modal(props) {
         <div className="modal-container">
 
             {/*Components are displayed here*/}
-            <div >
-                {leftSide}
-            </div>
-
-            <div>
                 {assignmentAndNoteSection}
             </div>
 

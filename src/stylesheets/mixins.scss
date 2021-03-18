@@ -1,0 +1,64 @@
+@mixin accordion($content-height, $header-background, $content-background) {
+	&,
+	&--expanded {
+		position: relative;
+		width: 100%;
+		margin-bottom: 16px;
+	}
+
+	& {
+		height: $accordion-header-height + 4px;
+	}
+
+	&--expanded {
+		height: $content-height + 4px;
+	}
+
+	&__header,
+	&__content,
+	&__content--expanded {
+		width: 100%;
+
+		padding-bottom: 4px;
+		box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+		border-radius: 20px;
+	}
+
+	&__header {
+		position: relative;
+		z-index: 2;
+		display: flex;
+		justify-content: space-between;
+
+		align-items: center;
+		padding: 0 20px;
+		height: $accordion-header-height;
+
+		background: $header-background;
+	}
+
+	&__title,
+	&__title--checked {
+		flex: 1;
+		flex-wrap: nowrap;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		text-align: left;
+		font-size: 1.2rem;
+		margin-right: 16px;
+	}
+
+	&__content,
+	&__content--expanded {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: $content-height;
+		padding-top: $accordion-header-height + 20px;
+	}
+
+	&__content--expanded {
+		background: $content-background;
+	}
+}
