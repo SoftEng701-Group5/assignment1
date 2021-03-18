@@ -2,12 +2,12 @@ import React from "react";
 import getIcon from "./componentFunctions";
 
 function IconButton(props) {
-  const { icon, size, onClick } = props;
+  const { icon, size, onClick, color } = props;
 
   return (
     <div
       className="icon-button-container"
-      style={{ width: size, height: size }}
+      style={{ width: size, height: size, background: color }}
       onClick={() => onClick()}
       onKeyDown={() => onClick()}
       role="button"

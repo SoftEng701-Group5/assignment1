@@ -77,10 +77,10 @@ export default function AddTask() {
 
                     <div className="hBox">
                         <IconButton
-                            className="cancel-button"
                             icon="minimize"
                             size="48px"
                             onClick={handleCancelNewTask}
+                            color="rgba(153, 153, 153, 0.35)"
                         />
                         <Button
                             text="Add Task"
