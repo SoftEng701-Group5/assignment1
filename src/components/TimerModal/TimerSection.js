@@ -7,7 +7,7 @@ import TimerResize from "./TimerResize";
 
 export default function TimerSection(props) {
 
-    const {timerTitle} = props;
+    const timerTitle = props;
     const [timer, setTimer] = useContext(TimerContext)
     const [play, setPlay] = useContext(PlayContext)
 
@@ -24,10 +24,12 @@ export default function TimerSection(props) {
     return (
 
         <div>
-            <h2> {timerTitle} </h2>
+            <div className="timerTitle">
+                {timerTitle}
+            </div>
             <Timer startTime={timer}/>
-            <TimerPlay play={play} setPlay={setPlay}/>
-            <TimerResize/>
+                <TimerPlay play={play} setPlay={setPlay}/>
+                <TimerResize/>
         </div>
     );
 

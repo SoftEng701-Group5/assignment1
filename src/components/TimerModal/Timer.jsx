@@ -7,6 +7,6 @@ export default function Timer(props) {
     const seconds = startTime.seconds % 60;
 
     return (
-        <h1> {minutes < 10 && "0"}{minutes}:{seconds < 10 && "0"}{seconds} </h1>
+        <div className="timer"> {minutes < 10 && "0"}{minutes}:{seconds < 10 && "0"}{seconds} </div>
     );
 }
