@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom';
-import "../../stylesheets/components/global/modal.scss"
 
 const modalRoot = document.querySelector('#modal-root');
 
