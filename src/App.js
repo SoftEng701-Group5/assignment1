@@ -4,6 +4,7 @@ import LoginView from "./pages/loginView";
 import HomeView from "./pages/homeView";
 import PageNotFoundView from "./pages/pageNotFoundView";
 import Navbar from "./components/Navbar";
+import WelcomeDashboard from "./pages/welcomeDashboard";
 
 function App() {
   return (
@@ -20,6 +21,12 @@ function App() {
             <Route exact path="/home">
               <Navbar />
               <HomeView />
+            </Route>
+
+             {/* Welcome dashboard - navbar present */}
+            <Route exact path="/dashboard">
+              <Navbar />
+              <WelcomeDashboard />
             </Route>
 
             {/* Fallback - if none of the above routes are hit */}
