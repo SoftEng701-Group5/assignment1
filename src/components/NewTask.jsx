@@ -65,6 +65,7 @@ export default function AddTask() {
                             textValue={startDate}
                             placeholderValue="dd/mm/yyyy"
                             onChangeHandler={setStartDate}
+                            typeValue="date"
                         />
 
                         <TextInput
@@ -72,6 +73,7 @@ export default function AddTask() {
                             textValue={endDate}
                             placeholderValue="dd/mm/yyyy"
                             onChangeHandler={setEndDate}
+                            typeValue="date"
                         />
                     </div>
 
