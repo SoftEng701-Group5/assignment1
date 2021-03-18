@@ -25,6 +25,7 @@ module.exports = {
     "react/prop-types": "off",
     "react/jsx-props-no-spreading": "off",
     "jsx-a11y/label-has-associated-control": "off",
+    "react/jsx-no-bind": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "jest/no-disabled-tests": "warn",
     "jest/no-focused-tests": "error",
