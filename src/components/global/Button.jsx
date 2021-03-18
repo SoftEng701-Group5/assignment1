@@ -6,7 +6,8 @@ import getIcon from "./componentFunctions";
 function Button(props) {
   const { path, text, icon, height, fontSize, handleOnClick } = props;
 
-  // Call click handler if user presses enter on button
+  // Call click handler if user presses "enter" key on button
+  // Javascript keycode for enter key = 13
   const handleKeyDown = function(e) {
     if (e.keyCode === 13 && handleOnClick) {
       handleOnClick();
