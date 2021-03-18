@@ -6,7 +6,7 @@ const IntervalInput = (props) => {
 
 	return (
 		<div>
-			{title}
+			<span>{title}</span>
 			<div className='timer-config__interval-input'>
 				<TextInput
 					centered
@@ -41,7 +41,7 @@ function TimerConfig() {
 					tabIndex='0'
 					aria-checked={isChecked}
 				/>
-				Auto Fullscreen
+				<span>Auto Fullscreen</span>
 			</div>
 		</div>
 	);
