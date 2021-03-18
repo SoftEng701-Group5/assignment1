@@ -1,22 +1,22 @@
 @mixin accordion($content-height, $header-background, $content-background) {
-	&-container,
-	&-container--expanded {
+	&,
+	&--expanded {
 		position: relative;
 		width: 100%;
 		margin-bottom: 16px;
 	}
 
-	&-container {
+	& {
 		height: $accordion-header-height + 4px;
 	}
 
-	&-container--expanded {
+	&--expanded {
 		height: $content-height + 4px;
 	}
 
-	&-header-container,
-	&-content-container,
-	&-content-container--expanded {
+	&__header,
+	&__content,
+	&__content--expanded {
 		width: 100%;
 
 		padding-bottom: 4px;
@@ -24,7 +24,7 @@
 		border-radius: 20px;
 	}
 
-	&-header-container {
+	&__header {
 		position: relative;
 		z-index: 2;
 		display: flex;
@@ -37,8 +37,8 @@
 		background: $header-background;
 	}
 
-	&-title,
-	&-title--checked {
+	&__title,
+	&__title--checked {
 		flex: 1;
 		flex-wrap: nowrap;
 		white-space: nowrap;
@@ -49,8 +49,8 @@
 		margin-right: 16px;
 	}
 
-	&-content-container,
-	&-content-container--expanded {
+	&__content,
+	&__content--expanded {
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -58,7 +58,7 @@
 		padding-top: $accordion-header-height + 20px;
 	}
 
-	&-content-container--expanded {
+	&__content--expanded {
 		background: $content-background;
 	}
 }

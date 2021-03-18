@@ -8,13 +8,9 @@ function CurrentTaskNotes(props) {
 	const handleIconClick = () => setIsExpanded(!isExpanded);
 
 	return (
-		<div
-			className={`current-task-notes-container${
-				isExpanded ? '--expanded' : ''
-			}`}
-		>
-			<div className='current-task-notes-header-container'>
-				<span className='current-task-notes-title'>Notes</span>
+		<div className={`current-task-notes${isExpanded ? '--expanded' : ''}`}>
+			<div className='current-task-notes__header'>
+				<span className='current-task-notes__title'>Notes</span>
 				<RightChevron
 					handleOnClick={handleIconClick}
 					isRotated={isExpanded}
@@ -22,11 +18,11 @@ function CurrentTaskNotes(props) {
 			</div>
 
 			<div
-				className={`current-task-notes-content-container${
+				className={`current-task-notes__content${
 					isExpanded ? '--expanded' : ''
 				}`}
 			>
-				<ul className='current-task-notes-list'>
+				<ul className='current-task-notes__list'>
 					{notes && notes.map((note) => <li>{note}</li>)}
 				</ul>
 			</div>

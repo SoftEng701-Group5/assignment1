@@ -7,9 +7,9 @@ function Subtask(props) {
 	const handleCheckBoxClick = () => setIsChecked(!isChecked);
 
 	return (
-		<div className='subtask-container'>
+		<div className='subtask'>
 			<div
-				className={`subtask-checkbox${isChecked ? '--checked' : ''}`}
+				className={`subtask__checkbox${isChecked ? '--checked' : ''}`}
 				onClick={handleCheckBoxClick}
 				onKeyDown={handleCheckBoxClick}
 				role='checkbox'
@@ -17,7 +17,7 @@ function Subtask(props) {
 				tabIndex='0'
 				aria-checked={isChecked}
 			/>
-			<span className={`subtask-title${isChecked ? '--checked' : ''}`}>
+			<span className={`subtask__title${isChecked ? '--checked' : ''}`}>
 				{name}
 			</span>
 		</div>
