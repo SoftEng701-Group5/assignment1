@@ -1,5 +1,9 @@
 import React from "react";
+<<<<<<< HEAD
 import {render, screen, fireEvent, cleanup} from '@testing-library/react';
+=======
+import { render, screen } from '@testing-library/react';
+>>>>>>> 2d731fc18ecae2073e836bc982ade5923292e233
 import App from '../App';
 import userEvent from "@testing-library/user-event"
 import{createMemoryHistory} from 'history'
