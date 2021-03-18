@@ -8,7 +8,7 @@ function Button(props) {
 
   // Call click handler if user presses "enter" key on button
   // Javascript keycode for enter key = 13
-  const handleKeyDown = function(e) {
+  const handleKeyDown = (e) => {
     if (e.keyCode === 13 && handleOnClick) {
       handleOnClick();
     }
