@@ -25,7 +25,7 @@ function CurrentTask() {
 						]}
 					/>
 				</span>
-				<div className='current-task-stub-timer'></div>
+				<div className='current-task-stub-timer' />
 			</div>
 		</div>
 	);

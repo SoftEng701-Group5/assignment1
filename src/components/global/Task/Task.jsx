@@ -12,18 +12,18 @@ function Task(props) {
 	const handleIconClick = () => setIsExpanded(!isExpanded);
 
 	return (
-		<div className={'task-container' + (isExpanded ? '--expanded' : '')}>
-			<div className={'task-header-container'}>
+		<div className={`task-container${isExpanded ? '--expanded' : ''}`}>
+			<div className='task-header-container'>
 				<div
-					className={'task-checkbox' + (isChecked ? '--checked' : '')}
+					className={`task-checkbox${isChecked ? '--checked' : ''}`}
 					onClick={handleCheckBoxClick}
 					onKeyDown={handleCheckBoxClick}
-          role="checkbox"
-          aria-label="checkbox"
-          tabIndex="0"
-          aria-checked={isChecked}
+					role='checkbox'
+					aria-label='checkbox'
+					tabIndex='0'
+					aria-checked={isChecked}
 				/>
-				<span className={'task-title' + (isChecked ? '--checked' : '')}>
+				<span className={`task-title${isChecked ? '--checked' : ''}`}>
 					{name}
 				</span>
 				<RightChevron
@@ -33,9 +33,9 @@ function Task(props) {
 			</div>
 
 			<div
-				className={
-					'task-content-container' + (isExpanded ? '--expanded' : '')
-				}
+				className={`task-content-container${
+					isExpanded ? '--expanded' : ''
+				}`}
 			>
 				<div className='subtask-list-container'>
 					{subtasks &&

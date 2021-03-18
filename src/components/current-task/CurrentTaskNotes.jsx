@@ -9,10 +9,9 @@ function CurrentTaskNotes(props) {
 
 	return (
 		<div
-			className={
-				'current-task-notes-container' +
-				(isExpanded ? '--expanded' : '')
-			}
+			className={`current-task-notes-container${
+				isExpanded ? '--expanded' : ''
+			}`}
 		>
 			<div className='current-task-notes-header-container'>
 				<span className='current-task-notes-title'>Notes</span>
@@ -23,10 +22,9 @@ function CurrentTaskNotes(props) {
 			</div>
 
 			<div
-				className={
-					'current-task-notes-content-container' +
-					(isExpanded ? '--expanded' : '')
-				}
+				className={`current-task-notes-content-container${
+					isExpanded ? '--expanded' : ''
+				}`}
 			>
 				<ul className='current-task-notes-list'>
 					{notes && notes.map((note) => <li>{note}</li>)}
