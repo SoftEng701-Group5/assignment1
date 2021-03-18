@@ -1,12 +1,15 @@
 import NewTaskModal from "./global/Modal";
 import { useState } from "react";
+import "../stylesheets/components/newTaskModalContent.scss"
+
 
 export default function AddTask() {
     const [display, setDisplay] = useState(false)
     const [name, setName] = useState('');
     const [label, setLabel] = useState('');
     const [desc, setDesc] = useState('');
-    const [deadline, setDeadline] = useState('');
+    const [startDate, setStartDate] = useState('');
+    const [endDate, setEndDate] = useState('')
 
 
     function handleCancelNewTask() {
@@ -22,7 +25,8 @@ export default function AddTask() {
 
 
     function resetValues() {
-        setDeadline('');
+        setStartDate('');
+        setEndDate('');
         setDesc('');
         setLabel('');
         setName('');
@@ -34,37 +38,44 @@ export default function AddTask() {
             <button onClick={() => setDisplay(true)}>Add Task</button>
             <NewTaskModal dismissOnClickOutside={true} onCancel={handleCancelNewTask}
                 show={display} children={
-                <div>
-                     <h2>Add Task</h2>
-                        <div>
-                            <div>
-                                <label>Name:</label>
-                                <input type="text" value={name} onInput={e => setName(e.target.value)} />
-                            </div>
-                            <div>
-                                <label>Label:</label>
-                                <input type="text" value={label} onInput={e => setLabel(e.target.value)} />
-                            </div>
-                            <div>
-                                <label>Description:</label>
-                                <input type="text" value={desc} onInput={e => setDesc(e.target.value)} />
-                            </div>
-                            <div>
-                                <label>Deadline:</label>
-                                <input type="text" value={deadline} onInput={e => setDeadline(e.target.value)} />
-                            </div>
-                            
-                            <div>
-                                <button
-                                    onClick={handleCancelNewTask}>
-                                    Cancel
-                                </button>
-                                <button
-                                    onClick={handleAddNewTask}>
-                                    Add
-                                </button>
-                            </div>
+                <div className="">
+                    <div>
+                        <label>Task Name:</label>
+                        <div className="textInputContainer">
+                            <input className="textInput" type="text" value={name} onInput={e => setName(e.target.value)} />
                         </div>
+
+                        <label>Label:</label>
+                        <div className="textInputContainer">
+                            <input className="textInput" type="text" value={label} onInput={e => setLabel(e.target.value)} />
+                        </div>
+
+                        <label>Description:</label>
+                        <div className="textInputContainer">
+                            <input className="textInput" type="text" value={desc} onInput={e => setDesc(e.target.value)} />
+                        </div>
+
+                        <label>Start Date:</label>
+                        <div className="textInputContainer">
+                            <input className="textInput" type="text" value={startDate} onInput={e => setStartDate(e.target.value)} />
+                        </div>
+
+                        <label>End Date:</label>
+                        <div className="textInputContainer">
+                            <input className="textInput" type="text" value={endDate} onInput={e => setEndDate(e.target.value)} />
+                        </div>
+
+                        <div>
+                            <button
+                                onClick={handleCancelNewTask}>
+                                Cancel
+                            </button>
+                            <button
+                                onClick={handleAddNewTask}>
+                                Add
+                            </button>
+                        </div>
+                    </div>
 
                 </div>
             }/>

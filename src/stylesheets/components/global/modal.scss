@@ -10,11 +10,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 100;
 }
 
 .modalContainer {
   width: 50%;
   height: auto;
+  // TODO Use variable $background
+  background: linear-gradient(225deg, #2e2d40 0%, #3c3a61 100%);
+  padding: 30px;
+  border-radius: 10px;
 }

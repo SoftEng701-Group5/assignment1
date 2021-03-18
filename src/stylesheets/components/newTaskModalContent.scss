@@ -1,0 +1,31 @@
+.textInput {
+  width: 100%;
+  padding-left: 16px;
+  padding-bottom: 8px;
+  padding-top: 8px;
+  border: none;
+  border-radius: 32px;
+  font-size: 16px;
+  background-color: #53535f;
+  color: white;
+  outline: none;
+}
+
+.textInputContainer {
+  padding-bottom: 10px;
+}
+
+.button {
+  height: 75px;
+  width: fit-content;
+  background-color: rgb(19, 94, 242);
+  border-radius: 30px;
+  padding: 0px 20px;
+  margin: 20px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-weight: 300;
+  font-size: 2rem;
+}
