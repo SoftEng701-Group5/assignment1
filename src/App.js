@@ -4,7 +4,6 @@ import LoginView from "./pages/loginView";
 import HomeView from "./pages/homeView";
 import PageNotFoundView from "./pages/pageNotFoundView";
 import Navbar from "./components/Navbar";
-import TempNavBar from "./components/tempNavBar";
 
 
 function App() {
@@ -17,7 +16,6 @@ function App() {
             <Route exact path="/">
               <LoginView />
               {/* TODO: Remove this */}
-              <TempNavBar/>
             </Route>
 
             {/* User pages - navbar present */}
