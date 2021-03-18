@@ -22,5 +22,5 @@ function Subtask(props) {
 			</span>
 		</div>
 	);
-}
+
 export default Subtask;

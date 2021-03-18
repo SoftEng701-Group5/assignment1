@@ -47,31 +47,32 @@ code {
 
 .circle1,
 .circle2 {
-	height: calc(max(50vw, 50vh));
-	width: calc(max(50vw, 50vh));
-	position: fixed;
-	border-radius: 50%;
-	filter: blur(40px);
+  height: calc(max(50vw, 50vh));
+  width: calc(max(50vw, 50vh));
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(40px);
 }
 
 .circle1 {
-	background: #3f3e5c;
-	background: linear-gradient(280deg, #3f3e5c 0%, #3a3c4a 100%);
-	top: -10vw;
-	left: -10vw;
+  background: #3f3e5c;
+  background: linear-gradient(280deg, #3f3e5c 0%, #3a3c4a 100%);
+  top: -10vw;
+  left: -10vw;
 }
 
 .circle2 {
-	background: #34334a;
-	background: linear-gradient(253deg, #34334a 0%, #2c2e3d 100%);
-	bottom: -15vw;
-	right: -5vw;
+  background: #34334a;
+  background: linear-gradient(253deg, #34334a 0%, #2c2e3d 100%);
+  bottom: -15vw;
+  right: -5vw;
 }
 
 .main-content {
-	display: flex;
-	position: relative;
-	z-index: 1;
-	width: 100%;
-	height: 100vh;
+  display: flex;
+  position: relative;
+  text-align: center;
+  z-index: 1;
+  width: 100%;
+  height: 100vh;
 }
