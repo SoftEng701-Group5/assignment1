@@ -19,8 +19,8 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  border: 2px groove blueviolet;
   gap: 120px;
-  border: 2px groove black;
 }
 
 .button-play {
@@ -76,7 +76,6 @@ button:active.button-resize {
   position: relative; 
   height: 500px;
   width: 650px;
-  margin-right: 300px;
  
 }
 
@@ -98,7 +97,7 @@ button:active.button-resize {
   left: 0;
   bottom: 0;
   right: 50%;
-  margin: 10px ;
+  margin: 10px;
   background-color: rgb(39, 78, 131);
   display: block;
 }
@@ -111,7 +110,7 @@ button:active.button-resize {
   left: 50%;
   bottom: 0;
   right: 0;
-  margin: 10px ;
+  margin: 10px;
   display: block;
   background-color: rgb(39, 78, 131);
 }
