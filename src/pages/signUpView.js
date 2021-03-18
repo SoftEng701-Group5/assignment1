@@ -1,31 +1,38 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 import TextInput from '../components/global/TextInput';
 import Button from '../components/global/Button';
 import SignUpBGImage from '../assets/images/SignupImage';
 
 export default function SignUpView( ) {
+    const history = useHistory();
+    
+    // Input fields
     const [ firstName, setFirstName ] = useState("");
     const [ lastName, setLastName ] = useState("");
     const [ email, setEmail ] = useState("");
     const [ password, setPassword ] = useState("");
+
+    // Feedback strings to provide user with instructions
+    // E.g. if they leave out an input, or enter something incorrectly
     const [ firstNameInfoText, setFirstNameInfoText ] = useState("");
     const [ lastNameInfoText, setLastNameInfoText ] = useState("");
     const [ emailInfoText, setEmailInfoText ] = useState("");
     const [ passwordInfoText, setPasswordInfoText ] = useState("");
 
     const signUp = async () => {
+        // Remove leading + trailing whitespace
         const processedFirstName = firstName.trim();
         const processedLastName = lastName.trim();
         const processedEmail = email.trim();
         const processedPassword = password.trim();
 
         // For debugging
-        console.log(`First name: ${processedFirstName} \nLast name: ${processedLastName} \nEmail: ${processedEmail} \nPassword: ${processedPassword}`);
+        // console.log(`First name: ${processedFirstName} \nLast name: ${processedLastName} \nEmail: ${processedEmail} \nPassword: ${processedPassword}`);
         
         let validSignup = true;
-        // Check inputs
+        // Check if all inputs were provided
         if (!processedFirstName) {
             setFirstNameInfoText("Please enter your first name");
             validSignup = false;
@@ -44,12 +51,12 @@ export default function SignUpView( ) {
         }
 
         if (validSignup) {
-            // Reset variables
-            setFirstName("");
-            setLastName("");
-            setEmail("");
-            setPassword("");
+            // All signup information was provided, redirect to login
+            history.push("/");
         } else {
+            // Some signup information wasn't provided
+            // Don't want to reset inputs, as user might have made a typo
+            // Instead, set inputs to the correctly processed strings
             setFirstName(processedFirstName);
             setLastName(processedLastName);
             setEmail(processedEmail);
