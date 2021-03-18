@@ -1,7 +1,6 @@
+import React from "react";
 import CurrentTask from './CurrentTask';
 import Notes from './Notes';
-
-
 
 export default function AssignmentAndNoteSection() {
 

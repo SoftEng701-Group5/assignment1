@@ -1,3 +1,5 @@
+import React from "react";
+
 export default function Timer(props) {
 
     const {startTime} = props;

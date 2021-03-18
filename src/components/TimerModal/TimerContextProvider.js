@@ -1,6 +1,5 @@
+import React, {useState} from "react";
 import {defaultTimer, defaultPlay} from "./TimerData";
-import React from "react";
-import {useState} from 'react';
 
 const TimerContext = React.createContext(defaultTimer)
 const PlayContext = React.createContext(defaultPlay)
@@ -11,7 +10,7 @@ Bi-directional rendering of components that uses the context.
 function TimerContextProvider(props) {
 
     const {children} = props;
-    let [timer, setTimer] = useState(defaultTimer);
+    const [timer, setTimer] = useState(defaultTimer);
     const [play, setPlay] = useState(defaultPlay);
 
     return (

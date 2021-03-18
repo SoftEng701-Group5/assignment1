@@ -22,8 +22,8 @@ function App() {
                             <HomeView/>
                         </Route>
 
-                        <Route path={"/timerModal"}>
-                            <TimerModal children={TimerSection("Work")}
+                        <Route path="/timerModal">
+                            <TimerModal TimerSection={TimerSection("Work")}
                                         assignmentAndNoteSection={AssignmentAndNotes()}/>
                         </Route>
 

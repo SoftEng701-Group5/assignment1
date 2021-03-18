@@ -1,4 +1,4 @@
-import {useContext, useEffect} from "react";
+import React, {useContext, useEffect} from "react";
 import {PlayContext, TimerContext} from "./TimerContextProvider";
 import Timer from "./Timer";
 import TimerPlay from "./TimerPlay";
@@ -27,7 +27,6 @@ export default function TimerBundle(props) {
             <Timer startTime={timer}/>
             <TimerPlay play={play} setPlay={setPlay}/>
         </div>
-    )
-        ;
+    );
 
 }
