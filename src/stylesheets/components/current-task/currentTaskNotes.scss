@@ -1,0 +1,15 @@
+.current-task-notes {
+	@include accordion(
+		$current-task-notes-content-height,
+		$current-task-header-background,
+		$current-task-content-background
+	);
+}
+
+.current-task-notes__list {
+	padding-left: 50px;
+
+	li {
+		display: list-item;
+	}
+}
