@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+
 import TextInput from '../components/global/TextInput';
 import Button from '../components/global/Button';
-import { Link } from "react-router-dom";
 import SignUpBGImage from '../assets/images/SignupImage';
 
 export default function SignUpView( ) {
@@ -46,32 +47,30 @@ export default function SignUpView( ) {
             <div className="sign-up__container">
                 <h1>Sign Up</h1>
                 <TextInput 
-                  label={"First Name:"} 
+                  label="First Name:" 
                   textValue={firstName} 
                   onChangeHandler={setFirstName} 
                   placeholderValue={firstNameInfoText}
                 />
                 <TextInput 
-                  label={"Last Name:"} 
+                  label="Last Name:" 
                   textValue={lastName} 
                   onChangeHandler={setLastName}
                   placeholderValue={lastNameInfoText} 
                 />
                 <TextInput 
-                  label={"Email:"} 
+                  label="Email:" 
                   textValue={email} 
                   onChangeHandler={setEmail}
                   placeholderValue={emailInfoText}
                 />
                 <TextInput 
-                  label={"Password:"} 
+                  label="Password:" 
                   textValue={password} 
                   onChangeHandler={setPassword} 
                   placeholderValue={passwordInfoText}
                 />
-                <div onClick={signUp}>
-                    <Button icon={"rightArrow"} text={"Sign Up"} />
-                </div>
+                <Button icon="rightArrow" text="Sign Up" handleOnClick={signUp} />
                 <div className="sign-up__bottom-text">
                     Already have an account?
                     <Link to="/" className="sign-up__bottom-text__link">

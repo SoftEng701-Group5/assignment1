@@ -1,15 +1,15 @@
 import React, {useState} from 'react';
+import {Link} from 'react-router-dom';
+
 import Button from '../components/global/Button';
 import TextInput from '../components/global/TextInput';
 import LoginImage from '../assets/images/LoginImage';
-import {Link} from 'react-router-dom';
-
-import '../stylesheets/loginView.scss';
 
 export default function LoginView() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const login = function () {
+  
+  const login = () => {
     console.log(email, password);
   };
 
@@ -27,10 +27,8 @@ export default function LoginView() {
             type='password'
           />
         </div>
-        <div onClick={login}>
-          <Button icon={'rightArrow'} text={'Login'} />
-        </div>
-        Don't have an account?&nbsp;
+        <Button icon='rightArrow' text='Login' handleOnClick={login} />
+        Don&apos;t have an account?&nbsp;
         <Link to='/signup' className='login_signup_link'>
           Sign Up here
         </Link>
