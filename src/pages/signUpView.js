@@ -15,31 +15,46 @@ export default function SignUpView( ) {
     const [ emailInfoText, setEmailInfoText ] = useState("");
     const [ passwordInfoText, setPasswordInfoText ] = useState("");
 
-    const signUp = () => {
+    const signUp = async () => {
+        const processedFirstName = firstName.trim();
+        const processedLastName = lastName.trim();
+        const processedEmail = email.trim();
+        const processedPassword = password.trim();
+
         // For debugging
-        console.log(`First name: ${firstName} \nLast name: ${lastName} \nEmail: ${email} \nPassword: ${password}`);
-
-
+        console.log(`First name: ${processedFirstName} \nLast name: ${processedLastName} \nEmail: ${processedEmail} \nPassword: ${processedPassword}`);
+        
+        let validSignup = true;
         // Check inputs
-        if (!firstName) {
+        if (!processedFirstName) {
             setFirstNameInfoText("Please enter your first name");
+            validSignup = false;
         }
-        if (!lastName) {
+        if (!processedLastName) {
             setLastNameInfoText("Please enter your last name");
+            validSignup = false;
         }
-        if (!email) {
+        if (!processedEmail) {
             setEmailInfoText("Please enter an email");
+            validSignup = false;
         }
-        if (!password) {
+        if (!processedPassword) {
             setPasswordInfoText("Please enter a password");
+            validSignup = false;
         }
 
-
-        // Reset variables
-        setFirstName("");
-        setLastName("");
-        setEmail("");
-        setPassword("");
+        if (validSignup) {
+            // Reset variables
+            setFirstName("");
+            setLastName("");
+            setEmail("");
+            setPassword("");
+        } else {
+            setFirstName(processedFirstName);
+            setLastName(processedLastName);
+            setEmail(processedEmail);
+            setPassword(processedPassword);
+        }
     }
 
     return (
@@ -59,13 +74,15 @@ export default function SignUpView( ) {
                   placeholderValue={lastNameInfoText} 
                 />
                 <TextInput 
-                  label="Email:" 
+                  label="Email:"
+                  type="email"
                   textValue={email} 
                   onChangeHandler={setEmail}
                   placeholderValue={emailInfoText}
                 />
                 <TextInput 
-                  label="Password:" 
+                  label="Password:"
+                  type="password"
                   textValue={password} 
                   onChangeHandler={setPassword} 
                   placeholderValue={passwordInfoText}
