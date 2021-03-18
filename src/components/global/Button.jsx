@@ -6,9 +6,10 @@ import getIcon from "./componentFunctions";
 function Button(props) {
   const { path, text, icon, height, fontSize, handleOnClick } = props;
 
+  // Call click handler if user presses enter on button
   const handleKeyDown = function(e) {
-    if (e.keyCode === 13) {
-      console.log("hit");
+    if (e.keyCode === 13 && handleOnClick) {
+      handleOnClick();
     }
   }
 
@@ -16,9 +17,9 @@ function Button(props) {
     <div
       className="button-container"
       style={{ height }}
-      onClick={handleOnClick}
       role="button"
       tabIndex={0}
+      onClick={handleOnClick}
       onKeyDown={handleKeyDown}
     >
       <span className="button-text" style={{ fontSize }}>
