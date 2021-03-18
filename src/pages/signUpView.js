@@ -52,6 +52,8 @@ export default function SignUpView( ) {
 
         if (validSignup) {
             // All signup information was provided, redirect to login
+            // TODO: Give signup information to firebase signup method
+            // If successful, can redirect user back to login
             history.push("/");
         } else {
             // Some signup information wasn't provided

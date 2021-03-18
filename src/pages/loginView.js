@@ -18,7 +18,7 @@ export default function LoginView() {
     const processedEmail = email.trim();
     const processedPassword = password.trim();
     
-    // 
+    // Check if inputs have been provided, notify user it not
     let validLogin = true;
     if (!processedEmail) {
       setEmailInfoText("Please enter your email address");
@@ -29,7 +29,10 @@ export default function LoginView() {
       validLogin = false;
     }
 
+    // If user is authenticated, we can redirect to home
     if (validLogin) {
+      // TODO: Call firebase login method with email and password
+      // If successful, can go to /home
       history.push("/home");
     }
     
