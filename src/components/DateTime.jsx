@@ -1,24 +1,24 @@
 import React, { useState, useEffect } from "react";
 
+const DAYS = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+
 function DateTime() {
   const [dayName, setDayName] = useState("Monday");
   const [date, setDate] = useState("01/01/21");
   const [time, setTime] = useState("12:00AM");
 
   const getDateInfo = () => {
-    const days = [
-      "Sunday",
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-    ];
-
     const d = new Date();
 
-    setDayName(days[d.getDay()]);
+    setDayName(DAYS[d.getDay()]);
     setDate(`${d.getDate()  }/${  d.getMonth() + 1  }/${  d.getFullYear()}`);
     setTime(
       d.toLocaleString("en-US", {
