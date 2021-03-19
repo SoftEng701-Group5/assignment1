@@ -14,6 +14,12 @@ $current-task-notes-content-height: 240px;
 $current-task-header-background: #2b2a3e;
 $current-task-content-background: rgba(46, 45, 64, 0.7);
 
+$current-task-background: linear-gradient(
+	148.39deg,
+	rgba(39, 127, 242, 0.48) 0%,
+	rgba(39, 127, 242, 0.12) 100%
+);
+
 $task-checkbox-color: #c4c4c4;
 $timer-fullscreen-checkbox-color: rgba(#999999, 0.33);
 
