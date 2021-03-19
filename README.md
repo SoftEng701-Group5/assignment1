@@ -1,6 +1,9 @@
-# assignment1
-
-SOFTENG701 Group5 - Assignment1
+# SOFTENG701 Group5 - Assignment1
+| CI                  | Status   |
+| ------------------- | -------- |
+| Tests               | Disabled |
+| ESLint and Prettier |  [![ESLint and Prettier](https://github.com/SoftEng701-Group5/assignment1/actions/workflows/eslint_and_prettier.yml/badge.svg?branch=main)](https://github.com/SoftEng701-Group5/assignment1/actions/workflows/eslint_and_prettier.yml) |
+| Build and Deploy    | [![Build and Deploy](https://github.com/SoftEng701-Group5/assignment1/actions/workflows/build_and_deploy.yml/badge.svg?branch=main)](https://github.com/SoftEng701-Group5/assignment1/actions/workflows/build_and_deploy.yml) |
 
 ## Workflow
 

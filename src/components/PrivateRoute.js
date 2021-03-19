@@ -5,22 +5,24 @@ import { AuthContext } from "../services/providers/authProvider";
 /**
  * This component masks the specified route to users that are not authenticated through
  * the firebase application and redirects them to the login screen
- * @param {*} param0 The component that will be shown to the user if they are logged in
+ * @param routePath The path that we want the user to get to
+ * @param fallbackPath The path to redirect the user to if they aren't authorised. Defaults to login
+ * @param children Elements to display within the route
  */
-const PrivateRoute = ({ component: RouteComponent, ...rest }) => {
+const PrivateRoute = ({ routePath, fallbackPath, children }) => {
   const {currentUser} = useContext(AuthContext);
+
   return (
-    <Route
-      {...rest}
-      render={routeProps =>
-        currentUser ? (
-          <RouteComponent {...routeProps} />
-        ) : (
-            // TODO: redirect to the login page
-          <Redirect to="/login" />
-        )
+    <>
+      { currentUser ? (
+        <Route exact path={routePath}>
+          {children}
+        </Route>
+      ) : (
+        <Redirect to={fallbackPath || "/"} />
+      )
       }
-    />
+    </>
   );
 };
 

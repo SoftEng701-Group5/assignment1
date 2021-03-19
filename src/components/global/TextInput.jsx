@@ -2,6 +2,7 @@ import React from 'react';
 
 function TextInput(props) {
 	const {
+		type,
 		centered,
 		label,
 		textValue,
@@ -17,7 +18,7 @@ function TextInput(props) {
 			)}
 			<input
 				placeholder={placeholderValue}
-				type='text'
+				type={type || "text"}
 				value={textValue}
 				onChange={(e) => onChangeHandler(e.target.value)}
 				className={`text-input__input${centered ? '--centered' : ''}`}
