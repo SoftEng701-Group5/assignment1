@@ -3,16 +3,16 @@ import NewTaskModal from "./global/Modal";
 import Button from "./global/Button";
 import TextInput from "./global/TextInput";
 import IconButton from "./global/IconButton";
+import AddButton from "./global/AddButton";
 
 
-export default function AddTask() {
+export default function NewTask() {
     const [display, setDisplay] = useState(false)
     const [name, setName] = useState('');
     const [label, setLabel] = useState('');
     const [desc, setDesc] = useState('');
     const [startDate, setStartDate] = useState('');
-    const [endDate, setEndDate] = useState('')
-
+    const [endDate, setEndDate] = useState('');
 
     function resetValues() {
         setStartDate('');
@@ -36,8 +36,10 @@ export default function AddTask() {
 
 
     return (
-        <div>
-            <button type="button" onClick={() => setDisplay(true)}>Add Task</button>
+        <div className="newtask-container">
+            <AddButton
+                onClick={() => setDisplay(true)}
+            />
             <NewTaskModal dismissOnClickOutside onCancel={handleCancelNewTask} show={display}>
                 <div className="">
                     <div className="hBox">
@@ -78,12 +80,13 @@ export default function AddTask() {
                     </div>
 
                     <div className="hBox">
-                        <IconButton
-                            icon="minimize"
-                            size="48px"
-                            onClick={handleCancelNewTask}
-                            color="rgba(153, 153, 153, 0.35)"
-                        />
+                        <div className="newtask-button-component-container">
+                            <IconButton
+                                icon="cross"
+                                size="48px"
+                                onClick={handleCancelNewTask}
+                            />
+                        </div>
                         <Button
                             text="Add Task"
                             icon="plus"

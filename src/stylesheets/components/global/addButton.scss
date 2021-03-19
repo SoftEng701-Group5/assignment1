@@ -1,0 +1,16 @@
+.add-button-container {
+  height: 40px;
+  width: 100%;
+  min-width: 80px;
+  background: $text-input-bg;
+  background: $grey-button-bg;
+  border-radius: 10px;
+  margin: 20px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-button-container:hover {
+  cursor: pointer;
+}

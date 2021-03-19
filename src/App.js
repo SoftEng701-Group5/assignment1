@@ -5,7 +5,6 @@ import HomeView from "./pages/homeView";
 import PageNotFoundView from "./pages/pageNotFoundView";
 import Navbar from "./components/Navbar";
 
-
 function App() {
   return (
     <Router>

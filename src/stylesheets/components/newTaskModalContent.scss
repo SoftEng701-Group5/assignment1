@@ -7,3 +7,14 @@
 .hBox > * + * {
   margin-left: 10px;
 }
+
+.newtask-button-component-container {
+  .icon-button-container {
+    background: $grey-button-bg
+  }
+}
+
+.newtask-container {
+  display: flex;
+  flex-grow: 1;
+}
