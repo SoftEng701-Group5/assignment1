@@ -36,7 +36,8 @@ const createTask = async (startDate, label, description, name, userId, endDate) 
         Description: description,
         Name: name,
         User_id: userId,
-        End_date: endDate
+        End_date: endDate,
+        Is_complete: false
     });
 }
 
