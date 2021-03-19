@@ -1,8 +1,8 @@
 .current-task {
 	display: flex;
 	flex-direction: column;
-	padding: 20px;
-	padding-left: 30px;
+	// padding: 20px;
+	// padding-left: 30px;
 }
 
 .current-task__title {
@@ -10,8 +10,8 @@
 }
 
 .current-task__content {
-	width: 30vw;
-	height: 90vh; //calc(100% - 48px);
+	width: calc(30vw - 32px);
+	height: 90vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
