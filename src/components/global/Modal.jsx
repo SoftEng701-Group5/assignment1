@@ -21,4 +21,3 @@ export default function Modal({ dismissOnClickOutside, onCancel, children, show 
         , modalRoot
     );
 }
-
