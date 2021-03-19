@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.heading{
+    margin: 20px;
+    margin-bottom: 5px;
+}
+
+.column {
+    width: 22vw;
+    height: 80vh;
+    background-color: #2e2d40;
+    z-index: 99;
+    margin: 20px;
+    margin-top: 5px;
+    padding: 20px;
+    border-radius: 20px;
+    overflow: auto;
+    
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+}
+
+  
