@@ -59,6 +59,12 @@ export default function SignUpView( ) {
                 history.push("/");
             } else {
                 alert("Sorry, could not sign up");
+                
+                // Reset inputs
+                setFirstName('');
+                setLastName('');
+                setEmail('');
+                setPassword('');
             }
             
         } else {

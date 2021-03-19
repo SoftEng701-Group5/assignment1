@@ -38,6 +38,9 @@ export default function LoginView() {
         history.push("/home");
       } else {
         alert("Invalid login");
+
+        setEmail("");
+        setPassword("");
       }
     }
   };
@@ -50,13 +53,15 @@ export default function LoginView() {
           <TextInput 
             label='Email:' 
             placeholderValue={emailInfoText}
-            onChangeHandler={setEmail} 
+            textValue={email}
+            onChangeHandler={setEmail}
             type='email' />
         </div>
         <div className='password-container'>
           <TextInput
             label='Password:'
             placeholderValue={passwordInfoText}
+            textValue={password}
             onChangeHandler={setPassword}
             type='password'
           />
