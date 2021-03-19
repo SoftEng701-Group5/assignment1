@@ -27,7 +27,9 @@ function TaskList() {
 
     return (
         <div>
-            <h1>Today&apos;s Tasks</h1>
+            <div> 
+            <h1 style={{textAlign: "center"}}>Today&apos;s Tasks</h1>
+            </div>
 
             {tasks.map((t) => (
                 <div key={t.id} className="task">
