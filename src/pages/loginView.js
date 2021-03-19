@@ -5,6 +5,8 @@ import Button from '../components/global/Button';
 import TextInput from '../components/global/TextInput';
 import LoginImage from '../assets/images/LoginImage';
 
+import { signIn } from '../services/authService';
+
 export default function LoginView() {
   const history = useHistory();
 
@@ -13,7 +15,7 @@ export default function LoginView() {
   const [ emailInfoText, setEmailInfoText ] = useState("");
   const [ passwordInfoText, setPasswordInfoText ] = useState("");
   
-  const login = () => {
+  const loginHandler = async () => {
     // Process inputs
     const processedEmail = email.trim();
     const processedPassword = password.trim();
@@ -33,9 +35,12 @@ export default function LoginView() {
     if (validLogin) {
       // TODO: Call firebase login method with email and password
       // If successful, can go to /home
-      history.push("/home");
+      if (await signIn(processedEmail, processedPassword)) {
+        history.push("/home");
+      } else {
+        alert("Invalid login");
+      }
     }
-    
   };
 
   return (
@@ -57,7 +62,7 @@ export default function LoginView() {
             type='password'
           />
         </div>
-        <Button icon='rightArrow' text='Login' handleOnClick={login} />
+        <Button icon='rightArrow' text='Login' handleOnClick={loginHandler} />
         <div className="login__bottom-text">
           <span>Don&apos;t have an account?</span>
           <Link to='/signup' className='login__bottom-text__link'>
