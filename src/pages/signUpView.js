@@ -5,6 +5,8 @@ import TextInput from '../components/global/TextInput';
 import Button from '../components/global/Button';
 import SignUpBGImage from '../assets/images/SignupImage';
 
+import { signUp } from '../services/authService';
+
 export default function SignUpView( ) {
     const history = useHistory();
     
@@ -21,7 +23,7 @@ export default function SignUpView( ) {
     const [ emailInfoText, setEmailInfoText ] = useState("");
     const [ passwordInfoText, setPasswordInfoText ] = useState("");
 
-    const signUp = async () => {
+    const signUpHandler = async () => {
         // Remove leading + trailing whitespace
         const processedFirstName = firstName.trim();
         const processedLastName = lastName.trim();
@@ -52,9 +54,13 @@ export default function SignUpView( ) {
 
         if (validSignup) {
             // All signup information was provided, redirect to login
-            // TODO: Give signup information to firebase signup method
             // If successful, can redirect user back to login
-            history.push("/");
+            if (await signUp(processedEmail, processedPassword, processedFirstName, processedLastName)) {
+                history.push("/");
+            } else {
+                alert("Sorry, could not sign up");
+            }
+            
         } else {
             // Some signup information wasn't provided
             // Don't want to reset inputs, as user might have made a typo
@@ -91,12 +97,11 @@ export default function SignUpView( ) {
                 />
                 <TextInput 
                   label="Password:"
-                  type="password"
                   textValue={password} 
                   onChangeHandler={setPassword} 
                   placeholderValue={passwordInfoText}
                 />
-                <Button icon="rightArrow" text="Sign Up" handleOnClick={signUp} />
+                <Button icon="rightArrow" text="Sign Up" handleOnClick={signUpHandler} />
                 <div className="sign-up__bottom-text">
                     Already have an account?
                     <Link to="/" className="sign-up__bottom-text__link">
