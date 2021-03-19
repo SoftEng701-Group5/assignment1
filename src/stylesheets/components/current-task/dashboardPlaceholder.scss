@@ -7,9 +7,16 @@
     padding-bottom: 31px;
 }
 
-.placeholder {
+.big {
     width: calc(30vw - 32px);
 	height: 90vh;
+    background-color: #47465C;
+    border-radius: 20px;
+}
+
+.small {
+    width: calc(30vw - 32px);
+	height: 50%;
     background-color: #47465C;
     border-radius: 20px;
 }
