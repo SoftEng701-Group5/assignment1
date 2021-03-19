@@ -8,20 +8,20 @@ import { AuthContext } from "../services/providers/authProvider";
  * @param {*} param0 The component that will be shown to the user if they are logged in
  * @returns ...
  */
-const PrivateRoute = ({ component: RouteComponent, ...rest }) => {
+const PrivateRoute = ({ routePath, fallbackPath, children }) => {
   const {currentUser} = useContext(AuthContext);
+
   return (
-    <Route
-      {...rest}
-      render={routeProps =>
-        currentUser ? (
-          <RouteComponent {...routeProps} />
-        ) : (
-            // TODO: redirect to the login page
-          <Redirect to="/login" />
-        )
+    <>
+      { currentUser ? (
+        <Route exact path={routePath}>
+          {children}
+        </Route>
+      ) : (
+        <Redirect to={fallbackPath} />
+      )
       }
-    />
+    </>
   );
 };
 
