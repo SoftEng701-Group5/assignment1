@@ -5,6 +5,7 @@ import PlusIcon from "../../assets/icons/PlusIcon";
 import Button from "./Button";
 
 
+
 function TaskList(){
 
     const [isExpanded, setIsExpanded] = useState(false);
@@ -35,12 +36,12 @@ function TaskList(){
 
             ))}
 
-            <div className={"task-container" + (isExpanded ? "--expanded" : "")}>
-                <div className="task-header-container">
+            <div className={`task${isExpanded ? "--expanded" : ""}`}>
+                <div className='task__header'>
                     <PlusIcon handleOnClick={ handlePlusClick } />
                 </div>
 
-                <div className={"task-details-container" + (isExpanded ? "--expanded" : "")}>
+                <div className={`task__content${isExpanded ? "--expanded" : ""}`}>
                     <form>
                         <input
                             type='text'
@@ -48,7 +49,8 @@ function TaskList(){
                             onChange={(e) => setTask(e.target.value)}
                             value={task}
                         />
-                        <button onClick={handleTaskSubmit}>Submit</button>
+                        {/* <button type="button" onClick={handleTaskSubmit}>Submit</button> */}
+                        <Button text="Add" handleOnClick={handleTaskSubmit} />
                     </form>
 
                 </div>
