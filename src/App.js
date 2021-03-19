@@ -23,6 +23,12 @@ function App() {
               <HomeView />
             </Route>
 
+            {/* Board view - navbar present */}
+            <Route exact path="/board">
+              <Navbar />
+              <BoardView />
+            </Route>
+            
             {/* Fallback - if none of the above routes are hit */}
             <Route>
               <PageNotFoundView />
