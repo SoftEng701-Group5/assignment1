@@ -29,7 +29,7 @@ const signIn = async (email, password) => {
  * @param {*} first_name The first name of the user as a string
  * @param {*} last_name The last name of the user as a string
  */
-const signUp = async (email, password, first_name, last_name) => {
+const signUp = async (email, password, firstName, lastName) => {
     try{
         await firebaseConnection
         .auth()
@@ -37,8 +37,8 @@ const signUp = async (email, password, first_name, last_name) => {
             const db = firebaseConnection.firestore();
             db.collection("Users").add({
                 User_id: Credential.user.uid,
-                First_name: first_name,
-                Last_name: last_name 
+                First_name: firstName,
+                Last_name: lastName 
             });
         });
         return true;

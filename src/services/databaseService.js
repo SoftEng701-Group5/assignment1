@@ -12,9 +12,9 @@ import firebaseConnection from "./firebase";
  * Task_id: string
  * User_id: string
  */
-const fetchTasks = async (user_id) => {
+const fetchTasks = async (userId) => {
     const db = firebaseConnection.firestore();
-    const data = await db.collection("Tasks").where("User_id", "==", user_id).get();
+    const data = await db.collection("Tasks").where("User_id", "==", userId).get();
     const tasks = data.docs.map(doc => ({ ...doc.data(), Task_id: doc.id }));
     return tasks;
 }
@@ -28,15 +28,15 @@ const fetchTasks = async (user_id) => {
  * @param {*} user_id string
  * @param {*} end_date Date object
  */
-const createTask = async (start_date, label, description, name, user_id, end_date) => {
+const createTask = async (startDate, label, description, name, userId, endDate) => {
     const db = firebaseConnection.firestore();
     db.collection("Tasks").add({
-        Start_date: start_date,
+        Start_date: startDate,
         Label: label,
         Description: description,
         Name: name,
-        User_id: user_id,
-        End_date: end_date
+        User_id: userId,
+        End_date: endDate
     });
 }
 
@@ -53,18 +53,18 @@ const createTask = async (start_date, label, description, name, user_id, end_dat
  * Task_id: string
  * User_id: string
  */
-const updateTask = async (task_id, newTaskData) => {
+const updateTask = async (taskId, newTaskData) => {
     const db = firebaseConnection.firestore();
-    db.collection("Tasks").doc(task_id).set(newTaskData);
+    db.collection("Tasks").doc(taskId).set(newTaskData);
 }
 
 /**
  * A "delete" request to the firebase cloud firestore which deletes a specific task for a specific user
  * @param {*} task_id string
  */
-const deleteTask = async (task_id) => {
+const deleteTask = async (taskId) => {
     const db = firebaseConnection.firestore();
-    db.collection("Tasks").doc(task_id).delete();
+    db.collection("Tasks").doc(taskId).delete();
 }
 
 export { fetchTasks, createTask, deleteTask, updateTask }
