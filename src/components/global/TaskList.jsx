@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
+
 import Task from "./Task/Task";
-import {useState} from "react";
 import PlusIcon from "../../assets/icons/PlusIcon";
 import Button from "./Button";
 
 
 
-function TaskList(){
+function TaskList() {
 
     const [isExpanded, setIsExpanded] = useState(false);
     const handlePlusClick = () => setIsExpanded(!isExpanded);
@@ -27,18 +27,18 @@ function TaskList(){
 
     return (
         <div>
-            <h1>Today's Tasks</h1>
+            <h1>Today&apos;s Tasks</h1>
 
-            {tasks.map((task) => (
-                <div key={task.id} className="task">
-                    <Task name={task.text}/>
+            {tasks.map((t) => (
+                <div key={t.id} className="task">
+                    <Task name={t.text} />
                 </div>
 
             ))}
 
             <div className={`task${isExpanded ? "--expanded" : ""}`}>
                 <div className='task__header'>
-                    <PlusIcon handleOnClick={ handlePlusClick } />
+                    <PlusIcon handleOnClick={handlePlusClick} />
                 </div>
 
                 <div className={`task__content${isExpanded ? "--expanded" : ""}`}>
