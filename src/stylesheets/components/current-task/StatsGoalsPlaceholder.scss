@@ -7,9 +7,17 @@
     padding-bottom: 31px;
 }
 
-.placeholder {
+.placeholderStats {
     width: calc(30vw - 32px);
-	height: 90vh;
+	height: 50%;
+    background-color: #47465C;
+    border-radius: 20px;
+    margin-bottom: 31px;
+}
+
+.placeholderGoals {
+    width: calc(30vw - 32px);
+	height: 30%;
     background-color: #47465C;
     border-radius: 20px;
 }

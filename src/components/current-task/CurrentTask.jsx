@@ -12,7 +12,7 @@ function CurrentTask() {
 
 	return (
 		<div className='current-task'>
-			<h1 className ="current-task__title"> Current Task</h1>
+			<h1 className ="current-task__title"> Current Task:</h1>
 			<div className='current-task__content'>
 				{showConfig ? (
 					<TimerConfig />
