@@ -5,8 +5,7 @@ import TaskList from "../components/global/TaskList";
 function homeView() {
   return (
     <div>
-      <Button icon={"rightArrow"} text={"Dashboard"} path={"/home"} />
-        <TaskList />
+      <Button icon="rightArrow" text="Dashboard" path="/home" />
     </div>
   );
 }
