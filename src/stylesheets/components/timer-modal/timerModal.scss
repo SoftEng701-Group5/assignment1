@@ -1,0 +1,31 @@
+.timer-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+
+  width: 80vw;
+  height: 80vh;
+
+  display: grid;
+  grid-template-columns: 4fr 3fr;
+  column-gap: 10%;
+  padding: 20px;
+  outline: none;
+  border: none;
+
+  background: $current-task-background;
+  
+  &__info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    column-gap: 20px;
+  }
+
+  &__timer {
+    display: flex;
+    align-items: center;
+  }
+}

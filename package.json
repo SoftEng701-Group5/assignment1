@@ -1,4 +1,5 @@
 {
+  "homepage": "http://SoftEng701-Group5.github.io/assignment1",
   "name": "assignment1",
   "version": "0.1.0",
   "private": true,
@@ -21,7 +22,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint --ext .js,.jsx .",
-    "lint:fix": "eslint --fix --ext .js,.jsx ."
+    "lint:fix": "eslint --fix --ext .js,.jsx .",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -50,6 +53,7 @@
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "prettier": "^2.2.1"
+    "prettier": "^2.2.1",
+    "gh-pages": "^2.2.0"
   }
 }
