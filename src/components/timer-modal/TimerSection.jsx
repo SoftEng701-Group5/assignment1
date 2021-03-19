@@ -1,8 +1,5 @@
 import React, { useEffect, useContext } from "react";
 import { TimerContext, PlayContext } from "./TimerContextProvider";
-// import Timer from "./Timer";
-// import TimerPlay from "./TimerPlay";
-// import TimerResize from "./TimerResize";
 import IconButton from "../global/IconButton";
 
 export default function TimerSection() {
@@ -28,7 +25,6 @@ export default function TimerSection() {
   return (
     <div>
       <div className="timerTitle">Work</div>
-      {/* <Timer startTime={timer} /> */}
       <h1 className="timer-text">
         {minutes < 10 && "0"}
         {minutes}:{seconds < 10 && "0"}
