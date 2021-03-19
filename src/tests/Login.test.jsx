@@ -31,7 +31,8 @@ jest.setTimeout(20000);
 test("Correct Login", async() => {
     const email = 'ddow731@aucklanduni.ac.nz';
     const password = 'TestAccount';
-    renderWithRouter(<App />, {route: '/'});
+    // renderWithRouter(<App />, {route: '/'});
+    <App/>
     userEvent.type(screen.getByTestId('email'), email);
     userEvent.type(screen.getByTestId('password'), password);
     expect(screen.getByText('ddow731@aucklanduni.ac.nz')).toBeInTheDocument();

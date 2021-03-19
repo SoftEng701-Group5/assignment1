@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 import Button from '../components/global/Button';
@@ -12,20 +12,20 @@ export default function LoginView() {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [ emailInfoText, setEmailInfoText ] = useState("");
-  const [ passwordInfoText, setPasswordInfoText ] = useState("");
-  
+  const [emailInfoText, setEmailInfoText] = useState("");
+  const [passwordInfoText, setPasswordInfoText] = useState("");
+
   const loginHandler = async () => {
     // Process inputs
     const processedEmail = email.trim();
     const processedPassword = password.trim();
-    
+
     // Check if inputs have been provided, notify user it not
     let validLogin = true;
     if (!processedEmail) {
       setEmailInfoText("Please enter your email address");
       validLogin = false;
-    } 
+    }
     if (!processedPassword) {
       setPasswordInfoText("Please enter your password");
       validLogin = false;
@@ -37,6 +37,7 @@ export default function LoginView() {
       if (await signIn(processedEmail, processedPassword)) {
         history.push("/home");
       } else {
+        // eslint-disable-next-line no-alert
         alert("Invalid login");
       }
     }
@@ -47,11 +48,12 @@ export default function LoginView() {
       <div className='login'>
         <h1 className='login__welcome'>Welcome</h1>
         <div className='email-container'>
+
           <strong data-testid ="email"/>
-          <TextInput 
+          <TextInput
             label='Email:'
             placeholderValue={emailInfoText}
-            onChangeHandler={setEmail} 
+            onChangeHandler={setEmail}
             type='email' />
         </div>
         <div className='password-container'>

@@ -8,7 +8,7 @@ import '@testing-library/jest-dom/extend-expect'
 
 afterEach(cleanup)
 
-//
+//Helper tool
 const renderWithRouter = (ui, {route='/'} = {}) => {
     window.history.pushState({}, 'Test page', route)
     return render(ui, {wrapper: BrowserRouter});
