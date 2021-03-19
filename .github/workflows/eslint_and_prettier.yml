@@ -1,6 +1,6 @@
 name: ESLint and Prettier
 
-on: push
+on: [push, pull_request]
 
 jobs:
   run-linters:
