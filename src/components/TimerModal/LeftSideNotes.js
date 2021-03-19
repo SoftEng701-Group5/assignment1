@@ -1,7 +1,7 @@
 export default function LeftSideNotes({notes}) {
 
     return (
-        <div style={{margin: '10px', backgroundColor: 'navy'}}>
+        <div classname="current-task"}>
             <h2>Notes</h2>
             <div>
 

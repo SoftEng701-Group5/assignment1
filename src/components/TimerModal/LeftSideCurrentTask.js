@@ -1,7 +1,7 @@
 export default function LeftSideCurrentTask({task}) {
 
     return (
-        <div style={{margin: '10px', backgroundColor:'navy'}}>
+        <div classname="current-task">
             <h2>Assignment 1</h2>
             <div>
                 Subtask 1<br/>subtask 2
@@ -15,9 +15,7 @@ export default function LeftSideCurrentTask({task}) {
             </div>
             <div>
                 Priority: High
-            </div>
-
-            
+            </div>            
         </div>
         );
 }
