@@ -19,7 +19,7 @@ function DateTime() {
     const d = new Date();
 
     setDayName(days[d.getDay()]);
-    setDate(d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear());
+    setDate(`${d.getDate()  }/${  d.getMonth() + 1  }/${  d.getFullYear()}`);
     setTime(
       d.toLocaleString("en-US", {
         hour: "numeric",

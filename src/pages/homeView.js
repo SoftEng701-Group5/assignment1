@@ -21,7 +21,7 @@ function homeView() {
           <br />
           <span>John</span>
         </h1>
-        <Button icon="rightArrow" text="Dashboard" />
+        <Button icon="rightArrow" text="Dashboard" height="5rem" fontSize="2rem"/>
       </div>
       <DateTime />
       <HomepageImage />
