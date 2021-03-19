@@ -1,79 +1,77 @@
 // Global styles
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,100&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Average+Sans&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Hind+Madurai&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Average+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hind+Madurai&display=swap');
 
 * {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
 }
 
 *,
 *::after,
 *::before {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  font-family: "Hind Madurai", sans-serif;
-  font-size: 16px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: white;
+	margin: 0;
+	font-family: 'Hind Madurai', sans-serif;
+	font-size: 16px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	color: white;
 }
 
 h1 {
-  font-family: "Montserrat", sans-serif;
-  color: white;
+	font-family: 'Montserrat', sans-serif;
+	color: white;
 }
 
 h2 {
-  font-family: "Average Sans", sans-serif;
-  color: white;
+	font-family: 'Average Sans', sans-serif;
+	color: white;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+		monospace;
 }
 
 .background {
-  background: $background;
-  min-height: 100vh;
-  display: flex;
+	background: $background;
+	min-height: 100vh;
+	display: flex;
 }
 
 .circle1,
 .circle2 {
-  height: 40rem;
-  width: 40rem;
-  position: absolute;
-  border-radius: 50%;
-  -webkit-backdrop-filter: blur(40rem);
-  backdrop-filter: blur(40rem);
-  -webkit-filter: blur(40px);
-  filter: blur(40px);
+	height: calc(max(50vw, 50vh));
+	width: calc(max(50vw, 50vh));
+	position: fixed;
+	border-radius: 50%;
+	filter: blur(40px);
 }
 
 .circle1 {
-  background: #3f3e5c;
-  background: linear-gradient(280deg, #3f3e5c 0%, #3a3c4a 100%);
-  top: -10rem;
-  left: -10rem;
+	background: #3f3e5c;
+	background: linear-gradient(280deg, #3f3e5c 0%, #3a3c4a 100%);
+	top: -10vw;
+	left: -10vw;
 }
 
 .circle2 {
-  background: #34334a;
-  background: linear-gradient(253deg, #34334a 0%, #2c2e3d 100%);
-  bottom: -10rem;
-  right: -2rem;
+	background: #34334a;
+	background: linear-gradient(253deg, #34334a 0%, #2c2e3d 100%);
+	bottom: -15vw;
+	right: -5vw;
 }
 
 .main-content {
-  position: relative;
-  text-align: center;
-  z-index: 1;
-  width: calc(100vw - $navbar-width);
+	display: flex;
+	position: relative;
+	z-index: 1;
+	width: 100%;
+	height: 100vh;
 }

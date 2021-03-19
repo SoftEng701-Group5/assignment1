@@ -4,10 +4,28 @@ $primary: #135ef2;
 $primary-gradient: #5295ed;
 $primary-selected: #f2913d;
 
+$accordion-header-height: 50px;
+
+$task-content-height: 180px;
+$task-header-background: #47465c;
+$task-content-background: rgba(71, 70, 92, 0.69);
+
+$current-task-notes-content-height: 240px;
+$current-task-header-background: #2b2a3e;
+$current-task-content-background: rgba(46, 45, 64, 0.7);
+
+$task-checkbox-color: #c4c4c4;
+
+$grey-text: #818181;
+$text-input-bg: rgba(153, 153, 153, 0.35);
+
 $button-shadow: 4px 4px 5px
-  rgba(
-    $color: black,
-    $alpha: 0.25,
-  );
+	rgba(
+		$color: black,
+		$alpha: 0.25,
+	);
 
 $navbar-width: 90px;
+
+$tablet-media: 1024px;
+$phone-media: 480px;
