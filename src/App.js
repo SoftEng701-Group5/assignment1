@@ -14,7 +14,7 @@ function App() {
       <Router>
         <div className="background">
           <div className="main-content">
-            <Switch>  
+            <Switch>
               {/* Login/Signup page - no navbar */}
               <Route exact path="/">
                 <LoginView />
@@ -36,18 +36,11 @@ function App() {
             </Switch>
           </div>
 
-<<<<<<< HEAD
           <div className="circle1" />
           <div className="circle2" />
         </div>
       </Router>
     </AuthProvider>
-=======
-        <div className="circle1" />
-        <div className="circle2" />
-      </div>
-    </ Router>
->>>>>>> a63ea09... changed to HashRouter for github pages
   );
 }
 
