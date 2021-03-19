@@ -5,7 +5,7 @@ import CurrentTaskNotes from './CurrentTaskNotes';
 function CurrentTask() {
 	return (
 		<div className='current-task'>
-			<span className='current-task__title'>Current Task:</span>
+			<h1 className ="current-task__title"> Current Task</h1>
 			<div className='current-task__content'>
 				<span>
 					<Task
