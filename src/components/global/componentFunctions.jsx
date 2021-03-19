@@ -4,6 +4,8 @@ import MinimizeIcon from "../../assets/icons/MinimizeIcon";
 import PlusIcon from "../../assets/icons/PlusIcon";
 import SettingsIcon from "../../assets/icons/SettingsIcon";
 import RightChevronIcon from "../../assets/icons/RightChevron";
+import PlayIcon from "../../assets/icons/PlayIcon";
+import PauseIcon from "../../assets/icons/PauseIcon";
 
 function getIcon(icon) {
   const map = {
@@ -12,6 +14,8 @@ function getIcon(icon) {
     "minimize": MinimizeIcon,
     "plus": PlusIcon,
     "rightArrow": RightChevronIcon,
+    "play": PlayIcon,
+    "pause": PauseIcon,
   };
   if (!map[icon]) {
     return <div />;
