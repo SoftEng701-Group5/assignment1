@@ -1,33 +1,46 @@
-.login_layout {
-    text-align: left;
-    margin-top: 5%;
-    margin-left: 10%;
-}
+.login {
+  text-align: left;
+  margin: 5% 10%;
+  width: 100%;
 
-.welcome {
-    font-size: 4vw;
+  &__welcome {
+    font-size: 4em;
     padding-bottom: 1.5vw;
-}
+  }
 
-.login_form {
-    font-size: 1.5vw;
+  &__bottom-text {
+    color: $grey-text;
+
+    &__link {
+        padding-left: 5px;
+        color: $primary;
+    }
+  }
+
+  .email-container,
+  .password-container {
+    display: block;
+    height: auto;
+    color: white;
+    font-size: 1.25em;
     padding-top: 1vw;
     padding-bottom: 1vw;
-    color: white;
-}
+    max-width: 500px;
+    width: 100%;
+  }
 
-a {
-    color: grey;
-}
-
-.login_input {
-    display: block;
-    width: 25vw;
-    height: auto;
-    border-radius: 999px;
-    border: none;
-    outline: none;
-    color: white;
-    background-color: #282828;
-    padding: 15px;
+  &__background {
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    position: absolute;
+    height: calc(min(80vh, 40vw));
+    width: calc(min(80vh, 40vw));
+    svg {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+    }
+  }
 }
