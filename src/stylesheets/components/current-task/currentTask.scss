@@ -1,0 +1,29 @@
+.current-task {
+	width: 100%;
+	height: 100%;
+}
+
+.current-task__title {
+	width: 100%;
+	text-align: left;
+	font-size: 1.5rem;
+}
+
+.current-task__content {
+	width: 100%;
+	height: calc(100% - 48px);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 24px 16px;
+
+	background: $current-task-background;
+	border: 3px solid rgba(gray, 0.1);
+	border-radius: 20px;
+}
+
+.current-task__stub-timer {
+	width: 100%;
+	height: 100px;
+	background: pink;
+}
