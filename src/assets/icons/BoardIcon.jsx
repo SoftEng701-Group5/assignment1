@@ -4,8 +4,7 @@ function BoardIcon() {
   return (
     <svg
       className="navbar__icon"
-      width="36"
-      height="36"
+      width="60%"
       viewBox="0 0 36 36"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
