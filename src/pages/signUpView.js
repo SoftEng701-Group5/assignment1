@@ -33,8 +33,8 @@ export default function SignUpView( ) {
         // For debugging
         // console.log(`First name: ${processedFirstName} \nLast name: ${processedLastName} \nEmail: ${processedEmail} \nPassword: ${processedPassword}`);
         
-        let validSignup = true;
         // Check if all inputs were provided
+        let validSignup = true;
         if (!processedFirstName) {
             setFirstNameInfoText("Please enter your first name");
             validSignup = false;
@@ -53,14 +53,13 @@ export default function SignUpView( ) {
         }
 
         if (validSignup) {
-            // All signup information was provided, redirect to login
-            // If successful, can redirect user back to login
+            // If signup is successful, can redirect user back to login page
             if (await signUp(processedEmail, processedPassword, processedFirstName, processedLastName)) {
                 history.push("/");
             } else {
+                // If signup is unsuccessful, notify user and reset inputs
                 alert("Sorry, could not sign up");
                 
-                // Reset inputs
                 setFirstName('');
                 setLastName('');
                 setEmail('');

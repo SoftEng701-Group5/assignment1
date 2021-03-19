@@ -31,12 +31,12 @@ export default function LoginView() {
       validLogin = false;
     }
 
-    // If user is authenticated, we can redirect to home
     if (validLogin) {
-      // If successful, can go to /home
+      // If authentication is successful, can go to /home
       if (await signIn(processedEmail, processedPassword)) {
         history.push("/home");
       } else {
+        // If authentication is unsuccessful, notify user and reset inputs
         alert("Invalid login");
 
         setEmail("");
