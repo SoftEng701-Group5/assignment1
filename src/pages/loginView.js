@@ -47,13 +47,15 @@ export default function LoginView() {
       <div className='login'>
         <h1 className='login__welcome'>Welcome</h1>
         <div className='email-container'>
+          <strong data-testid ="email"/>
           <TextInput 
-            label='Email:' 
+            label='Email:'
             placeholderValue={emailInfoText}
             onChangeHandler={setEmail} 
             type='email' />
         </div>
         <div className='password-container'>
+          <strong data-testid ="password"/>
           <TextInput
             label='Password:'
             placeholderValue={passwordInfoText}

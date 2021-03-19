@@ -8,13 +8,13 @@ import '@testing-library/jest-dom/extend-expect'
 
 afterEach(cleanup)
 
-// Test likely to be removed, just a 'test' test.
+//
 const renderWithRouter = (ui, {route='/'} = {}) => {
     window.history.pushState({}, 'Test page', route)
     return render(ui, {wrapper: BrowserRouter});
 }
 
-test("Login page contains correct text", () =>{
+test("Login page renders", () =>{
   render(<App />);
   const text = screen.getByText("Login");
   expect(text).toBeInTheDocument();
