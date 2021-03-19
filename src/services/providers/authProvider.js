@@ -2,11 +2,11 @@ import React, {  useState } from "react";
 import firebaseConnection from "../firebase";
 
 export const AuthContext = React.createContext();
+
 /**
  * This provider component provides all the child components with the firebase user object.
  * If the user is not logged in, this is set to null.
  * @param {*} param0 The children of this component
- * @returns ...
  */
 export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
