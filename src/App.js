@@ -4,9 +4,6 @@ import LoginView from "./pages/loginView";
 import HomeView from "./pages/homeView";
 import PageNotFoundView from "./pages/pageNotFoundView";
 import Navbar from "./components/Navbar";
-import TimerModal from './components/TimerModal/TimerModal';
-import TimerSection from "./components/TimerModal/TimerSection";
-import AssignmentAndNotes from "./components/TimerModal/AssignmentAndNoteSection";
 
 function App() {
     return (
@@ -21,11 +18,6 @@ function App() {
                         </Route>
                         <Route exact path="/home">
                             <HomeView/>
-                        </Route>
-
-                        <Route path="/timerModal">
-                            <TimerModal timerSection={TimerSection("Work")}
-                                        assignmentAndNoteSection={AssignmentAndNotes()}/>
                         </Route>
 
                         {/* Fallback - if none of the above routes are hit */}
