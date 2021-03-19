@@ -5,9 +5,9 @@ import SignUpView from './pages/signUpView';
 import HomeView from './pages/homeView';
 import PageNotFoundView from './pages/pageNotFoundView';
 import Navbar from './components/Navbar';
-import WelcomeDashboard from './pages/welcomeDashboard';
 import { AuthProvider } from './services/providers/authProvider';
 import PrivateRoute from './components/PrivateRoute';
+import DashboardView from './pages/dashboardView';
 
 function App() {
 	return (
@@ -31,10 +31,10 @@ function App() {
 							</PrivateRoute>
 
 							{/* Welcome dashboard - navbar present */}
-							<Route exact path='/dashboard'>
+							<PrivateRoute routePath='/dashboard'>
 								<Navbar />
-								<WelcomeDashboard />
-							</Route>
+								<DashboardView />
+							</PrivateRoute>
 
 							{/* Fallback - if none of the above routes are hit */}
 							<Route>
