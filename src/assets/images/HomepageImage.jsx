@@ -1,6 +1,6 @@
 import React from "react";
 
-function HomepageImage(props) {
+function HomepageImage() {
   return (
     <svg
       className="home-page-image"

@@ -9,8 +9,8 @@ function homeView() {
     const hrs = myDate.getHours();
 
     if (hrs < 12) return "Good Morning";
-    else if (hrs < 18) return "Good Afternoon";
-    else return "Good Evening";
+    if (hrs < 18) return "Good Afternoon";
+    return "Good Evening";
   };
 
   return (
@@ -21,7 +21,7 @@ function homeView() {
           <br />
           <span>John</span>
         </h1>
-        <Button icon={"rightArrow"} text={"Dashboard"} />
+        <Button icon="rightArrow" text="Dashboard" />
       </div>
       <DateTime />
       <HomepageImage />

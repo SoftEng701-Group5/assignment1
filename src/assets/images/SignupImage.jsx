@@ -1,12 +1,11 @@
 import React from "react";
 
-function SignupImage(props) {
+function SignupImage() {
   return (
     <svg
       id="b6fe4ea4-91cd-4e88-acbb-2663d3326f54"
       data-name="Layer 1"
-      width="1013.02965"
-      height="844.99456"
+      
       viewBox="0 0 1013.02965 844.99456"
     >
       <title>new_ideas</title>

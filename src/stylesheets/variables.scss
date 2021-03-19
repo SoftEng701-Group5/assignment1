@@ -4,11 +4,27 @@ $primary: #135ef2;
 $primary-gradient: #5295ed;
 $primary-selected: #f2913d;
 
+$accordion-header-height: 50px;
+
+$task-content-height: 180px;
 $task-header-background: #47465c;
-$task-details-background: rgba(71, 70, 92, 0.69);
+$task-content-background: rgba(71, 70, 92, 0.69);
+
+$current-task-notes-content-height: 240px;
+$current-task-header-background: #2b2a3e;
+$current-task-content-background: rgba(46, 45, 64, 0.7);
+
+$current-task-background: linear-gradient(
+  148.39deg,
+  rgba(39, 127, 242, 0.48) 0%,
+  rgba(39, 127, 242, 0.12) 100%
+);
+
 $task-checkbox-color: #c4c4c4;
-$task-header-height: 74px;
-$task-details-height: 300px;
+$timer-fullscreen-checkbox-color: rgba(#999999, 0.33);
+
+$grey-text: #818181;
+$text-input-bg: rgba(153, 153, 153, 0.35);
 
 $button-shadow: 4px 4px 5px
   rgba(
@@ -16,7 +32,7 @@ $button-shadow: 4px 4px 5px
     $alpha: 0.25,
   );
 
-$navbar-width: 90px;
+$navbar-width: 8vh;
 
 $tablet-media: 1024px;
 $phone-media: 480px;

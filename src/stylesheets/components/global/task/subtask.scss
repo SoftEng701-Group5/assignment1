@@ -1,37 +1,37 @@
-.subtask-container {
-  display: grid;
-  grid-template-columns: 20px 1fr;
-  column-gap: 16px;
-  align-items: center;
-  margin-left: 60px;
-  padding-top: 20px;
+.subtask {
+	display: grid;
+	grid-template-columns: 20px 1fr;
+	column-gap: 16px;
+	align-items: center;
+	margin-left: 60px;
+	margin-bottom: 20px;
 }
 
-.subtask-checkbox,
-.subtask-checkbox--checked {
-  width: 20px;
-  height: 20px;
-  background: transparent;
-  border: 3px solid white;
-  border-radius: 50%;
-  position: relative;
-  
+.subtask__checkbox,
+.subtask__checkbox--checked {
+	width: 20px;
+	height: 20px;
+	background: transparent;
+	border: 3px solid white;
+	border-radius: 50%;
+	position: relative;
+	outline: none;
 
-  box-sizing: border-box;
-  box-shadow: 0px 0px 6px 1px rgba(255, 236, 236, 0.25);
+	box-sizing: border-box;
+	box-shadow: 0px 0px 6px 1px rgba(255, 236, 236, 0.25);
 }
 
-.subtask-checkbox--checked {
-  background: $task-checkbox-color;
+.subtask__checkbox--checked {
+	background: $task-checkbox-color;
 }
 
-.subtask-title,
-.subtask-title--checked {
-  width: 100%;
-  text-align: left;
+.subtask__title,
+.subtask__title--checked {
+	width: 100%;
+	text-align: left;
 }
 
-.subtask-title--checked {
-  text-decoration: line-through;
-  font-style: italic;
+.subtask__title--checked {
+	text-decoration: line-through;
+	font-style: italic;
 }

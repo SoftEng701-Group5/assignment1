@@ -1,12 +1,10 @@
 import React from "react";
 
-function LoginImage(props) {
+function LoginImage() {
   return (
     <svg
       id="acfbc938-e2dc-4f86-bbdc-1a249e77319a"
       data-name="Layer 1"
-      width="643.16234"
-      height="528"
       viewBox="0 0 643.16234 528"
     >
       <path
