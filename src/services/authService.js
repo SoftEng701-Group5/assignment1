@@ -15,8 +15,9 @@ const signIn = async (email, password) => {
         await firebaseConnection
         .auth()
         .signInWithEmailAndPassword(email, password);
+        return true;
     }catch(error){
-        alert(error);
+        return false;
     }
 }
 /**
@@ -35,14 +36,15 @@ const signUp = async (email, password, first_name, last_name) => {
         .createUserWithEmailAndPassword(email, password).then(Credential => {
             const db = firebaseConnection.firestore();
             db.collection("Users").add({
-                user_id: Credential.user.uid,
+                User_id: Credential.user.uid,
                 First_name: first_name,
                 Last_name: last_name 
             });
         });
+        return true;
         
     }catch(error){
-        alert(error);
+        return false;
     }
 }
 
