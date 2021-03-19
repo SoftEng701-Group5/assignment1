@@ -14,7 +14,6 @@ function Navbar() {
   const location = useLocation();
 
   const signOutHandler = () => {
-    console.log("oijg");
     signOut();
     history.push('/');
   }
