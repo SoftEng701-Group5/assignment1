@@ -6,9 +6,9 @@ import "../stylesheets/welcomeDashboard.scss";
 function welcomeDashboard() {
   return (
       <div className="row">
-        <DashboardPlaceholder heading="Today's Tasks"/>
+        <DashboardPlaceholder heading="Today's Tasks:"/>
         <CurrentTask />
-        <DashboardPlaceholder heading="Stats"/>
+        <DashboardPlaceholder heading="Stats:"/>
       </div>
   );
 }
