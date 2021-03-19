@@ -24,7 +24,7 @@ function App() {
               </Route>
 
               {/* User pages - navbar present */}
-              <PrivateRoute routePath="/home" fallbackPath="/">
+              <PrivateRoute routePath="/home" >
                 <Navbar />
                 <HomeView />
               </PrivateRoute>

@@ -33,7 +33,6 @@ export default function LoginView() {
 
     // If user is authenticated, we can redirect to home
     if (validLogin) {
-      // TODO: Call firebase login method with email and password
       // If successful, can go to /home
       if (await signIn(processedEmail, processedPassword)) {
         history.push("/home");
