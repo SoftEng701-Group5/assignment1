@@ -1,5 +1,5 @@
 @import 'variables.scss';
-@import 'App.scss';
+@import 'app.scss';
 @import 'mixins.scss';
 @import './components/global/button.scss';
 @import './components/global/iconButton.scss';
@@ -8,10 +8,16 @@
 @import './components/global/textInput.scss';
 @import './components/global/modal.scss';
 @import "./components/global/addButton.scss";
+@import './signupView.scss';
+@import './loginView.scss';
 
 @import './components/current-task/currentTask.scss';
 @import './components/current-task/currentTaskNotes.scss';
+@import './components/current-task/timerConfig.scss';
 
 @import './assets/right-chevron.scss';
 @import './components/navbar.scss';
 @import './components/newTaskModalContent.scss';
+
+@import './components/timer-modal/timerModal.scss';
+@import './components/timer-modal/timerSection.scss';
