@@ -4,6 +4,7 @@ $primary: #135ef2;
 $primary-gradient: #5295ed;
 $primary-selected: #f2913d;
 $focus-background: rgba(0, 0, 0, 0.5);
+$timer-modal-background: linear-gradient(225deg, rgba(46,45,64,1) 0%, rgba(60,58,97,1) 100%);
 
 $accordion-header-height: 50px;
 
@@ -19,6 +20,12 @@ $current-task-background: linear-gradient(
 	148.39deg,
 	rgba(39, 127, 242, 0.48) 0%,
 	rgba(39, 127, 242, 0.12) 100%
+);
+
+$play-button-background: linear-gradient(
+	148.39deg,
+	#d59b69 0%, 
+	#f2913d 100%
 );
 
 $dashboard-placeholder-background: #47465c;

@@ -13,3 +13,19 @@
 .icon-button-container:hover {
   cursor: pointer;
 }
+
+.playicon-button-container {
+  height: 3rem;
+  width: 3rem;
+  background: rgba(229,150,81,255);
+  background: linear-gradient(
+    148.39deg,
+    #d59b69 0%, 
+    #f2913d 100%
+  );
+  border-radius: 50%;
+  margin: 20px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

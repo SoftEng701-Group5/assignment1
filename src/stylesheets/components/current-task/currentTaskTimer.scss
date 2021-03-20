@@ -21,4 +21,9 @@
     @extend .icon-button-container;
     margin: 0 0 0 16px;
   }
+
+  &__playicon-button-container {
+    @extend .playicon-button-container;
+    margin: 0 0 0 16px;
+  }
 }

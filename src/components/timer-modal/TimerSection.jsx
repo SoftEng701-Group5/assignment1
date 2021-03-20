@@ -97,6 +97,7 @@ export default function TimerSection() {
 
       <div className="button-align">
         <IconButton
+          className='play'
           icon={play ? "pause" : "play"}
           size="5rem"
           type="button"
