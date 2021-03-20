@@ -8,9 +8,16 @@ import CurrentTaskTimer from './CurrentTaskTimer';
 import {
 	BreakTimerContext,
 	TimerContext,
+	WorkTimerMemoryContext,
+	BreakTimerMemoryContext,
+	PlayContext
 } from '../timer-modal/TimerContextProvider';
 
 function CurrentTask() {
+	const [, setWorkTimerMemory] = useContext(WorkTimerMemoryContext);
+	const [, setBreakTimerMemory] = useContext(BreakTimerMemoryContext);
+	const [, setPlay] = useContext(PlayContext);
+
 	const [, setTimer] = useContext(TimerContext);
 	const [, setBreakTimer] = useContext(BreakTimerContext);
 	const [showConfig, setShowConfig] = useState(false);
@@ -33,9 +40,13 @@ function CurrentTask() {
 		const workSec =
 			timerConfigValues.workMinutes * 60 + timerConfigValues.workSeconds;
 		const breakSec =
-			timerConfigValues.workMinutes * 60 + timerConfigValues.workSeconds;
+			timerConfigValues.breakMinutes * 60 + timerConfigValues.breakSeconds;
 		setTimer({ seconds: workSec });
 		setBreakTimer({ seconds: breakSec });
+
+		setWorkTimerMemory({ seconds: workSec });
+		setBreakTimerMemory({ seconds: breakSec });
+		setPlay(true);
 	};
 
 	return (
