@@ -15,8 +15,8 @@ export default function TimerSection() {
   const [breakTimer, setBreakTimer] = useContext(BreakTimerContext);
   const [showModal, setShowModal] = useContext(TimerModalShowContext);
 
-  const [workTimerMemory, setWorkTimerMemory] = useContext(WorkTimerMemoryContext);
-  const [breakTimerMemory, setBreakTimerMemory] = useContext(BreakTimerMemoryContext);
+  const [workTimerMemory, ] = useContext(WorkTimerMemoryContext);
+  const [breakTimerMemory, ] = useContext(BreakTimerMemoryContext);
   
 
   const minutes = Math.floor(timer.seconds / 60);
@@ -77,13 +77,9 @@ export default function TimerSection() {
 
   useEffect(() => {
 
-    // console.log("hi")
-    console.log(breakTimerMemory.seconds)
-
     if (timer.seconds === 0 && breakTimer.seconds === 0) {
       setTimer({seconds : workTimerMemory.seconds});
       setBreakTimer({seconds : breakTimerMemory.seconds}); 
-      
     }
 
   }, [play, timer, breakTimer]);

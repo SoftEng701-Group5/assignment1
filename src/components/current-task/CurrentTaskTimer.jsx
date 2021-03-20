@@ -16,8 +16,8 @@ export default function CurrentTaskTimer() {
 	const [breakTimer, setBreakTimer] = useContext(BreakTimerContext);
 	const [showModal, setShowModal] = useContext(TimerModalShowContext);
 
-	const [workTimerMemory, setWorkTimerMemory] = useContext(WorkTimerMemoryContext);
-	const [breakTimerMemory, setBreakTimerMemory] = useContext(BreakTimerMemoryContext);
+	const [workTimerMemory, ] = useContext(WorkTimerMemoryContext);
+	const [breakTimerMemory, ] = useContext(BreakTimerMemoryContext);
 
 	const minutes = Math.floor(timer.seconds / 60);
 	const seconds = timer.seconds % 60;
