@@ -9,6 +9,19 @@ const IntervalInput = (props) => {
 		title,
 	} = props;
 
+	const [minutesValue, setMinutesValue] = useState(textValue);
+	const [secondsValue, setSecondsValue] = useState('00');
+
+	const handleMinutesChanged = (val) => {
+		setMinutesValue(val);
+		onMinutesChangeHandler(val);
+	}
+
+	const handleSecondsChanged = (val) => {
+		setSecondsValue(val);
+		onSecondsChangeHandler(val);
+	}
+
 	return (
 		<div>
 			<span>{title}</span>
@@ -16,14 +29,14 @@ const IntervalInput = (props) => {
 				<TextInput
 					centered
 					className='timer-config__input-field'
-					textValue={textValue}
-					onChangeHandler={onMinutesChangeHandler}
+					textValue={minutesValue}
+					onChangeHandler={handleMinutesChanged}
 				/>
 				<span className='timer-config__input-separator'>:</span>
 				<TextInput
 					centered
-					textValue='00'
-					onChangeHandler={onSecondsChangeHandler}
+					textValue={secondsValue}
+					onChangeHandler={handleSecondsChanged}
 				/>
 			</div>
 		</div>
