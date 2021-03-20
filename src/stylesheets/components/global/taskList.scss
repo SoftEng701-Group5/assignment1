@@ -1,0 +1,28 @@
+.task-list {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.all-tasks {
+    width: 22vw;
+    height: 80vh;
+    background-color: $solid-background;;
+    z-index: 99;
+    margin: 20px;
+    margin-top: 5px;
+    padding: 20px;
+    border-radius: 20px;
+    overflow: auto;
+    
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+}
+
+.add-task-button-container{
+    width: 10vw;
+    display: flex;
+}

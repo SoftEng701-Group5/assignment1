@@ -1,5 +1,5 @@
 import React, {useState, useContext} from "react";
-import * as moment from "moment";
+import moment from 'moment';
 import NewTaskModal from "./global/Modal";
 import Button from "./global/Button";
 import TextInput from "./global/TextInput";
