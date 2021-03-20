@@ -14,20 +14,22 @@ export const AuthProvider = ({ children }) => {
 
   // Adds an observer to the authentication state of the firebase app
   // When authentication state is change, sets the "currentUser" state to the changed value
-  firebaseConnection.auth().onAuthStateChanged((user) => {
-    let updatedUser;
-
-    // fetch the user's name and append it to updatedUser
-    fetchUserInfo(user.uid).then(userInfo => {
-      updatedUser = {
-        ...user,
-        "firstName": userInfo.First_name,
-        "lastName": userInfo.Last_name
-      };
-
-      setCurrentUser(updatedUser)
-    })
-  });
+  useEffect(() => {
+    firebaseConnection.auth().onAuthStateChanged((user) => {
+      let updatedUser;
+  
+      // fetch the user's name and append it to updatedUser
+      fetchUserInfo(user.uid).then(userInfo => {
+        updatedUser = {
+          ...user,
+          "firstName": userInfo.First_name,
+          "lastName": userInfo.Last_name
+        };
+  
+        setCurrentUser(updatedUser)
+      })
+    });
+  }, []);
 
   return (
     <AuthContext.Provider
