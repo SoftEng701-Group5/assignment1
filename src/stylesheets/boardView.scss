@@ -1,0 +1,18 @@
+.row {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding-left: 20px;
+}
+
+.board-image {
+    z-index: -1;
+    position: absolute;
+    float: right;
+}
+
+.board-view-wrapper {
+    width: 100%;
+    height: 100%;
+}
