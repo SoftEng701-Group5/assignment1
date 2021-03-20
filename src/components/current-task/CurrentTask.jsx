@@ -54,7 +54,7 @@ function CurrentTask(props) {
 
 	return (
 		<div className='current-task'>
-			<h1 className='current-task__title'> Current Task:</h1>
+			<h1 className='current-task__title'>Current Task:</h1>
 			{displayedTask ? (
 				<div className='current-task__content'>
 					{showConfig ? (
@@ -65,18 +65,10 @@ function CurrentTask(props) {
 						<div className='current-task__info'>
 							<Task
 								expanded
-								name='Current task name is really really long'
-								subtasks={[
-									{ id: 0, name: 'subtask1' },
-									{ id: 1, name: 'subtask2' },
-								]}
+								name={displayedTask.name}
+								subtasks={displayedTask.subtasks}
 							/>
-							<CurrentTaskNotes
-								notes={[
-									'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-									'Maecenas porttitor eget purus sit amet commodo. Ut non interdum mi. Donec tortor eros, luctus rutrum purus eget, ultricies fringilla enim.',
-								]}
-							/>
+							<CurrentTaskNotes notes={displayedTask.notes} />
 						</div>
 					)}
 
