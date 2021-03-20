@@ -5,10 +5,14 @@ import Task from '../global/Task/Task';
 import CurrentTaskNotes from './CurrentTaskNotes';
 import TimerConfig from './TimerConfig';
 import CurrentTaskTimer from './CurrentTaskTimer';
-import {TimerContext} from '../timer-modal/TimerContextProvider';
+import {
+	BreakTimerContext,
+	TimerContext,
+} from '../timer-modal/TimerContextProvider';
 
 function CurrentTask() {
 	const [, setTimer] = useContext(TimerContext);
+	const [, setBreakTimer] = useContext(BreakTimerContext);
 	const [showConfig, setShowConfig] = useState(false);
 	const [showTimer, setShowTimer] = useState(false);
 	const [timerConfigValues, setTimerConfigValues] = useState({
@@ -26,8 +30,12 @@ function CurrentTask() {
 	const handleStartButtonClicked = () => {
 		setShowConfig(false);
 		setShowTimer(true);
-		const sec = (timerConfigValues.workMinutes * 60) + timerConfigValues.workSeconds;
-		setTimer({seconds : sec})
+		const workSec =
+			timerConfigValues.workMinutes * 60 + timerConfigValues.workSeconds;
+		const breakSec =
+			timerConfigValues.workMinutes * 60 + timerConfigValues.workSeconds;
+		setTimer({ seconds: workSec });
+		setBreakTimer({ seconds: breakSec });
 	};
 
 	return (
