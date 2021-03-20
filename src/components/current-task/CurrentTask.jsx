@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import IconButton from '../global/IconButton';
 import Button from '../global/Button';
 import Task from '../global/Task/Task';
 import CurrentTaskNotes from './CurrentTaskNotes';
 import TimerConfig from './TimerConfig';
 import CurrentTaskTimer from './CurrentTaskTimer';
+import {TimerContext} from '../timer-modal/TimerContextProvider';
 
 function CurrentTask() {
+	const [, setTimer] = useContext(TimerContext);
 	const [showConfig, setShowConfig] = useState(false);
 	const [showTimer, setShowTimer] = useState(false);
 	const [timerConfigValues, setTimerConfigValues] = useState({
@@ -24,6 +26,8 @@ function CurrentTask() {
 	const handleStartButtonClicked = () => {
 		setShowConfig(false);
 		setShowTimer(true);
+		const sec = (timerConfigValues.workMinutes * 60) + timerConfigValues.workSeconds;
+		setTimer({seconds : sec})
 	};
 
 	return (
