@@ -2,5 +2,10 @@
 export const defaultTimer = {
     seconds:1500
 }
+
+export const defaultBreakTimer = {
+    seconds:300
+}
+
 export const defaultPlay = false
 

@@ -9,6 +9,7 @@ const signOut = () => {
  * Signs the user into the firebase application
  * @param {*} email The email of the user as a string
  * @param {*} password The password of the user as a string
+ * @returns {boolean} true if the user was signed in sucessfully, false otherwise
  */
 const signIn = async (email, password) => {
     try{
@@ -28,6 +29,7 @@ const signIn = async (email, password) => {
  * @param {*} password The password of the user as a string
  * @param {*} first_name The first name of the user as a string
  * @param {*} last_name The last name of the user as a string
+ * @returns {boolean} true if the user was signed up sucessfully, false otherwise
  */
 const signUp = async (email, password, firstName, lastName) => {
     try{
