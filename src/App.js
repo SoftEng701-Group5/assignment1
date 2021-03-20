@@ -3,9 +3,11 @@ import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import LoginView from "./pages/loginView";
 import SignUpView from "./pages/signUpView";
 import HomeView from "./pages/homeView";
+import BoardView from "./pages/boardView";
 import PageNotFoundView from "./pages/pageNotFoundView";
 import { AuthProvider } from './services/providers/authProvider';
 import PrivateRoute from './components/PrivateRoute';
+import TaskBoardSampleData from "./components/global/TaskBoardSampleData"
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
 
               {/* Restricted pages */}
               <PrivateRoute component={HomeView} path="/home" exact />
+
+              <PrivateRoute component={BoardView} taskBoardData={TaskBoardSampleData} path="/board" exact />
 
               {/* Fallback - if none of the above routes are hit */}
               <Route>
