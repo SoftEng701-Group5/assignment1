@@ -14,7 +14,7 @@ function App() {
         <div className="background">
           <div className="main-content">
             <Switch>
-              {/* Login/Signup page - no navbar */}
+              {/* Login/Signup page - unrestricted access */}
               <Route exact path="/">
                 <LoginView />
               </Route>
@@ -22,7 +22,7 @@ function App() {
                 <SignUpView />
               </Route>
 
-              {/* User pages - navbar present */}
+              {/* Restricted pages */}
               <PrivateRoute component={HomeView} path="/home" exact />
 
               {/* Fallback - if none of the above routes are hit */}
