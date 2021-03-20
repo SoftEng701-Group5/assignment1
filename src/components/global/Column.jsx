@@ -6,9 +6,10 @@ import Task from "./Task/Task";
 function Column(props) {
 
   const { heading } = props;
+  const[open, setOpened] = React.useState(false);
 
-  const onButtonClick = event => {
-    console.log(event.target.value);
+  const onButtonClick = () => {
+    setOpened(!open);
   }
 
   return (
@@ -16,7 +17,18 @@ function Column(props) {
 
       <h1 className="heading"> {heading} </h1>
 
-      <button type="button" className="sortButton" onClick={onButtonClick} value={heading}>☰</button>
+      <div className="sorting">
+        <button type="button" className="sortButton" onClick={onButtonClick} value={heading}>☰</button>
+        {open &&
+          <div className="dropdown">
+            <ul>
+              <li>Newest First</li>
+              <li>Oldest First</li>
+              <li>Alphabetically</li>
+            </ul>
+          </div>
+        }
+      </div>
 
       <div className="column">
 
