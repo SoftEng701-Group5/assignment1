@@ -3,6 +3,7 @@ $solid-background: #2e2d40;
 $primary: #135ef2;
 $primary-gradient: #5295ed;
 $primary-selected: #f2913d;
+$focus-background: rgba(0, 0, 0, 0.5);
 
 $accordion-header-height: 50px;
 
@@ -25,6 +26,9 @@ $timer-fullscreen-checkbox-color: rgba(#999999, 0.33);
 
 $grey-text: #818181;
 $text-input-bg: rgba(153, 153, 153, 0.35);
+$grey-button-bg: linear-gradient(225deg, rgba(153, 153, 153, 0.35) 0%, rgba(100, 100, 100, 0.35) 100%);
+
+$error-color: #d9002b;
 
 $button-shadow: 4px 4px 5px
   rgba(
