@@ -1,7 +1,7 @@
-import React from "react";
-import Button from "../components/global/Button";
-import HomepageImage from "../assets/images/HomepageImage";
-import DateTime from "../components/DateTime";
+import React from 'react';
+import Button from '../components/global/Button';
+import HomepageImage from '../assets/images/HomepageImage';
+import DateTime from '../components/DateTime';
 import Navbar from '../components/Navbar';
 
 function homeView() {
@@ -14,23 +14,29 @@ function homeView() {
 		return 'Good Evening';
 	};
 
-  return (
-    <>
-      <Navbar />
-      <div className="home-page--root">
-        <div className="home-page--welcome-container">
-          <h1 className="home-page--welcome-message">
-            <span>{getGreeting()}</span>
-            <br />
-            <span>John</span>
-          </h1>
-          <Button icon="rightArrow" text="Dashboard" height="5rem" fontSize="2rem" path="/dashboard" />
-        </div>
-        <DateTime />
-        <HomepageImage />
-      </div>
-    </>
-  );
+	return (
+		<>
+			<Navbar />
+			<div className='home-page--root'>
+				<div className='home-page--welcome-container'>
+					<h1 className='home-page--welcome-message'>
+						<span>{getGreeting()}</span>
+						<br />
+						<span>John</span>
+					</h1>
+					<Button
+						icon='rightArrow'
+						text='Dashboard'
+						height='5rem'
+						fontSize='2rem'
+						path='/dashboard'
+					/>
+				</div>
+				<DateTime />
+				<HomepageImage />
+			</div>
+		</>
+	);
 }
 
 export default homeView;

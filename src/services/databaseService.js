@@ -2,7 +2,7 @@ import firebaseConnection from "./firebase";
 
 /**
  * A "get" request to the firebase cloud firestore which retrieves all the tasks for a specific user
- * @param {*} userId Unique user identification as a string
+ * @param {*} userId Unique user identification as a string. You can get this from currentUser.uid
  * @returns All the specified users task as an array of javascript objects with fields:
  * Description: string
  * End_date: timestamp
