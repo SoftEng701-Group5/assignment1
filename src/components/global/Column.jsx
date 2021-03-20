@@ -14,6 +14,7 @@ function Column(props) {
 
   const onListClick = param => () => {
     console.log(param);
+    setOpened(!open);
   }
 
   return (
