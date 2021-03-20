@@ -33,9 +33,9 @@
 }
 
 .navbar__icon__group {
-	height: 70px;
-	width: 70px;
-	margin-bottom: 20px;
+  height: 6vh;
+  width: 6vh;
+  margin-bottom: 20px;
 
 	position: relative;
 
@@ -54,40 +54,48 @@
 }
 
 .navbar__account {
-	background: $primary-selected;
-	width: 60px;
-	border-radius: 999px;
-	opacity: 0;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	transition: all 0.5s ease;
+  background: $primary-selected;
+  width: 5vh;
+  border-radius: 999px;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.5s ease;
 
-	svg {
-		transition: all 0.5s ease;
-	}
+  .icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
 
-	&--hover {
-		@extend .navbar__account;
+  svg {
+    transition: all 0.5s ease;
+  }
 
-		padding: 30px 0 60px 0;
-		opacity: 1;
+  &--hover {
+    @extend .navbar__account;
 
-		svg {
-			margin-bottom: 25px;
-		}
-	}
+    padding: 30px 0 5vh 0;
+    opacity: 1;
+
+    svg {
+      margin-bottom: 25px;
+      cursor: pointer;
+    }
+  }
 }
 
 .navbar__useravatar {
-	height: 60px;
-	width: 60px;
-	border-radius: 50%;
-	position: absolute;
-	bottom: 0;
-	transform: translateY(-50%);
+  height: 5vh;
+  width: 5vh;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  transform: translateY(-50%);
 
-	&:hover {
-		cursor: pointer;
-	}
+  &:hover {
+    cursor: pointer;
+  }
 }
