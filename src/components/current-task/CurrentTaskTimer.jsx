@@ -87,14 +87,14 @@ export default function CurrentTaskTimer() {
 				<div className='current-task-timer__buttons'>
 					<IconButton
 						className='current-task-timer__'
-						size='35px'
+						size='3rem'
 						icon={play ? 'pause' : 'play'}
 						type='button'
 						onClick={() => setPlay(!play)}
 					/>
 					<IconButton
 						className='current-task-timer__'
-						size='35px'
+						size='3rem'
 						icon='expand'
 						type='button'
 						onClick={() => setPlay(!play)}

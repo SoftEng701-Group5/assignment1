@@ -1,22 +1,24 @@
 .current-task-timer {
-	&__content {
-		display: flex;
-		width: 100%;
-		align-items: center;
-		justify-content: space-between;
-	}
+  padding: 20px 0px;
 
-	&__time-display {
-		font-size: 3rem;
-	}
+  &__content {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+  }
 
-	&__buttons {
-		display: flex;
-		flex: end;
-	}
+  &__time-display {
+    font-size: 3rem;
+  }
 
-	&__icon-button-container {
-		@extend .icon-button-container;
-		margin: 0 0 0 8px;
-	}
+  &__buttons {
+    display: flex;
+    flex: end;
+  }
+
+  &__icon-button-container {
+    @extend .icon-button-container;
+    margin: 0 0 0 16px;
+  }
 }

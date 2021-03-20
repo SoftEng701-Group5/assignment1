@@ -2,7 +2,7 @@ import React from 'react';
 import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import LoginView from './pages/loginView';
 import SignUpView from './pages/signUpView';
-import HomeView from './pages/homeView';
+// import HomeView from './pages/homeView';
 import PageNotFoundView from './pages/pageNotFoundView';
 import Navbar from './components/Navbar';
 import { AuthProvider } from './services/providers/authProvider';
@@ -27,7 +27,8 @@ function App() {
 							{/* User pages - navbar present */}
 							<PrivateRoute routePath='/home'>
 								<Navbar />
-								<HomeView />
+								{/* <HomeView /> */}
+								<DashboardView />
 							</PrivateRoute>
 
 							{/* Welcome dashboard - navbar present */}
