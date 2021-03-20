@@ -4,7 +4,6 @@ import HomepageImage from "../assets/images/HomepageImage";
 import DateTime from "../components/DateTime";
 import Navbar from '../components/Navbar';
 
-
 function homeView() {
   const getGreeting = () => {
     const myDate = new Date();
