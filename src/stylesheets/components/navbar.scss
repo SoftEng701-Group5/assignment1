@@ -1,100 +1,101 @@
 @keyframes fadein {
-	0% {
-		opacity: 0%;
-	}
-	100% {
-		opacity: 100%;
-	}
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
 }
 
 .navbar {
-	min-height: 100%;
-	width: $navbar-width;
-	background: $solid-background;
-	box-shadow: 0 0 4px 5px rgba($color: black, $alpha: 0.25);
-	padding: 30px 0px;
+  min-height: 100%;
+  width: $navbar-width;
+  background: $solid-background;
+  box-shadow: 0 0 4px 5px rgba($color: black, $alpha: 0.25);
+  padding: 30px 0px;
 
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 
-	z-index: 1;
+  z-index: 1;
 }
 
 .selected-box {
-	height: 100%;
-	width: 100%;
-	background: $primary-selected;
-	border-radius: 20px;
-	animation: fadein 1s ease;
+  height: 100%;
+  width: 100%;
+  background: $primary-selected;
+  border-radius: 20px;
+  animation: fadein 1s ease;
 
-	z-index: 2;
+  z-index: 2;
 }
 
 .navbar__icon__group {
-	height: 70px;
-	width: 70px;
-	margin-bottom: 20px;
+  height: 6vh;
+  width: 6vh;
+  margin-bottom: 20px;
 
-	position: relative;
+  position: relative;
 
-	&:hover {
-		cursor: pointer;
-	}
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .navbar__icon {
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 
-	z-index: 3;
+  z-index: 3;
 }
 
 .navbar__account {
-	background: $primary-selected;
-	width: 60px;
-	border-radius: 999px;
-	opacity: 0;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	transition: all 0.5s ease;
+  background: $primary-selected;
+  width: 5vh;
+  border-radius: 999px;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.5s ease;
 
-	.icon-container {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		cursor: pointer;
-	}
+  .icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
 
-	svg {
-		transition: all 0.5s ease;
-	}
+  svg {
+    transition: all 0.5s ease;
+  }
 
-	&--hover {
-		@extend .navbar__account;
+  &--hover {
+    @extend .navbar__account;
 
-		padding: 30px 0 60px 0;
-		opacity: 1;
+    padding: 30px 0 5vh 0;
+    opacity: 1;
 
-		svg {
-			margin-bottom: 25px;
-		}
-	}
+    svg {
+      margin-bottom: 25px;
+      cursor: pointer;
+    }
+  }
 }
 
 .navbar__useravatar {
-	height: 60px;
-	width: 60px;
-	border-radius: 50%;
-	position: absolute;
-	bottom: 0;
-	transform: translateY(-50%);
+  height: 5vh;
+  width: 5vh;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  transform: translateY(-50%);
 
-	&:hover {
-		cursor: pointer;
-	}
+  &:hover {
+    cursor: pointer;
+  }
 }
