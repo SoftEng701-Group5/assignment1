@@ -2,8 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import getIcon from "./componentFunctions";
 
-import getIcon from "./componentFunctions";
-
 function Button(props) {
   const { path, text, icon, height, fontSize, handleOnClick } = props;
 

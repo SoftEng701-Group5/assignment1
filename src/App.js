@@ -7,7 +7,6 @@ import BoardView from "./pages/boardView";
 import PageNotFoundView from "./pages/pageNotFoundView";
 import { AuthProvider } from './services/providers/authProvider';
 import PrivateRoute from './components/PrivateRoute';
-import BoardView from "./pages/boardView";
 
 function App() {
   return (
