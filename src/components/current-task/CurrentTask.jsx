@@ -7,14 +7,22 @@ import TimerConfig from './TimerConfig';
 import CurrentTaskTimer from './CurrentTaskTimer';
 
 function CurrentTask() {
-	const [showConfig, setShowConfig] = useState(true);
+	const [showConfig, setShowConfig] = useState(false);
 	const [showTimer, setShowTimer] = useState(false);
+	const [timerConfigValues, setTimerConfigValues] = useState({
+		workMinutes: 25,
+		workSeconds: 0,
+		breakMinutes: 5,
+		breakSeconds: 0,
+		autoFullScreen: false,
+	});
 
 	const handleConfigButtonClicked = () => {
 		setShowConfig(!showConfig);
 	};
 
 	const handleStartButtonClicked = () => {
+		setShowConfig(false);
 		setShowTimer(true);
 	};
 
@@ -23,7 +31,7 @@ function CurrentTask() {
 			<h1 className='current-task__title'> Current Task:</h1>
 			<div className='current-task__content'>
 				{showConfig ? (
-					<TimerConfig />
+					<TimerConfig setTimerConfigValues={setTimerConfigValues} />
 				) : (
 					<div className='current-task__info'>
 						<Task
@@ -44,7 +52,7 @@ function CurrentTask() {
 				)}
 
 				{showTimer ? (
-					<CurrentTaskTimer />
+					<CurrentTaskTimer timerConfigValues={timerConfigValues} />
 				) : (
 					<div className='current-task__buttons'>
 						<Button
