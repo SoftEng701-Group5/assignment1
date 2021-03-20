@@ -10,10 +10,12 @@ import {
 	TimerContext,
 	WorkTimerMemoryContext,
 	BreakTimerMemoryContext,
-	PlayContext
+	PlayContext,
 } from '../timer-modal/TimerContextProvider';
 
-function CurrentTask() {
+function CurrentTask(props) {
+	const { displayedTask } = props;
+
 	const [, setWorkTimerMemory] = useContext(WorkTimerMemoryContext);
 	const [, setBreakTimerMemory] = useContext(BreakTimerMemoryContext);
 	const [, setPlay] = useContext(PlayContext);
@@ -40,7 +42,8 @@ function CurrentTask() {
 		const workSec =
 			timerConfigValues.workMinutes * 60 + timerConfigValues.workSeconds;
 		const breakSec =
-			timerConfigValues.breakMinutes * 60 + timerConfigValues.breakSeconds;
+			timerConfigValues.breakMinutes * 60 +
+			timerConfigValues.breakSeconds;
 		setTimer({ seconds: workSec });
 		setBreakTimer({ seconds: breakSec });
 
@@ -52,49 +55,59 @@ function CurrentTask() {
 	return (
 		<div className='current-task'>
 			<h1 className='current-task__title'> Current Task:</h1>
-			<div className='current-task__content'>
-				{showConfig ? (
-					<TimerConfig setTimerConfigValues={setTimerConfigValues} />
-				) : (
-					<div className='current-task__info'>
-						<Task
-							expanded
-							name='Current task name is really really long'
-							subtasks={[
-								{ id: 0, name: 'subtask1' },
-								{ id: 1, name: 'subtask2' },
-							]}
+			{displayedTask ? (
+				<div className='current-task__content'>
+					{showConfig ? (
+						<TimerConfig
+							setTimerConfigValues={setTimerConfigValues}
 						/>
-						<CurrentTaskNotes
-							notes={[
-								'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-								'Maecenas porttitor eget purus sit amet commodo. Ut non interdum mi. Donec tortor eros, luctus rutrum purus eget, ultricies fringilla enim.',
-							]}
-						/>
-					</div>
-				)}
-
-				{showTimer ? (
-					<CurrentTaskTimer timerConfigValues={timerConfigValues} />
-				) : (
-					<div className='current-task__buttons'>
-						<Button
-							className='current-task__'
-							text='START'
-							height='3rem'
-							fontSize='1.2rem'
-							handleOnClick={handleStartButtonClicked}
-						/>
-						<div>
-							<IconButton
-								className='current-task__'
-								icon='settings'
-								onClick={handleConfigButtonClicked}
+					) : (
+						<div className='current-task__info'>
+							<Task
+								expanded
+								name='Current task name is really really long'
+								subtasks={[
+									{ id: 0, name: 'subtask1' },
+									{ id: 1, name: 'subtask2' },
+								]}
+							/>
+							<CurrentTaskNotes
+								notes={[
+									'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+									'Maecenas porttitor eget purus sit amet commodo. Ut non interdum mi. Donec tortor eros, luctus rutrum purus eget, ultricies fringilla enim.',
+								]}
 							/>
 						</div>
-					</div>
-				)}
-			</div>
+					)}
+
+					{showTimer ? (
+						<CurrentTaskTimer
+							timerConfigValues={timerConfigValues}
+						/>
+					) : (
+						<div className='current-task__buttons'>
+							<Button
+								className='current-task__'
+								text='START'
+								height='3rem'
+								fontSize='1.2rem'
+								handleOnClick={handleStartButtonClicked}
+							/>
+							<div>
+								<IconButton
+									className='current-task__'
+									icon='settings'
+									onClick={handleConfigButtonClicked}
+								/>
+							</div>
+						</div>
+					)}
+				</div>
+			) : (
+				<div className='current-task__empty'>
+					<h1>Click on a task from the left</h1>
+				</div>
+			)}
 		</div>
 	);
 }
