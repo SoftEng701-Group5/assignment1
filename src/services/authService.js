@@ -50,4 +50,19 @@ const signUp = async (email, password, firstName, lastName) => {
     }
 }
 
-export {signOut, signIn, signUp}
+/**
+ * A "get" request to the firebase cloud firestore which retrieves the first and last name for a specific user
+ * @param {*} userId Unique user identifier as a string. You can get this from currentUser.uid
+ * @returns A single javascript object with the following fields:
+ * First_name: string,
+ * Last_name: string,
+ * User_id: string
+ */
+ const fetchUserInfo = async (userId) => {
+    const db = firebaseConnection.firestore();
+    const data = await db.collection("Users").where("User_id", "==", userId).get();
+    const user = data.docs[0].data();
+    return user;
+}
+
+export {signOut, signIn, signUp, fetchUserInfo}
