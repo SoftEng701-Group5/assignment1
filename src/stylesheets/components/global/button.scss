@@ -1,36 +1,36 @@
 .button-container {
-  height: 3rem;
-  width: fit-content;
-  background: rgb(19, 94, 242);
-  background: linear-gradient(270deg, $primary 0%, $primary-gradient 100%);
-  box-shadow: $button-shadow;
-  border-radius: 999px;
-  padding: 0px 20px;
-  margin: 20px 0px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	height: 3rem;
+	width: fit-content;
+	background: rgb(19, 94, 242);
+	background: linear-gradient(270deg, $primary 0%, $primary-gradient 100%);
+	box-shadow: $button-shadow;
+	border-radius: 999px;
+	padding: 0px 20px;
+	margin: 20px 0px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
-  font-weight: 300;
-  font-size: 1.5rem;
+	font-weight: 300;
+	font-size: 1.5rem;
 
-  @media screen and (max-width: $tablet-media) {
-    font-size: 1.5rem;
-    height: 50px;
-    padding: 0px 10px;
-  }
+	@media screen and (max-width: $tablet-media) {
+		font-size: 1.5rem;
+		height: 50px;
+		padding: 0px 10px;
+	}
 }
 
 .button-container:hover {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 .button-text {
-  width: fit-content;
-  margin: 0 30px;
+	width: fit-content;
+	margin: 0 30px;
 }
 
 .button-link {
-  text-decoration: none;
-  color: white;
+	text-decoration: none;
+	color: white;
 }
