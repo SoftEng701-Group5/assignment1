@@ -3,13 +3,16 @@ import {
 	TimerContext,
 	PlayContext,
 	BreakTimerContext,
+	TimerModalShowContext,
 } from '../timer-modal/TimerContextProvider';
 import IconButton from '../global/IconButton';
+import TimerModal from '../timer-modal/TimerModal';
 
 export default function CurrentTaskTimer() {
 	const [timer, setTimer] = useContext(TimerContext);
 	const [play, setPlay] = useContext(PlayContext);
 	const [breakTimer, setBreakTimer] = useContext(BreakTimerContext);
+	const [showModal, setShowModal] = useContext(TimerModalShowContext);
 
 	const minutes = Math.floor(timer.seconds / 60);
 	const seconds = timer.seconds % 60;
@@ -74,6 +77,7 @@ export default function CurrentTaskTimer() {
 
 	return (
 		<div className='current-task-timer'>
+			{showModal && <TimerModal />}
 			<div className='current-task-timer__title'>
 				{timer.seconds === 0 ? 'Break' : 'Work'}
 			</div>
@@ -97,7 +101,7 @@ export default function CurrentTaskTimer() {
 						size='3rem'
 						icon='expand'
 						type='button'
-						onClick={() => setPlay(!play)}
+						onClick={() => setShowModal(true)}
 					/>
 				</div>
 			</div>
