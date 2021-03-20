@@ -39,7 +39,6 @@ export default function LoginView() {
         // If authentication is unsuccessful, notify user and reset inputs
         alert("Invalid login");
 
-        setEmail("");
         setPassword("");
       }
     }
