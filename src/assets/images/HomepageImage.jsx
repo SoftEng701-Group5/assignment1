@@ -3,6 +3,7 @@ import React from "react";
 function HomepageImage() {
   return (
     <svg
+      className="home-page-image"
       id="0fa3c922-2890-4e83-a6a7-5bb6074ca9fa"
       data-name="Layer 1"
       width="1059.13"
