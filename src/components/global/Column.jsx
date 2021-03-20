@@ -12,6 +12,10 @@ function Column(props) {
     setOpened(!open);
   }
 
+  const onListClick = param => () => {
+    console.log(param);
+  }
+
   return (
     <div className="container">
 
@@ -21,11 +25,9 @@ function Column(props) {
           <button type="button" className="sortButton" onClick={onButtonClick} value={heading}>☰</button>
           {open &&
             <div className="dropdown">
-              <ul>
-                <li>Newest First</li>
-                <li>Oldest First</li>
-                <li>Alphabetically</li>
-              </ul>
+                <button type="button" className="listItem" onClick={onListClick("1")} onKeyDown={onListClick("1")}>Newest First</button>
+                <button type="button" className="listItem" onClick={onListClick("2")} onKeyDown={onListClick("2")}>Oldest First</button>
+                <button type="button" className="listItem" onClick={onListClick("3")} onKeyDown={onListClick("3")}>Alphabetically</button>
             </div>
           }
         </div>
