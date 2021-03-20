@@ -4,12 +4,18 @@ import Button from '../global/Button';
 import Task from '../global/Task/Task';
 import CurrentTaskNotes from './CurrentTaskNotes';
 import TimerConfig from './TimerConfig';
+import CurrentTaskTimer from './CurrentTaskTimer';
 
 function CurrentTask() {
 	const [showConfig, setShowConfig] = useState(true);
+	const [showTimer, setShowTimer] = useState(false);
 
 	const handleConfigButtonClicked = () => {
 		setShowConfig(!showConfig);
+	};
+
+	const handleStartButtonClicked = () => {
+		setShowTimer(true);
 	};
 
 	return (
@@ -36,21 +42,26 @@ function CurrentTask() {
 						/>
 					</div>
 				)}
-				<div className='current-task__buttons'>
-					<Button
-						className='current-task__'
-						text='START'
-						height='3rem'
-						fontSize='1.2rem'
-						handleOnClick={handleConfigButtonClicked}
-					/>
-					<div>
-						<IconButton
-							icon='settings'
-							onClick={handleConfigButtonClicked}
+
+				{showTimer ? (
+					<CurrentTaskTimer />
+				) : (
+					<div className='current-task__buttons'>
+						<Button
+							className='current-task__'
+							text='START'
+							height='3rem'
+							fontSize='1.2rem'
+							handleOnClick={handleStartButtonClicked}
 						/>
+						<div>
+							<IconButton
+								icon='settings'
+								onClick={handleConfigButtonClicked}
+							/>
+						</div>
 					</div>
-				</div>
+				)}
 			</div>
 		</div>
 	);
