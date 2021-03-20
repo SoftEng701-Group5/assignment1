@@ -22,15 +22,13 @@ function Navbar() {
     <div className="navbar">
       <div>
         <Link to="/home" className="button-link">
-          <div className="navbar__icon__group">
-            <strong data-testid="home"/>
+          <div className="navbar__icon__group" data-testid="nav-home-icon">
             {location.pathname === "/home" && <div className="selected-box" />}
             <HomeIcon />
           </div>
         </Link>
         <Link to="/dashboard" className="button-link">
-          <div className="navbar__icon__group">
-            <strong data-testid="dashboard"/>
+          <div className="navbar__icon__group" data-testid = "nav-dashboard-icon">
             {location.pathname === "/dashboard" && (
               <div className="selected-box" />
             )}
@@ -38,8 +36,7 @@ function Navbar() {
           </div>
         </Link>
         <Link to="/board" className="button-link">
-          <div className="navbar__icon__group">
-            <strong data-testid="board"/>
+          <div className="navbar__icon__group" data-testid="nav-trelloboard-icon">
             {location.pathname === "/board" && <div className="selected-box" />}
             <BoardIcon />
           </div>
@@ -58,8 +55,8 @@ function Navbar() {
             onClick={signOutHandler} 
             onKeyDown={signOutHandler}
             role="button" 
-            tabIndex="0">
-            <strong data-testid="logout"/>
+            tabIndex="0"
+          data-testid="nav-signout-icon">
               <LogoutIcon />
           </div>
         </div>
