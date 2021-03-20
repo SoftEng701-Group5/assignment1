@@ -3,6 +3,7 @@ import {
   TimerContext,
   PlayContext,
   BreakTimerContext,
+  TimerModalShowContext,
 } from "./TimerContextProvider";
 import IconButton from "../global/IconButton";
 
@@ -10,6 +11,7 @@ export default function TimerSection() {
   const [timer, setTimer] = useContext(TimerContext);
   const [play, setPlay] = useContext(PlayContext);
   const [breakTimer, setBreakTimer] = useContext(BreakTimerContext);
+  const [showModal, setShowModal] = useContext(TimerModalShowContext);
 
   const minutes = Math.floor(timer.seconds / 60);
   const seconds = timer.seconds % 60;
@@ -84,7 +86,7 @@ export default function TimerSection() {
           icon="minimize"
           size="5rem"
           type="button"
-          onClick={() => setPlay(!play)}
+          onClick={() => setShowModal(!showModal)}
         />
       </div>
     </div>
