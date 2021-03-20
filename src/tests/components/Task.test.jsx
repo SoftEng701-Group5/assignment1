@@ -9,13 +9,6 @@ import '@testing-library/jest-dom/extend-expect'
 
 afterEach(cleanup)
 
-test("Renders without crashing", () => {
-    const div = document.createElement("divi");
-    render(<BrowserRouter><Task />, div </BrowserRouter>)
-
-})
-
-
 test("Renders Task and Subtask correctly", () => {
     const{container} = render(<BrowserRouter><Task expanded checked name = "Test 1" subtasks =  {[{id: 0, name: 'Subtask'}]}/></BrowserRouter>);
     expect(container).toHaveTextContent("Test 1")
