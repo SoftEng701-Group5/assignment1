@@ -1,18 +1,38 @@
-// import React, { useState } from "react";
-// import Task from "./Task/Task";
-// import PlusIcon from "../../assets/icons/PlusIcon";
-// import Button from "./Button";
-import React from "react";
+
+import React, { useContext, useState, useEffect } from "react";
+import NewTask from "../NewTask";
 import Task from "./Task/Task";
 
+import { fetchTasks } from "../../services/databaseService";
+import { AuthContext } from "../../services/providers/authProvider";
 
 function TaskList() {
 
+    
+    const { currentUser } = useContext(AuthContext);
+    const [tasks, setTasks] = useState([]);
+
+    useEffect(() => {
+        fetchTasks(currentUser.uid).then(res => {setTasks(res)});
+      }, [])
+
+    
     return (
         <div className="Task-List">
-            <Task />
-            <Task />
+            <div className="All-Tasks">
+            {tasks.map((t) => (
+                <div key={t.Task_id}>
+                    <Task name={t.Name} />
+                </div>
+            ))}
+            </div>
+
+            <div style={{display:"flex",flex:1}}>
+            <NewTask />
+            </div>
+        
         </div>
+
     )
     // const [isExpanded, setIsExpanded] = useState(false);
     // const handlePlusClick = () => setIsExpanded(!isExpanded);
