@@ -9,4 +9,3 @@ test("Login page renders", () =>{
     expect(text).toBeInTheDocument();
 })
 
-
