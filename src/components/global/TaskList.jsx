@@ -1,19 +1,9 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React from 'react';
 import NewTask from '../NewTask';
 import Task from './Task/Task';
 
-import { fetchTasks } from '../../services/databaseService';
-import { AuthContext } from '../../services/providers/authProvider';
-
-function TaskList() {
-	const { currentUser } = useContext(AuthContext);
-	const [tasks, setTasks] = useState([]);
-
-	useEffect(() => {
-		fetchTasks(currentUser.uid).then((res) => {
-			setTasks(res);
-		});
-	}, []);
+function TaskList(props) {
+	const { tasks } = props;
 
 	return (
 		<div className='task-list'>
