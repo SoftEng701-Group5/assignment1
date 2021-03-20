@@ -5,7 +5,7 @@ import TimerModal from "../components/timer-modal/TimerModal"
 function homeView() {
   return (
     <div>
-      <Button icon="rightArrow" text="Dashboard" path="/home" />
+      <Button icon="rightArrow" text="Dashboard" path="/dashboard" />
       <TimerModal />
     </div>
   );

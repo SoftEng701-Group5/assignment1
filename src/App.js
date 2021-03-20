@@ -4,7 +4,6 @@ import LoginView from "./pages/loginView";
 import SignUpView from "./pages/signUpView";
 import HomeView from "./pages/homeView";
 import PageNotFoundView from "./pages/pageNotFoundView";
-import Navbar from "./components/Navbar";
 import { AuthProvider } from './services/providers/authProvider';
 import PrivateRoute from './components/PrivateRoute';
 
@@ -24,10 +23,7 @@ function App() {
               </Route>
 
               {/* User pages - navbar present */}
-              <PrivateRoute routePath="/home" >
-                <Navbar />
-                <HomeView />
-              </PrivateRoute>
+              <PrivateRoute component={HomeView} path="/home" exact />
 
               {/* Fallback - if none of the above routes are hit */}
               <Route>

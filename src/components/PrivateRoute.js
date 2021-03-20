@@ -18,8 +18,7 @@ import { AuthContext } from "../services/providers/authProvider";
         currentUser ? (
           <Component {...routeProps} />
         ) : (
-            // TODO: redirect to the login page
-          <Redirect to={"/"} />
+          <Redirect to="/" />
         )
       }
     />
