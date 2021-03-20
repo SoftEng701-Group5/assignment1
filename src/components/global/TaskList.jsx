@@ -30,7 +30,7 @@ function TaskList() {
             </div>
 
             <div className="add-task-button-container">
-            <NewTask />
+                <NewTask />
             </div>
         
         </div>
