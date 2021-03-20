@@ -17,16 +17,19 @@ function TaskList() {
 
 	return (
 		<div className='task-list'>
-			<div className='all-tasks'>
-				{tasks.map((t) => (
-					<div key={t.Task_id}>
-						<Task name={t.Name} />
-					</div>
-				))}
-			</div>
+			<h1 className='task-list__title'>Today&apos;s Tasks:</h1>
+			<div className='task-list__content'>
+				<div className='task-list__tasks'>
+					{tasks.map((t) => (
+						<div key={t.Task_id}>
+							<Task name={t.Name} />
+						</div>
+					))}
+				</div>
 
-			<div className='add-task-button-container'>
-				<NewTask />
+				<div className='add-task-button-container'>
+					<NewTask />
+				</div>
 			</div>
 		</div>
 	);
