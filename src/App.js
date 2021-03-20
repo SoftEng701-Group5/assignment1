@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import LoginView from "./pages/loginView";
 import SignUpView from "./pages/signUpView";
 import HomeView from "./pages/homeView";
@@ -13,7 +13,7 @@ function App() {
       <Router>
         <div className="background">
           <div className="main-content">
-            <Switch>  
+            <Switch>
               {/* Login/Signup page - no navbar */}
               <Route exact path="/">
                 <LoginView />
