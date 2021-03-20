@@ -28,7 +28,11 @@ $timer-fullscreen-checkbox-color: rgba(#999999, 0.33);
 
 $grey-text: #818181;
 $text-input-bg: rgba(153, 153, 153, 0.35);
-$grey-button-bg: linear-gradient(225deg, rgba(153, 153, 153, 0.35) 0%, rgba(100, 100, 100, 0.35) 100%);
+$grey-button-bg: linear-gradient(
+	225deg,
+	rgba(153, 153, 153, 0.35) 0%,
+	rgba(100, 100, 100, 0.35) 100%
+);
 
 $error-color: #d9002b;
 
