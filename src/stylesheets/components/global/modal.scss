@@ -1,0 +1,27 @@
+.modalContainerBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $focus-background;
+  z-index: 100;
+  outline: none;
+  border: none;
+}
+
+
+.modalContainer {
+  width: 85%;
+  max-width: 600px;
+  height: auto;
+  background: $background;
+  padding: 30px;
+  border-radius: 10px;
+}

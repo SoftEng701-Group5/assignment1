@@ -1,0 +1,24 @@
+.hBox {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.hBox > * + * {
+  margin-left: 10px;
+}
+
+.newtask-button-component-container {
+  .icon-button-container {
+    background: $grey-button-bg
+  }
+}
+
+.newtask-container {
+  display: flex;
+  flex-grow: 1;
+}
+
+.error-message {
+  color: $error-color;
+}
