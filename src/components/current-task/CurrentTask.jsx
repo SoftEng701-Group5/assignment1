@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import IconButton from '../global/IconButton';
 import Button from '../global/Button';
 import Task from '../global/Task/Task';
