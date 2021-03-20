@@ -6,24 +6,35 @@
 .heading{
     margin: 20px;
     margin-bottom: 5px;
+    display: inline-block;
+    overflow: visible;
+    position: relative;
+    font-size: x-large;
 }
 
 .column {
     width: 22vw;
     height: 80vh;
     background-color: #2e2d40;
-    z-index: 99;
+    z-index: 10;
     margin: 20px;
     margin-top: 5px;
     padding: 20px;
     border-radius: 20px;
-    overflow: auto;
     
 }
 
 ::-webkit-scrollbar {
     width: 0;
     background: transparent;
+}
+
+.sorting {
+    position: absolute;
+    display: inline-block;
+    right: 5px;
+    top: 20%;
+    overflow: visible;
 }
 
 .sortButton {
@@ -35,4 +46,29 @@
     float: right;
 }
 
+.dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    //width: 300px;
+    z-index: 100;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14);
+    background-color: black;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    padding: 8px 12px;
+  }
+  
+  li:hover {
+    background-color: rgba(0, 0, 0, 0.14);
+    cursor: pointer;
+  }
   
