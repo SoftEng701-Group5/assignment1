@@ -41,7 +41,7 @@ export default function NewTask() {
         const edDate = endDate ? moment(endDate, true) : null
 
         // Validate user input (only task name is mandatory)
-        if (name === '') {
+        if (!name) {
             setError('Please add a task name.')
             return
         }
