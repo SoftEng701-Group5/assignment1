@@ -12,8 +12,20 @@ export default function TimerModal() {
       <div className="timer-modal__content">
         {/* Components are displayed here */}
         <div className="timer-modal__content__info">
-          <Task />
-          <CurrentTaskNotes />
+          <Task
+            expanded
+            name="Assignment 1"
+            subtasks={[
+              { id: 0, name: "subtask1" },
+              { id: 1, name: "subtask2" },
+            ]}
+          />
+          <CurrentTaskNotes
+            notes={[
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+              "Maecenas porttitor eget purus sit amet commodo. Ut non interdum mi. Donec tortor eros, luctus rutrum purus eget, ultricies fringilla enim.",
+            ]}
+          />
         </div>
         <div className="timer-modal__content__timer">
           <TimerSection />
