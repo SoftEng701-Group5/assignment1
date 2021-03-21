@@ -13,11 +13,14 @@ import firebaseConnection from "./firebase";
  * User_id: string
  */
 const fetchTasks = async (userId) => {
-    const db = firebaseConnection.firestore();
-    const data = await db.collection("Tasks").where("User_id", "==", userId).get();
-    const tasks = data.docs.map(doc => ({ ...doc.data(), Task_id: doc.id }));
-    return tasks;
-}
+  const db = firebaseConnection.firestore();
+  const data = await db
+    .collection("Tasks")
+    .where("User_id", "==", userId)
+    .get();
+  const tasks = data.docs.map((doc) => ({ ...doc.data(), Task_id: doc.id }));
+  return tasks;
+};
 
 /**
  * A "post" request to the firebase cloud firestore which creates an new task for a specific user
@@ -28,18 +31,25 @@ const fetchTasks = async (userId) => {
  * @param {*} userId string
  * @param {*} endDate Date object
  */
-const createTask = async (startDate, label, description, name, userId, endDate) => {
-    const db = firebaseConnection.firestore();
-    db.collection("Tasks").add({
-        Start_date: startDate,
-        Label: label,
-        Description: description,
-        Name: name,
-        User_id: userId,
-        End_date: endDate,
-        Is_complete: false
-    });
-}
+const createTask = async (
+  startDate,
+  label,
+  description,
+  name,
+  userId,
+  endDate
+) => {
+  const db = firebaseConnection.firestore();
+  db.collection("Tasks").add({
+    Start_date: startDate,
+    Label: label,
+    Description: description,
+    Name: name,
+    User_id: userId,
+    End_date: endDate,
+    Is_complete: false,
+  });
+};
 
 /**
  * A "put" request to the firebase cloud firestore which updates a specific task for a specific user
@@ -55,17 +65,17 @@ const createTask = async (startDate, label, description, name, userId, endDate) 
  * User_id: string
  */
 const updateTask = async (taskId, newTaskData) => {
-    const db = firebaseConnection.firestore();
-    db.collection("Tasks").doc(taskId).set(newTaskData);
-}
+  const db = firebaseConnection.firestore();
+  db.collection("Tasks").doc(taskId).set(newTaskData);
+};
 
 /**
  * A "delete" request to the firebase cloud firestore which deletes a specific task for a specific user
  * @param {*} taskId string
  */
 const deleteTask = async (taskId) => {
-    const db = firebaseConnection.firestore();
-    db.collection("Tasks").doc(taskId).delete();
-}
+  const db = firebaseConnection.firestore();
+  db.collection("Tasks").doc(taskId).delete();
+};
 
-export { fetchTasks, createTask, deleteTask, updateTask }
+export { fetchTasks, createTask, deleteTask, updateTask };
