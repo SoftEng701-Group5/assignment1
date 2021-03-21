@@ -9,7 +9,7 @@ function LogoutIcon() {
       x="0px"
       y="0px"
       viewBox="0 0 384.971 384.971"
-      style={{width: "50%", height: "50%", fill: "white"}}
+      style={{ width: "50%", height: "50%", fill: "white" }}
     >
       <g>
         <g id="Sign_Out">
