@@ -3,7 +3,6 @@ import { Draggable } from "react-beautiful-dnd";
 import RightChevron from "../../../assets/icons/RightChevron";
 import TaskBoardSampleData from "../TaskBoardSampleData";
 import Subtask from "./Subtask";
-/* eslint-disable jsx-a11y/control-has-associated-label */
 
 function Task(props) {
   const {
@@ -12,10 +11,10 @@ function Task(props) {
     index,
     checked,
     expanded,
-    onClick,
     subtasks,
-    boardTask,
     selected,
+    onClick,
+    boardTask,
   } = props;
 
   const [isChecked, setIsChecked] = useState(checked);
@@ -30,57 +29,90 @@ function Task(props) {
   };
   const handleIconClick = () => setIsExpanded(!isExpanded);
 
-  return (
-    <Draggable key={id} draggableId={id} index={index}>
-      {(provided) => (
-        <div
-          className={`task${isExpanded ? "--expanded" : ""}`}
-          {...provided.draggableProps}
-          {...provided.dragHandleProps}
-          innerRef={provided.innerRef}
-          ref={provided.innerRef}
-        >
+  if (boardTask) {
+    return (
+      <Draggable key={id} draggableId={id} index={index}>
+        {(provided) => (
           <div
-            className={`task__header${selected ? "--selected" : ""}`}
-            onClick={onClick}
-            onKeyDown={onClick}
-            role="button"
-            tabIndex="0"
-          />
-          <div className="task__header">
-            <div
-              className={`task__checkbox${isChecked ? "--checked" : ""}`}
-              onClick={handleCheckBoxClick}
-              onKeyDown={handleCheckBoxClick}
-              role="checkbox"
-              aria-label="checkbox"
-              tabIndex="0"
-              aria-checked={isChecked}
-            />
-            <span className={`task__title${isChecked ? "--checked" : ""}`}>
-              {name}
-            </span>
-            <RightChevron
-              handleOnClick={handleIconClick}
-              isRotated={isExpanded}
-            />
-          </div>
+            className={`task${isExpanded ? "--expanded" : ""}`}
+            {...provided.draggableProps}
+            {...provided.dragHandleProps}
+            innerRef={provided.innerRef}
+            ref={provided.innerRef}
+          >
+            <div className="task__header">
+              <div
+                className={`task__checkbox${isChecked ? "--checked" : ""}`}
+                onClick={handleCheckBoxClick}
+                onKeyDown={handleCheckBoxClick}
+                role="checkbox"
+                aria-label="checkbox"
+                tabIndex="0"
+                aria-checked={isChecked}
+              />
+              <span className={`task__title${isChecked ? "--checked" : ""}`}>
+                {name}
+              </span>
+              <RightChevron
+                handleOnClick={handleIconClick}
+                isRotated={isExpanded}
+              />
+            </div>
 
-          <div className={`task__content${isExpanded ? "--expanded" : ""}`}>
-            <div className="task__subtask-list">
-              {subtasks &&
-                subtasks.map((subtask) => (
-                  <Subtask
-                    key={subtask.id}
-                    name={subtask.name}
-                    checked={subtask.checked}
-                  />
-                ))}
+            <div className={`task__content${isExpanded ? "--expanded" : ""}`}>
+              <div className="task__subtask-list">
+                {subtasks &&
+                  subtasks.map((subtask) => (
+                    <Subtask
+                      key={subtask.id}
+                      name={subtask.name}
+                      checked={subtask.checked}
+                    />
+                  ))}
+              </div>
             </div>
           </div>
+        )}
+      </Draggable>
+    );
+  }
+  return (
+    <div className={`task${isExpanded ? "--expanded" : ""}`}>
+      <div
+        className={`task__header${selected ? "--selected" : ""}`}
+        onClick={onClick}
+        onKeyDown={onClick}
+        role="button"
+        tabIndex="0"
+      >
+        <div
+          className={`task__checkbox${isChecked ? "--checked" : ""}`}
+          onClick={handleCheckBoxClick}
+          onKeyDown={handleCheckBoxClick}
+          role="checkbox"
+          aria-label="checkbox"
+          tabIndex="0"
+          aria-checked={isChecked}
+        />
+        <span className={`task__title${isChecked ? "--checked" : ""}`}>
+          {name}
+        </span>
+        <RightChevron handleOnClick={handleIconClick} isRotated={isExpanded} />
+      </div>
+
+      <div className={`task__content${isExpanded ? "--expanded" : ""}`}>
+        <div className="task__subtask-list">
+          {subtasks &&
+            subtasks.map((subtask) => (
+              <Subtask
+                key={subtask.id}
+                name={subtask.name}
+                checked={subtask.checked}
+              />
+            ))}
         </div>
-      )}
-    </Draggable>
+      </div>
+    </div>
   );
 }
 export default Task;
