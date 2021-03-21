@@ -13,12 +13,21 @@ function BoardView() {
 
   const [open, setOpened] = useState(false);
 
-  const onListClick = (column, sortBy) => () => {
+
+  const onListClick = (column, sortBy, revOrder) => () => {
     setOpened(!open);
     const sorted = Object.values(boardData.tasks);
-    sorted.sort((a, b) => (
-      a[sortBy].localeCompare(b[sortBy])
-    ));
+    // sort the list in terms of the specified value e.g. title, date
+    sorted.sort((a, b) => {
+      // if oldest date is first
+      if (revOrder) {
+        return b[sortBy].localeCompare(a[sortBy]);
+      // if increasing alphabetically or by date
+      // eslint-disable-next-line no-else-return
+      } else {
+        return a[sortBy].localeCompare(b[sortBy]);
+      }
+    });
     const newTaskIds = [];
     sorted.forEach(task => {
       if (boardData.columns[column].taskIds.includes(task.id)) {

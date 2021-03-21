@@ -25,9 +25,9 @@ function Column(props) {
           <button type="button" className="sortButton" onClick={onButtonClick} value={column}>☰</button>
           {open &&
             <div className="dropdown">
-              <button type="button" className="listItem" onClick={handleList(column.title, "content")}>Newest First</button>
-              <button type="button" className="listItem" onClick={handleList(column.title, "content")}>Oldest First</button>
-              <button type="button" className="listItem" onClick={handleList(column.title, "content")}>Alphabetically</button>
+              <button type="button" className="listItem" onClick={handleList(column.title, "date", false)}>Newest First</button>
+              <button type="button" className="listItem" onClick={handleList(column.title, "date", true)}>Oldest First</button>
+              <button type="button" className="listItem" onClick={handleList(column.title, "content", false)}>Alphabetically</button>
             </div>
           }
         </div>
