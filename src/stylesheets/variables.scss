@@ -3,6 +3,7 @@ $solid-background: #2e2d40;
 $primary: #135ef2;
 $primary-gradient: #5295ed;
 $primary-selected: #f2913d;
+$focus-background: rgba(0, 0, 0, 0.5);
 
 $accordion-header-height: 50px;
 
@@ -15,9 +16,9 @@ $current-task-header-background: #2b2a3e;
 $current-task-content-background: rgba(46, 45, 64, 0.7);
 
 $current-task-background: linear-gradient(
-	148.39deg,
-	rgba(39, 127, 242, 0.48) 0%,
-	rgba(39, 127, 242, 0.12) 100%
+  148.39deg,
+  rgba(39, 127, 242, 0.48) 0%,
+  rgba(39, 127, 242, 0.12) 100%
 );
 
 $task-checkbox-color: #c4c4c4;
@@ -25,14 +26,17 @@ $timer-fullscreen-checkbox-color: rgba(#999999, 0.33);
 
 $grey-text: #818181;
 $text-input-bg: rgba(153, 153, 153, 0.35);
+$grey-button-bg: linear-gradient(225deg, rgba(153, 153, 153, 0.35) 0%, rgba(100, 100, 100, 0.35) 100%);
+
+$error-color: #d9002b;
 
 $button-shadow: 4px 4px 5px
-	rgba(
-		$color: black,
-		$alpha: 0.25,
-	);
+  rgba(
+    $color: black,
+    $alpha: 0.25,
+  );
 
-$navbar-width: 90px;
+$navbar-width: 8vh;
 
 $tablet-media: 1024px;
 $phone-media: 480px;
