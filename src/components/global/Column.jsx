@@ -1,4 +1,5 @@
 import React from "react";
+// eslint-disable-next-line import/no-unresolved
 import { Droppable } from "react-beautiful-dnd";
 import "../../stylesheets/components/global/column.scss";
 import Task from "./Task/Task";
@@ -6,7 +7,7 @@ import Task from "./Task/Task";
 
 function Column(props) {
 
-  const { column, tasks, handleList } = props;
+  const { column, tasks, subTasks, handleList } = props;
 
   const [open, setOpened] = React.useState(false);
 
@@ -41,16 +42,19 @@ function Column(props) {
             ref={provided.innerRef}
             {...provided.droppableProps}
           >
-            {tasks.map((task, index) => (
-              // const subTaskList = [];
+            {tasks.map((task, index) => {
+              const subTaskList = Object.values(subTasks);
+              const filteredSubTasks = [];
 
-              // // Get all the subtasks for this task
-              // for (let pos = 0; pos < task.subTasks.length; pos+=1) {
-              //   subTaskList.push(subTasks[task.subTasks[pos]])
-              // }
+              // Get all the subtasks for this task
+              for (let pos = 0; pos < subTaskList.length; pos += 1) {
+                if (task.subTasks.includes(subTaskList[pos].id)){
+                  filteredSubTasks.push(subTaskList[pos])
+                 }
+              }
 
-              <Task id={task.id} name={task.content} index={index} expanded={task.expanded} checked={task.checked} boardTask={task} />
-            ))}
+              return <Task id={task.id} name={task.content} index={index} expanded={task.expanded} checked={task.checked} boardTask={task} subtasks={filteredSubTasks}/>
+            })}
             {provided.placeholder}
           </div>
         )}

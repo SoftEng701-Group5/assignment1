@@ -1,12 +1,14 @@
 import React, { useState } from "react";
+// eslint-disable-next-line import/no-unresolved
 import { DragDropContext } from 'react-beautiful-dnd'
 import Column from "../components/global/Column";
 import BoardImage from "../assets/images/BoardImage";
 import "../stylesheets/boardView.scss"
 import TaskBoardSampleData from "../components/global/TaskBoardSampleData"
+import Navbar from '../components/Navbar';
+
 
 function BoardView() {
-  // const { taskBoardData } = props;
 
   const [boardData, setBoardData] = useState(TaskBoardSampleData);
 
@@ -30,11 +32,12 @@ function BoardView() {
 
     const newBoardData = boardData
     newBoardData.columns[column] = sortedColumn;
-    setBoardData({...newBoardData})
+    setBoardData({ ...newBoardData })
   }
 
 
   const onDragEnd = result => {
+    // the destination and source positons, as well as the id of the dragged task
     const { destination, source, draggableId } = result;
 
     if (!destination) {
@@ -58,6 +61,7 @@ function BoardView() {
       newTaskIds.splice(source.index, 1);
       newTaskIds.splice(destination.index, 0, draggableId);
 
+      // Update column task ids
       const newColumn = {
         ...start,
         taskIds: newTaskIds,
@@ -94,21 +98,22 @@ function BoardView() {
   }
 
   return (
-
-    <div className="board-view-wrapper">
+    <>
+      <Navbar />
       <DragDropContext onDragEnd={onDragEnd}>
         <div className="row">
           {boardData.columnOrder.map((columnId) => {
             const column = boardData.columns[columnId];
             const tasks = column.taskIds.map(taskId => boardData.tasks[taskId]);
-            const { subTasks } = boardData.subTasks;
 
-            return <Column key={column.id} column={column} tasks={tasks} subTasks={subTasks} handleList={onListClick} />
+            return <Column key={column.id} column={column} tasks={tasks} subTasks={boardData.subTasks} handleList={onListClick} />
           })}
         </div>
       </DragDropContext>
-      <BoardImage />
-    </div>
+      <div className="boardBackground">
+        <BoardImage />
+      </div>
+    </>
   );
 }
 
