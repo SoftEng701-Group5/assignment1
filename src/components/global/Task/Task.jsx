@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// eslint-disable-next-line import/no-unresolved
 import { Draggable } from 'react-beautiful-dnd'
 import RightChevron from '../../../assets/icons/RightChevron';
 import TaskBoardSampleData from '../TaskBoardSampleData'

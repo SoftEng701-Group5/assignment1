@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// eslint-disable-next-line import/no-unresolved
 import { DragDropContext } from 'react-beautiful-dnd'
 import Column from "../components/global/Column";
 import BoardImage from "../assets/images/BoardImage";

@@ -1,5 +1,4 @@
 import React from "react";
-// eslint-disable-next-line import/no-unresolved
 import { Droppable } from "react-beautiful-dnd";
 import "../../stylesheets/components/global/column.scss";
 import Task from "./Task/Task";
