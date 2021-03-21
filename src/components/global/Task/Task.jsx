@@ -3,9 +3,20 @@ import { Draggable } from "react-beautiful-dnd";
 import RightChevron from "../../../assets/icons/RightChevron";
 import TaskBoardSampleData from "../TaskBoardSampleData";
 import Subtask from "./Subtask";
+/* eslint-disable jsx-a11y/control-has-associated-label */
 
 function Task(props) {
-  const { id, name, index, checked, expanded, subtasks, boardTask } = props;
+  const {
+    id,
+    name,
+    index,
+    checked,
+    expanded,
+    onClick,
+    subtasks,
+    boardTask,
+    selected,
+  } = props;
 
   const [isChecked, setIsChecked] = useState(checked);
   const [isExpanded, setIsExpanded] = useState(expanded);
@@ -29,6 +40,13 @@ function Task(props) {
           innerRef={provided.innerRef}
           ref={provided.innerRef}
         >
+          <div
+            className={`task__header${selected ? "--selected" : ""}`}
+            onClick={onClick}
+            onKeyDown={onClick}
+            role="button"
+            tabIndex="0"
+          />
           <div className="task__header">
             <div
               className={`task__checkbox${isChecked ? "--checked" : ""}`}
