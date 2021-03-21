@@ -10,25 +10,21 @@ import PauseIcon from "../../assets/icons/PauseIcon";
 
 function getIcon(icon) {
   const map = {
-    "settings": SettingsIcon,
-    "expand": ExpandIcon,
-    "minimize": MinimizeIcon,
-    "plus": PlusIcon,
-    "rightArrow": RightChevronIcon,
-    "cross": CrossIcon,
-    "play": PlayIcon,
-    "pause": PauseIcon,
+    settings: SettingsIcon,
+    expand: ExpandIcon,
+    minimize: MinimizeIcon,
+    plus: PlusIcon,
+    rightArrow: RightChevronIcon,
+    cross: CrossIcon,
+    play: PlayIcon,
+    pause: PauseIcon,
   };
   if (!map[icon]) {
     return <div />;
   }
 
   const IconToRender = map[icon];
-  return (
-    <IconToRender
-      className="icon"
-    />
-  );
+  return <IconToRender className="icon" />;
 }
 
 export default getIcon;

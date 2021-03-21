@@ -5,7 +5,7 @@ function RightChevron(props) {
 
   return (
     <svg
-      className={`right-chevron${  isRotated ? "--rotated" : ""}`}
+      className={`right-chevron${isRotated ? "--rotated" : ""}`}
       version="1.1"
       id="Layer_1"
       x="0px"
