@@ -1,18 +1,15 @@
 import React, { useState } from "react";
-import { DragDropContext } from 'react-beautiful-dnd'
+import { DragDropContext } from "react-beautiful-dnd";
 import Column from "../components/global/Column";
 import BoardImage from "../assets/images/BoardImage";
-import "../stylesheets/boardView.scss"
-import TaskBoardSampleData from "../components/global/TaskBoardSampleData"
-import Navbar from '../components/Navbar';
-
+import "../stylesheets/boardView.scss";
+import TaskBoardSampleData from "../components/global/TaskBoardSampleData";
+import Navbar from "../components/Navbar";
 
 function BoardView() {
-
   const [boardData, setBoardData] = useState(TaskBoardSampleData);
 
   const [open, setOpened] = useState(false);
-
 
   const onListClick = (column, sortBy, revOrder) => () => {
     setOpened(!open);
@@ -22,29 +19,28 @@ function BoardView() {
       // if oldest date is first
       if (revOrder) {
         return b[sortBy].localeCompare(a[sortBy]);
-      // if increasing alphabetically or by date
-      // eslint-disable-next-line no-else-return
+        // if increasing alphabetically or by date
+        // eslint-disable-next-line no-else-return
       } else {
         return a[sortBy].localeCompare(b[sortBy]);
       }
     });
     const newTaskIds = [];
-    sorted.forEach(task => {
+    sorted.forEach((task) => {
       if (boardData.columns[column].taskIds.includes(task.id)) {
-        newTaskIds.push(task.id)
+        newTaskIds.push(task.id);
       }
-    })
+    });
 
     const sortedColumn = boardData.columns[column];
     sortedColumn.taskIds = newTaskIds;
 
-    const newBoardData = boardData
+    const newBoardData = boardData;
     newBoardData.columns[column] = sortedColumn;
-    setBoardData({ ...newBoardData })
-  }
+    setBoardData({ ...newBoardData });
+  };
 
-
-  const onDragEnd = result => {
+  const onDragEnd = (result) => {
     // the destination and source positons, as well as the id of the dragged task
     const { destination, source, draggableId } = result;
 
@@ -74,9 +70,9 @@ function BoardView() {
         ...start,
         taskIds: newTaskIds,
       };
-      const newBoardData = boardData
+      const newBoardData = boardData;
       newBoardData.columns[source.droppableId] = newColumn;
-      setBoardData({ ...newBoardData })
+      setBoardData({ ...newBoardData });
 
       return;
     }
@@ -98,12 +94,12 @@ function BoardView() {
       taskIds: finishTaskIds,
     };
 
-    const newBoardData = boardData
+    const newBoardData = boardData;
 
     newBoardData.columns[source.droppableId] = newStart;
     newBoardData.columns[destination.droppableId] = newFinish;
-    setBoardData({ ...newBoardData })
-  }
+    setBoardData({ ...newBoardData });
+  };
 
   return (
     <>
@@ -112,9 +108,19 @@ function BoardView() {
         <div className="row">
           {boardData.columnOrder.map((columnId) => {
             const column = boardData.columns[columnId];
-            const tasks = column.taskIds.map(taskId => boardData.tasks[taskId]);
+            const tasks = column.taskIds.map(
+              (taskId) => boardData.tasks[taskId]
+            );
 
-            return <Column key={column.id} column={column} tasks={tasks} subTasks={boardData.subTasks} handleList={onListClick} />
+            return (
+              <Column
+                key={column.id}
+                column={column}
+                tasks={tasks}
+                subTasks={boardData.subTasks}
+                handleList={onListClick}
+              />
+            );
           })}
         </div>
       </DragDropContext>
