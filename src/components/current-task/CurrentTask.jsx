@@ -6,23 +6,23 @@ import CurrentTaskNotes from "./CurrentTaskNotes";
 import TimerConfig from "./TimerConfig";
 import CurrentTaskTimer from "./CurrentTaskTimer";
 import {
-	BreakTimerContext,
-	TimerContext,
-	WorkTimerMemoryContext,
-	BreakTimerMemoryContext,
-	PlayContext,
-	TimerModalShowContext,
-	CurrentTaskContext,
-	FullscreenContext,
-} from '../timer-modal/TimerContextProvider';
+  BreakTimerContext,
+  TimerContext,
+  WorkTimerMemoryContext,
+  BreakTimerMemoryContext,
+  PlayContext,
+  TimerModalShowContext,
+  CurrentTaskContext,
+  FullscreenContext,
+} from "../timer-modal/TimerContextProvider";
 
 function CurrentTask() {
-	const [currentTask] = useContext(CurrentTaskContext);
-	const [, setWorkTimerMemory] = useContext(WorkTimerMemoryContext);
-	const [, setBreakTimerMemory] = useContext(BreakTimerMemoryContext);
-	const [, setShowModal] = useContext(TimerModalShowContext);
-	const [, setPlay] = useContext(PlayContext);
-	const [isChecked, ] = useContext(FullscreenContext);
+  const [currentTask] = useContext(CurrentTaskContext);
+  const [, setWorkTimerMemory] = useContext(WorkTimerMemoryContext);
+  const [, setBreakTimerMemory] = useContext(BreakTimerMemoryContext);
+  const [, setShowModal] = useContext(TimerModalShowContext);
+  const [, setPlay] = useContext(PlayContext);
+  const [isChecked] = useContext(FullscreenContext);
 
   const [, setTimer] = useContext(TimerContext);
   const [, setBreakTimer] = useContext(BreakTimerContext);
@@ -50,15 +50,14 @@ function CurrentTask() {
     setTimer({ seconds: workSec });
     setBreakTimer({ seconds: breakSec });
 
-		setWorkTimerMemory({ seconds: workSec });
-		setBreakTimerMemory({ seconds: breakSec });
+    setWorkTimerMemory({ seconds: workSec });
+    setBreakTimerMemory({ seconds: breakSec });
 
-		if (isChecked)
-		setShowModal(true)
-		
-		setPlay(true);
-	};
-  
+    if (isChecked) setShowModal(true);
+
+    setPlay(true);
+  };
+
   return (
     <div className="current-task">
       <h1 className="current-task__title">Current Task:</h1>
