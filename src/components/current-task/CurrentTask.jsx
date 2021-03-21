@@ -11,14 +11,18 @@ import {
   WorkTimerMemoryContext,
   BreakTimerMemoryContext,
   PlayContext,
+  TimerModalShowContext,
   CurrentTaskContext,
+  FullscreenContext,
 } from "../timer-modal/TimerContextProvider";
 
 function CurrentTask() {
   const [currentTask] = useContext(CurrentTaskContext);
   const [, setWorkTimerMemory] = useContext(WorkTimerMemoryContext);
   const [, setBreakTimerMemory] = useContext(BreakTimerMemoryContext);
+  const [, setShowModal] = useContext(TimerModalShowContext);
   const [, setPlay] = useContext(PlayContext);
+  const [isChecked] = useContext(FullscreenContext);
 
   const [, setTimer] = useContext(TimerContext);
   const [, setBreakTimer] = useContext(BreakTimerContext);
@@ -48,6 +52,9 @@ function CurrentTask() {
 
     setWorkTimerMemory({ seconds: workSec });
     setBreakTimerMemory({ seconds: breakSec });
+
+    if (isChecked) setShowModal(true);
+
     setPlay(true);
   };
 

@@ -13,6 +13,7 @@ const TimerModalShowContext = React.createContext(defaultTimerModalShow);
 const BreakTimerMemoryContext = React.createContext(defaultBreakTimer);
 const WorkTimerMemoryContext = React.createContext(defaultTimer);
 const CurrentTaskContext = React.createContext();
+const FullscreenContext = React.createContext();
 
 /* Global timer data used to retrieve timer and set the timer.
 Bi-directional rendering of components that uses the context.
@@ -24,6 +25,7 @@ function TimerContextProvider(props) {
   const [breakTimer, setBreakTimer] = useState(defaultBreakTimer);
   const [showModal, setShowModal] = useState(defaultTimerModalShow);
   const [currentTask, setCurrentTask] = useState();
+  const [isChecked, setIsChecked] = useState(false);
 
   const [workTimerMemory, setWorkTimerMemory] = useState(defaultTimer);
   const [breakTimerMemory, setBreakTimerMemory] = useState(defaultBreakTimer);
@@ -41,7 +43,9 @@ function TimerContextProvider(props) {
                 <CurrentTaskContext.Provider
                   value={[currentTask, setCurrentTask]}
                 >
-                  {children}
+                  <FullscreenContext.Provider value={[isChecked, setIsChecked]}>
+                    {children}
+                  </FullscreenContext.Provider>
                 </CurrentTaskContext.Provider>
               </WorkTimerMemoryContext.Provider>
             </BreakTimerMemoryContext.Provider>
@@ -60,5 +64,6 @@ export {
   WorkTimerMemoryContext,
   BreakTimerMemoryContext,
   CurrentTaskContext,
+  FullscreenContext,
   TimerContextProvider,
 };

@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import TextInput from "../global/TextInput";
+import { FullscreenContext } from "../timer-modal/TimerContextProvider";
 
 const IntervalInput = (props) => {
   const {
@@ -46,7 +47,7 @@ const IntervalInput = (props) => {
 function TimerConfig(props) {
   const { setTimerConfigValues } = props;
 
-  const [isChecked, setIsChecked] = useState(false);
+  const [isChecked, setIsChecked] = useContext(FullscreenContext);
 
   const handleWorkMinutesChanged = (val) => {
     setTimerConfigValues((prevState) => ({
