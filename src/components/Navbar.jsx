@@ -22,13 +22,13 @@ function Navbar() {
     <div className="navbar">
       <div>
         <Link to="/home" className="button-link">
-          <div className="navbar__icon__group">
+          <div className="navbar__icon__group" data-testid="nav-home-icon">
             {location.pathname === "/home" && <div className="selected-box" />}
             <HomeIcon />
           </div>
         </Link>
         <Link to="/dashboard" className="button-link">
-          <div className="navbar__icon__group">
+          <div className="navbar__icon__group" data-testid="nav-dashboard-icon">
             {location.pathname === "/dashboard" && (
               <div className="selected-box" />
             )}
@@ -36,7 +36,7 @@ function Navbar() {
           </div>
         </Link>
         <Link to="/board" className="button-link">
-          <div className="navbar__icon__group">
+          <div className="navbar__icon__group" data-testid="nav-trello-icon">
             {location.pathname === "/board" && <div className="selected-box" />}
             <BoardIcon />
           </div>
@@ -47,7 +47,10 @@ function Navbar() {
         onMouseEnter={() => setHovering(true)}
         onMouseLeave={() => setHovering(false)}
       >
-        <div className={`navbar__account${hovering ? "--hover" : ""}`}>
+        <div
+          className={`navbar__account${hovering ? "--hover" : ""}`}
+          data-testid="nav-settings-icon"
+        >
           <SettingsIcon />
           <div
             className="icon-container"
@@ -55,6 +58,7 @@ function Navbar() {
             onKeyDown={signOutHandler}
             role="button"
             tabIndex="0"
+            data-testid="nav-logout-icon"
           >
             <LogoutIcon />
           </div>
