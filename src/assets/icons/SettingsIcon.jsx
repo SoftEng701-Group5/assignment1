@@ -8,7 +8,7 @@ function SettingsIcon() {
       x="0px"
       y="0px"
       viewBox="0 0 478.703 478.703"
-      style={{width: "50%", height: "50%", fill: "white"}}
+      style={{ width: "50%", height: "50%", fill: "white" }}
     >
       <g>
         <g>

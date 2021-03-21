@@ -1,9 +1,11 @@
 import React from "react";
-import { render, screen } from '@testing-library/react';
-import App from '../App';
+import { render, screen } from "@testing-library/react";
+import App from "../App";
 
-test('renders learn react link', () => {
+// Basic test to check login page renders, will add more once
+// tests are functional
+test("Login page renders", () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const text = screen.getByText("Login");
+  expect(text).toBeInTheDocument();
 });

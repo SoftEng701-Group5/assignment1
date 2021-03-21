@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 
-import Button from '../components/global/Button';
-import TextInput from '../components/global/TextInput';
-import LoginImage from '../assets/images/LoginImage';
+import Button from "../components/global/Button";
+import TextInput from "../components/global/TextInput";
+import LoginImage from "../assets/images/LoginImage";
 
-import { signIn } from '../services/authService';
+import { signIn } from "../services/authService";
 
 export default function LoginView() {
   const history = useHistory();
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [emailInfoText, setEmailInfoText] = useState("");
   const [passwordInfoText, setPasswordInfoText] = useState("");
 
@@ -47,34 +47,35 @@ export default function LoginView() {
 
   return (
     <>
-      <div className='login'>
-        <h1 className='login__welcome'>Welcome</h1>
-        <div className='email-container'>
+      <div className="login">
+        <h1 className="login__welcome">Welcome</h1>
+        <div className="email-container">
           <TextInput
-            label='Email:'
+            label="Email:"
             placeholderValue={emailInfoText}
             textValue={email}
             onChangeHandler={setEmail}
-            type='email' />
+            type="email"
+          />
         </div>
-        <div className='password-container'>
+        <div className="password-container">
           <TextInput
-            label='Password:'
+            label="Password:"
             placeholderValue={passwordInfoText}
             textValue={password}
             onChangeHandler={setPassword}
-            type='password'
+            type="password"
           />
         </div>
-        <Button icon='rightArrow' text='Login' handleOnClick={loginHandler} />
+        <Button icon="rightArrow" text="Login" handleOnClick={loginHandler} />
         <div className="login__bottom-text">
           <span>Don&apos;t have an account?</span>
-          <Link to='/signup' className='login__bottom-text__link'>
+          <Link to="/signup" className="login__bottom-text__link">
             Sign Up here
           </Link>
         </div>
       </div>
-      <div className='login__background'>
+      <div className="login__background">
         <LoginImage />
       </div>
     </>

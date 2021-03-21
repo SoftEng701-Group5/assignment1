@@ -6,10 +6,11 @@ import {
   TimerModalShowContext,
   WorkTimerMemoryContext,
   BreakTimerMemoryContext,
-} from "./TimerContextProvider";
+} from "../timer-modal/TimerContextProvider";
 import IconButton from "../global/IconButton";
+import TimerModal from "../timer-modal/TimerModal";
 
-export default function TimerSection() {
+export default function CurrentTaskTimer() {
   const [timer, setTimer] = useContext(TimerContext);
   const [play, setPlay] = useContext(PlayContext);
   const [breakTimer, setBreakTimer] = useContext(BreakTimerContext);
@@ -65,7 +66,9 @@ export default function TimerSection() {
       interval = setTimeout(
         () =>
           setBreakTimer(
-            breakTimer.seconds !== 0 && { seconds: breakTimer.seconds - 1 }
+            breakTimer.seconds !== 0 && {
+              seconds: breakTimer.seconds - 1,
+            }
           ),
         1000
       );
@@ -82,30 +85,34 @@ export default function TimerSection() {
   }, [play, timer, breakTimer]);
 
   return (
-    <div>
-      <div className="timerTitle">
-        {" "}
-        {timer.seconds === 0 ? "Break" : "Work"}{" "}
+    <div className="current-task-timer">
+      {showModal && <TimerModal />}
+      <div className="current-task-timer__title">
+        {timer.seconds === 0 ? "Break" : "Work"}
       </div>
-      <h1 className="timer-text">
-        {timer.seconds === 0
-          ? timerFormat(breakMinutes, breakSeconds)
-          : timerFormat(minutes, seconds)}
-      </h1>
+      <div className="current-task-timer__content">
+        <h1 className="current-task-timer__time-display">
+          {timer.seconds === 0
+            ? timerFormat(breakMinutes, breakSeconds)
+            : timerFormat(minutes, seconds)}
+        </h1>
 
-      <div className="button-align">
-        <IconButton
-          icon={play ? "pause" : "play"}
-          size="5rem"
-          type="button"
-          onClick={() => setPlay(!play)}
-        />
-        <IconButton
-          icon="minimize"
-          size="5rem"
-          type="button"
-          onClick={() => setShowModal(!showModal)}
-        />
+        <div className="current-task-timer__buttons">
+          <IconButton
+            className="current-task-timer__"
+            size="3rem"
+            icon={play ? "pause" : "play"}
+            type="button"
+            onClick={() => setPlay(!play)}
+          />
+          <IconButton
+            className="current-task-timer__"
+            size="3rem"
+            icon="expand"
+            type="button"
+            onClick={() => setShowModal(true)}
+          />
+        </div>
       </div>
     </div>
   );

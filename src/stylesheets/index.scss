@@ -1,5 +1,5 @@
 @import 'variables.scss';
-@import "app.scss";
+@import 'app.scss';
 @import 'mixins.scss';
 @import './components/global/button.scss';
 @import './components/global/iconButton.scss';
@@ -7,18 +7,21 @@
 @import './components/global/task/subtask.scss';
 @import './components/global/textInput.scss';
 @import './components/global/modal.scss';
-@import "./components/global/addButton.scss";
-@import "./signupView.scss";
-@import "./loginView.scss";
+@import './components/global/addButton.scss';
+@import './components/global/taskList.scss';
+@import './signupView.scss';
+@import './loginView.scss';
+@import './dashboard.scss';
+@import './home.scss';
 
-@import "./home.scss";
-@import "./components/current-task/currentTask.scss";
-@import "./components/current-task/currentTaskNotes.scss";
-@import "./components/current-task/timerConfig.scss";
+@import './components/current-task/currentTask.scss';
+@import './components/current-task/currentTaskNotes.scss';
+@import './components/current-task/timerConfig.scss';
+@import './components/current-task/currentTaskTimer.scss';
 
 @import './assets/right-chevron.scss';
 @import './components/navbar.scss';
 @import './components/newTaskModalContent.scss';
 
-@import "./components/timer-modal/timerModal.scss";
-@import "./components/timer-modal/timerSection.scss";
+@import './components/timer-modal/timerModal.scss';
+@import './components/timer-modal/timerSection.scss';

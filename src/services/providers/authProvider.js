@@ -17,24 +17,24 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     firebaseConnection.auth().onAuthStateChanged((user) => {
       let updatedUser;
-  
+
       // fetch the user's name and append it to updatedUser
-      fetchUserInfo(user.uid).then(userInfo => {
+      fetchUserInfo(user.uid).then((userInfo) => {
         updatedUser = {
           ...user,
-          "firstName": userInfo.First_name,
-          "lastName": userInfo.Last_name
+          firstName: userInfo.First_name,
+          lastName: userInfo.Last_name,
         };
-  
-        setCurrentUser(updatedUser)
-      })
+
+        setCurrentUser(updatedUser);
+      });
     });
   }, []);
 
   return (
     <AuthContext.Provider
       value={{
-        currentUser
+        currentUser,
       }}
     >
       {children}

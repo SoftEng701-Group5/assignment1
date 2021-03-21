@@ -7,8 +7,8 @@ import Subtask from './Subtask';
 function Task(props) {
 	const { id, name, index, checked, expanded, subtasks, boardTask } = props;
 
-	const [isChecked, setIsChecked] = useState(checked);
-	const [isExpanded, setIsExpanded] = useState(expanded);
+  const [isChecked, setIsChecked] = useState(checked);
+  const [isExpanded, setIsExpanded] = useState(expanded);
 
 	const handleCheckBoxClick = () => {
 		if(boardTask){
