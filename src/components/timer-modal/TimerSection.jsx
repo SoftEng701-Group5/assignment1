@@ -84,6 +84,10 @@ export default function TimerSection() {
 
   }, [play, timer, breakTimer]);
 
+  
+
+
+
   return (
     <div>
       <div className="timerTitle"> {timer.seconds === 0 ? "Break" : "Work"} </div>
