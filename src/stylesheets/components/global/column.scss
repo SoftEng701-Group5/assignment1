@@ -4,21 +4,23 @@
 }
 
 .heading{
-    margin: 20px;
+    margin: 30px;
     margin-bottom: 5px;
+    display: inline-block;
+    overflow: visible;
+    position: relative;
+    font-size: x-large;
 }
 
 .column {
-    width: 22vw;
+    width: 20vw;
     height: 80vh;
     background-color: #2e2d40;
-    z-index: 99;
     margin: 20px;
     margin-top: 5px;
     padding: 20px;
     border-radius: 20px;
     overflow: auto;
-    
 }
 
 ::-webkit-scrollbar {
@@ -26,4 +28,51 @@
     background: transparent;
 }
 
+.sorting {
+    position: absolute;
+    display: inline-block;
+    right: 5px;
+    top: 20%;
+    overflow: visible;
+}
+
+.sortButton {
+    width: 30px;
+    font-size: large;
+    background: transparent;
+    border: none;
+    color: white;
+    float: right;
+}
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 100;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14);
+    background-color: #3f3e5c;
+    opacity: 1;
+    display: block;
+    height: 90px;
+  }
+
+  .listItem {
+   background-color: #3f3e5c;
+   border: none;
+   color: white;
+   position: relative;
+   display: block;
+   width: 100%;
+   height: 30px;
+  }
+
+  .listItem:hover {
+    background-color: rgba(0, 0, 0, 0.14);
+    cursor: pointer;
+  }
   
+  .listItem:focus {
+      outline: 0;
+  }

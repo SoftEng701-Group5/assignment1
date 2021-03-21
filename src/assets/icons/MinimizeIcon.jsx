@@ -8,7 +8,7 @@ function MinimizeIcon() {
       x="0px"
       y="0px"
       viewBox="0 0 60 60"
-      style={{height: "50%", fill: "white"}}
+      style={{ height: "50%", fill: "white" }}
     >
       <g>
         <path

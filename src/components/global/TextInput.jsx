@@ -1,17 +1,28 @@
 import React from "react";
 
 function TextInput(props) {
-  const { label, textValue, placeholderValue, onChangeHandler } = props;
-  
+  const {
+    type,
+    centered,
+    label,
+    textValue,
+    placeholderValue,
+    onChangeHandler,
+  } = props;
+
   return (
     <div className="text-input">
-      {label && 
+      {label && (
         // eslint-disable-next-line jsx-a11y/label-has-associated-control
-        <label className="text-input__label">
-          {label}
-        </label>
-      }
-      <input placeholder={placeholderValue} type="text" value={textValue} onChange={e => onChangeHandler(e.target.value)} className="text-input__input" />
+        <label className="text-input__label">{label}</label>
+      )}
+      <input
+        placeholder={placeholderValue}
+        type={type || "text"}
+        value={textValue}
+        onChange={(e) => onChangeHandler(e.target.value)}
+        className={`text-input__input${centered ? "--centered" : ""}`}
+      />
     </div>
   );
 }

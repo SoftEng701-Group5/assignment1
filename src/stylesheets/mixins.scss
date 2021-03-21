@@ -15,6 +15,7 @@
 	}
 
 	&__header,
+	&__header--selected,
 	&__content,
 	&__content--expanded {
 		width: 100%;
@@ -24,7 +25,8 @@
 		border-radius: 20px;
 	}
 
-	&__header {
+	&__header,
+	&__header--selected {
 		position: relative;
 		z-index: 2;
 		display: flex;
@@ -35,6 +37,10 @@
 		height: $accordion-header-height;
 
 		background: $header-background;
+	}
+
+	&__header--selected {
+		background: $primary-selected;
 	}
 
 	&__title,
