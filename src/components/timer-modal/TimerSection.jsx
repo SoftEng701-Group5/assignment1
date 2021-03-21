@@ -5,7 +5,7 @@ import {
   BreakTimerContext,
   TimerModalShowContext,
   WorkTimerMemoryContext,
-  BreakTimerMemoryContext
+  BreakTimerMemoryContext,
 } from "./TimerContextProvider";
 import IconButton from "../global/IconButton";
 
@@ -15,9 +15,8 @@ export default function TimerSection() {
   const [breakTimer, setBreakTimer] = useContext(BreakTimerContext);
   const [showModal, setShowModal] = useContext(TimerModalShowContext);
 
-  const [workTimerMemory, ] = useContext(WorkTimerMemoryContext);
-  const [breakTimerMemory, ] = useContext(BreakTimerMemoryContext);
-  
+  const [workTimerMemory] = useContext(WorkTimerMemoryContext);
+  const [breakTimerMemory] = useContext(BreakTimerMemoryContext);
 
   const minutes = Math.floor(timer.seconds / 60);
   const seconds = timer.seconds % 60;
@@ -25,7 +24,7 @@ export default function TimerSection() {
   const breakMinutes = Math.floor(breakTimer.seconds / 60);
   const breakSeconds = breakTimer.seconds % 60;
 
-  const timerFormat = (m,s) => {
+  const timerFormat = (m, s) => {
     let timerStr = "";
 
     if (Number.isNaN(m) && Number.isNaN(s)) {
@@ -33,15 +32,15 @@ export default function TimerSection() {
     }
 
     if (m < 10) {
-        timerStr+= "0";
+      timerStr += "0";
     }
-    timerStr+= m;
-    timerStr+= ":";
+    timerStr += m;
+    timerStr += ":";
 
     if (s < 10) {
-      timerStr+= "0";
+      timerStr += "0";
     }
-    timerStr+= s;
+    timerStr += s;
 
     return timerStr;
   };
@@ -66,7 +65,8 @@ export default function TimerSection() {
       interval = setTimeout(
         () =>
           setBreakTimer(
-            breakTimer.seconds !== 0 && { seconds: breakTimer.seconds - 1 }),
+            breakTimer.seconds !== 0 && { seconds: breakTimer.seconds - 1 }
+          ),
         1000
       );
     }
@@ -74,25 +74,23 @@ export default function TimerSection() {
     return () => clearTimeout(interval);
   }, [play, timer, breakTimer, setBreakTimer]);
 
-
   useEffect(() => {
-
     if (timer.seconds === 0 && breakTimer.seconds === 0) {
-      setTimer({seconds : workTimerMemory.seconds});
-      setBreakTimer({seconds : breakTimerMemory.seconds}); 
+      setTimer({ seconds: workTimerMemory.seconds });
+      setBreakTimer({ seconds: breakTimerMemory.seconds });
     }
-
   }, [play, timer, breakTimer]);
-
-  
-
-
 
   return (
     <div>
-      <div className="timerTitle"> {timer.seconds === 0 ? "Break" : "Work"} </div>
+      <div className="timerTitle">
+        {" "}
+        {timer.seconds === 0 ? "Break" : "Work"}{" "}
+      </div>
       <h1 className="timer-text">
-          {timer.seconds === 0 ? timerFormat(breakMinutes, breakSeconds): timerFormat(minutes, seconds)}
+        {timer.seconds === 0
+          ? timerFormat(breakMinutes, breakSeconds)
+          : timerFormat(minutes, seconds)}
       </h1>
 
       <div className="button-align">

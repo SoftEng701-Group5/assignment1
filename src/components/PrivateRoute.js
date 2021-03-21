@@ -8,22 +8,17 @@ import { AuthContext } from "../services/providers/authProvider";
  * @param component The page view that the user is trying to access
  * @param rest The rest of the component props
  */
- const PrivateRoute = ({ component: Component, ...rest }) => {
-  const {currentUser} = useContext(AuthContext);
+const PrivateRoute = ({ component: Component, ...rest }) => {
+  const { currentUser } = useContext(AuthContext);
 
   return (
     <Route
       {...rest}
-      render={routeProps =>
-        currentUser ? (
-          <Component {...routeProps} />
-        ) : (
-          <Redirect to="/" />
-        )
+      render={(routeProps) =>
+        currentUser ? <Component {...routeProps} /> : <Redirect to="/" />
       }
     />
   );
 };
 
-
-export default PrivateRoute
+export default PrivateRoute;
