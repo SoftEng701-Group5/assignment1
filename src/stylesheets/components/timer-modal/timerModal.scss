@@ -1,31 +1,31 @@
 .timer-modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 100;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 100;
 
-  width: 80vw;
-  height: 80vh;
+	width: 80vw;
+	height: 80vh;
 
-  display: grid;
-  grid-template-columns: 4fr 3fr;
-  column-gap: 10%;
-  padding: 20px;
-  outline: none;
-  border: none;
+	display: grid;
+	grid-template-columns: 4fr 3fr;
+	column-gap: 10%;
+	padding: 20px;
+	outline: none;
 
-  background: $current-task-background;
-  
-  &__info {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+	border-radius: 20px;
+	background: $timer-modal-background;
 
-    column-gap: 20px;
-  }
+	&__info {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
 
-  &__timer {
-    display: flex;
-    align-items: center;
-  }
+		column-gap: 20px;
+	}
+
+	&__timer {
+		display: flex;
+		align-items: center;
+	}
 }
