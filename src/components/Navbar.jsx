@@ -6,7 +6,7 @@ import HomeIcon from "../assets/icons/HomeIcon";
 import SettingsIcon from "../assets/icons/SettingsIcon";
 import LogoutIcon from "../assets/icons/LogoutIcon";
 import DefaultAvatar from "../assets/images/default-avatar.png";
-import { signOut } from '../services/authService';
+import { signOut } from "../services/authService";
 
 function Navbar() {
   const history = useHistory();
@@ -15,20 +15,20 @@ function Navbar() {
 
   const signOutHandler = () => {
     signOut();
-    history.push('/');
-  }
+    history.push("/");
+  };
 
   return (
     <div className="navbar">
       <div>
         <Link to="/home" className="button-link">
-          <div className="navbar__icon__group">
+          <div className="navbar__icon__group" data-testid="nav-home-icon">
             {location.pathname === "/home" && <div className="selected-box" />}
             <HomeIcon />
           </div>
         </Link>
         <Link to="/dashboard" className="button-link">
-          <div className="navbar__icon__group">
+          <div className="navbar__icon__group" data-testid="nav-dashboard-icon">
             {location.pathname === "/dashboard" && (
               <div className="selected-box" />
             )}
@@ -36,7 +36,10 @@ function Navbar() {
           </div>
         </Link>
         <Link to="/board" className="button-link">
-          <div className="navbar__icon__group">
+          <div
+            className="navbar__icon__group"
+            data-testid="nav-trelloboard-icon"
+          >
             {location.pathname === "/board" && <div className="selected-box" />}
             <BoardIcon />
           </div>
@@ -47,16 +50,17 @@ function Navbar() {
         onMouseEnter={() => setHovering(true)}
         onMouseLeave={() => setHovering(false)}
       >
-        <div
-          className={`navbar__account${  hovering ? "--hover" : ""}`}
-        >
+        <div className={`navbar__account${hovering ? "--hover" : ""}`}>
           <SettingsIcon />
-          <div className="icon-container"
-            onClick={signOutHandler} 
+          <div
+            className="icon-container"
+            onClick={signOutHandler}
             onKeyDown={signOutHandler}
-            role="button" 
-            tabIndex="0">
-              <LogoutIcon />
+            role="button"
+            tabIndex="0"
+            data-testid="nav-signout-icon"
+          >
+            <LogoutIcon />
           </div>
         </div>
 
