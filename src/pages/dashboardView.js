@@ -18,7 +18,12 @@ const DashboardPlaceholder = (props) => {
 
 function DashboardView() {
 	const { currentUser } = useContext(AuthContext);
+	const [currentTask, setCurrentTask] = useState();
 	const [tasks, setTasks] = useState([]);
+
+	const handleTaskClick = (task) => {
+		setCurrentTask(task);
+	};
 
 	useEffect(() => {
 		fetchTasks(currentUser.uid).then((res) => {
@@ -30,21 +35,12 @@ function DashboardView() {
 		<>
 			<Navbar />
 			<div className='dashboard'>
-				<TaskList tasks={tasks} />
-				<CurrentTask
-					displayedTask={{
-						name: 'Current task name is really really long',
-						subtasks: [
-							{ id: 0, name: 'subtask1' },
-							{ id: 1, name: 'subtask2' },
-						],
-
-						notes: [
-							'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-							'Maecenas porttitor eget purus sit amet commodo. Ut non interdum mi. Donec tortor eros, luctus rutrum purus eget, ultricies fringilla enim.',
-						],
-					}}
+				<TaskList
+					tasks={tasks}
+					selectedTask={currentTask}
+					onTaskClick={handleTaskClick}
 				/>
+				<CurrentTask displayedTask={currentTask} />
 				<div className='dashboard__placeholder-column'>
 					<DashboardPlaceholder title='Stats:' />
 					<br />

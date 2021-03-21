@@ -3,7 +3,7 @@ import NewTask from '../NewTask';
 import Task from './Task/Task';
 
 function TaskList(props) {
-	const { tasks } = props;
+	const { onTaskClick, tasks, selectedTask } = props;
 
 	return (
 		<div className='task-list'>
@@ -12,7 +12,14 @@ function TaskList(props) {
 				<div className='task-list__tasks'>
 					{tasks.map((t) => (
 						<div key={t.Task_id}>
-							<Task name={t.Name} />
+							<Task
+								name={t.Name}
+								onClick={() => onTaskClick(t)}
+								selected={
+									selectedTask &&
+									t.Task_id === selectedTask.Task_id
+								}
+							/>
 						</div>
 					))}
 				</div>

@@ -3,7 +3,7 @@ import RightChevron from '../../../assets/icons/RightChevron';
 import Subtask from './Subtask';
 
 function Task(props) {
-	const { name, checked, expanded, subtasks } = props;
+	const { name, checked, expanded, onClick, selected, subtasks } = props;
 
 	const [isChecked, setIsChecked] = useState(checked);
 	const [isExpanded, setIsExpanded] = useState(expanded);
@@ -13,7 +13,13 @@ function Task(props) {
 
 	return (
 		<div className={`task${isExpanded ? '--expanded' : ''}`}>
-			<div className='task__header'>
+			<div
+				className={`task__header${selected ? '--selected' : ''}`}
+				onClick={onClick}
+				onKeyDown={onClick}
+				role='button'
+				tabIndex='0'
+			>
 				<div
 					className={`task__checkbox${isChecked ? '--checked' : ''}`}
 					onClick={handleCheckBoxClick}

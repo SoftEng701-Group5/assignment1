@@ -65,10 +65,12 @@ function CurrentTask(props) {
 						<div className='current-task__info'>
 							<Task
 								expanded
-								name={displayedTask.name}
-								subtasks={displayedTask.subtasks}
+								name={displayedTask.Name}
+								subtasks={displayedTask.Subtasks}
 							/>
-							<CurrentTaskNotes notes={displayedTask.notes} />
+							<CurrentTaskNotes
+								notes={[displayedTask.Description]}
+							/>
 						</div>
 					)}
 
