@@ -3,7 +3,15 @@ import { Link } from "react-router-dom";
 import getIcon from "./componentFunctions";
 
 function Button(props) {
-  const { path, text, icon, height, fontSize, handleOnClick } = props;
+  const {
+    className = "",
+    path,
+    text,
+    icon,
+    height,
+    fontSize,
+    handleOnClick,
+  } = props;
 
   // Call click handler if user presses "enter" key on button
   // Javascript keycode for enter key = 13
@@ -11,18 +19,18 @@ function Button(props) {
     if (e.keyCode === 13 && handleOnClick) {
       handleOnClick();
     }
-  }
+  };
 
   const button = (
     <div
-      className="button-container"
+      className={`${className}button-container`}
       style={{ height }}
       role="button"
       tabIndex={0}
       onClick={handleOnClick}
       onKeyDown={handleKeyDown}
     >
-      <span className="button-text" style={{ fontSize }}>
+      <span className={`${className}button-text`} style={{ fontSize }}>
         {text}
       </span>
       {getIcon(icon)}
@@ -31,7 +39,7 @@ function Button(props) {
   return (
     <>
       {path ? (
-        <Link to={path} className="button-link">
+        <Link to={path} className={`${className}button-link`}>
           {button}
         </Link>
       ) : (

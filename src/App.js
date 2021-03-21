@@ -1,12 +1,12 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import LoginView from "./pages/loginView";
 import SignUpView from "./pages/signUpView";
 import HomeView from "./pages/homeView";
 import PageNotFoundView from "./pages/pageNotFoundView";
-import Navbar from "./components/Navbar";
-import { AuthProvider } from './services/providers/authProvider';
-import PrivateRoute from './components/PrivateRoute';
+import { AuthProvider } from "./services/providers/authProvider";
+import PrivateRoute from "./components/PrivateRoute";
+import DashboardView from "./pages/dashboardView";
 
 function App() {
   return (
@@ -14,8 +14,8 @@ function App() {
       <Router>
         <div className="background">
           <div className="main-content">
-            <Switch>  
-              {/* Login/Signup page - no navbar */}
+            <Switch>
+              {/* Login/Signup page - unrestricted access */}
               <Route exact path="/">
                 <LoginView />
               </Route>
@@ -23,12 +23,11 @@ function App() {
                 <SignUpView />
               </Route>
 
-              {/* User pages - navbar present */}
-              <PrivateRoute routePath="/home" >
-                <Navbar />
-                <HomeView />
-              </PrivateRoute>
+              {/* Restricted pages */}
+              <PrivateRoute component={HomeView} path="/home" exact />
 
+              {/* Welcome dashboard - navbar present */}
+              <PrivateRoute component={DashboardView} path="/dashboard" exact />
               {/* Fallback - if none of the above routes are hit */}
               <Route>
                 <PageNotFoundView />
