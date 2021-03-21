@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import NewTask from '../NewTask';
 import Task from './Task/Task';
+import { CurrentTaskContext } from '../timer-modal/TimerContextProvider';
 
 function TaskList(props) {
-	const { onTaskClick, tasks, selectedTask } = props;
+	const { onTaskClick, tasks } = props;
+	const [currentTask] = useContext(CurrentTaskContext);
 
 	return (
 		<div className='task-list'>
@@ -16,8 +18,8 @@ function TaskList(props) {
 								name={t.Name}
 								onClick={() => onTaskClick(t)}
 								selected={
-									selectedTask &&
-									t.Task_id === selectedTask.Task_id
+									currentTask &&
+									t.Task_id === currentTask.Task_id
 								}
 							/>
 						</div>

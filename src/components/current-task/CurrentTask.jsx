@@ -11,11 +11,11 @@ import {
 	WorkTimerMemoryContext,
 	BreakTimerMemoryContext,
 	PlayContext,
+	CurrentTaskContext,
 } from '../timer-modal/TimerContextProvider';
 
-function CurrentTask(props) {
-	const { displayedTask } = props;
-
+function CurrentTask() {
+	const [currentTask] = useContext(CurrentTaskContext);
 	const [, setWorkTimerMemory] = useContext(WorkTimerMemoryContext);
 	const [, setBreakTimerMemory] = useContext(BreakTimerMemoryContext);
 	const [, setPlay] = useContext(PlayContext);
@@ -55,7 +55,7 @@ function CurrentTask(props) {
 	return (
 		<div className='current-task'>
 			<h1 className='current-task__title'>Current Task:</h1>
-			{displayedTask ? (
+			{currentTask ? (
 				<div className='current-task__content'>
 					{showConfig ? (
 						<TimerConfig
@@ -65,11 +65,11 @@ function CurrentTask(props) {
 						<div className='current-task__info'>
 							<Task
 								expanded
-								name={displayedTask.Name}
-								subtasks={displayedTask.Subtasks}
+								name={currentTask.Name}
+								subtasks={currentTask.Subtasks}
 							/>
 							<CurrentTaskNotes
-								notes={[displayedTask.Description]}
+								notes={[currentTask.Description]}
 							/>
 						</div>
 					)}

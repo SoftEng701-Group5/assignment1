@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import CurrentTask from '../components/current-task/CurrentTask';
 import TaskList from '../components/global/TaskList';
 import Navbar from '../components/Navbar';
+import { CurrentTaskContext } from '../components/timer-modal/TimerContextProvider';
 
 import { fetchTasks } from '../services/databaseService';
 import { AuthContext } from '../services/providers/authProvider';
@@ -18,7 +19,7 @@ const DashboardPlaceholder = (props) => {
 
 function DashboardView() {
 	const { currentUser } = useContext(AuthContext);
-	const [currentTask, setCurrentTask] = useState();
+	const [, setCurrentTask] = useContext(CurrentTaskContext);
 	const [tasks, setTasks] = useState([]);
 
 	const handleTaskClick = (task) => {
@@ -35,12 +36,8 @@ function DashboardView() {
 		<>
 			<Navbar />
 			<div className='dashboard'>
-				<TaskList
-					tasks={tasks}
-					selectedTask={currentTask}
-					onTaskClick={handleTaskClick}
-				/>
-				<CurrentTask displayedTask={currentTask} />
+				<TaskList tasks={tasks} onTaskClick={handleTaskClick} />
+				<CurrentTask />
 				<div className='dashboard__placeholder-column'>
 					<DashboardPlaceholder title='Stats:' />
 					<br />
