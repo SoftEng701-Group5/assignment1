@@ -50,15 +50,13 @@ function Task(props) {
 					<div className={`task__content${isExpanded ? '--expanded' : ''}`}>
 						<div className='task__subtask-list'>
 							{subtasks &&
-								subtasks.map((subtask) => {
-									console.log("SUBTASK ID: " + subtask.id + ", NAME: " + subtask.name + ", CHECKED: " + subtask.checked)
-									console.log(subtasks)
-									return <Subtask
+								subtasks.map((subtask) => (
+									<Subtask
 										key={subtask.id}
 										name={subtask.name}
 										checked={subtask.checked}
 									/>
-								})}
+								))}
 						</div>
 					</div>
 				</div>
