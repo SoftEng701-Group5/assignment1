@@ -4,6 +4,8 @@ import {
   PlayContext,
   BreakTimerContext,
   TimerModalShowContext,
+  WorkTimerMemoryContext,
+  BreakTimerMemoryContext
 } from "./TimerContextProvider";
 import IconButton from "../global/IconButton";
 
@@ -12,6 +14,10 @@ export default function TimerSection() {
   const [play, setPlay] = useContext(PlayContext);
   const [breakTimer, setBreakTimer] = useContext(BreakTimerContext);
   const [showModal, setShowModal] = useContext(TimerModalShowContext);
+
+  const [workTimerMemory, ] = useContext(WorkTimerMemoryContext);
+  const [breakTimerMemory, ] = useContext(BreakTimerMemoryContext);
+  
 
   const minutes = Math.floor(timer.seconds / 60);
   const seconds = timer.seconds % 60;
@@ -67,6 +73,20 @@ export default function TimerSection() {
 
     return () => clearTimeout(interval);
   }, [play, timer, breakTimer, setBreakTimer]);
+
+
+  useEffect(() => {
+
+    if (timer.seconds === 0 && breakTimer.seconds === 0) {
+      setTimer({seconds : workTimerMemory.seconds});
+      setBreakTimer({seconds : breakTimerMemory.seconds}); 
+    }
+
+  }, [play, timer, breakTimer]);
+
+  
+
+
 
   return (
     <div>

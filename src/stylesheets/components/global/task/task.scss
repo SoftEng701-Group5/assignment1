@@ -4,26 +4,26 @@
 		$task-header-background,
 		$task-content-background
 	);
-}
 
-.task__checkbox,
-.task__checkbox--checked {
-	width: 25px;
-	height: 25px;
-	background: transparent;
-	border: 3px solid white;
-	border-radius: 50%;
-	outline: none;
-	margin-right: 16px;
+	&__checkbox,
+	&__checkbox--checked {
+		width: 25px;
+		height: 25px;
+		background: transparent;
+		border: 3px solid white;
+		border-radius: 50%;
+		outline: none;
+		margin-right: 16px;
 
-	box-shadow: 0px 0px 6px 1px rgba(255, 236, 236, 0.25);
-}
+		box-shadow: 0px 0px 6px 1px rgba(255, 236, 236, 0.25);
+	}
 
-.task__checkbox--checked {
-	background: $task-checkbox-color;
-}
+	&__checkbox--checked {
+		background: $task-checkbox-color;
+	}
 
-.task__title--checked {
-	text-decoration: line-through;
-	font-style: italic;
+	&__title--checked {
+		text-decoration: line-through;
+		font-style: italic;
+	}
 }
