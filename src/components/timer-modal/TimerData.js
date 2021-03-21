@@ -8,4 +8,4 @@ export const defaultBreakTimer = {
 }
 
 export const defaultPlay = false
-
+export const defaultTimerModalShow = false
