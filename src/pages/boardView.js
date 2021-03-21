@@ -5,6 +5,7 @@ import BoardImage from "../assets/images/BoardImage";
 import "../stylesheets/boardView.scss";
 import TaskBoardSampleData from "../components/global/TaskBoardSampleData";
 import Navbar from "../components/Navbar";
+import NewTask from "../components/NewTask";
 
 function BoardView() {
   const [boardData, setBoardData] = useState(TaskBoardSampleData);
@@ -106,20 +107,22 @@ function BoardView() {
       <Navbar />
       <DragDropContext onDragEnd={onDragEnd}>
         <div className="row">
-          {boardData.columnOrder.map((columnId) => {
+          {boardData.columnOrder.map((columnId, index) => {
             const column = boardData.columns[columnId];
             const tasks = column.taskIds.map(
               (taskId) => boardData.tasks[taskId]
             );
-
             return (
-              <Column
-                key={column.id}
-                column={column}
-                tasks={tasks}
-                subTasks={boardData.subTasks}
-                handleList={onListClick}
-              />
+              <div>
+                <Column
+                  key={column.id}
+                  column={column}
+                  tasks={tasks}
+                  subTasks={boardData.subTasks}
+                  handleList={onListClick}
+                />
+                {!index ? <NewTask /> : null}
+              </div>
             );
           })}
         </div>
