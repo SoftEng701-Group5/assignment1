@@ -19,8 +19,9 @@ function CurrentTaskNotes(props) {
       </div>
 
       <div
-        className={`current-task-notes__content${isExpanded ? "--expanded" : ""
-          }`}
+        className={`current-task-notes__content${
+          isExpanded ? "--expanded" : ""
+        }`}
       >
         <ul className="current-task-notes__list">
           {notes && notes.map((note) => <li>{note}</li>)}
