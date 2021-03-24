@@ -14,6 +14,12 @@ import {
   CurrentTaskContext,
 } from "../timer-modal/TimerContextProvider";
 
+/**
+ * This function represents the Current Task component which shows
+ * a detailed view of a selected task from Today's Tasks, along
+ * with a timer that can be used to complete the current task.
+ * Timer configuration is availbale to the user.
+ */
 function CurrentTask() {
   const [currentTask] = useContext(CurrentTaskContext);
   const [, setWorkTimerMemory] = useContext(WorkTimerMemoryContext);

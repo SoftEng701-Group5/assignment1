@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import RightChevron from "../../assets/icons/RightChevron";
 
+/**
+ * This function represents the Notes component that makes up the Current Task component.
+ * The current task's notes are shown when the Notes component is expanded.
+ */
 function CurrentTaskNotes(props) {
   const { notes } = props;
   const [isExpanded, setIsExpanded] = useState(false);
@@ -15,9 +19,8 @@ function CurrentTaskNotes(props) {
       </div>
 
       <div
-        className={`current-task-notes__content${
-          isExpanded ? "--expanded" : ""
-        }`}
+        className={`current-task-notes__content${isExpanded ? "--expanded" : ""
+          }`}
       >
         <ul className="current-task-notes__list">
           {notes && notes.map((note) => <li>{note}</li>)}

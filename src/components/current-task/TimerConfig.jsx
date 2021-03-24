@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import TextInput from "../global/TextInput";
 
+/**
+ * This function handles the configuration of the Timer component used in the
+ * Current Task component. The user is able to input their desired minutes
+ * and seconds values.
+ */
 const IntervalInput = (props) => {
   const {
     onMinutesChangeHandler,
@@ -43,6 +48,12 @@ const IntervalInput = (props) => {
   );
 };
 
+/**
+ * This function represents the Timer Configuration component that makes
+ * up the Current Task component. This component uses the timer configuration
+ * handler above to configure the timer according to user input if the default
+ * timer values are not desired.
+ */
 function TimerConfig(props) {
   const { setTimerConfigValues } = props;
 
