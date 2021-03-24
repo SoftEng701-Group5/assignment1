@@ -9,7 +9,7 @@ import NewTask from "../components/NewTask";
 function BoardView() {
   const [boardData, setBoardData] = useState(TaskBoardSampleData);
 
-  const [opened, setOpened] = useState(false);
+  const [sortListOpened, setSortListOpened] = useState(false);
 
   /**
    * Called when an item in the column sorting dropdown is clicked
@@ -17,8 +17,8 @@ function BoardView() {
    * @param {*} sortBy The sorting arrangement selected
    * @param {*} revOrder A boolean for if the order should be reversed
    */
-  const onListClick = (column, sortBy, revOrder) => () => {
-    setOpened(!opened);
+  const onSortListClick = (column, sortBy, revOrder) => () => {
+    setSortListOpened(!sortListOpened);
     const sorted = Object.values(boardData.tasks);
     // sort the list in terms of the specified value e.g. title, date
     sorted.sort((a, b) => {
@@ -131,7 +131,7 @@ function BoardView() {
                   column={column}
                   tasks={tasks}
                   subTasks={boardData.subTasks}
-                  handleList={onListClick}
+                  handleSortList={onSortListClick}
                 />
                 {!index ? <NewTask /> : null}
               </div>
