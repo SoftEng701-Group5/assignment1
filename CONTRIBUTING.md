@@ -51,9 +51,11 @@ Enhancements should be appropriately labelled as such.
 ## Styleguides
 ### Naming Conventions
 Names of project files should:
-* BeWrittenInPascalCase.
 * Be described in three or less words.
 * Include, if necessary, the subgroup name.
+* Names of components should be in PascalCase and end in .jsx.
+* Names of function files should be in camelCase and end in .js.
+* Names of scss files should also be in camelCase.
 ### BEM Naming for CSS
 Mello uses the BEM Naming structure, which aims to keep CSS codebases structured with a consistent naming convention.
 
@@ -62,6 +64,7 @@ Mello uses the BEM Naming structure, which aims to keep CSS codebases structured
 Project files should be:
 * Assets, Components, Pages, Stylesheets, and other project elements placed in their respective folders.
 * Components placed in a labelled subfolder (See [Naming Conventions](#naming-conventions)).
+* SCSS files should mirror component file structure.
 ### Git Commit Messages
 * Use the present tense ("Add feature" not "Added feature")
 * Use the imperative mood ("Move cursor to..." not "Moves cursor to...")
