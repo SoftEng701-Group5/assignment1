@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { DragDropContext } from "react-beautiful-dnd";
 import Column from "../components/global/Column";
 import BoardImage from "../assets/images/BoardImage";
-import TaskBoardSampleData from "../components/global/TaskBoardSampleData";
+import TaskBoardSampleData from "../assets/TaskBoardSampleData";
 import Navbar from "../components/Navbar";
 import NewTask from "../components/NewTask";
 

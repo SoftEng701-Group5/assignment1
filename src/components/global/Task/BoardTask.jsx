@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Draggable } from "react-beautiful-dnd";
 import RightChevron from "../../../assets/icons/RightChevron";
-import TaskBoardSampleData from "../TaskBoardSampleData";
+import TaskBoardSampleData from "../../../assets/TaskBoardSampleData";
 import Subtask from "./Subtask";
 
 function BoardTask(props) {
