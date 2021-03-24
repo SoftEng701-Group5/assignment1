@@ -3,6 +3,7 @@ import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import LoginView from "./pages/loginView";
 import SignUpView from "./pages/signUpView";
 import HomeView from "./pages/homeView";
+import BoardView from "./pages/boardView";
 import PageNotFoundView from "./pages/pageNotFoundView";
 import { AuthProvider } from "./services/providers/authProvider";
 import PrivateRoute from "./components/PrivateRoute";
@@ -25,6 +26,9 @@ function App() {
 
               {/* Restricted pages */}
               <PrivateRoute component={HomeView} path="/home" exact />
+
+              {/* Trello Task View */}
+              <PrivateRoute component={BoardView} path="/board" exact />
 
               {/* Welcome dashboard - navbar present */}
               <PrivateRoute component={DashboardView} path="/dashboard" exact />
