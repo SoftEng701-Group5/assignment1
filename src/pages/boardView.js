@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { DragDropContext } from "react-beautiful-dnd";
-import Column from "../components/global/Column";
+import Column from "../components/task-board/TaskBoardColumn";
 import BoardImage from "../assets/images/BoardImage";
 import TaskBoardSampleData from "../assets/TaskBoardSampleData";
 import Navbar from "../components/Navbar";
@@ -9,7 +9,7 @@ import NewTask from "../components/NewTask";
 function BoardView() {
   const [boardData, setBoardData] = useState(TaskBoardSampleData);
 
-  const [open, setOpened] = useState(false);
+  const [opened, setOpened] = useState(false);
 
   /**
    * Called when an item in the column sorting dropdown is clicked
@@ -18,7 +18,7 @@ function BoardView() {
    * @param {*} revOrder A boolean for if the order should be reversed
    */
   const onListClick = (column, sortBy, revOrder) => () => {
-    setOpened(!open);
+    setOpened(!opened);
     const sorted = Object.values(boardData.tasks);
     // sort the list in terms of the specified value e.g. title, date
     sorted.sort((a, b) => {

@@ -1,19 +1,19 @@
 import React from "react";
 import { Droppable } from "react-beautiful-dnd";
-import BoardTask from "./Task/BoardTask";
+import BoardTask from "../global/Task/BoardTask";
 
-function Column(props) {
+function TaskBoardColumn(props) {
   const { column, tasks, subTasks, handleList } = props;
 
-  const [open, setOpened] = React.useState(false);
+  const [opened, setOpened] = React.useState(false);
 
   const onButtonClick = () => {
-    setOpened(!open);
+    setOpened(!opened);
   };
 
   return (
-    <div className="column__container">
-      <h1 className="column__container__heading">
+    <div className="column-container">
+      <h1 className="column-container__heading">
         {column.title}
         <div className="column__sorting">
           <button
@@ -24,7 +24,7 @@ function Column(props) {
           >
             ☰
           </button>
-          {open && (
+          {opened && (
             <div className="column__dropdown">
               <button
                 type="button"
@@ -94,4 +94,4 @@ function Column(props) {
   );
 }
 
-export default Column;
+export default TaskBoardColumn;
