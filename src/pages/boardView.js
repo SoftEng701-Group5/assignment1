@@ -20,9 +20,9 @@ function BoardView() {
   const onSortListClick = (column, sortBy, revOrder) => () => {
     setSortListOpened(!sortListOpened);
 
-    const sorted = Object.values(boardData.tasks);
+    const sortedTasks = Object.values(boardData.tasks);
     // Sort the list in terms of the specified value e.g. title, date
-    sorted.sort((a, b) => {
+    sortedTasks.sort((a, b) => {
       // If oldest date is first
       if (revOrder) {
         return b[sortBy].localeCompare(a[sortBy]);
@@ -32,7 +32,7 @@ function BoardView() {
     });
 
     const newTaskIds = [];
-    sorted.forEach((task) => {
+    sortedTasks.forEach((task) => {
       // Only add the tasks that are in the specified column
       if (boardData.columns[column].taskIds.includes(task.id)) {
         newTaskIds.push(task.id);
