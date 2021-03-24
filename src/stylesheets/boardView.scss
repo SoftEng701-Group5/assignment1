@@ -1,0 +1,21 @@
+.taskboard_container {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding-left: 100px;
+}
+
+.taskboard_background {
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    position: absolute;
+    height: calc(min(80vh, 40vw));
+    width: calc(min(80vh, 40vw));
+    svg {
+      position: absolute;
+      right: 0;
+      width: 100%;
+    }
+  }

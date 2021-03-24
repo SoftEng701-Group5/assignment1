@@ -12,6 +12,7 @@
 @import './signupView.scss';
 @import './loginView.scss';
 @import './dashboard.scss';
+@import './boardView.scss';
 @import './home.scss';
 
 @import './components/current-task/currentTask.scss';
@@ -25,3 +26,5 @@
 
 @import './components/timer-modal/timerModal.scss';
 @import './components/timer-modal/timerSection.scss';
+
+@import './components//task-board/taskBoardColumn.scss'
