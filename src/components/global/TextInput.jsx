@@ -2,7 +2,6 @@ import React from "react";
 
 /**
  * This component is a customisable text input
- * 
  * @param type Optional input type, e.g 'password'. If left out, 'text' will be used
  * @param centered Flag used to center-align text
  * @param label Optional ext used for label element (appears above input)
