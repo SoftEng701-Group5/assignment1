@@ -7,6 +7,12 @@ import { CurrentTaskContext } from "./TimerContextProvider";
 
 const modalRoot = document.querySelector("#modal-root");
 
+/**
+ * Creates a modal with Task, CurrentTaskNotes, and Timer Section
+ * overlaying on top of the current components on screen.
+ * @returns an overlayed timer modal component with a Task,
+ * CurrentTaskNotes, and Timer Section component.
+ */
 export default function TimerModal() {
   const [currentTask] = useContext(CurrentTaskContext);
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from "react";
 import {
-  TimerContext,
+  WorkTimerContext,
   PlayContext,
   BreakTimerContext,
   TimerModalShowContext,
@@ -9,8 +9,15 @@ import {
 } from "./TimerContextProvider";
 import IconButton from "../global/IconButton";
 
+/**
+ * Creates a TimerSection component with the timer title, timer,
+ * play and minimise elements. All rendering of elements will propogate
+ * to all other elements since timer-related contexts are used.
+ * @returns a TimerSection component with the title, timer, play and
+ * minimise element.
+ */
 export default function TimerSection() {
-  const [timer, setTimer] = useContext(TimerContext);
+  const [workTimer, setWorkTimer] = useContext(WorkTimerContext);
   const [play, setPlay] = useContext(PlayContext);
   const [breakTimer, setBreakTimer] = useContext(BreakTimerContext);
   const [showModal, setShowModal] = useContext(TimerModalShowContext);
@@ -18,12 +25,19 @@ export default function TimerSection() {
   const [workTimerMemory] = useContext(WorkTimerMemoryContext);
   const [breakTimerMemory] = useContext(BreakTimerMemoryContext);
 
-  const minutes = Math.floor(timer.seconds / 60);
-  const seconds = timer.seconds % 60;
+  const workMinutes = Math.floor(workTimer.seconds / 60);
+  const workSeconds = workTimer.seconds % 60;
 
   const breakMinutes = Math.floor(breakTimer.seconds / 60);
   const breakSeconds = breakTimer.seconds % 60;
 
+  /**
+   * timerFormat function takes two parameters
+   * m: the minutes
+   * s: the seconds
+   * The function returns a string in the form mm:ss
+   * where m is minutes and s is seconds.
+   */
   const timerFormat = (m, s) => {
     let timerStr = "";
 
@@ -45,23 +59,34 @@ export default function TimerSection() {
     return timerStr;
   };
 
+  /**
+   * UseEffect hooked invoked to decrease the work timer when the
+   * play button is active and work time has not completed.
+   */
   useEffect(() => {
     let interval = null;
 
-    if (timer.seconds > 0 && play) {
+    if (workTimer.seconds > 0 && play) {
       interval = setTimeout(
-        () => setTimer(timer.seconds !== 0 && { seconds: timer.seconds - 1 }),
+        () =>
+          setWorkTimer(
+            workTimer.seconds !== 0 && { seconds: workTimer.seconds - 1 }
+          ),
         1000
       );
     }
 
     return () => clearTimeout(interval);
-  }, [play, timer, setTimer]);
+  }, [play, workTimer, setWorkTimer]);
 
+  /**
+   * UseEffect hook invoked to decrease the break timer when play is
+   * invoked and work timer has reached completion.
+   */
   useEffect(() => {
     let interval = null;
 
-    if (timer.seconds === 0 && play) {
+    if (workTimer.seconds === 0 && play) {
       interval = setTimeout(
         () =>
           setBreakTimer(
@@ -72,25 +97,29 @@ export default function TimerSection() {
     }
 
     return () => clearTimeout(interval);
-  }, [play, timer, breakTimer, setBreakTimer]);
+  }, [play, workTimer, breakTimer, setBreakTimer]);
 
+  /**
+   * UseEffect hook invoked to reset the work and break timer to its
+   * original set value after both timers have finished - looping the
+   * work and break cycle over and over.
+   */
   useEffect(() => {
-    if (timer.seconds === 0 && breakTimer.seconds === 0) {
-      setTimer({ seconds: workTimerMemory.seconds });
+    if (workTimer.seconds === 0 && breakTimer.seconds === 0) {
+      setWorkTimer({ seconds: workTimerMemory.seconds });
       setBreakTimer({ seconds: breakTimerMemory.seconds });
     }
-  }, [play, timer, breakTimer]);
+  }, [play, workTimer, breakTimer]);
 
   return (
     <div>
       <div className="timerTitle">
-        {" "}
-        {timer.seconds === 0 ? "Break" : "Work"}{" "}
+        {workTimer.seconds === 0 ? "Break" : "Work"}
       </div>
       <h1 className="timer-text">
-        {timer.seconds === 0
+        {workTimer.seconds === 0
           ? timerFormat(breakMinutes, breakSeconds)
-          : timerFormat(minutes, seconds)}
+          : timerFormat(workMinutes, workSeconds)}
       </h1>
 
       <div className="button-align">
