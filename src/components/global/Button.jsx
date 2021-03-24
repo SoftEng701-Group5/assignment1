@@ -25,8 +25,7 @@ function Button(props) {
 
   /**
    * Called for any keypress while user is focused on the button
-   * If the key pressed is enter (keyCode = 13)
-   * The click handler is activated
+   * If the key pressed is enter, the supplied clickHandler function is called
    * @param e Keypress event
    */
   const handleKeyDown = (e) => {
