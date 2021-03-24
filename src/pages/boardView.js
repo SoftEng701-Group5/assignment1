@@ -11,7 +11,6 @@ function BoardView() {
 
   const [open, setOpened] = useState(false);
 
-
   /**
    * Called when an item in the column sorting dropdown is clicked
    * @param {*} column The column which is to be sorted
