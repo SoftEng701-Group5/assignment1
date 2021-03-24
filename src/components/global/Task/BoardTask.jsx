@@ -11,6 +11,7 @@ function BoardTask(props) {
   const [isExpanded, setIsExpanded] = useState(expanded);
 
   const handleCheckBoxClick = () => {
+    // Update the sample data file
     if (boardTask) {
       TaskBoardSampleData.tasks[boardTask.id].checked = !isChecked;
     }
@@ -19,10 +20,12 @@ function BoardTask(props) {
   const handleIconClick = () => setIsExpanded(!isExpanded);
 
   return (
+    // Task wrapped in a draggable instance. Dnd library requires the contents of a draggable to be wrapped in (provided)
     <Draggable key={id} draggableId={id} index={index}>
       {(provided) => (
         <div
           className={`task${isExpanded ? "--expanded" : ""}`}
+          // Props and references for the drag-and-drop library
           {...provided.draggableProps}
           {...provided.dragHandleProps}
           innerRef={provided.innerRef}

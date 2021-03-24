@@ -11,6 +11,13 @@ function BoardView() {
 
   const [open, setOpened] = useState(false);
 
+
+  /**
+   * Called when an item in the column sorting dropdown is clicked
+   * @param {*} column The column which is to be sorted
+   * @param {*} sortBy The sorting arrangement selected
+   * @param {*} revOrder A boolean for if the order should be reversed
+   */
   const onListClick = (column, sortBy, revOrder) => () => {
     setOpened(!open);
     const sorted = Object.values(boardData.tasks);
@@ -40,6 +47,10 @@ function BoardView() {
     setBoardData({ ...newBoardData });
   };
 
+  /**
+   * Called when the user drops or 'lets go of' a draggable item.
+   * @param {*} result Contains the source and destination columns of the drag, as well as the dragged items id
+   */
   const onDragEnd = (result) => {
     // the destination and source positons, as well as the id of the dragged task
     const { destination, source, draggableId } = result;
@@ -56,18 +67,18 @@ function BoardView() {
       return;
     }
 
-    const start = boardData.columns[source.droppableId];
-    const finish = boardData.columns[destination.droppableId];
+    const startColumn = boardData.columns[source.droppableId];
+    const finishColumn = boardData.columns[destination.droppableId];
 
-    if (start === finish) {
-      // Dragged within one column
-      const newTaskIds = Array.from(start.taskIds);
+    // Dragged within one column
+    if (startColumn === finishColumn) {
+      const newTaskIds = Array.from(startColumn.taskIds);
       newTaskIds.splice(source.index, 1);
       newTaskIds.splice(destination.index, 0, draggableId);
 
       // Update column task ids
       const newColumn = {
-        ...start,
+        ...startColumn,
         taskIds: newTaskIds,
       };
       const newBoardData = boardData;
@@ -78,22 +89,25 @@ function BoardView() {
     }
 
     // Start column different to destination
-    const startTaskIds = Array.from(start.taskIds);
+    const startTaskIds = Array.from(startColumn.taskIds);
     startTaskIds.splice(source.index, 1);
+
+    // Update the starting column with new task ids
     const newStart = {
-      ...start,
+      ...startColumn,
       taskIds: startTaskIds,
     };
 
-    const finishTaskIds = Array.from(finish.taskIds);
+    const finishTaskIds = Array.from(finishColumn.taskIds);
     finishTaskIds.splice(destination.index, 0, draggableId);
 
-    // Update the column with the new task ids
+    // Update the destination column with the new task ids
     const newFinish = {
-      ...finish,
+      ...finishColumn,
       taskIds: finishTaskIds,
     };
 
+    // Update board data
     const newBoardData = boardData;
 
     newBoardData.columns[source.droppableId] = newStart;

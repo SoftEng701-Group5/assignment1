@@ -52,14 +52,17 @@ function Column(props) {
         </div>
       </h1>
 
+      {/* Droppable identified by it's title. Dnd library requires the contents of the droppable to be wrapped in (provided) */}
       <Droppable droppableId={column.title}>
         {(provided) => (
           <div
             className="column"
+            // References and props for the drag-and-drop library
             innerRef={provided.innerRef}
             ref={provided.innerRef}
             {...provided.droppableProps}
           >
+            {/* Create the list of tasks using a mapping function */}
             {tasks.map((task, index) => {
               const subTaskList = Object.values(subTasks);
               const filteredSubTasks = [];
