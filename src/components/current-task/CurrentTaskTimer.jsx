@@ -13,7 +13,7 @@ import TimerModal from "../timer-modal/TimerModal";
 /**
  * This function represents the Timer component of the Current Tasks component.
  * The timer can be used when a user wishes to complete a task using the
- * pomodoro technique. Timer conmfiguration is available to the user.
+ * pomodoro technique. Timer configuration is available to the user.
  */
 export default function CurrentTaskTimer() {
   const [timer, setTimer] = useContext(TimerContext);
