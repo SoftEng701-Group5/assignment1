@@ -9,6 +9,13 @@ import {
 } from "./TimerContextProvider";
 import IconButton from "../global/IconButton";
 
+/**
+ * Creates a TimerSection component with the timer title, timer,
+ * play and minimise elements. All rendering of elements will propogate
+ * to all other elements since timer-related contexts are used.
+ * @returns a TimerSection component with the title, timer, play and
+ * minimise element.
+ */
 export default function TimerSection() {
   const [workTimer, setWorkTimer] = useContext(WorkTimerContext);
   const [play, setPlay] = useContext(PlayContext);
@@ -24,6 +31,13 @@ export default function TimerSection() {
   const breakMinutes = Math.floor(breakTimer.seconds / 60);
   const breakSeconds = breakTimer.seconds % 60;
 
+  /**
+   * timerFormat function takes two parameters
+   * m: the minutes
+   * s: the seconds
+   * The function returns a string in the form mm:ss
+   * where m is minutes and s is seconds.
+   */
   const timerFormat = (m, s) => {
     let timerStr = "";
 
@@ -45,6 +59,10 @@ export default function TimerSection() {
     return timerStr;
   };
 
+  /**
+   * UseEffect hooked invoked to decrease the work timer when the
+   * play button is active and work time has not completed.
+   */
   useEffect(() => {
     let interval = null;
 
@@ -61,6 +79,10 @@ export default function TimerSection() {
     return () => clearTimeout(interval);
   }, [play, workTimer, setWorkTimer]);
 
+  /**
+   * UseEffect hook invoked to decrease the break timer when play is
+   * invoked and work timer has reached completion.
+   */
   useEffect(() => {
     let interval = null;
 
@@ -77,6 +99,11 @@ export default function TimerSection() {
     return () => clearTimeout(interval);
   }, [play, workTimer, breakTimer, setBreakTimer]);
 
+  /**
+   * UseEffect hook invoked to reset the work and break timer to its
+   * original set value after both timers have finished - looping the
+   * work and break cycle over and over.
+   */
   useEffect(() => {
     if (workTimer.seconds === 0 && breakTimer.seconds === 0) {
       setWorkTimer({ seconds: workTimerMemory.seconds });
@@ -87,8 +114,7 @@ export default function TimerSection() {
   return (
     <div>
       <div className="timerTitle">
-        {" "}
-        {workTimer.seconds === 0 ? "Break" : "Work"}{" "}
+        {workTimer.seconds === 0 ? "Break" : "Work"}
       </div>
       <h1 className="timer-text">
         {workTimer.seconds === 0

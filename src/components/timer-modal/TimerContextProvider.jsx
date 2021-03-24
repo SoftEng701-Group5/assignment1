@@ -4,7 +4,7 @@ import {
   defaultBreakTimer,
   defaultPlay,
   defaultTimerModalShow,
-} from "./TimerData";
+} from "./timerData";
 
 const WorkTimerContext = React.createContext(defaultWorkTimer);
 const PlayContext = React.createContext(defaultPlay);
@@ -15,8 +15,12 @@ const WorkTimerMemoryContext = React.createContext(defaultWorkTimer);
 const CurrentTaskContext = React.createContext();
 const FullscreenContext = React.createContext();
 
-/* Global timer data used to retrieve timer and set the timer.
-Bi-directional rendering of components that uses the context.
+/**
+ * Global timer context used to retrieve related contexts to timer.
+ * Bi-directional component rendering that uses the context.
+ * children property will be able to use all contexts provided.
+ * @param {children} props - a child component for all timer contexts to wrap around.
+ * @returns all context providers wrapped around the child component.
  */
 function TimerContextProvider(props) {
   const { children } = props;
