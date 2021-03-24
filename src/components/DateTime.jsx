@@ -29,6 +29,8 @@ function DateTime() {
     );
   };
 
+  /** Update the time every 30 seconds. Updating this every 60 seconds
+  cause a lot of lag for the time. * */
   useEffect(() => {
     getDateInfo();
 
