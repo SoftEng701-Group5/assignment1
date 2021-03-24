@@ -3,6 +3,11 @@ import NewTask from "../NewTask";
 import Task from "./Task/Task";
 import { CurrentTaskContext } from "../timer-modal/TimerContextProvider";
 
+/**
+ * This function represents the global Task List component used on the home page
+ * and Welcome Dashboard. It contains user defined tasks that can be expanded to
+ * display task details, and a button to add new tasks.
+ */
 function TaskList(props) {
   const { onTaskClick, tasks } = props;
   const [currentTask] = useContext(CurrentTaskContext);
