@@ -21,27 +21,27 @@ function BoardView() {
     setSortListOpened(!sortListOpened);
 
     const sorted = Object.values(boardData.tasks);
-    // sort the list in terms of the specified value e.g. title, date
+    // Sort the list in terms of the specified value e.g. title, date
     sorted.sort((a, b) => {
-      // if oldest date is first
+      // If oldest date is first
       if (revOrder) {
         return b[sortBy].localeCompare(a[sortBy]);
       }
-      // if increasing alphabetically or by date
+      // If increasing alphabetically or by date
       return a[sortBy].localeCompare(b[sortBy]);
     });
 
     const newTaskIds = [];
     sorted.forEach((task) => {
-      // only add the tasks that are in the specified column
+      // Only add the tasks that are in the specified column
       if (boardData.columns[column].taskIds.includes(task.id)) {
         newTaskIds.push(task.id);
       }
     });
 
+    // Update board data with the sorted column
     const sortedColumn = boardData.columns[column];
     sortedColumn.taskIds = newTaskIds;
-
     const newBoardData = boardData;
     newBoardData.columns[column] = sortedColumn;
     setBoardData({ ...newBoardData });
