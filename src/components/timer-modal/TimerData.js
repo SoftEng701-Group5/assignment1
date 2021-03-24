@@ -4,8 +4,8 @@ export const defaultTimer = {
 };
 
 export const defaultBreakTimer = {
-  seconds: 300
-}
+  seconds: 300,
+};
 
-export const defaultPlay = false
-export const defaultTimerModalShow = false
+export const defaultPlay = false;
+export const defaultTimerModalShow = false;

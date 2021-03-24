@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import getIcon from './componentFunctions';
+import React from "react";
+import { Link } from "react-router-dom";
+import getIcon from "./componentFunctions";
 
 /**
  * Generic button component
@@ -14,7 +14,7 @@ import getIcon from './componentFunctions';
  */
 function Button(props) {
   const {
-    className = '',
+    className = "",
     path,
     text,
     icon,
@@ -35,7 +35,7 @@ function Button(props) {
     <div
       className={`${className}button-container`}
       style={{ height }}
-      role='button'
+      role="button"
       tabIndex={0}
       onClick={handleOnClick}
       onKeyDown={handleKeyDown}

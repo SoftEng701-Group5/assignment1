@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   defaultTimer,
   defaultBreakTimer,
   defaultPlay,
   defaultTimerModalShow,
-} from './TimerData';
+} from "./TimerData";
 
 const TimerContext = React.createContext(defaultTimer);
 const PlayContext = React.createContext(defaultPlay);
@@ -31,9 +31,7 @@ function TimerContextProvider(props) {
     <PlayContext.Provider value={[play, setPlay]}>
       <TimerContext.Provider value={[timer, setTimer]}>
         <BreakTimerContext.Provider value={[breakTimer, setBreakTimer]}>
-          <TimerModalShowContext.Provider
-            value={[showModal, setShowModal]}
-          >
+          <TimerModalShowContext.Provider value={[showModal, setShowModal]}>
             <BreakTimerMemoryContext.Provider
               value={[breakTimerMemory, setBreakTimerMemory]}
             >

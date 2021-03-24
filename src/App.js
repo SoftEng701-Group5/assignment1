@@ -4,9 +4,9 @@ import LoginView from "./pages/loginView";
 import SignUpView from "./pages/signUpView";
 import HomeView from "./pages/homeView";
 import PageNotFoundView from "./pages/pageNotFoundView";
-import { AuthProvider } from './services/providers/authProvider';
-import PrivateRoute from './components/PrivateRoute';
-import DashboardView from './pages/dashboardView';
+import { AuthProvider } from "./services/providers/authProvider";
+import PrivateRoute from "./components/PrivateRoute";
+import DashboardView from "./pages/dashboardView";
 
 function App() {
   return (
@@ -35,8 +35,8 @@ function App() {
             </Switch>
           </div>
 
-          <div className='circle1' />
-          <div className='circle2' />
+          <div className="circle1" />
+          <div className="circle2" />
         </div>
       </Router>
     </AuthProvider>

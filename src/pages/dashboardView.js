@@ -1,18 +1,18 @@
-import React, { useContext, useState, useEffect } from 'react';
-import CurrentTask from '../components/current-task/CurrentTask';
-import TaskList from '../components/global/TaskList';
-import Navbar from '../components/Navbar';
-import { CurrentTaskContext } from '../components/timer-modal/TimerContextProvider';
+import React, { useContext, useState, useEffect } from "react";
+import CurrentTask from "../components/current-task/CurrentTask";
+import TaskList from "../components/global/TaskList";
+import Navbar from "../components/Navbar";
+import { CurrentTaskContext } from "../components/timer-modal/TimerContextProvider";
 
-import { fetchTasks } from '../services/databaseService';
-import { AuthContext } from '../services/providers/authProvider';
+import { fetchTasks } from "../services/databaseService";
+import { AuthContext } from "../services/providers/authProvider";
 
 const DashboardPlaceholder = (props) => {
   const { title } = props;
   return (
-    <div className='dashboard__placeholder-section'>
-      <h1 className='dashboard__placeholder-title'>{title}</h1>
-      <div className='dashboard__placeholder-content' />
+    <div className="dashboard__placeholder-section">
+      <h1 className="dashboard__placeholder-title">{title}</h1>
+      <div className="dashboard__placeholder-content" />
     </div>
   );
 };
@@ -35,13 +35,13 @@ function DashboardView() {
   return (
     <>
       <Navbar />
-      <div className='dashboard'>
+      <div className="dashboard">
         <TaskList tasks={tasks} onTaskClick={handleTaskClick} />
         <CurrentTask />
-        <div className='dashboard__placeholder-column'>
-          <DashboardPlaceholder title='Stats:' />
+        <div className="dashboard__placeholder-column">
+          <DashboardPlaceholder title="Stats:" />
           <br />
-          <DashboardPlaceholder title='Goals:' />
+          <DashboardPlaceholder title="Goals:" />
         </div>
       </div>
     </>
