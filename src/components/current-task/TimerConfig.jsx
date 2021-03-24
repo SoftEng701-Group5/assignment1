@@ -1,6 +1,5 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import TextInput from "../global/TextInput";
-import { FullscreenContext } from "../timer-modal/TimerContextProvider";
 
 const IntervalInput = (props) => {
   const {

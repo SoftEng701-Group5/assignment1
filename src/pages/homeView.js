@@ -39,4 +39,4 @@ function homeView() {
   );
 }
 
-export default HomeView;
+export default homeView;
