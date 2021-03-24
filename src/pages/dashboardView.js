@@ -7,6 +7,10 @@ import { CurrentTaskContext } from "../components/timer-modal/TimerContextProvid
 import { fetchTasks } from "../services/databaseService";
 import { AuthContext } from "../services/providers/authProvider";
 
+/**
+ * This component represents the placeholder for the Stats and Goals
+ * components that can be added through future work
+ */
 const DashboardPlaceholder = (props) => {
   const { title } = props;
   return (
@@ -17,11 +21,19 @@ const DashboardPlaceholder = (props) => {
   );
 };
 
+/**
+ * This component represents the dashboard page,
+ * and should contain all elements present on this page
+ */
 function DashboardView() {
   const { currentUser } = useContext(AuthContext);
   const [, setCurrentTask] = useContext(CurrentTaskContext);
   const [tasks, setTasks] = useState([]);
 
+  /**
+   * When a task is selected from Today's Tasks,
+   * it appears in the Current Task component
+   */
   const handleTaskClick = (task) => {
     setCurrentTask(task);
   };
