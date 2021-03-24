@@ -12,27 +12,28 @@ function BoardView() {
   const [sortListOpened, setSortListOpened] = useState(false);
 
   /**
-   * Called when an item in the column sorting dropdown is clicked
+   * Called when an item in the column sorting dropdown list is clicked
    * @param {*} column The column which is to be sorted
    * @param {*} sortBy The sorting arrangement selected
    * @param {*} revOrder A boolean for if the order should be reversed
    */
   const onSortListClick = (column, sortBy, revOrder) => () => {
     setSortListOpened(!sortListOpened);
+
     const sorted = Object.values(boardData.tasks);
     // sort the list in terms of the specified value e.g. title, date
     sorted.sort((a, b) => {
       // if oldest date is first
       if (revOrder) {
         return b[sortBy].localeCompare(a[sortBy]);
-        // if increasing alphabetically or by date
-        // eslint-disable-next-line no-else-return
-      } else {
-        return a[sortBy].localeCompare(b[sortBy]);
       }
+      // if increasing alphabetically or by date
+      return a[sortBy].localeCompare(b[sortBy]);
     });
+
     const newTaskIds = [];
     sorted.forEach((task) => {
+      // only add the tasks that are in the specified column
       if (boardData.columns[column].taskIds.includes(task.id)) {
         newTaskIds.push(task.id);
       }
