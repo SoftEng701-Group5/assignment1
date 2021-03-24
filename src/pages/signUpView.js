@@ -7,6 +7,10 @@ import SignUpBGImage from "../assets/images/SignupImage";
 
 import { signUp } from "../services/authService";
 
+/**
+ * This component represents the login page,
+ * and should contain all elements present in this page
+ */
 export default function SignUpView() {
   const history = useHistory();
 
@@ -23,6 +27,9 @@ export default function SignUpView() {
   const [emailInfoText, setEmailInfoText] = useState("");
   const [passwordInfoText, setPasswordInfoText] = useState("");
 
+  /**
+   * Handles signup process
+   */
   const signUpHandler = async () => {
     // Remove leading + trailing whitespace
     const processedFirstName = firstName.trim();
