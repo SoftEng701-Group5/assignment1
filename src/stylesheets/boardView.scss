@@ -1,4 +1,4 @@
-.row {
+.taskboard_container {
     position: absolute;
     display: flex;
     flex-direction: row;
@@ -6,7 +6,7 @@
     padding-left: 100px;
 }
 
-.boardBackground {
+.taskboard_background {
     right: 0;
     bottom: 0;
     z-index: -1;

@@ -1,6 +1,5 @@
 import React from "react";
 import { Droppable } from "react-beautiful-dnd";
-import "../../stylesheets/components/global/column.scss";
 import Task from "./Task/Task";
 
 function Column(props) {
@@ -13,38 +12,37 @@ function Column(props) {
   };
 
   return (
-    // This is where the droppable region should be
-    <div className="container">
-      <h1 className="heading">
+    <div className="column__container">
+      <h1 className="column__container__heading">
         {column.title}
-        <div className="sorting">
+        <div className="column__sorting">
           <button
             type="button"
-            className="sortButton"
+            className="column__sorting__button"
             onClick={onButtonClick}
             value={column}
           >
             ☰
           </button>
           {open && (
-            <div className="dropdown">
+            <div className="column__dropdown">
               <button
                 type="button"
-                className="listItem"
+                className="column__dropdown__list"
                 onClick={handleList(column.title, "date", false)}
               >
                 Newest First
               </button>
               <button
                 type="button"
-                className="listItem"
+                className="column__dropdown__list"
                 onClick={handleList(column.title, "date", true)}
               >
                 Oldest First
               </button>
               <button
                 type="button"
-                className="listItem"
+                className="column__dropdown__list"
                 onClick={handleList(column.title, "content", false)}
               >
                 Alphabetically

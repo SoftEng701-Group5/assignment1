@@ -1,9 +1,9 @@
-.container {
+.column__container {
     display: flex;
     flex-direction: column;
 }
 
-.heading{
+.column__container__heading{
     margin: 30px;
     margin-bottom: 5px;
     display: inline-block;
@@ -28,7 +28,7 @@
     background: transparent;
 }
 
-.sorting {
+.column__sorting {
     position: absolute;
     display: inline-block;
     right: 5px;
@@ -36,7 +36,7 @@
     overflow: visible;
 }
 
-.sortButton {
+.column__sorting__button {
     width: 30px;
     font-size: large;
     background: transparent;
@@ -45,7 +45,7 @@
     float: right;
 }
 
-.dropdown {
+.column__dropdown {
     position: absolute;
     top: 100%;
     right: 0;
@@ -58,7 +58,7 @@
     height: 90px;
   }
 
-  .listItem {
+  .column__dropdown__list {
    background-color: #3f3e5c;
    border: none;
    color: white;

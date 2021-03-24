@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { DragDropContext } from "react-beautiful-dnd";
 import Column from "../components/global/Column";
 import BoardImage from "../assets/images/BoardImage";
-import "../stylesheets/boardView.scss";
 import TaskBoardSampleData from "../components/global/TaskBoardSampleData";
 import Navbar from "../components/Navbar";
 import NewTask from "../components/NewTask";
@@ -106,7 +105,7 @@ function BoardView() {
     <>
       <Navbar />
       <DragDropContext onDragEnd={onDragEnd}>
-        <div className="row">
+        <div className="taskboard_container">
           {boardData.columnOrder.map((columnId, index) => {
             const column = boardData.columns[columnId];
             const tasks = column.taskIds.map(
@@ -127,7 +126,7 @@ function BoardView() {
           })}
         </div>
       </DragDropContext>
-      <div className="boardBackground">
+      <div className="taskboard_background">
         <BoardImage />
       </div>
     </>
