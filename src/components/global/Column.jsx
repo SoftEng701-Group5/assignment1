@@ -1,6 +1,6 @@
 import React from "react";
 import { Droppable } from "react-beautiful-dnd";
-import Task from "./Task/Task";
+import BoardTask from "./Task/BoardTask";
 
 function Column(props) {
   const { column, tasks, subTasks, handleList } = props;
@@ -72,7 +72,7 @@ function Column(props) {
               }
 
               return (
-                <Task
+                <BoardTask
                   id={task.id}
                   name={task.content}
                   index={index}
