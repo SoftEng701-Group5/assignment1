@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from "react";
 import {
-  TimerContext,
+  WorkTimerContext,
   PlayContext,
   BreakTimerContext,
   TimerModalShowContext,
@@ -10,7 +10,7 @@ import {
 import IconButton from "../global/IconButton";
 
 export default function TimerSection() {
-  const [timer, setTimer] = useContext(TimerContext);
+  const [workTimer, setWorkTimer] = useContext(WorkTimerContext);
   const [play, setPlay] = useContext(PlayContext);
   const [breakTimer, setBreakTimer] = useContext(BreakTimerContext);
   const [showModal, setShowModal] = useContext(TimerModalShowContext);
@@ -18,8 +18,8 @@ export default function TimerSection() {
   const [workTimerMemory] = useContext(WorkTimerMemoryContext);
   const [breakTimerMemory] = useContext(BreakTimerMemoryContext);
 
-  const minutes = Math.floor(timer.seconds / 60);
-  const seconds = timer.seconds % 60;
+  const workMinutes = Math.floor(workTimer.seconds / 60);
+  const workSeconds = workTimer.seconds % 60;
 
   const breakMinutes = Math.floor(breakTimer.seconds / 60);
   const breakSeconds = breakTimer.seconds % 60;
@@ -48,20 +48,23 @@ export default function TimerSection() {
   useEffect(() => {
     let interval = null;
 
-    if (timer.seconds > 0 && play) {
+    if (workTimer.seconds > 0 && play) {
       interval = setTimeout(
-        () => setTimer(timer.seconds !== 0 && { seconds: timer.seconds - 1 }),
+        () =>
+          setWorkTimer(
+            workTimer.seconds !== 0 && { seconds: workTimer.seconds - 1 }
+          ),
         1000
       );
     }
 
     return () => clearTimeout(interval);
-  }, [play, timer, setTimer]);
+  }, [play, workTimer, setWorkTimer]);
 
   useEffect(() => {
     let interval = null;
 
-    if (timer.seconds === 0 && play) {
+    if (workTimer.seconds === 0 && play) {
       interval = setTimeout(
         () =>
           setBreakTimer(
@@ -72,25 +75,25 @@ export default function TimerSection() {
     }
 
     return () => clearTimeout(interval);
-  }, [play, timer, breakTimer, setBreakTimer]);
+  }, [play, workTimer, breakTimer, setBreakTimer]);
 
   useEffect(() => {
-    if (timer.seconds === 0 && breakTimer.seconds === 0) {
-      setTimer({ seconds: workTimerMemory.seconds });
+    if (workTimer.seconds === 0 && breakTimer.seconds === 0) {
+      setWorkTimer({ seconds: workTimerMemory.seconds });
       setBreakTimer({ seconds: breakTimerMemory.seconds });
     }
-  }, [play, timer, breakTimer]);
+  }, [play, workTimer, breakTimer]);
 
   return (
     <div>
       <div className="timerTitle">
         {" "}
-        {timer.seconds === 0 ? "Break" : "Work"}{" "}
+        {workTimer.seconds === 0 ? "Break" : "Work"}{" "}
       </div>
       <h1 className="timer-text">
-        {timer.seconds === 0
+        {workTimer.seconds === 0
           ? timerFormat(breakMinutes, breakSeconds)
-          : timerFormat(minutes, seconds)}
+          : timerFormat(workMinutes, workSeconds)}
       </h1>
 
       <div className="button-align">

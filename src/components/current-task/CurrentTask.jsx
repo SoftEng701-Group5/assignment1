@@ -7,7 +7,7 @@ import TimerConfig from "./TimerConfig";
 import CurrentTaskTimer from "./CurrentTaskTimer";
 import {
   BreakTimerContext,
-  TimerContext,
+  WorkTimerContext,
   WorkTimerMemoryContext,
   BreakTimerMemoryContext,
   PlayContext,
@@ -24,7 +24,7 @@ function CurrentTask() {
   const [, setPlay] = useContext(PlayContext);
   const [isChecked] = useContext(FullscreenContext);
 
-  const [, setTimer] = useContext(TimerContext);
+  const [, setWorkTimer] = useContext(WorkTimerContext);
   const [, setBreakTimer] = useContext(BreakTimerContext);
   const [showConfig, setShowConfig] = useState(false);
   const [showTimer, setShowTimer] = useState(false);
@@ -47,7 +47,7 @@ function CurrentTask() {
       timerConfigValues.workMinutes * 60 + timerConfigValues.workSeconds;
     const breakSec =
       timerConfigValues.breakMinutes * 60 + timerConfigValues.breakSeconds;
-    setTimer({ seconds: workSec });
+    setWorkTimer({ seconds: workSec });
     setBreakTimer({ seconds: breakSec });
 
     setWorkTimerMemory({ seconds: workSec });
