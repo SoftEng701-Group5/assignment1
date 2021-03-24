@@ -18,7 +18,7 @@ The following is a guide for contributing to Mello. These are guidelines, not ru
 
 ### [Styleguides](#styleguides)
  * [Naming Conventions](#naming-conventions)
- * [BEM Naming for CSS](#bem-naming)
+ * [BEM Naming for CSS](#bem-naming-for-css)
  * [File Structure](#file-structure)
  * [Git Commit Messages](#git-commit-messages)
 
@@ -29,7 +29,19 @@ This project and everyone participating in it is governed by the [Mello Code of 
 
 ## Contributing to The Project
 ### Reporting Bugs
+Bugs are tracked through GitHub issues, to report a bug, create an issue and provide the following information:
+* A Description of the Bug.
+* Steps to reproduce the bug.
+* Any necessary additional information.
+
+Bugs should be appropriately labelled as such.
 ### Suggesting Enhancements
+Enhancements are tracked through GitHub issues, to suggest an enhancement, create an issue and provide the following information:
+* Provide a clear and informative title to identify the suggestion.
+* Provide a detailed description of the suggested enhancement.
+* Explain why this enhancment would be useful to most Mello users.
+
+Enhancements should be appropriately labelled as such.
 ### Pull Requests
 
 ## Project Resources
@@ -38,9 +50,22 @@ This project and everyone participating in it is governed by the [Mello Code of 
 
 ## Styleguides
 ### Naming Conventions
+Names of project files should:
+* BeWrittenInPascalCase.
+* Be described in three or less words.
+* Include, if necessary, the subgroup name.
 ### BEM Naming for CSS
-### File Structure
-### Git Commit Messages
+Mello uses the BEM Naming structure, which aims to keep CSS codebases structured with a consistent naming convention.
 
+*For more information, see https://yandex.com/dev/bem/*
+### File Structure
+Project files should be:
+* Assets, Components, Pages, Stylesheets, and other project elements placed in their respective folders.
+* Components placed in a labelled subfolder (See [Naming Conventions](#naming-conventions)).
+### Git Commit Messages
+* Use the present tense ("Add feature" not "Added feature")
+* Use the imperative mood ("Move cursor to..." not "Moves cursor to...")
+* Limit the first line to 72 characters or less
+* Reference issues and pull requests liberally after the first line
 ## Acknowledgements
 * This CONTRIBUTING.md was based on [The Atom CONTRIBUTING.md](https://github.com/atom/atom/blob/master/CONTRIBUTING.md)
