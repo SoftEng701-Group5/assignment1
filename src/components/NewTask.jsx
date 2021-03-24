@@ -8,6 +8,11 @@ import AddButton from "./global/AddButton";
 import { createTask } from "../services/databaseService";
 import { AuthContext } from "../services/providers/authProvider";
 
+/**
+ * This component is used to generate a add task button("+") that , when clicked, prompts the new task modal
+ * in which the user can create a new task by filling put the fields and clicking the "add task" button
+ * This component also presists the task on the firebase database
+ */
 export default function NewTask() {
   const [display, setDisplay] = useState(false);
   const [name, setName] = useState("");
@@ -18,6 +23,7 @@ export default function NewTask() {
   const [error, setError] = useState("");
   const { currentUser } = useContext(AuthContext);
 
+  // resets the values of all the fields in the modal so they are empty the next time the modal is opened
   function resetValues() {
     setStartDate("");
     setEndDate("");
@@ -27,11 +33,13 @@ export default function NewTask() {
     setError("");
   }
 
+  // sets the 'show' prop in the modal to false so that the modal disappears and resets the modal values
   function handleCancelNewTask() {
     setDisplay(false);
     resetValues();
   }
 
+  // validates the fields of the newly created task and makes a request to the database to presist the new task
   async function handleAddNewTask() {
     const stDate = startDate ? moment(startDate, true) : null;
     const edDate = endDate ? moment(endDate, true) : null;
@@ -41,6 +49,8 @@ export default function NewTask() {
       setError("Please add a task name.");
       return;
     }
+
+    // Validates the start and end date values(make sure end date is after start date)
     if (
       stDate &&
       edDate &&
