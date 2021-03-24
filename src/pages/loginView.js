@@ -7,14 +7,23 @@ import LoginImage from "../assets/images/LoginImage";
 
 import { signIn } from "../services/authService";
 
+/**
+ * This component represents the login page,
+ * and should contain all elements present in this page
+ */
 export default function LoginView() {
   const history = useHistory();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  // Feedback strings to give user feedback, e.g. Missing email
   const [emailInfoText, setEmailInfoText] = useState("");
   const [passwordInfoText, setPasswordInfoText] = useState("");
 
+  /**
+   * Handles login process
+   */
   const loginHandler = async () => {
     // Process inputs
     const processedEmail = email.trim();
