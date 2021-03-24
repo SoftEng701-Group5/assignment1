@@ -3,12 +3,12 @@ import { Droppable } from "react-beautiful-dnd";
 import BoardTask from "../global/Task/BoardTask";
 
 function TaskBoardColumn(props) {
-  const { column, tasks, subTasks, handleList } = props;
+  const { column, tasks, subTasks, handleSortList } = props;
 
-  const [opened, setOpened] = React.useState(false);
+  const [sortListOpened, setSortListOpened] = React.useState(false);
 
-  const onButtonClick = () => {
-    setOpened(!opened);
+  const onSortButtonClick = () => {
+    setSortListOpened(!sortListOpened);
   };
 
   return (
@@ -19,31 +19,31 @@ function TaskBoardColumn(props) {
           <button
             type="button"
             className="column__sorting__button"
-            onClick={onButtonClick}
+            onClick={onSortButtonClick}
             value={column}
           >
             ☰
           </button>
-          {opened && (
+          {sortListOpened && (
             <div className="column__dropdown">
               <button
                 type="button"
                 className="column__dropdown__list"
-                onClick={handleList(column.title, "date", false)}
+                onClick={handleSortList(column.title, "date", false)}
               >
                 Newest First
               </button>
               <button
                 type="button"
                 className="column__dropdown__list"
-                onClick={handleList(column.title, "date", true)}
+                onClick={handleSortList(column.title, "date", true)}
               >
                 Oldest First
               </button>
               <button
                 type="button"
                 className="column__dropdown__list"
-                onClick={handleList(column.title, "content", false)}
+                onClick={handleSortList(column.title, "content", false)}
               >
                 Alphabetically
               </button>

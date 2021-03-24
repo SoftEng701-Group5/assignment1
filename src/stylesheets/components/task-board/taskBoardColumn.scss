@@ -68,11 +68,11 @@
    height: 30px;
   }
 
-  .listItem:hover {
+  .column__dropdown__list:hover {
     background-color: rgba(0, 0, 0, 0.14);
     cursor: pointer;
   }
   
-  .listItem:focus {
+  .column__dropdown__list:focus {
       outline: 0;
   }
