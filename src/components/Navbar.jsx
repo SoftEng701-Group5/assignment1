@@ -18,6 +18,11 @@ function Navbar() {
     history.push("/");
   };
 
+  /** Use location to check which page the user is currently is on
+   * to render the outer box for the correct icon.
+   * Need the hover state to render out the user related buttons only
+   * when the user is hovering over the user icon container.
+   * */
   return (
     <div className="navbar">
       <div>
