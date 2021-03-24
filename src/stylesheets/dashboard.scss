@@ -1,0 +1,29 @@
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  column-gap: 5%;
+  padding: 50px;
+  width: 100%;
+
+  &__placeholder-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__placeholder-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__placeholder-title {
+    margin-bottom: 20px;
+  }
+
+  &__placeholder-content {
+    background: $dashboard-placeholder-background;
+    border-radius: 20px;
+    flex: 1;
+  }
+}

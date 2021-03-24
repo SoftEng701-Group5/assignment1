@@ -1,0 +1,27 @@
+.task-list {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &__title {
+    margin-bottom: 20px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  &__tasks {
+    flex: 1;
+    margin-top: 5px;
+    border-radius: 20px;
+    overflow: auto;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
