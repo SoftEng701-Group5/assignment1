@@ -1,6 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import getIcon from "./componentFunctions";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import getIcon from './componentFunctions';
 
 /**
  * Generic button component
@@ -14,7 +14,7 @@ import getIcon from "./componentFunctions";
  */
 function Button(props) {
   const {
-    className = "",
+    className = '',
     path,
     text,
     icon,
@@ -23,13 +23,10 @@ function Button(props) {
     handleOnClick,
   } = props;
 
-  /**
-   * Called for any keypress while user is focused on the button
-   * If the key pressed is enter, the supplied clickHandler function is called
-   * @param e Keypress event
-   */
+  // Call click handler if user presses "enter" key on button
+  // Javascript keycode for enter key = 13
   const handleKeyDown = (e) => {
-    if (e.key === "Enter" && handleOnClick) {
+    if (e.keyCode === 13 && handleOnClick) {
       handleOnClick();
     }
   };
@@ -38,7 +35,7 @@ function Button(props) {
     <div
       className={`${className}button-container`}
       style={{ height }}
-      role="button"
+      role='button'
       tabIndex={0}
       onClick={handleOnClick}
       onKeyDown={handleKeyDown}
