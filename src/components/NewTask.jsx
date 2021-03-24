@@ -23,7 +23,7 @@ export default function NewTask() {
   const [error, setError] = useState("");
   const { currentUser } = useContext(AuthContext);
 
-  //resets the values of all the fields in the modal so they are empty the next time the modal is opened
+  // resets the values of all the fields in the modal so they are empty the next time the modal is opened
   function resetValues() {
     setStartDate("");
     setEndDate("");
@@ -33,13 +33,13 @@ export default function NewTask() {
     setError("");
   }
 
-  //sets the 'show' prop in the modal to false so that the modal disappears and resets the modal values
+  // sets the 'show' prop in the modal to false so that the modal disappears and resets the modal values
   function handleCancelNewTask() {
     setDisplay(false);
     resetValues();
   }
 
-  //validates the fields of the newly created task and makes a request to the database to presist the new task
+  // validates the fields of the newly created task and makes a request to the database to presist the new task
   async function handleAddNewTask() {
     const stDate = startDate ? moment(startDate, true) : null;
     const edDate = endDate ? moment(endDate, true) : null;
