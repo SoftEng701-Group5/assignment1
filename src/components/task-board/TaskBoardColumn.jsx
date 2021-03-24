@@ -19,7 +19,7 @@ function TaskBoardColumn(props) {
           <button
             type="button"
             className="column__sorting__button"
-            onClick={onButtonClick}
+            onClick={onSortButtonClick}
             value={column}
           >
             ☰
