@@ -41,7 +41,7 @@ function Navbar() {
           </div>
         </Link>
         <Link to="/board" className="button-link">
-          <div className="navbar__icon__group" data-testid="nav-trello-icon">
+          <div className="navbar__icon__group" data-testid="nav-taskboard-icon">
             {location.pathname === "/board" && <div className="selected-box" />}
             <BoardIcon />
           </div>
