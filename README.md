@@ -4,6 +4,7 @@
 | CI                  | Status   |
 | ------------------- | -------- |
 | Tests               |  [![Tests](https://github.com/SoftEng701-Group5/assignment1/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/SoftEng701-Group5/assignment1/actions/workflows/tests.yml) |
+| End to End Tests    | [![End-to-End Tests](https://github.com/DanielDowling999/assignment1/actions/workflows/end_to_end_tests.yml/badge.svg)](https://github.com/DanielDowling999/assignment1/actions/workflows/end_to_end_tests.yml) |
 | ESLint and Prettier |  [![ESLint and Prettier](https://github.com/SoftEng701-Group5/assignment1/actions/workflows/eslint_and_prettier.yml/badge.svg?branch=main)](https://github.com/SoftEng701-Group5/assignment1/actions/workflows/eslint_and_prettier.yml) |
 | Build and Deploy    | [![Build and Deploy](https://github.com/SoftEng701-Group5/assignment1/actions/workflows/build_and_deploy.yml/badge.svg?branch=main)](https://github.com/SoftEng701-Group5/assignment1/actions/workflows/build_and_deploy.yml) |
 

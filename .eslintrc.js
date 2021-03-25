@@ -13,6 +13,9 @@ module.exports = {
     ecmaVersion: 12,
   },
   plugins: ["react", "prettier", "jest"],
+  globals: {
+    cy: true,
+  },
   rules: {
     "react/prop-types": "off",
     "react/jsx-props-no-spreading": "off",
