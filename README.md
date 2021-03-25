@@ -1,5 +1,7 @@
 # SOFTENG701 Group5 - Assignment1
 
+![Mello Logo](https://i.ibb.co/XXMkxcP/favicon-1.png)
+
 <!-- prettier-ignore -->
 | CI                  | Status   |
 | ------------------- | -------- |
