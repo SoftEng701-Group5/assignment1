@@ -97,12 +97,14 @@ export default function SignUpView() {
         <h1>Sign Up</h1>
         <TextInput
           label="First Name:"
+          type="firstName"
           textValue={firstName}
           onChangeHandler={setFirstName}
           placeholderValue={firstNameInfoText}
         />
         <TextInput
           label="Last Name:"
+          type="lastName"
           textValue={lastName}
           onChangeHandler={setLastName}
           placeholderValue={lastNameInfoText}
@@ -116,6 +118,7 @@ export default function SignUpView() {
         />
         <TextInput
           label="Password:"
+          type="password"
           textValue={password}
           onChangeHandler={setPassword}
           placeholderValue={passwordInfoText}
