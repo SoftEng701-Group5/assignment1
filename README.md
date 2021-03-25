@@ -2,6 +2,10 @@
 
 ![Mello Logo](https://i.ibb.co/XXMkxcP/favicon-1.png)
 
+Mello is a web-based application designed to revolutionize the way users organize and break tasks down into sizeable time chunks.
+
+This project is associated with The University of Auckland SOFTENG 701.
+
 <!-- prettier-ignore -->
 | CI                  | Status   |
 | ------------------- | -------- |
