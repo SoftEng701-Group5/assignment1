@@ -23,6 +23,7 @@ The following is a guide for contributing to Mello. These are guidelines, not ru
 
 ### [Styleguides](#styleguides)
 
+- [Figma Design](#figma-design)
 - [Naming Conventions](#naming-conventions)
 - [BEM Naming for CSS](#bem-naming-for-css)
 - [File Structure](#file-structure)
@@ -133,6 +134,10 @@ Enhancements should be appropriately labelled as such.
 - Now you can search and explore the images before downloading as an SVG and adding to the project.
 
 ## Styleguides
+
+### Figma Design
+
+[Figma](https://www.figma.com/file/j01UWGTaIPsrbdHJjs7Htp/701-3rd-iteration?node-id=0%3A1)
 
 ### Naming Conventions
 
