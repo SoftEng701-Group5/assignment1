@@ -3,13 +3,14 @@ import { Droppable } from "react-beautiful-dnd";
 import BoardTask from "../global/Task/BoardTask";
 
 function TaskBoardColumn(props) {
-  const { column, tasks, subTasks, handleSortList } = props;
-
-  const [sortListOpened, setSortListOpened] = React.useState(false);
-
-  const onSortButtonClick = () => {
-    setSortListOpened(!sortListOpened);
-  };
+  const {
+    column,
+    tasks,
+    subTasks,
+    sortListOpened,
+    onSortButtonClick,
+    handleSortList,
+  } = props;
 
   return (
     <div className="column-container">
@@ -19,7 +20,7 @@ function TaskBoardColumn(props) {
           <button
             type="button"
             className="column__sorting__button"
-            onClick={onSortButtonClick}
+            onClick={() => onSortButtonClick(column)}
             value={column}
           >
             ☰
