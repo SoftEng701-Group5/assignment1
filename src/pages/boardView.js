@@ -14,7 +14,7 @@ function BoardView() {
   /**
    * Called when the sort button is clicked, which toggles the visibility of
    * the sort list
-   * @param {*} column The column that the sort lsit belongs to
+   * @param {*} column The column that the sort list belongs to
    */
   const onSortButtonClick = (column) => {
     const newBoardData = boardData;

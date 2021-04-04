@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Droppable } from "react-beautiful-dnd";
 import BoardTask from "../global/Task/BoardTask";
 
@@ -11,12 +11,31 @@ function TaskBoardColumn(props) {
     onSortButtonClick,
     handleSortList,
   } = props;
+  const myRef = useRef();
+
+  /**
+   * handler for mouse click event, close the dropdown list when mouse clicked
+   * the sort list
+   * @param {*} e The mouse clicked event
+   */
+  const handleOutsideClick = (e) => {
+    if (!myRef.current.contains(e.target)) {
+      if (sortListOpened) {
+        onSortButtonClick(column);
+      }
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => document.removeEventListener("mousedown", handleOutsideClick);
+  });
 
   return (
     <div className="column-container">
       <h1 className="column-container__heading">
         {column.title}
-        <div className="column__sorting">
+        <div className="column__sorting" ref={myRef}>
           <button
             type="button"
             className="column__sorting__button"
