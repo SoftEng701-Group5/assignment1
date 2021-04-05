@@ -91,31 +91,31 @@ function TimerConfig(props) {
   };
 
   const handleWorkMinutesChanged = (val) => {
-    if (!validated(val, "workMinutes")) {
-      setIsInvalidWorkTime(true);
-    } else {
+    if (validated(val, "workMinutes")) {
       setIsInvalidWorkTime(false);
+    } else {
+      setIsInvalidWorkTime(true);
     }
   };
   const handleWorkSecondsChanged = (val) => {
-    if (!validated(val, "workSeconds")) {
-      setIsInvalidWorkTime(true);
-    } else {
+    if (validated(val, "workSeconds")) {
       setIsInvalidWorkTime(false);
+    } else {
+      setIsInvalidWorkTime(true);
     }
   };
   const handleBreakMinutesChanged = (val) => {
-    if (!validated(val, "breakMinutes")) {
-      setIsInvalidBreakTime(true);
-    } else {
+    if (validated(val, "breakMinutes")) {
       setIsInvalidBreakTime(false);
+    } else {
+      setIsInvalidBreakTime(true);
     }
   };
   const handleBreakSecondsChanged = (val) => {
-    if (!validated(val, "breakSeconds")) {
-      setIsInvalidBreakTime(true);
-    } else {
+    if (validated(val, "breakSeconds")) {
       setIsInvalidBreakTime(false);
+    } else {
+      setIsInvalidBreakTime(true);
     }
   };
   const handleCheckBoxClick = () => {
