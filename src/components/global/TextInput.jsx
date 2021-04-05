@@ -1,5 +1,7 @@
 import React from "react";
 
+import DarkModeContext from "../../services/theme-context";
+
 /**
  * This component is a customisable text input
  * @param type Optional input type, e.g 'password'. If left out, 'text' will be used
@@ -19,8 +21,10 @@ function TextInput(props) {
     onChangeHandler,
   } = props;
 
+  const isDarkMode = React.useContext(DarkModeContext);
+
   return (
-    <div className="text-input">
+    <div className={isDarkMode ? "text-input" : "text-input light"}>
       {label && (
         // eslint-disable-next-line jsx-a11y/label-has-associated-control
         <label className="text-input__label">{label}</label>
