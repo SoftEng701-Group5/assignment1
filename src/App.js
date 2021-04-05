@@ -9,11 +9,28 @@ import { AuthProvider } from "./services/providers/authProvider";
 import PrivateRoute from "./components/PrivateRoute";
 import DashboardView from "./pages/dashboardView";
 
+const getColourScheme = () => {
+  const getCurrentTheme = () =>
+    window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const [isDarkMode, setIsDarkMode] = React.useState(getCurrentTheme());
+  const mqListener = (e) => {
+    setIsDarkMode(e.matches);
+  };
+
+  React.useEffect(() => {
+    const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
+    darkThemeMq.addEventListener("change", mqListener);
+    return () => darkThemeMq.removeEventListener("change", mqListener);
+  }, []);
+  return isDarkMode;
+};
+
 function App() {
+  const isDarkMode = getColourScheme();
   return (
     <AuthProvider>
       <Router>
-        <div className="background">
+        <div className={isDarkMode ? "background" : "background--light"}>
           <div className="main-content">
             <Switch>
               {/* Login/Signup page - unrestricted access */}
@@ -39,8 +56,8 @@ function App() {
             </Switch>
           </div>
 
-          <div className="circle1" />
-          <div className="circle2" />
+          <div className={isDarkMode ? "circle1" : "circle1 light"} />
+          <div className={isDarkMode ? "circle2" : "circle2 light"} />
         </div>
       </Router>
     </AuthProvider>
