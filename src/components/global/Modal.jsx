@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import DarkModeContext from "../../services/theme-context";
 
 const modalRoot = document.querySelector("#modal-root");
 
@@ -16,6 +17,8 @@ export default function Modal({
   children,
   show,
 }) {
+  const isDarkMode = React.useContext(DarkModeContext);
+
   if (!show) {
     return null;
   }
@@ -31,7 +34,9 @@ export default function Modal({
         }
       }}
     >
-      <div className="modalContainer">{children}</div>
+      <div className={isDarkMode ? "modalContainer" : "modalContainer light"}>
+        {children}
+      </div>
     </div>,
     modalRoot
   );
