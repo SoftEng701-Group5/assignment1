@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import DarkModeContext from "../services/theme-context";
 
 const DAYS = [
   "Sunday",
@@ -14,6 +15,7 @@ function DateTime() {
   const [dayName, setDayName] = useState("Monday");
   const [date, setDate] = useState("01/01/21");
   const [time, setTime] = useState("12:00AM");
+  const isDarkMode = React.useContext(DarkModeContext);
 
   const getDateInfo = () => {
     const d = new Date();
@@ -41,7 +43,9 @@ function DateTime() {
   }, []);
 
   return (
-    <div className="home-page--date-time-container">
+    <div
+      className={`home-page--date-time-container ${isDarkMode ? "" : "light"}`}
+    >
       <h1 className="home-page--date-time">
         <span>{dayName}</span>
         <br />
