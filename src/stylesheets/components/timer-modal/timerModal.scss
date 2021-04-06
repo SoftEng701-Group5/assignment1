@@ -28,4 +28,8 @@
 		display: flex;
 		align-items: center;
 	}
+
+    &.light {
+        background: $timer-modal-background-light;
+    }
 }
