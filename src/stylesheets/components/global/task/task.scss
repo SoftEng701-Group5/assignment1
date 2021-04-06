@@ -15,6 +15,16 @@
         }
     }
 
+    &--expanded.light {
+        .task__header {
+            background-color: $task-header-background-light;
+        }
+        
+        .task__content--expanded {
+            background: $task-content-background-light;
+        }
+    }
+
 	&__checkbox,
 	&__checkbox--checked {
 		width: 25px;

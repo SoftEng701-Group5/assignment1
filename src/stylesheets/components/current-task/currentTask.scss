@@ -57,4 +57,10 @@
 		@extend .icon-button-container;
 		margin: 0;
 	}
+
+    &.light {
+        .current-task__title {
+            color: black;
+        }
+    }
 }

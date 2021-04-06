@@ -9,6 +9,7 @@ import {
 } from "../timer-modal/TimerContextProvider";
 import IconButton from "../global/IconButton";
 import TimerModal from "../timer-modal/TimerModal";
+import DarkModeContext from "../../services/theme-context";
 
 /**
  * This function represents the Timer component of the Current Tasks component.
@@ -23,6 +24,7 @@ export default function CurrentTaskTimer() {
 
   const [workTimerMemory] = useContext(WorkTimerMemoryContext);
   const [breakTimerMemory] = useContext(BreakTimerMemoryContext);
+  const isDarkMode = useContext(DarkModeContext);
 
   const workMinutes = Math.floor(workTimer.seconds / 60);
   const workSeconds = workTimer.seconds % 60;
@@ -93,7 +95,9 @@ export default function CurrentTaskTimer() {
   }, [play, workTimer, breakTimer]);
 
   return (
-    <div className="current-task-timer">
+    <div
+      className={isDarkMode ? "current-task-timer" : "current-task-timer light"}
+    >
       {showModal && <TimerModal />}
       <div className="current-task-timer__title">
         {workTimer.seconds === 0 ? "Break" : "Work"}

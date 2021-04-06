@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import RightChevron from "../../assets/icons/RightChevron";
+import DarkModeContext from "../../services/theme-context";
 
 /**
  * This function represents the Notes component that makes up the Current Task component.
@@ -8,11 +9,16 @@ import RightChevron from "../../assets/icons/RightChevron";
 function CurrentTaskNotes(props) {
   const { notes } = props;
   const [isExpanded, setIsExpanded] = useState(false);
+  const isDarkMode = React.useContext(DarkModeContext);
 
   const handleIconClick = () => setIsExpanded(!isExpanded);
 
   return (
-    <div className={`current-task-notes${isExpanded ? "--expanded" : ""}`}>
+    <div
+      className={`current-task-notes${isExpanded ? "--expanded" : ""} ${
+        isDarkMode ? "" : "light"
+      }`}
+    >
       <div className="current-task-notes__header">
         <span className="current-task-notes__title">Notes</span>
         <RightChevron handleOnClick={handleIconClick} isRotated={isExpanded} />

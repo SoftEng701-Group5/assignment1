@@ -6,6 +6,7 @@ import { CurrentTaskContext } from "../components/timer-modal/TimerContextProvid
 
 import { fetchTasks } from "../services/databaseService";
 import { AuthContext } from "../services/providers/authProvider";
+import DarkModeContext from "../services/theme-context";
 
 /**
  * This component represents the placeholder for the Stats and Goals
@@ -29,6 +30,7 @@ function DashboardView() {
   const { currentUser } = useContext(AuthContext);
   const [, setCurrentTask] = useContext(CurrentTaskContext);
   const [tasks, setTasks] = useState([]);
+  const isDarkMode = React.useContext(DarkModeContext);
 
   /**
    * When a task is selected from Today's Tasks,
@@ -47,7 +49,7 @@ function DashboardView() {
   return (
     <>
       <Navbar />
-      <div className="dashboard">
+      <div className={isDarkMode ? "dashboard" : "dashboard light"}>
         <TaskList tasks={tasks} onTaskClick={handleTaskClick} />
         <CurrentTask />
         <div className="dashboard__placeholder-column">
