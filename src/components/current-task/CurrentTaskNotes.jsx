@@ -40,6 +40,12 @@ function CurrentTaskNotes(props) {
               fontSize="11px"
               handleOnClick={() => handleSaveNote(newNotes)}
             />
+            <Button
+              text="Cancel"
+              height="24px"
+              fontSize="11px"
+              handleOnClick={() => setNotes(notes)}
+            />
           </div>
         </div>
       </form>
