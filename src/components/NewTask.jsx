@@ -69,7 +69,8 @@ export default function NewTask() {
       desc,
       name,
       currentUser.uid,
-      edDate ? edDate.toDate() : null
+      edDate ? edDate.toDate() : null,
+      null
     );
     setDisplay(false);
     resetValues();
