@@ -30,6 +30,11 @@ export default function CurrentTaskTimer() {
   const breakMinutes = Math.floor(breakTimer.seconds / 60);
   const breakSeconds = breakTimer.seconds % 60;
 
+  /* resets timer */
+  const reset = () => {
+    setWorkTimer({ seconds: workTimerMemory.seconds });
+  };
+
   const timerFormat = (m, s) => {
     let timerStr = "";
 
@@ -112,6 +117,13 @@ export default function CurrentTaskTimer() {
             icon={play ? "pause" : "play"}
             type="button"
             onClick={() => setPlay(!play)}
+          />
+          <IconButton
+            className="current-task-timer__"
+            size="3rem"
+            icon="reset"
+            type="button"
+            onClick={() => reset()}
           />
           <IconButton
             className="current-task-timer__"
