@@ -13,7 +13,9 @@ import { AuthContext } from "../services/providers/authProvider";
  * in which the user can create a new task by filling put the fields and clicking the "add task" button
  * This component also presists the task on the firebase database
  */
-export default function NewTask() {
+export default function NewTask(props) {
+  const { onNewTask } = props;
+
   const [display, setDisplay] = useState(false);
   const [name, setName] = useState("");
   const [label, setLabel] = useState("");
@@ -72,6 +74,7 @@ export default function NewTask() {
       edDate ? edDate.toDate() : null
     );
     setDisplay(false);
+    onNewTask();
     resetValues();
   }
 
