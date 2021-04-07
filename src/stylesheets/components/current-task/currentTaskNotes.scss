@@ -13,3 +13,48 @@
 		display: list-item;
 	}
 }
+
+.save-task-notes-button-container {
+	z-index: 1;
+}
+
+
+.current-task-notes-container {
+	display: flex;
+    flex-direction: column;
+	width: 100%;
+    height: 100%;
+}
+
+.current-task-notes-text-container {
+	width:100%;
+	height: 100%;
+	position: relative;
+	padding: 0rem 0.5rem 0.5rem;
+}
+.current-task-notes-text-area {
+	color: #ffffff;
+	background:transparent;
+	width: 100% !important;
+	height: 100% !important;
+	border: none;
+	position: absolute;
+	resize: none;
+
+}
+
+.save-cancel-button-container{
+	display: flex;
+	flex-direction: row-reverse;
+	padding: 0.5rem 0.5rem;
+}
+
+.save-and-cancelbutton-text {
+	@extend .button-text;
+	margin: 0 5px;
+}
+
+.save-and-cancelbutton-container {
+	@extend .button-container;
+	margin: 5px 5px;
+}

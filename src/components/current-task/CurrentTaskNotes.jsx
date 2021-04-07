@@ -23,24 +23,27 @@ function CurrentTaskNotes(props) {
           isExpanded ? "--expanded" : ""
         }`}
       >
-        <textarea
-          className="current-task-notes-text-area"
-          value={newNotes}
-          onChange={(e) => {
-            setNotes(e.target.value);
-          }}
-        />
-        <Button
-          text="Save"
-          height="24px"
-          fontSize="11px"
-          handleOnClick={() => {
-            handleSaveNote(newNotes);
-          }}
-        />
+        <div className="current-task-notes-container">
+          <div className="current-task-notes-text-container">
+            <textarea
+              className="current-task-notes-text-area"
+              value={newNotes}
+              onChange={(e) => {
+                setNotes(e.target.value);
+              }}
+            />
+          </div>
+          <div className="save-cancel-button-container">
+            <Button
+              text="Save"
+              height="24px"
+              fontSize="11px"
+              handleOnClick={() => handleSaveNote(newNotes)}
+            />
+          </div>
+        </div>
       </form>
     </div>
   );
 }
-
 export default CurrentTaskNotes;
