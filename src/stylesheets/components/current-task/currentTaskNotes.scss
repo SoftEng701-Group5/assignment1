@@ -58,3 +58,14 @@
 	@extend .button-container;
 	margin: 5px 5px;
 }
+
+.save-and-cancel-disabledbutton-text {
+	@extend .save-and-cancelbutton-text;
+	cursor: not-allowed;
+}
+
+.save-and-cancel-disabledbutton-container {
+	@extend .save-and-cancelbutton-container;
+	opacity: 0.6;
+  	cursor: not-allowed;
+}

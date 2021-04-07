@@ -9,6 +9,7 @@ import Button from "../global/Button";
 function CurrentTaskNotes(props) {
   const { notes, handleSaveNote } = props;
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isEdited, setIsEdited] = useState(false);
   const [newNotes, setNotes] = useState(notes);
   const handleIconClick = () => setIsExpanded(!isExpanded);
 
@@ -29,22 +30,35 @@ function CurrentTaskNotes(props) {
               className="current-task-notes-text-area"
               value={newNotes}
               onChange={(e) => {
+                setIsEdited(true);
                 setNotes(e.target.value);
               }}
             />
           </div>
           <div className="save-cancel-button-container">
             <Button
+              className={`save-and-cancel${!isEdited ? "-disabled" : ""}`}
               text="Save"
               height="24px"
               fontSize="11px"
-              handleOnClick={() => handleSaveNote(newNotes)}
+              handleOnClick={() => {
+                if (isEdited) {
+                  setIsEdited(false);
+                  handleSaveNote(newNotes);
+                }
+              }}
             />
             <Button
+              className={`save-and-cancel${!isEdited ? "-disabled" : ""}`}
               text="Cancel"
               height="24px"
               fontSize="11px"
-              handleOnClick={() => setNotes(notes)}
+              handleOnClick={() => {
+                if (isEdited) {
+                  setIsEdited(false);
+                  setNotes(notes);
+                }
+              }}
             />
           </div>
         </div>
