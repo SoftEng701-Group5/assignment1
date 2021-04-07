@@ -15,6 +15,7 @@ export default function Modal({
   onCancel,
   children,
   show,
+  handleKeyPress,
 }) {
   if (!show) {
     return null;
@@ -31,7 +32,10 @@ export default function Modal({
         }
       }}
     >
-      <div className="modalContainer">{children}</div>
+      {/* eslint-disable-next-line */}
+      <div className="modalContainer" onKeyPress={handleKeyPress} tabIndex="0">
+        {children}
+      </div>
     </div>,
     modalRoot
   );
