@@ -8,7 +8,7 @@ import RightChevron from "../../assets/icons/RightChevron";
 function CurrentTaskNotes(props) {
   const { notes } = props;
   const [isExpanded, setIsExpanded] = useState(false);
-
+  const [newNotes, setNotes] = useState(notes);
   const handleIconClick = () => setIsExpanded(!isExpanded);
 
   return (
@@ -17,16 +17,19 @@ function CurrentTaskNotes(props) {
         <span className="current-task-notes__title">Notes</span>
         <RightChevron handleOnClick={handleIconClick} isRotated={isExpanded} />
       </div>
-
-      <div
+      <form
         className={`current-task-notes__content${
           isExpanded ? "--expanded" : ""
         }`}
       >
-        <ul className="current-task-notes__list">
-          {notes && notes.map((note) => <li>{note}</li>)}
-        </ul>
-      </div>
+        <textarea
+          className="current-task-notes-text-area"
+          value={newNotes}
+          onChange={(e) => {
+            setNotes(e.target.value);
+          }}
+        />
+      </form>
     </div>
   );
 }
