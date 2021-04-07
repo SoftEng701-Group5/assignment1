@@ -70,15 +70,20 @@ export default function LoginView() {
         <div className="password-container">
           <form onSubmit={loginHandler}>
             <TextInput
-                label="Password:"
-                placeholderValue={passwordInfoText}
-                textValue={password}
-                onChangeHandler={setPassword}
-                type="password"
+              label="Password:"
+              placeholderValue={passwordInfoText}
+              textValue={password}
+              onChangeHandler={setPassword}
+              type="password"
             />
           </form>
         </div>
-        <Button type="submit" icon="rightArrow" text="Login" handleOnClick={loginHandler} />
+        <Button
+                  type="submit"
+                  icon="rightArrow"
+                  text="Login"
+                  handleOnClick={loginHandler}
+               />
         <div className="login__bottom-text">
           <span>Don&apos;t have an account?</span>
           <Link to="/signup" className="login__bottom-text__link">
