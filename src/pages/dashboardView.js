@@ -30,7 +30,7 @@ function DashboardView() {
   const { currentUser } = useContext(AuthContext);
   const [, setCurrentTask] = useContext(CurrentTaskContext);
   const [tasks, setTasks] = useState([]);
-  const isDarkMode = React.useContext(DarkModeContext);
+  const { isDarkMode } = React.useContext(DarkModeContext);
 
   /**
    * When a task is selected from Today's Tasks,

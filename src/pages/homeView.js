@@ -15,7 +15,7 @@ function HomeView() {
   const [, setCurrentTask] = useContext(CurrentTaskContext);
   const [tasks, setTasks] = useState([]);
   const history = useHistory();
-  const isDarkMode = React.useContext(DarkModeContext);
+  const { isDarkMode } = React.useContext(DarkModeContext);
 
   const getGreeting = () => {
     const myDate = new Date();

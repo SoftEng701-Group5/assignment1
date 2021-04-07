@@ -28,7 +28,7 @@ export default function SignUpView() {
   const [emailInfoText, setEmailInfoText] = useState("");
   const [passwordInfoText, setPasswordInfoText] = useState("");
 
-  const isDarkMode = React.useContext(DarkModeContext);
+  const { isDarkMode } = React.useContext(DarkModeContext);
 
   /**
    * Handles signup process

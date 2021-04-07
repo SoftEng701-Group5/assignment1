@@ -17,7 +17,7 @@ export default function Modal({
   children,
   show,
 }) {
-  const isDarkMode = React.useContext(DarkModeContext);
+  const { isDarkMode } = React.useContext(DarkModeContext);
 
   if (!show) {
     return null;

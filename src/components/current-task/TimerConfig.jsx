@@ -60,7 +60,7 @@ function TimerConfig(props) {
   const { setTimerConfigValues } = props;
 
   const [isChecked, setIsChecked] = useContext(FullscreenContext);
-  const isDarkMode = React.useContext(DarkModeContext);
+  const { isDarkMode } = React.useContext(DarkModeContext);
 
   const handleWorkMinutesChanged = (val) => {
     setTimerConfigValues((prevState) => ({

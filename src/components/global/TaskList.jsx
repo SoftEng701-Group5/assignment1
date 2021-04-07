@@ -12,7 +12,7 @@ import DarkModeContext from "../../services/theme-context";
 function TaskList(props) {
   const { onTaskClick, tasks } = props;
   const [currentTask] = useContext(CurrentTaskContext);
-  const isDarkMode = React.useContext(DarkModeContext);
+  const { isDarkMode } = React.useContext(DarkModeContext);
 
   return (
     <div className={isDarkMode ? "task-list" : "task-list light"}>

@@ -7,7 +7,7 @@ function TaskBoardColumn(props) {
   const { column, tasks, subTasks, handleSortList } = props;
 
   const [sortListOpened, setSortListOpened] = React.useState(false);
-  const isDarkMode = React.useContext(DarkModeContext);
+  const { isDarkMode } = React.useContext(DarkModeContext);
 
   const onSortButtonClick = () => {
     setSortListOpened(!sortListOpened);

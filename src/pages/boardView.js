@@ -11,7 +11,7 @@ function BoardView() {
   const [boardData, setBoardData] = useState(TaskBoardSampleData);
 
   const [sortListOpened, setSortListOpened] = useState(false);
-  const isDarkMode = React.useContext(DarkModeContext);
+  const { isDarkMode } = React.useContext(DarkModeContext);
 
   /**
    * Called when an item in the column sorting dropdown list is clicked

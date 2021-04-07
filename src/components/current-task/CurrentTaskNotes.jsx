@@ -9,7 +9,7 @@ import DarkModeContext from "../../services/theme-context";
 function CurrentTaskNotes(props) {
   const { notes } = props;
   const [isExpanded, setIsExpanded] = useState(false);
-  const isDarkMode = React.useContext(DarkModeContext);
+  const { isDarkMode } = React.useContext(DarkModeContext);
 
   const handleIconClick = () => setIsExpanded(!isExpanded);
 

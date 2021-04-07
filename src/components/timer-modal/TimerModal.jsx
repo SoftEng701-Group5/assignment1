@@ -16,7 +16,7 @@ const modalRoot = document.querySelector("#modal-root");
  */
 export default function TimerModal() {
   const [currentTask] = useContext(CurrentTaskContext);
-  const isDarkMode = useContext(DarkModeContext);
+  const { isDarkMode } = useContext(DarkModeContext);
 
   return ReactDOM.createPortal(
     <div className={isDarkMode ? "timer-modal" : "timer-modal light"}>

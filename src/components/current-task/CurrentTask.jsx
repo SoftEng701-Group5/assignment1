@@ -30,7 +30,7 @@ function CurrentTask() {
   const [, setShowModal] = useContext(TimerModalShowContext);
   const [, setPlay] = useContext(PlayContext);
   const [isChecked] = useContext(FullscreenContext);
-  const isDarkMode = React.useContext(DarkModeContext);
+  const { isDarkMode } = React.useContext(DarkModeContext);
 
   const [, setWorkTimer] = useContext(WorkTimerContext);
   const [, setBreakTimer] = useContext(BreakTimerContext);

@@ -15,7 +15,7 @@ function DateTime() {
   const [dayName, setDayName] = useState("Monday");
   const [date, setDate] = useState("01/01/21");
   const [time, setTime] = useState("12:00AM");
-  const isDarkMode = React.useContext(DarkModeContext);
+  const { isDarkMode } = React.useContext(DarkModeContext);
 
   const getDateInfo = () => {
     const d = new Date();

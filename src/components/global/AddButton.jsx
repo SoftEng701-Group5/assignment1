@@ -4,7 +4,7 @@ import DarkModeContext from "../../services/theme-context";
 
 function AddButton(props) {
   const { onClick } = props;
-  const isDarkMode = React.useContext(DarkModeContext);
+  const { isDarkMode } = React.useContext(DarkModeContext);
 
   return (
     <div

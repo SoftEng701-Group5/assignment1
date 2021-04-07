@@ -24,7 +24,7 @@ export default function CurrentTaskTimer() {
 
   const [workTimerMemory] = useContext(WorkTimerMemoryContext);
   const [breakTimerMemory] = useContext(BreakTimerMemoryContext);
-  const isDarkMode = useContext(DarkModeContext);
+  const { isDarkMode } = useContext(DarkModeContext);
 
   const workMinutes = Math.floor(workTimer.seconds / 60);
   const workSeconds = workTimer.seconds % 60;

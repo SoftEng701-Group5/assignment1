@@ -21,7 +21,7 @@ function TextInput(props) {
     onChangeHandler,
   } = props;
 
-  const isDarkMode = React.useContext(DarkModeContext);
+  const { isDarkMode } = React.useContext(DarkModeContext);
 
   return (
     <div className={isDarkMode ? "text-input" : "text-input light"}>

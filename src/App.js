@@ -27,12 +27,12 @@ const getColourScheme = () => {
 };
 
 function App() {
-  const isDarkMode = getColourScheme();
+  const { isDarkMode, setIsDarkMode } = getColourScheme();
 
   return (
     <AuthProvider>
       <Router>
-        <DarkModeContext.Provider value={isDarkMode}>
+        <DarkModeContext.Provider value={{ isDarkMode, setIsDarkMode }}>
           <div className={isDarkMode ? "background" : "background--light"}>
             <div className="main-content">
               <Switch>

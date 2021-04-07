@@ -22,7 +22,7 @@ export default function LoginView() {
   const [emailInfoText, setEmailInfoText] = useState("");
   const [passwordInfoText, setPasswordInfoText] = useState("");
 
-  const isDarkMode = React.useContext(DarkModeContext);
+  const { isDarkMode } = React.useContext(DarkModeContext);
 
   /**
    * Handles login process

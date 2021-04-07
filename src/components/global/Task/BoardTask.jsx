@@ -10,7 +10,7 @@ function BoardTask(props) {
 
   const [isChecked, setIsChecked] = useState(checked);
   const [isExpanded, setIsExpanded] = useState(expanded);
-  const isDarkMode = React.useContext(DarkModeContext);
+  const { isDarkMode } = React.useContext(DarkModeContext);
 
   const handleCheckBoxClick = () => {
     // Update the sample data file
