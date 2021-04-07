@@ -1,70 +1,70 @@
 .current-task-notes {
-	@include accordion(
-		$current-task-notes-content-height,
-		$current-task-header-background,
-		$current-task-content-background
-	);
+  @include accordion(
+    $current-task-notes-content-height,
+    $current-task-header-background,
+    $current-task-content-background
+  );
 }
 
 .current-task-notes__list {
-	padding-left: 50px;
+  padding-left: 50px;
 
-	li {
-		display: list-item;
-	}
+  li {
+    display: list-item;
+  }
 }
 
 .save-task-notes-button-container {
-	z-index: 1;
+  z-index: 1;
 }
 
-
 .current-task-notes-container {
-	display: flex;
-    flex-direction: column;
-	width: 100%;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 0.5rem 0.5rem;
 }
 
 .current-task-notes-text-container {
-	width:100%;
-	height: 100%;
-	position: relative;
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 .current-task-notes-text-area {
-	color: #ffffff;
-	background:transparent;
-	width: 100% !important;
-	height: 100% !important;
-	border: none;
-	resize: none;
+  color: #ffffff;
+  background: transparent;
+  width: 100% !important;
+  height: 100% !important;
+  border: none;
+  resize: none;
 }
 
-.save-cancel-button-container{
-	display: flex;
-	flex-direction: row-reverse;
-	padding: 0.5rem 0.5rem;
+.save-cancel-button-container {
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 0.5rem 0.5rem;
 }
 
 .save-and-cancelbutton-text {
-	@extend .button-text;
-	margin: 0 5px;
+  @extend .button-text;
+  margin: 0 5px;
 }
 
 .save-and-cancelbutton-container {
-	@extend .button-container;
-	margin: 5px 5px;
+  @extend .button-container;
+  margin: 5px 5px;
 }
 
 .save-and-cancel-disabledbutton-text {
-	@extend .save-and-cancelbutton-text;;
+  @extend .save-and-cancelbutton-text;
 }
 
-.save-and-cancel-disabledbutton-container {
-	@extend .save-and-cancelbutton-container;
-	opacity: 0.6;
+.save-and-cancel--disabledbutton-container {
+  @extend .save-and-cancelbutton-container;
+  opacity: 0.6;
 }
 
-.save-and-cancel-disabledbutton-container:hover {
-	cursor: not-allowed;
+.save-and-cancel--disabledbutton-container:hover {
+  cursor: not-allowed;
 }
