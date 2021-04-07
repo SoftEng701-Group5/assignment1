@@ -10,7 +10,9 @@ function Task(props) {
   const [isExpanded, setIsExpanded] = useState(expanded);
   const { isDarkMode } = React.useContext(DarkModeContext);
 
-  const handleCheckBoxClick = () => setIsChecked(!isChecked);
+  const handleCheckBoxClick = () => {
+    setIsChecked(!isChecked);
+  };
   const handleIconClick = () => setIsExpanded(!isExpanded);
 
   return (
