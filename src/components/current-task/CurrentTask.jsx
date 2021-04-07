@@ -5,6 +5,7 @@ import Task from "../global/Task/Task";
 import CurrentTaskNotes from "./CurrentTaskNotes";
 import TimerConfig from "./TimerConfig";
 import CurrentTaskTimer from "./CurrentTaskTimer";
+import { updateTask } from "../../services/databaseService";
 import {
   BreakTimerContext,
   WorkTimerContext,
@@ -64,6 +65,15 @@ function CurrentTask() {
     setPlay(true);
   };
 
+  async function handleSaveNote(newDescription) {
+    console.log(newDescription);
+    const newTask = { ...currentTask };
+    // const [updatedNotesArr] = newNotes;
+    newTask.Description = newDescription;
+    console.log(newTask);
+    await updateTask(newTask.Task_id, newTask);
+  }
+
   return (
     <div className="current-task">
       <h1 className="current-task__title">Current Task:</h1>
@@ -78,7 +88,10 @@ function CurrentTask() {
                 name={currentTask.Name}
                 subtasks={currentTask.Subtasks}
               />
-              <CurrentTaskNotes notes={[currentTask.Description]} />
+              <CurrentTaskNotes
+                notes={[currentTask.Description]}
+                handleSaveNote={handleSaveNote}
+              />
             </div>
           )}
 

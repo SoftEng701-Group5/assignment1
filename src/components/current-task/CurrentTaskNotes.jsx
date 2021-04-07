@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import RightChevron from "../../assets/icons/RightChevron";
+import Button from "../global/Button";
 
 /**
  * This function represents the Notes component that makes up the Current Task component.
  * The current task's notes are shown when the Notes component is expanded.
  */
 function CurrentTaskNotes(props) {
-  const { notes } = props;
+  const { notes, handleSaveNote } = props;
   const [isExpanded, setIsExpanded] = useState(false);
   const [newNotes, setNotes] = useState(notes);
   const handleIconClick = () => setIsExpanded(!isExpanded);
@@ -27,6 +28,14 @@ function CurrentTaskNotes(props) {
           value={newNotes}
           onChange={(e) => {
             setNotes(e.target.value);
+          }}
+        />
+        <Button
+          text="Save"
+          height="24px"
+          fontSize="11px"
+          handleOnClick={() => {
+            handleSaveNote(newNotes);
           }}
         />
       </form>
