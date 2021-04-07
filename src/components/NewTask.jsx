@@ -70,7 +70,7 @@ export default function NewTask() {
       name,
       currentUser.uid,
       edDate ? edDate.toDate() : null,
-      null
+      "Backlog"
     );
     setDisplay(false);
     resetValues();
