@@ -23,11 +23,12 @@ const getColourScheme = () => {
     darkThemeMq.addEventListener("change", mqListener);
     return () => darkThemeMq.removeEventListener("change", mqListener);
   }, []);
-  return isDarkMode;
+  return { isDarkMode, setIsDarkMode };
 };
 
 function App() {
   const isDarkMode = getColourScheme();
+
   return (
     <AuthProvider>
       <Router>
