@@ -79,11 +79,11 @@ export default function LoginView() {
           </form>
         </div>
         <Button
-                  type="submit"
-                  icon="rightArrow"
-                  text="Login"
-                  handleOnClick={loginHandler}
-               />
+          type="submit"
+          icon="rightArrow"
+          text="Login"
+          handleOnClick={loginHandler}
+        />
         <div className="login__bottom-text">
           <span>Don&apos;t have an account?</span>
           <Link to="/signup" className="login__bottom-text__link">
