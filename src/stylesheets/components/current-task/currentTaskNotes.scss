@@ -30,7 +30,6 @@
 	width:100%;
 	height: 100%;
 	position: relative;
-	padding: 0rem 0.5rem 0.5rem;
 }
 .current-task-notes-text-area {
 	color: #ffffff;
@@ -38,9 +37,7 @@
 	width: 100% !important;
 	height: 100% !important;
 	border: none;
-	position: absolute;
 	resize: none;
-
 }
 
 .save-cancel-button-container{
@@ -60,12 +57,14 @@
 }
 
 .save-and-cancel-disabledbutton-text {
-	@extend .save-and-cancelbutton-text;
-	cursor: not-allowed;
+	@extend .save-and-cancelbutton-text;;
 }
 
 .save-and-cancel-disabledbutton-container {
 	@extend .save-and-cancelbutton-container;
 	opacity: 0.6;
-  	cursor: not-allowed;
+}
+
+.save-and-cancel-disabledbutton-container:hover {
+	cursor: not-allowed;
 }
