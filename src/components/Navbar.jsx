@@ -3,6 +3,7 @@ import { useLocation, Link, useHistory } from "react-router-dom";
 import BoardIcon from "../assets/icons/BoardIcon";
 import DashboardIcon from "../assets/icons/DashboardIcon";
 import HomeIcon from "../assets/icons/HomeIcon";
+import MusicIcon from "../assets/icons/MusicIcon";
 import SettingsIcon from "../assets/icons/SettingsIcon";
 import LogoutIcon from "../assets/icons/LogoutIcon";
 import DefaultAvatar from "../assets/images/default-avatar.png";
@@ -46,6 +47,12 @@ function Navbar() {
             <BoardIcon />
           </div>
         </Link>
+        <Link to="/music" className="button-link">
+          <div className="navbar__icon__group" data-testid="nav-music-icon">
+            {location.pathname === "/music" && <div className="selected-box" />}
+            <MusicIcon />
+          </div>
+        </Link>
       </div>
 
       <div
@@ -68,7 +75,6 @@ function Navbar() {
             <LogoutIcon />
           </div>
         </div>
-
         <img className="navbar__useravatar" src={DefaultAvatar} alt="avatar" />
       </div>
     </div>

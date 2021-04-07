@@ -8,6 +8,7 @@ import PageNotFoundView from "./pages/pageNotFoundView";
 import { AuthProvider } from "./services/providers/authProvider";
 import PrivateRoute from "./components/PrivateRoute";
 import DashboardView from "./pages/dashboardView";
+import MusicView from "./pages/MusicView";
 
 function App() {
   return (
@@ -32,6 +33,8 @@ function App() {
 
               {/* Welcome dashboard - navbar present */}
               <PrivateRoute component={DashboardView} path="/dashboard" exact />
+              <PrivateRoute component={MusicView} path="/music" exact />
+
               {/* Fallback - if none of the above routes are hit */}
               <Route>
                 <PageNotFoundView />
