@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import RightChevron from "../../assets/icons/RightChevron";
 import Button from "../global/Button";
 
@@ -10,8 +10,13 @@ function CurrentTaskNotes(props) {
   const { notes, handleSaveNote } = props;
   const [isExpanded, setIsExpanded] = useState(false);
   const [isEdited, setIsEdited] = useState(false);
-  const [newNotes, setNotes] = useState(notes);
+  const [editedNotes, setEditedNotes] = useState(notes);
   const handleIconClick = () => setIsExpanded(!isExpanded);
+
+  useEffect(() => {
+    setEditedNotes(notes);
+    setIsEdited(false);
+  }, [notes]);
 
   return (
     <div className={`current-task-notes${isExpanded ? "--expanded" : ""}`}>
@@ -28,35 +33,35 @@ function CurrentTaskNotes(props) {
           <div className="current-task-notes-text-container">
             <textarea
               className="current-task-notes-text-area"
-              value={newNotes}
+              value={editedNotes}
               onChange={(e) => {
                 setIsEdited(true);
-                setNotes(e.target.value);
+                setEditedNotes(e.target.value);
               }}
             />
           </div>
           <div className="save-cancel-button-container">
             <Button
-              className={`save-and-cancel${!isEdited ? "-disabled" : ""}`}
+              className={`save-and-cancel${!isEdited ? "--disabled" : ""}`}
               text="Save"
               height="24px"
               fontSize="11px"
               handleOnClick={() => {
                 if (isEdited) {
                   setIsEdited(false);
-                  handleSaveNote(newNotes);
+                  handleSaveNote(editedNotes);
                 }
               }}
             />
             <Button
-              className={`save-and-cancel${!isEdited ? "-disabled" : ""}`}
+              className={`save-and-cancel${!isEdited ? "--disabled" : ""}`}
               text="Cancel"
               height="24px"
               fontSize="11px"
               handleOnClick={() => {
                 if (isEdited) {
                   setIsEdited(false);
-                  setNotes(notes);
+                  setEditedNotes(notes);
                 }
               }}
             />
