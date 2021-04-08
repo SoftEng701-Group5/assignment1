@@ -23,7 +23,7 @@
   flex-direction: column;
   width: 100%;
   height: 100%;
-  padding: 0.5rem 0.5rem;
+  padding: 0.5rem 1rem;
 }
 
 .current-task-notes-text-container {
@@ -43,7 +43,7 @@
 .save-cancel-button-container {
   display: flex;
   flex-direction: row-reverse;
-  padding: 0.5rem 0.5rem;
+  padding: 0.5rem 0rem;
 }
 
 .save-and-cancelbutton-text {
@@ -56,7 +56,7 @@
   margin: 5px 5px;
 }
 
-.save-and-cancel-disabledbutton-text {
+.save-and-cancel--disabledbutton-text {
   @extend .save-and-cancelbutton-text;
 }
 
