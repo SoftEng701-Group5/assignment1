@@ -4,7 +4,7 @@ import Button from "../global/Button";
 
 /**
  * This function represents the Notes component that makes up the Current Task component.
- * The current task's notes are shown when the Notes component is expanded.
+ * The current task's notes are shown when the Notes component is expanded and can be edited by clicking the save button.
  */
 function CurrentTaskNotes(props) {
   const { notes, handleSaveNote } = props;

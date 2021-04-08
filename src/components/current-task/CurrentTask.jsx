@@ -66,12 +66,8 @@ function CurrentTask() {
   };
 
   async function handleSaveNote(newDescription) {
-    console.log(newDescription);
-    const newTask = { ...currentTask };
-    // const [updatedNotesArr] = newNotes;
-    newTask.Description = newDescription;
-    console.log(newTask);
-    await updateTask(newTask.Task_id, newTask);
+    currentTask.Description = newDescription;
+    await updateTask(currentTask.Task_id, currentTask);
   }
 
   return (
