@@ -45,24 +45,17 @@ export default function TimerSection() {
       return "00:00";
     }
 
-    if (Number.isNaN(m)) {
-      timerStr += "00:";
-    } else {
-      if (m < 10) {
-        timerStr += "0";
-      }
-      timerStr += m;
-      timerStr += ":";
+    if (m < 10) {
+      timerStr += "0";
     }
+    timerStr += m;
+    timerStr += ":";
 
-    if (Number.isNaN(s)) {
-      timerStr += "00";
-    } else {
-      if (s < 10) {
-        timerStr += "0";
-      }
-      timerStr += s;
+    if (s < 10) {
+      timerStr += "0";
     }
+    timerStr += s;
+
     return timerStr;
   };
 
