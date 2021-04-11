@@ -78,6 +78,17 @@ export default function NewTask(props) {
     resetValues();
   }
 
+  /**
+   * Called for any keypress while user is focused on the button
+   * If the key pressed is enter, the supplied clickHandler function is called
+   * @param event Keypress event
+   */
+  function handleKeyPress(event) {
+    if (event.key === "Enter") {
+      handleAddNewTask();
+    }
+  }
+
   return (
     <div className="newtask-container">
       <AddButton onClick={() => setDisplay(true)} />
@@ -85,6 +96,7 @@ export default function NewTask(props) {
         dismissOnClickOutside
         onCancel={handleCancelNewTask}
         show={display}
+        handleKeyPress={handleKeyPress}
       >
         <div className="">
           <div className="hBox">
