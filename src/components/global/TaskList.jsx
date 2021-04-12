@@ -9,7 +9,7 @@ import { CurrentTaskContext } from "../timer-modal/TimerContextProvider";
  * display task details, and a button to add new tasks.
  */
 function TaskList(props) {
-  const { onTaskClick, tasks } = props;
+  const { onTaskClick, tasks, onNewTask } = props;
   const [currentTask] = useContext(CurrentTaskContext);
 
   return (
@@ -29,7 +29,7 @@ function TaskList(props) {
         </div>
 
         <div className="add-task-button-container">
-          <NewTask />
+          <NewTask onNewTask={onNewTask} />
         </div>
       </div>
     </div>

@@ -8,18 +8,14 @@ function Task(props) {
   const [isChecked, setIsChecked] = useState(checked);
   const [isExpanded, setIsExpanded] = useState(expanded);
 
-  const handleCheckBoxClick = () => setIsChecked(!isChecked);
+  const handleCheckBoxClick = () => {
+    setIsChecked(!isChecked);
+  };
   const handleIconClick = () => setIsExpanded(!isExpanded);
 
   return (
     <div className={`task${isExpanded ? "--expanded" : ""}`}>
-      <div
-        className={`task__header${selected ? "--selected" : ""}`}
-        onClick={onClick}
-        onKeyDown={onClick}
-        role="button"
-        tabIndex="0"
-      >
+      <div className={`task__header${selected ? "--selected" : ""}`}>
         <div
           className={`task__checkbox${isChecked ? "--checked" : ""}`}
           onClick={handleCheckBoxClick}
@@ -29,7 +25,13 @@ function Task(props) {
           tabIndex="0"
           aria-checked={isChecked}
         />
-        <span className={`task__title${isChecked ? "--checked" : ""}`}>
+        <span
+          className={`task__title${isChecked ? "--checked" : ""}`}
+          onClick={onClick}
+          onKeyDown={onClick}
+          role="button"
+          tabIndex="0"
+        >
           {name}
         </span>
         <RightChevron handleOnClick={handleIconClick} isRotated={isExpanded} />

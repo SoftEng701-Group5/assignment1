@@ -50,6 +50,18 @@ function CurrentTask() {
   const handleStartButtonClicked = () => {
     setShowConfig(false);
     setShowTimer(true);
+    if (Number.isNaN(timerConfigValues.workMinutes)) {
+      timerConfigValues.workMinutes = 0;
+    }
+    if (Number.isNaN(timerConfigValues.workSeconds)) {
+      timerConfigValues.workSeconds = 0;
+    }
+    if (Number.isNaN(timerConfigValues.breakMinutes)) {
+      timerConfigValues.breakMinutes = 0;
+    }
+    if (Number.isNaN(timerConfigValues.breakSeconds)) {
+      timerConfigValues.breakSeconds = 0;
+    }
     const workSec =
       timerConfigValues.workMinutes * 60 + timerConfigValues.workSeconds;
     const breakSec =
