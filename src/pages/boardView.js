@@ -140,7 +140,8 @@ function BoardView() {
                   subTasks={boardData.subTasks}
                   handleSortList={onSortListClick}
                 />
-                {!index ? <NewTask onNewTask={() => {}} /> : null}
+                {/* passing empty function as onNewTask as there is no need to re-fetch tasks in this view */}
+                {!index ? <NewTask onNewTask={() => {}} /> : null}{" "}
               </div>
             );
           })}
