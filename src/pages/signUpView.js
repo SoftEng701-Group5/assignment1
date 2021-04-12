@@ -5,7 +5,7 @@ import TextInput from "../components/global/TextInput";
 import Button from "../components/global/Button";
 import SignUpBGImage from "../assets/images/SignupImage";
 
-import { signUp, signUpError } from "../services/authService";
+import { signUp } from "../services/authService";
 
 /**
  * This component represents the login page,
@@ -73,7 +73,7 @@ export default function SignUpView() {
       } else {
         // If signup is unsuccessful, notify user and reset inputs
         // eslint-disable-next-line no-alert
-        alert(signUpError);
+        alert("Sorry, could not sign up");
 
         setFirstName("");
         setLastName("");
