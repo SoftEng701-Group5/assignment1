@@ -10,12 +10,14 @@ const modalRoot = document.querySelector("#modal-root");
  * @param onCancel function to call when the modal is cancelled
  * @param children Variable used to represent all the children of the modal component
  * @param show boolean used to show or hide the modal
+ * @param handleKeyPress function to handle key presses when inside the modal
  */
 export default function Modal({
   dismissOnClickOutside,
   onCancel,
   children,
   show,
+  handleKeyPress,
 }) {
   const { isDarkMode } = React.useContext(DarkModeContext);
 
@@ -34,7 +36,8 @@ export default function Modal({
         }
       }}
     >
-      <div className={isDarkMode ? "modalContainer" : "modalContainer light"}>
+      {/* eslint-disable-next-line */}
+      <div className={isDarkMode ? "modalContainer" : "modalContainer light"} onKeyPress={handleKeyPress} tabIndex="0">
         {children}
       </div>
     </div>,
