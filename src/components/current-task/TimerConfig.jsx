@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import TextInput from "../global/TextInput";
 import { FullscreenContext } from "../timer-modal/TimerContextProvider";
+import DarkModeContext from "../../services/theme-context";
 
 /**
  * This function handles the configuration of the Timer component used in the
@@ -59,6 +60,7 @@ function TimerConfig(props) {
   const { setTimerConfigValues } = props;
 
   const [isChecked, setIsChecked] = useContext(FullscreenContext);
+  const { isDarkMode } = React.useContext(DarkModeContext);
 
   const handleWorkMinutesChanged = (val) => {
     setTimerConfigValues((prevState) => ({
@@ -93,7 +95,7 @@ function TimerConfig(props) {
   };
 
   return (
-    <div className="timer-config">
+    <div className={isDarkMode ? "timer-config" : "timer-config light"}>
       <IntervalInput
         title="Work Interval"
         textValue="25"
