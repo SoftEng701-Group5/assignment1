@@ -1,9 +1,19 @@
 .current-task-notes {
-  @include accordion(
-    $current-task-notes-content-height,
-    $current-task-header-background,
-    $current-task-content-background
-  );
+	@include accordion(
+		$current-task-notes-content-height,
+		$current-task-header-background,
+		$current-task-content-background
+	);
+
+    &.light, &--expanded.light {
+        .current-task-notes__header {
+            background-color: $current-task-header-background-light;
+        }
+
+        .current-task-notes__content--expanded {
+            background: $current-task-content-background-light;
+        }
+    }
 }
 
 .current-task-notes__list {

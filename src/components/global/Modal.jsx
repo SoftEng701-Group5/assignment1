@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import DarkModeContext from "../../services/theme-context";
 
 const modalRoot = document.querySelector("#modal-root");
 
@@ -18,6 +19,8 @@ export default function Modal({
   show,
   handleKeyPress,
 }) {
+  const { isDarkMode } = React.useContext(DarkModeContext);
+
   if (!show) {
     return null;
   }
@@ -34,7 +37,7 @@ export default function Modal({
       }}
     >
       {/* eslint-disable-next-line */}
-      <div className="modalContainer" onKeyPress={handleKeyPress} tabIndex="0">
+      <div className={isDarkMode ? "modalContainer" : "modalContainer light"} onKeyPress={handleKeyPress} tabIndex="0">
         {children}
       </div>
     </div>,

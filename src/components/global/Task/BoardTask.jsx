@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Draggable } from "react-beautiful-dnd";
 import RightChevron from "../../../assets/icons/RightChevron";
 import TaskBoardSampleData from "../../../assets/TaskBoardSampleData";
+import DarkModeContext from "../../../services/theme-context";
 import Subtask from "./Subtask";
 
 function BoardTask(props) {
@@ -9,6 +10,7 @@ function BoardTask(props) {
 
   const [isChecked, setIsChecked] = useState(checked);
   const [isExpanded, setIsExpanded] = useState(expanded);
+  const { isDarkMode } = React.useContext(DarkModeContext);
 
   const handleCheckBoxClick = () => {
     // Update the sample data file
@@ -24,7 +26,9 @@ function BoardTask(props) {
     <Draggable key={id} draggableId={id} index={index}>
       {(provided) => (
         <div
-          className={`task${isExpanded ? "--expanded" : ""}`}
+          className={`task${isExpanded ? "--expanded" : ""} ${
+            isDarkMode ? "" : "light"
+          }`}
           // Props and references for the drag-and-drop library
           {...provided.draggableProps}
           {...provided.dragHandleProps}
