@@ -8,9 +8,7 @@ function Task(props) {
   const [isChecked, setIsChecked] = useState(checked);
   const [isExpanded, setIsExpanded] = useState(expanded);
 
-  const handleCheckBoxClick = () => {
-    setIsChecked(!isChecked);
-  };
+  const handleCheckBoxClick = () => setIsChecked(!isChecked);
   const handleIconClick = () => setIsExpanded(!isExpanded);
 
   return (
