@@ -24,4 +24,8 @@
   background: $background;
   padding: 30px;
   border-radius: 10px;
+
+  &.light {
+    background: $background-light;
+  }
 }

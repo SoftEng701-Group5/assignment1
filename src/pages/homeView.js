@@ -7,6 +7,7 @@ import Navbar from "../components/Navbar";
 import { CurrentTaskContext } from "../components/timer-modal/TimerContextProvider";
 import { fetchTasks } from "../services/databaseService";
 import { AuthContext } from "../services/providers/authProvider";
+import DarkModeContext from "../services/theme-context";
 import TaskList from "../components/global/TaskList";
 
 function HomeView() {
@@ -14,6 +15,7 @@ function HomeView() {
   const [, setCurrentTask] = useContext(CurrentTaskContext);
   const [tasks, setTasks] = useState([]);
   const history = useHistory();
+  const { isDarkMode } = React.useContext(DarkModeContext);
 
   const getGreeting = () => {
     const myDate = new Date();
@@ -38,7 +40,7 @@ function HomeView() {
   return (
     <>
       <Navbar />
-      <div className="home-page--root">
+      <div className={isDarkMode ? "home-page--root" : "home-page--root light"}>
         <div className="home-page--welcome-container">
           <h1 className="home-page--welcome-message">
             <span>{getGreeting()}</span>

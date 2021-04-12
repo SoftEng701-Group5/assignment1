@@ -8,6 +8,7 @@ import CrossIcon from "../../assets/icons/CrossIcon";
 import PlayIcon from "../../assets/icons/PlayIcon";
 import PauseIcon from "../../assets/icons/PauseIcon";
 import ResetIcon from "../../assets/icons/ResetIcon";
+import DarkModeIcon from "../../assets/icons/DarkModeIcon";
 
 function getIcon(icon) {
   const map = {
@@ -20,6 +21,7 @@ function getIcon(icon) {
     play: PlayIcon,
     pause: PauseIcon,
     reset: ResetIcon,
+    lightMode: DarkModeIcon,
   };
   if (!map[icon]) {
     return <div />;
