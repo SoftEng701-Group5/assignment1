@@ -71,7 +71,8 @@ export default function NewTask(props) {
       desc,
       name,
       currentUser.uid,
-      edDate ? edDate.toDate() : null
+      edDate ? edDate.toDate() : null,
+      "Backlog"
     );
     setDisplay(false);
     onNewTask();
