@@ -140,7 +140,7 @@ function BoardView() {
                   subTasks={boardData.subTasks}
                   handleSortList={onSortListClick}
                 />
-                {!index ? <NewTask /> : null}
+                {!index ? <NewTask onNewTask={() => {}} /> : null}
               </div>
             );
           })}
