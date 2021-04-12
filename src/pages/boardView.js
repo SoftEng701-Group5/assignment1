@@ -134,7 +134,9 @@ function BoardView() {
                   subTasks={boardData.subTasks}
                   handleSortList={onSortListClick}
                 />
-                {!index ? <NewTask /> : null}
+                <div className="add_button_board_view">
+                  {!index ? <NewTask /> : null}
+                </div>
               </div>
             );
           })}
