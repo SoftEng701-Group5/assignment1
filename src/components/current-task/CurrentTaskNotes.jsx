@@ -34,6 +34,7 @@ function CurrentTaskNotes(props) {
             <textarea
               className="current-task-notes-text-area"
               value={editedNotes}
+              // upon typing, edits are stored as state
               onChange={(e) => {
                 setIsEdited(true);
                 setEditedNotes(e.target.value);
@@ -42,11 +43,13 @@ function CurrentTaskNotes(props) {
           </div>
           <div className="save-cancel-button-container">
             <Button
+              // if no edits have been made, button appears disabled
               className={`save-and-cancel${!isEdited ? "--disabled" : ""}`}
               text="Save"
               height="24px"
               fontSize="11px"
               handleOnClick={() => {
+                // notes are only saved to the database if they are edited
                 if (isEdited) {
                   setIsEdited(false);
                   handleSaveNote(editedNotes);

@@ -77,6 +77,7 @@ function CurrentTask() {
     setPlay(true);
   };
 
+  // persists changes in the description to the database
   async function handleSaveNote(newDescription) {
     currentTask.Description = newDescription;
     await updateTask(currentTask.Task_id, currentTask);
