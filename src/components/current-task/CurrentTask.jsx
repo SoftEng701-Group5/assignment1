@@ -5,6 +5,7 @@ import Task from "../global/Task/Task";
 import CurrentTaskNotes from "./CurrentTaskNotes";
 import TimerConfig from "./TimerConfig";
 import CurrentTaskTimer from "./CurrentTaskTimer";
+import { updateTask } from "../../services/databaseService";
 import {
   BreakTimerContext,
   WorkTimerContext,
@@ -76,6 +77,12 @@ function CurrentTask() {
     setPlay(true);
   };
 
+  // persists changes in the description to the database
+  async function handleSaveNote(newDescription) {
+    currentTask.Description = newDescription;
+    await updateTask(currentTask.Task_id, currentTask);
+  }
+
   return (
     <div className="current-task">
       <h1 className="current-task__title">Current Task:</h1>
@@ -90,7 +97,10 @@ function CurrentTask() {
                 name={currentTask.Name}
                 subtasks={currentTask.Subtasks}
               />
-              <CurrentTaskNotes notes={[currentTask.Description]} />
+              <CurrentTaskNotes
+                notes={[currentTask.Description]}
+                handleSaveNote={handleSaveNote}
+              />
             </div>
           )}
 
