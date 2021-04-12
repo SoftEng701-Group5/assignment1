@@ -31,6 +31,7 @@ function DashboardView() {
   const [, setCurrentTask] = useContext(CurrentTaskContext);
   const [tasks, setTasks] = useState([]);
   const { isDarkMode } = React.useContext(DarkModeContext);
+  const [refetchTasks, setRefetchTasks] = useState(false);
 
   /**
    * When a task is selected from Today's Tasks,
@@ -40,17 +41,25 @@ function DashboardView() {
     setCurrentTask(task);
   };
 
+  const triggerRefetchTasks = () => {
+    setRefetchTasks(!refetchTasks);
+  };
+
   useEffect(() => {
     fetchTasks(currentUser.uid).then((res) => {
       setTasks(res);
     });
-  }, []);
+  }, [refetchTasks]);
 
   return (
     <>
       <Navbar />
       <div className={isDarkMode ? "dashboard" : "dashboard light"}>
-        <TaskList tasks={tasks} onTaskClick={handleTaskClick} />
+        <TaskList
+          tasks={tasks}
+          onNewTask={triggerRefetchTasks}
+          onTaskClick={handleTaskClick}
+        />
         <CurrentTask />
         <div className="dashboard__placeholder-column">
           <DashboardPlaceholder title="Stats:" />

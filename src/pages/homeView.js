@@ -63,8 +63,8 @@ function HomeView() {
         <div className="home-page--task-list">
           <TaskList
             tasks={tasks}
-            onTaskClick={handleTaskClick}
             onNewTask={triggerRefetchTasks}
+            onTaskClick={handleTaskClick}
           />
         </div>
         <DateTime />
