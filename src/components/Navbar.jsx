@@ -77,7 +77,7 @@ function Navbar() {
           data-testid="nav-settings-icon"
         >
           <IconButton
-            className="hover-button "
+            className="hover-button"
             icon="settings"
             onClick={settingsHandler}
             size="48px"
@@ -98,7 +98,7 @@ function Navbar() {
           </SettingsModal>
 
           <IconButton
-            className="hover-button "
+            className="hover-button"
             icon={isDarkMode ? "lightMode" : "darkMode"}
             onClick={changeAppTheme}
             size="48px"
@@ -106,7 +106,7 @@ function Navbar() {
           />
 
           <IconButton
-            className="hover-button "
+            className="hover-button"
             icon="logout"
             onClick={signOutHandler}
             size="48px"

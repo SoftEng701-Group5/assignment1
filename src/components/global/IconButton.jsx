@@ -6,7 +6,7 @@ function IconButton(props) {
 
   return (
     <div
-      className={`${className}icon-button-container`}
+      className={`${className} icon-button-container`}
       style={{ width: size, height: size }}
       onClick={() => onClick()}
       onKeyDown={() => onClick()}
