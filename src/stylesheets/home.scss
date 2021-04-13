@@ -28,6 +28,12 @@
     }
   }
 
+  &--root.light > &--welcome-container {
+      h1 {
+          color: black;
+      }
+  }
+
   &--task-list {
     flex: 1;
   }
@@ -42,6 +48,10 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
+    &.light > h1 {
+        color: black;
+    }
 
     @media screen and (max-width: $tablet-media) {
       display: none;

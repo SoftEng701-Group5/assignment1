@@ -69,10 +69,22 @@ export default function NewTask() {
       desc,
       name,
       currentUser.uid,
-      edDate ? edDate.toDate() : null
+      edDate ? edDate.toDate() : null,
+      "Backlog"
     );
     setDisplay(false);
     resetValues();
+  }
+
+  /**
+   * Called for any keypress while user is focused on the button
+   * If the key pressed is enter, the supplied clickHandler function is called
+   * @param event Keypress event
+   */
+  function handleKeyPress(event) {
+    if (event.key === "Enter") {
+      handleAddNewTask();
+    }
   }
 
   return (
@@ -82,6 +94,7 @@ export default function NewTask() {
         dismissOnClickOutside
         onCancel={handleCancelNewTask}
         show={display}
+        handleKeyPress={handleKeyPress}
       >
         <div className="">
           <div className="hBox">

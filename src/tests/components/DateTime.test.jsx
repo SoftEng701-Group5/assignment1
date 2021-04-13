@@ -25,7 +25,7 @@ test("Renders DateTime correctly", () => {
   const d = new Date();
   const wordDay = DAYS[d.getDay()];
   expect(container).toHaveTextContent(d.getDate());
-  expect(container).toHaveTextContent(d.getMonth());
+  expect(container).toHaveTextContent(d.getMonth() + 1);
   expect(container).toHaveTextContent(d.getFullYear());
   expect(container).toHaveTextContent(wordDay);
 });

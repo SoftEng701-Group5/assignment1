@@ -6,6 +6,7 @@ import Button from "../components/global/Button";
 import SignUpBGImage from "../assets/images/SignupImage";
 
 import { signUp } from "../services/authService";
+import DarkModeContext from "../services/theme-context";
 
 /**
  * This component represents the login page,
@@ -26,6 +27,8 @@ export default function SignUpView() {
   const [lastNameInfoText, setLastNameInfoText] = useState("");
   const [emailInfoText, setEmailInfoText] = useState("");
   const [passwordInfoText, setPasswordInfoText] = useState("");
+
+  const { isDarkMode } = React.useContext(DarkModeContext);
 
   /**
    * Handles signup process
@@ -92,7 +95,7 @@ export default function SignUpView() {
   };
 
   return (
-    <div className="sign-up__root">
+    <div className={isDarkMode ? "sign-up__root" : "sign-up__root light"}>
       <div className="sign-up__container">
         <h1>Sign Up</h1>
         <TextInput

@@ -7,12 +7,14 @@ import DashboardIcon from "../assets/icons/DashboardIcon";
 import HomeIcon from "../assets/icons/HomeIcon";
 import DefaultAvatar from "../assets/images/default-avatar.png";
 import { signOut } from "../services/authService";
+import DarkModeContext from "../services/theme-context";
 
 function Navbar() {
   const history = useHistory();
   const [hovering, setHovering] = useState(false);
   const [displaySettings, setDisplaySettings] = useState(false);
   const location = useLocation();
+  const { isDarkMode, setIsDarkMode } = React.useContext(DarkModeContext);
 
   const signOutHandler = () => {
     signOut();
@@ -26,6 +28,10 @@ function Navbar() {
 
   const handleCancelSettings = () => {
     setDisplaySettings(false);
+  };
+
+  const changeAppTheme = () => {
+    setIsDarkMode(!isDarkMode);
   };
 
   /** Use location to check which page the user is currently is on
@@ -90,6 +96,15 @@ function Navbar() {
               />
             </div>
           </SettingsModal>
+
+          <IconButton
+            className="hover-button "
+            icon={isDarkMode ? "lightMode" : "darkMode"}
+            onClick={changeAppTheme}
+            size="48px"
+            data-testid="nav-theme-icon"
+          />
+
           <IconButton
             className="hover-button "
             icon="logout"
