@@ -1,21 +1,31 @@
 import React, { useState } from "react";
 import { useLocation, Link, useHistory } from "react-router-dom";
+import SettingsModal from "./global/Modal";
+import IconButton from "./global/IconButton";
 import BoardIcon from "../assets/icons/BoardIcon";
 import DashboardIcon from "../assets/icons/DashboardIcon";
 import HomeIcon from "../assets/icons/HomeIcon";
-import SettingsIcon from "../assets/icons/SettingsIcon";
-import LogoutIcon from "../assets/icons/LogoutIcon";
 import DefaultAvatar from "../assets/images/default-avatar.png";
 import { signOut } from "../services/authService";
 
 function Navbar() {
   const history = useHistory();
   const [hovering, setHovering] = useState(false);
+  const [displaySettings, setDisplaySettings] = useState(false);
   const location = useLocation();
 
   const signOutHandler = () => {
     signOut();
     history.push("/");
+  };
+
+  const settingsHandler = () => {
+    setHovering(false);
+    setDisplaySettings(true);
+  };
+
+  const handleCancelSettings = () => {
+    setDisplaySettings(false);
   };
 
   /** Use location to check which page the user is currently is on
@@ -49,24 +59,44 @@ function Navbar() {
       </div>
 
       <div
-        onMouseEnter={() => setHovering(true)}
+        onMouseEnter={() => {
+          if (!displaySettings) {
+            setHovering(true);
+          }
+        }}
         onMouseLeave={() => setHovering(false)}
       >
         <div
           className={`navbar__account${hovering ? "--hover" : ""}`}
           data-testid="nav-settings-icon"
         >
-          <SettingsIcon />
-          <div
-            className="icon-container"
-            onClick={signOutHandler}
-            onKeyDown={signOutHandler}
-            role="button"
-            tabIndex="0"
-            data-testid="nav-logout-icon"
+          <IconButton
+            className="hover-button "
+            icon="settings"
+            onClick={settingsHandler}
+            size="48px"
+            data-testid="nav-settings-icon"
+          />
+          <SettingsModal
+            dismissOnClickOutside
+            onCancel={handleCancelSettings}
+            show={displaySettings}
           >
-            <LogoutIcon />
-          </div>
+            <div className="">
+              <IconButton
+                icon="cross"
+                size="48px"
+                onClick={handleCancelSettings}
+              />
+            </div>
+          </SettingsModal>
+          <IconButton
+            className="hover-button "
+            icon="logout"
+            onClick={signOutHandler}
+            size="48px"
+            data-testid="nav-logout-icon"
+          />
         </div>
 
         <img className="navbar__useravatar" src={DefaultAvatar} alt="avatar" />

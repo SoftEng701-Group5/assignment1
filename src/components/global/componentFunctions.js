@@ -7,6 +7,7 @@ import RightChevronIcon from "../../assets/icons/RightChevron";
 import CrossIcon from "../../assets/icons/CrossIcon";
 import PlayIcon from "../../assets/icons/PlayIcon";
 import PauseIcon from "../../assets/icons/PauseIcon";
+import LogoutIcon from "../../assets/icons/LogoutIcon";
 
 function getIcon(icon) {
   const map = {
@@ -18,6 +19,7 @@ function getIcon(icon) {
     cross: CrossIcon,
     play: PlayIcon,
     pause: PauseIcon,
+    logout: LogoutIcon,
   };
   if (!map[icon]) {
     return <div />;
