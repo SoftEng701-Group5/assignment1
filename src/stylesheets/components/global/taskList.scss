@@ -19,6 +19,12 @@
     border-radius: 20px;
     overflow: auto;
   }
+
+  &.light {
+      .task-list__title {
+          color: black;
+      }
+  }
 }
 
 ::-webkit-scrollbar {

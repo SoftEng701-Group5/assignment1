@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import NewTask from "../NewTask";
 import Task from "./Task/Task";
 import { CurrentTaskContext } from "../timer-modal/TimerContextProvider";
+import DarkModeContext from "../../services/theme-context";
 
 /**
  * This function represents the global Task List component used on the home page
@@ -11,9 +12,10 @@ import { CurrentTaskContext } from "../timer-modal/TimerContextProvider";
 function TaskList(props) {
   const { onTaskClick, tasks } = props;
   const [currentTask] = useContext(CurrentTaskContext);
+  const { isDarkMode } = React.useContext(DarkModeContext);
 
   return (
-    <div className="task-list">
+    <div className={isDarkMode ? "task-list" : "task-list light"}>
       <h1 className="task-list__title">Today&apos;s Tasks:</h1>
       <div className="task-list__content">
         <div className="task-list__tasks">

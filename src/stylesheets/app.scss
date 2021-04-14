@@ -44,6 +44,10 @@ code {
 	background: $background;
 	min-height: 100vh;
 	display: flex;
+
+    &--light {
+	    background: $background-light;
+    }
 }
 
 .circle1,
@@ -60,6 +64,10 @@ code {
 	background: linear-gradient(280deg, #3f3e5c 0%, #3a3c4a 100%);
 	top: -10vw;
 	left: -10vw;
+
+    &.light{
+        background: linear-gradient(280deg, #d6d6ed 0%, #e1e4f4 100%);
+    }
 }
 
 .circle2 {
@@ -67,6 +75,10 @@ code {
 	background: linear-gradient(253deg, #34334a 0%, #2c2e3d 100%);
 	bottom: -15vw;
 	right: -5vw;
+
+    &.light{
+        background: linear-gradient(280deg, #dbdaf7 0%, #edeff9 100%);
+    }
 }
 
 .main-content {

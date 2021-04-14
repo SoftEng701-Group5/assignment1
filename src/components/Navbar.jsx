@@ -4,18 +4,26 @@ import BoardIcon from "../assets/icons/BoardIcon";
 import DashboardIcon from "../assets/icons/DashboardIcon";
 import HomeIcon from "../assets/icons/HomeIcon";
 import SettingsIcon from "../assets/icons/SettingsIcon";
+import DarkModeIcon from "../assets/icons/DarkModeIcon";
 import LogoutIcon from "../assets/icons/LogoutIcon";
 import DefaultAvatar from "../assets/images/default-avatar.png";
 import { signOut } from "../services/authService";
+import DarkModeContext from "../services/theme-context";
+import LightModeIcon from "../assets/icons/LightModeIcon";
 
 function Navbar() {
   const history = useHistory();
   const [hovering, setHovering] = useState(false);
   const location = useLocation();
+  const { isDarkMode, setIsDarkMode } = React.useContext(DarkModeContext);
 
   const signOutHandler = () => {
     signOut();
     history.push("/");
+  };
+
+  const changeAppTheme = () => {
+    setIsDarkMode(!isDarkMode);
   };
 
   /** Use location to check which page the user is currently is on
@@ -58,6 +66,16 @@ function Navbar() {
         >
           <SettingsIcon />
           <div
+            style={{ width: "50%", height: "100%", margin: "2vh 0" }}
+            tabIndex="-1"
+            role="button"
+            onKeyDown={changeAppTheme}
+            onClick={changeAppTheme}
+          >
+            {isDarkMode ? <LightModeIcon /> : <DarkModeIcon />}
+          </div>
+          <div
+            style={{ width: "50%", height: "50%", marginBottom: "2vh" }}
             className="icon-container"
             onClick={signOutHandler}
             onKeyDown={signOutHandler}

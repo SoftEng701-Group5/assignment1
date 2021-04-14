@@ -5,6 +5,26 @@
 		$task-content-background
 	);
 
+    &.light {
+        .task__header {
+            background-color: $task-header-background-light;
+
+            &--selected {
+                background-color: $primary-selected-light;
+            }
+        }
+    }
+
+    &--expanded.light {
+        .task__header {
+            background-color: $task-header-background-light;
+        }
+        
+        .task__content--expanded {
+            background: $task-content-background-light;
+        }
+    }
+
 	&__checkbox,
 	&__checkbox--checked {
 		width: 25px;
