@@ -44,4 +44,13 @@
 	&__checkbox--checked {
 		background: $primary-selected;
 	}
+
+    &.light {
+        color: black;
+
+        .timer-config__checkbox,
+        .timer-config__checkbox--checked {
+            border-color: black;
+        }
+    }
 }
