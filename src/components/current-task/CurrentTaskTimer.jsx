@@ -123,7 +123,7 @@ export default function CurrentTaskTimer() {
             size="3rem"
             icon="reset"
             type="button"
-            onClick={() => reset()}
+            onClick={reset}
           />
           <IconButton
             className="current-task-timer__"
