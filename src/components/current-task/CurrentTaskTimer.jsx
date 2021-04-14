@@ -9,6 +9,7 @@ import {
 } from "../timer-modal/TimerContextProvider";
 import IconButton from "../global/IconButton";
 import TimerModal from "../timer-modal/TimerModal";
+import DarkModeContext from "../../services/theme-context";
 
 /**
  * This function represents the Timer component of the Current Tasks component.
@@ -23,12 +24,18 @@ export default function CurrentTaskTimer() {
 
   const [workTimerMemory] = useContext(WorkTimerMemoryContext);
   const [breakTimerMemory] = useContext(BreakTimerMemoryContext);
+  const { isDarkMode } = useContext(DarkModeContext);
 
   const workMinutes = Math.floor(workTimer.seconds / 60);
   const workSeconds = workTimer.seconds % 60;
 
   const breakMinutes = Math.floor(breakTimer.seconds / 60);
   const breakSeconds = breakTimer.seconds % 60;
+
+  /* resets timer */
+  const reset = () => {
+    setWorkTimer({ seconds: workTimerMemory.seconds });
+  };
 
   const timerFormat = (m, s) => {
     let timerStr = "";
@@ -93,7 +100,9 @@ export default function CurrentTaskTimer() {
   }, [play, workTimer, breakTimer]);
 
   return (
-    <div className="current-task-timer">
+    <div
+      className={isDarkMode ? "current-task-timer" : "current-task-timer light"}
+    >
       {showModal && <TimerModal />}
       <div className="current-task-timer__title">
         {workTimer.seconds === 0 ? "Break" : "Work"}
@@ -112,6 +121,13 @@ export default function CurrentTaskTimer() {
             icon={play ? "pause" : "play"}
             type="button"
             onClick={() => setPlay(!play)}
+          />
+          <IconButton
+            className="current-task-timer__"
+            size="3rem"
+            icon="reset"
+            type="button"
+            onClick={reset}
           />
           <IconButton
             className="current-task-timer__"

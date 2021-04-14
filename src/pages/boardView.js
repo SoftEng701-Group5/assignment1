@@ -4,12 +4,14 @@ import Column from "../components/task-board/TaskBoardColumn";
 import BoardImage from "../assets/images/BoardImage";
 import TaskBoardSampleData from "../assets/TaskBoardSampleData";
 import Navbar from "../components/Navbar";
+import DarkModeContext from "../services/theme-context";
 import NewTask from "../components/NewTask";
 
 function BoardView() {
   const [boardData, setBoardData] = useState(TaskBoardSampleData);
 
   const [sortListOpened, setSortListOpened] = useState(false);
+  const { isDarkMode } = React.useContext(DarkModeContext);
 
   /**
    * Called when the sort button is clicked, which toggles the visibility of
@@ -133,7 +135,11 @@ function BoardView() {
     <>
       <Navbar />
       <DragDropContext onDragEnd={onDragEnd}>
-        <div className="taskboard_container">
+        <div
+          className={
+            isDarkMode ? "taskboard_container" : "taskboard_container light"
+          }
+        >
           {boardData.columnOrder.map((columnId, index) => {
             const column = boardData.columns[columnId];
             const tasks = column.taskIds.map(
@@ -150,7 +156,8 @@ function BoardView() {
                   onSortButtonClick={onSortButtonClick}
                   handleSortList={onSortListClick}
                 />
-                {!index ? <NewTask /> : null}
+                {/* passing empty function as onNewTask as there is no need to re-fetch tasks in this view */}
+                {!index ? <NewTask onNewTask={() => {}} /> : null}{" "}
               </div>
             );
           })}

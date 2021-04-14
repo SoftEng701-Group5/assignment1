@@ -37,7 +37,8 @@ const createTask = async (
   description,
   name,
   userId,
-  endDate
+  endDate,
+  kanbanColumn
 ) => {
   const db = firebaseConnection.firestore();
   db.collection("Tasks").add({
@@ -48,6 +49,7 @@ const createTask = async (
     User_id: userId,
     End_date: endDate,
     Is_complete: false,
+    Kanban_Column: kanbanColumn,
   });
 };
 

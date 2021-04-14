@@ -63,13 +63,6 @@
   align-items: center;
   transition: all 0.5s ease;
 
-  .icon-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-  }
-
   svg {
     transition: all 0.5s ease;
   }
@@ -79,11 +72,6 @@
 
     padding: 30px 0 5vh 0;
     opacity: 1;
-
-    svg {
-      margin-bottom: 25px;
-      cursor: pointer;
-    }
   }
 }
 

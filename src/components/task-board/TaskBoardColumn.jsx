@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { Droppable } from "react-beautiful-dnd";
+import DarkModeContext from "../../services/theme-context";
 import BoardTask from "../global/Task/BoardTask";
 
 function TaskBoardColumn(props) {
@@ -26,13 +27,15 @@ function TaskBoardColumn(props) {
     }
   };
 
+  const { isDarkMode } = React.useContext(DarkModeContext);
+
   useEffect(() => {
     document.addEventListener("mousedown", handleOutsideClick);
     return () => document.removeEventListener("mousedown", handleOutsideClick);
   });
 
   return (
-    <div className="column-container">
+    <div className={isDarkMode ? "column-container" : "column-container light"}>
       <h1 className="column-container__heading">
         {column.title}
         <div className="column__sorting" ref={myRef}>
@@ -76,7 +79,7 @@ function TaskBoardColumn(props) {
       <Droppable droppableId={column.title}>
         {(provided) => (
           <div
-            className="column"
+            className={isDarkMode ? "column" : "column light"}
             // References and props for the drag-and-drop library
             innerRef={provided.innerRef}
             ref={provided.innerRef}
