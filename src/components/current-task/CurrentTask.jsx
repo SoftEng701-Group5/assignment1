@@ -5,6 +5,8 @@ import Task from "../global/Task/Task";
 import CurrentTaskNotes from "./CurrentTaskNotes";
 import TimerConfig from "./TimerConfig";
 import CurrentTaskTimer from "./CurrentTaskTimer";
+import DarkModeContext from "../../services/theme-context";
+import { updateTask } from "../../services/databaseService";
 import {
   BreakTimerContext,
   WorkTimerContext,
@@ -29,6 +31,7 @@ function CurrentTask() {
   const [, setShowModal] = useContext(TimerModalShowContext);
   const [, setPlay] = useContext(PlayContext);
   const [isChecked] = useContext(FullscreenContext);
+  const { isDarkMode } = React.useContext(DarkModeContext);
 
   const [, setWorkTimer] = useContext(WorkTimerContext);
   const [, setBreakTimer] = useContext(BreakTimerContext);
@@ -76,8 +79,14 @@ function CurrentTask() {
     setPlay(true);
   };
 
+  // persists changes in the description to the database
+  async function handleSaveNote(newDescription) {
+    currentTask.Description = newDescription;
+    await updateTask(currentTask.Task_id, currentTask);
+  }
+
   return (
-    <div className="current-task">
+    <div className={isDarkMode ? "current-task" : "current-task light"}>
       <h1 className="current-task__title">Current Task:</h1>
       {currentTask ? (
         <div className="current-task__content">
@@ -90,7 +99,10 @@ function CurrentTask() {
                 name={currentTask.Name}
                 subtasks={currentTask.Subtasks}
               />
-              <CurrentTaskNotes notes={[currentTask.Description]} />
+              <CurrentTaskNotes
+                notes={[currentTask.Description]}
+                handleSaveNote={handleSaveNote}
+              />
             </div>
           )}
 
