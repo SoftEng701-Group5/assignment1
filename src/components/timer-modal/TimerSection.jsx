@@ -31,6 +31,11 @@ export default function TimerSection() {
   const breakMinutes = Math.floor(breakTimer.seconds / 60);
   const breakSeconds = breakTimer.seconds % 60;
 
+  /* resets timer */
+  const reset = () => {
+    setWorkTimer({ seconds: workTimerMemory.seconds });
+  };
+
   /**
    * timerFormat function takes two parameters
    * m: the minutes
@@ -135,6 +140,12 @@ export default function TimerSection() {
           size="5rem"
           type="button"
           onClick={() => setPlay(!play)}
+        />
+        <IconButton
+          size="5rem"
+          icon="reset"
+          type="button"
+          onClick={() => reset()}
         />
         <IconButton
           icon="minimize"
