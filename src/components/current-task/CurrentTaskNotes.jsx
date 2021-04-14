@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import RightChevron from "../../assets/icons/RightChevron";
+import DarkModeContext from "../../services/theme-context";
 import Button from "../global/Button";
 
 /**
@@ -9,6 +10,8 @@ import Button from "../global/Button";
 function CurrentTaskNotes(props) {
   const { notes, handleSaveNote } = props;
   const [isExpanded, setIsExpanded] = useState(false);
+  const { isDarkMode } = React.useContext(DarkModeContext);
+
   const [isEdited, setIsEdited] = useState(false);
   const [editedNotes, setEditedNotes] = useState(notes);
   const handleIconClick = () => setIsExpanded(!isExpanded);
@@ -19,7 +22,11 @@ function CurrentTaskNotes(props) {
   }, [notes]);
 
   return (
-    <div className={`current-task-notes${isExpanded ? "--expanded" : ""}`}>
+    <div
+      className={`current-task-notes${isExpanded ? "--expanded" : ""} ${
+        isDarkMode ? "" : "light"
+      }`}
+    >
       <div className="current-task-notes__header">
         <span className="current-task-notes__title">Notes</span>
         <RightChevron handleOnClick={handleIconClick} isRotated={isExpanded} />

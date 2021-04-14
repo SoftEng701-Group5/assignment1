@@ -22,4 +22,12 @@
 			text-align: center;
 		}
 	}
+
+    &.light {
+        color: black;
+
+        .text-input__input {
+            color: black
+        }
+    }
 }
