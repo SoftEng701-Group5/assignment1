@@ -70,17 +70,19 @@
     opacity: 1;
     display: block;
     height: 90px;
-}
+    border-radius: 10px;
+  }
 
-.column__dropdown__list {
-    background-color: #3f3e5c;
-    border: none;
-    color: white;
-    position: relative;
-    display: block;
-    width: 100%;
-    height: 30px;
-}
+  .column__dropdown__list {
+   background-color: #3f3e5c;
+   padding: 8px;
+   border: none;
+   color: white;
+   position: relative;
+   display: block;
+   width: 100%;
+   height: 30px;
+  }
 
 .column__dropdown__list:hover {
     background-color: rgba(0, 0, 0, 0.14);
