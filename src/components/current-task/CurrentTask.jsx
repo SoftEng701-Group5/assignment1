@@ -77,6 +77,13 @@ function CurrentTask() {
                 expanded
                 name={currentTask.Name}
                 subtasks={currentTask.Subtasks}
+                endDate={currentTask.End_date}
+                label={currentTask.Label}
+                startDate={currentTask.Start_date}
+                taskId={currentTask.Task_id}
+                checked={currentTask.Is_complete}
+                description={currentTask.Description}
+                userId={currentTask.User_id}
               />
               <CurrentTaskNotes notes={[currentTask.Description]} />
             </div>

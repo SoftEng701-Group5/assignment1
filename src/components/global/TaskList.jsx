@@ -23,6 +23,13 @@ function TaskList(props) {
                 name={t.Name}
                 onClick={() => onTaskClick(t)}
                 selected={currentTask && t.Task_id === currentTask.Task_id}
+                endDate={t.End_date}
+                label={t.Label}
+                startDate={t.Start_date}
+                taskId={t.Task_id}
+                checked={t.Is_complete}
+                description={t.Description}
+                userId={t.User_id}
               />
             </div>
           ))}

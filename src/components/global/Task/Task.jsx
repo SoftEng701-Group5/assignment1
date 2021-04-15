@@ -1,14 +1,41 @@
 import React, { useState } from "react";
 import RightChevron from "../../../assets/icons/RightChevron";
 import Subtask from "./Subtask";
+import { updateTask } from "../../../services/databaseService";
 
 function Task(props) {
-  const { name, checked, expanded, subtasks, selected, onClick } = props;
+  const {
+    name,
+    onClick,
+    selected,
+    endDate,
+    label,
+    startDate,
+    taskId,
+    checked,
+    description,
+    userId,
+    expanded,
+    subtasks,
+  } = props;
 
   const [isChecked, setIsChecked] = useState(checked);
   const [isExpanded, setIsExpanded] = useState(expanded);
 
-  const handleCheckBoxClick = () => setIsChecked(!isChecked);
+  const handleCheckBoxClick = () => {
+    const newIsChecked = !isChecked;
+    setIsChecked(newIsChecked);
+    updateTask(taskId, {
+      Description: description,
+      End_date: endDate,
+      Label: label,
+      Name: name,
+      Start_date: startDate,
+      Task_id: taskId,
+      User_id: userId,
+      Is_complete: newIsChecked,
+    });
+  };
   const handleIconClick = () => setIsExpanded(!isExpanded);
 
   return (
