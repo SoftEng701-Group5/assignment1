@@ -157,7 +157,7 @@ _For more information, see https://yandex.com/dev/bem/_
 
 ### Dark and Light Mode
 
-The default colour scheme for the application is dark mode, and as such all components should have their default stylign consistent with dark mode. However, the application also has support for light mode, and your component/extensions must also have support for light mode. The following steps will add light mode support for your component:
+The application will use the user's system theme as it's colour scheme, but default to dark theme if none is provided. As such all components should have their default styling consistent with dark mode but must also support light mode. The following steps will add light mode support for your component:
 
 1. Import `DarkModeContext` from `services/theme-context.js` into your component file
 2. Extract `{ isDarkMode }` from `DarkModeContext`
