@@ -78,6 +78,13 @@ function TimerConfig(props) {
   // Helper function to check if inputs are integers or not, if not, the state is set to NaN
   const validated = (val, field) => {
     if (/^\d+$/.test(val)) {
+      if (field.includes("Seconds") && parseInt(val, 10) > 59) {
+        setTimerConfigValues((prevState) => ({
+          ...prevState,
+          [field]: NaN,
+        }));
+        return false;
+      }
       setTimerConfigValues((prevState) => ({
         ...prevState,
         [field]: parseInt(val, 10),
