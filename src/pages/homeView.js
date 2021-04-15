@@ -17,7 +17,6 @@ function HomeView() {
   const [refetchTasks, setRefetchTasks] = useState(false);
   const history = useHistory();
   const { isDarkMode } = React.useContext(DarkModeContext);
-
   const triggerRefetchTasks = () => {
     setRefetchTasks(!refetchTasks);
   };
@@ -41,6 +40,9 @@ function HomeView() {
     history.push("/dashboard");
     setCurrentTask(task);
   };
+
+  // This is to unselect tasks that was selected in dashboard
+  setCurrentTask();
 
   return (
     <>
