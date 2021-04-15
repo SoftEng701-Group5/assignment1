@@ -14,6 +14,7 @@ import { signIn } from "../services/authService";
 export default function LoginView() {
   const history = useHistory();
 
+  const [successfulLogin, setSuccessfulLogin] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -28,7 +29,6 @@ export default function LoginView() {
     // Process inputs
     const processedEmail = email.trim();
     const processedPassword = password.trim();
-
     // Check if inputs have been provided, notify user it not
     let validLogin = true;
     if (!processedEmail) {
@@ -41,6 +41,7 @@ export default function LoginView() {
     }
 
     if (validLogin) {
+      setSuccessfulLogin(true);
       // If authentication is successful, can go to /home
       if (await signIn(processedEmail, processedPassword)) {
         history.push("/home");
@@ -76,7 +77,11 @@ export default function LoginView() {
             type="password"
           />
         </div>
-        <Button icon="rightArrow" text="Login" handleOnClick={loginHandler} />
+        {successfulLogin ? (
+          <Button icon="rightArrow" text="Login" />
+        ) : (
+          <Button icon="rightArrow" text="Login" handleOnClick={loginHandler} />
+        )}
         <div className="login__bottom-text">
           <span>Don&apos;t have an account?</span>
           <Link to="/signup" className="login__bottom-text__link">

@@ -15,6 +15,7 @@ export default function SignUpView() {
   const history = useHistory();
 
   // Input fields
+  const [successfulSignUp, setSuccessfulSignUp] = useState(false);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -60,6 +61,7 @@ export default function SignUpView() {
     }
 
     if (validSignup) {
+      setSuccessfulSignUp(true);
       // If signup is successful, can redirect user back to login page
       if (
         await signUp(
@@ -123,11 +125,15 @@ export default function SignUpView() {
           onChangeHandler={setPassword}
           placeholderValue={passwordInfoText}
         />
-        <Button
-          icon="rightArrow"
-          text="Sign Up"
-          handleOnClick={signUpHandler}
-        />
+        {successfulSignUp ? (
+          <Button icon="rightArrow" text="Sign Up" />
+        ) : (
+          <Button
+            icon="rightArrow"
+            text="Sign Up"
+            handleOnClick={signUpHandler}
+          />
+        )}
         <div className="sign-up__bottom-text">
           Already have an account?
           <Link to="/" className="sign-up__bottom-text__link">
