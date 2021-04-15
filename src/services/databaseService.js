@@ -66,7 +66,7 @@ const createTask = async (
  * Start_date: Date object
  * Task_id: string
  * User_id: string
- * is_complete: boolean
+ * Is_complete: boolean
  */
 const updateTask = async (taskId, newTaskData) => {
   const db = firebaseConnection.firestore();
