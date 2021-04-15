@@ -5,6 +5,8 @@ import Task from "../global/Task/Task";
 import CurrentTaskNotes from "./CurrentTaskNotes";
 import TimerConfig from "./TimerConfig";
 import CurrentTaskTimer from "./CurrentTaskTimer";
+import DarkModeContext from "../../services/theme-context";
+import { updateTask } from "../../services/databaseService";
 import {
   BreakTimerContext,
   WorkTimerContext,
@@ -29,6 +31,7 @@ function CurrentTask() {
   const [, setShowModal] = useContext(TimerModalShowContext);
   const [, setPlay] = useContext(PlayContext);
   const [isChecked] = useContext(FullscreenContext);
+  const { isDarkMode } = React.useContext(DarkModeContext);
 
   const [, setWorkTimer] = useContext(WorkTimerContext);
   const [, setBreakTimer] = useContext(BreakTimerContext);
@@ -42,13 +45,44 @@ function CurrentTask() {
     autoFullScreen: false,
   });
 
+  /**
+   * Helper function to help validate inputted times for the timer, they are only valid if they are non-NaN
+   */
+  function isValidTimes() {
+    if (
+      Number.isNaN(timerConfigValues.workMinutes) ||
+      Number.isNaN(timerConfigValues.workSeconds) ||
+      Number.isNaN(timerConfigValues.breakMinutes) ||
+      Number.isNaN(timerConfigValues.breakSeconds)
+    ) {
+      return false;
+    }
+    return true;
+  }
+
   const handleConfigButtonClicked = () => {
     setShowConfig(!showConfig);
   };
 
   const handleStartButtonClicked = () => {
+    // If not valid, do not start timer
+    if (!isValidTimes()) {
+      return;
+    }
     setShowConfig(false);
     setShowTimer(true);
+    if (Number.isNaN(timerConfigValues.workMinutes)) {
+      timerConfigValues.workMinutes = 0;
+    }
+    if (Number.isNaN(timerConfigValues.workSeconds)) {
+      timerConfigValues.workSeconds = 0;
+    }
+    if (Number.isNaN(timerConfigValues.breakMinutes)) {
+      timerConfigValues.breakMinutes = 0;
+    }
+    if (Number.isNaN(timerConfigValues.breakSeconds)) {
+      timerConfigValues.breakSeconds = 0;
+    }
     const workSec =
       timerConfigValues.workMinutes * 60 + timerConfigValues.workSeconds;
     const breakSec =
@@ -64,8 +98,14 @@ function CurrentTask() {
     setPlay(true);
   };
 
+  // persists changes in the description to the database
+  async function handleSaveNote(newDescription) {
+    currentTask.Description = newDescription;
+    await updateTask(currentTask.Task_id, currentTask);
+  }
+
   return (
-    <div className="current-task">
+    <div className={isDarkMode ? "current-task" : "current-task light"}>
       <h1 className="current-task__title">Current Task:</h1>
       {currentTask ? (
         <div className="current-task__content">
@@ -78,7 +118,10 @@ function CurrentTask() {
                 name={currentTask.Name}
                 subtasks={currentTask.Subtasks}
               />
-              <CurrentTaskNotes notes={[currentTask.Description]} />
+              <CurrentTaskNotes
+                notes={[currentTask.Description]}
+                handleSaveNote={handleSaveNote}
+              />
             </div>
           )}
 

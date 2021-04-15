@@ -26,4 +26,14 @@
     border-radius: 20px;
     flex: 1;
   }
+
+  &.light {
+    .dashboard__placeholder-title {
+      color: black
+    }
+
+    .dashboard__placeholder-content {
+      background: $dashboard-placeholder-background-light;
+    }
+  }
 }

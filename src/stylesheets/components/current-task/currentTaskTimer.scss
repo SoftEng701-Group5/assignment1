@@ -21,4 +21,12 @@
     @extend .icon-button-container;
     margin: 0 0 0 16px;
   }
+
+  &.light {
+      color: black;
+
+      h1 {
+          color: black;
+      }
+  }
 }
