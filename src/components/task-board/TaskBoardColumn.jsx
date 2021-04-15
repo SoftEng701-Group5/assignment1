@@ -14,22 +14,22 @@ function TaskBoardColumn(props) {
   } = props;
   const myRef = useRef();
 
-  /**
-   * handler for mouse click event, close the dropdown list when mouse clicked
-   * the sort list
-   * @param {*} e The mouse clicked event
-   */
-  const handleOutsideClick = (e) => {
-    if (!myRef.current.contains(e.target)) {
-      if (sortListOpened) {
-        onSortButtonClick(column);
-      }
-    }
-  };
-
   const { isDarkMode } = React.useContext(DarkModeContext);
 
   useEffect(() => {
+    /**
+     * handler for mouse click event, close the dropdown list when mouse clicked
+     * the sort list
+     * @param {*} e The mouse clicked event
+     */
+    const handleOutsideClick = (e) => {
+      if (!myRef.current.contains(e.target)) {
+        if (sortListOpened) {
+          onSortButtonClick(column);
+        }
+      }
+    };
+
     document.addEventListener("mousedown", handleOutsideClick);
     return () => document.removeEventListener("mousedown", handleOutsideClick);
   });
