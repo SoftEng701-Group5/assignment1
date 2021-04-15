@@ -26,6 +26,7 @@ The following is a guide for contributing to Mello. These are guidelines, not ru
 - [Figma Design](#figma-design)
 - [Naming Conventions](#naming-conventions)
 - [BEM Naming for CSS](#bem-naming-for-css)
+- [Dark & Light Mode](#dark-and-light-mode)
 - [File Structure](#file-structure)
 - [Git Commit Messages](#git-commit-messages)
 
@@ -153,6 +154,15 @@ Names of project files should:
 
 Mello uses the BEM Naming structure, which aims to keep CSS codebases structured with a consistent naming convention.
 _For more information, see https://yandex.com/dev/bem/_
+
+### Dark and Light Mode
+
+The application will use the user's system theme as it's colour scheme, but default to dark theme if none is provided. As such all components should have their default styling consistent with dark mode but must also support light mode. The following steps will add light mode support for your component:
+
+1. Import `DarkModeContext` from `services/theme-context.js` into your component file
+2. Extract `{ isDarkMode }` from `DarkModeContext`
+3. If `isDarkMode` is false, append "light" to the class-name of your component (e.g. using the ternary operator)
+4. In your style-sheet, add a nested selector for the "light" suffix and adjust the colours of the component within that ruleset to support light mode (e.g. making the background light & text dark etc.)
 
 ### File Structure
 
