@@ -33,6 +33,8 @@ function App() {
 
               {/* Welcome dashboard - navbar present */}
               <PrivateRoute component={DashboardView} path="/dashboard" exact />
+
+              {/* Music player view */}
               <PrivateRoute component={MusicView} path="/music" exact />
 
               {/* Fallback - if none of the above routes are hit */}
