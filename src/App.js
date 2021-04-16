@@ -9,7 +9,6 @@ import { AuthProvider } from "./services/providers/authProvider";
 import DarkModeContext from "./services/theme-context";
 import PrivateRoute from "./components/PrivateRoute";
 import DashboardView from "./pages/dashboardView";
-import MusicView from "./pages/MusicView";
 
 const getColourScheme = () => {
   const getCurrentTheme = () =>
@@ -50,10 +49,6 @@ function App() {
 
                 {/* Trello Task View */}
                 <PrivateRoute component={BoardView} path="/board" exact />
-                
-                {/* Music player view */}
-                <PrivateRoute component={MusicView} path="/music" exact />
-
 
                 {/* Welcome dashboard - navbar present */}
                 <PrivateRoute
