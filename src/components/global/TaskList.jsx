@@ -1,9 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import moment from "moment";
 import NewTask from "../NewTask";
 import Task from "./Task/Task";
 import { CurrentTaskContext } from "../timer-modal/TimerContextProvider";
 import DarkModeContext from "../../services/theme-context";
+import { AuthContext } from "../../services/providers/authProvider";
+import { fetchSubtasks } from "../../services/databaseService";
 
 /**
  * This function represents the global Task List component used on the home page
@@ -14,6 +16,15 @@ function TaskList(props) {
   const { onTaskClick, tasks, onNewTask } = props;
   const [currentTask] = useContext(CurrentTaskContext);
   const { isDarkMode } = React.useContext(DarkModeContext);
+  const { currentUser } = useContext(AuthContext);
+  const [subtasks, setSubtasks] = useState([]);
+  const [refetchSubtasks, setRefetchSubtasks] = useState(false);
+
+  const triggerRefetchSubtasks = () => setRefetchSubtasks(!refetchSubtasks);
+
+  useEffect(() => {
+    fetchSubtasks(currentUser.uid).then((res) => setSubtasks(res));
+  }, [refetchSubtasks]);
 
   const today = new Date().toDateString();
   const seconds = moment(today, false).toDate().getTime();
@@ -42,6 +53,10 @@ function TaskList(props) {
                     checked={t.Is_complete}
                     description={t.Description}
                     userId={t.User_id}
+                    subtasks={subtasks.filter(
+                      (subtask) => subtask.Task_id === t.Task_id
+                    )}
+                    onNewSubtask={triggerRefetchSubtasks}
                   />
                 )}
             </div>

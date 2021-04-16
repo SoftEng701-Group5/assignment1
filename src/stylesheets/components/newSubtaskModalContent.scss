@@ -1,0 +1,26 @@
+.new-subtask-modal {
+    display: flex;
+    justify-content: center;
+    
+    &__button-container{
+        display: flex;
+        justify-content: center;
+        &__cancel {
+            display: inline-block;
+            .icon-button-container {
+                background: $grey-button-bg;
+            }
+        }
+
+        &__confirm {
+            margin-left: 10px;
+            display: inline-block;
+        }
+    }
+
+    &__error-message {
+        color: $error-color;
+        display: flex;
+        justify-content: center;
+    }
+}
