@@ -11,6 +11,7 @@ import firebaseConnection from "./firebase";
  * Start_date: timestamp
  * Task_id: string
  * User_id: string
+ * Is_complete: boolean
  */
 const fetchTasks = async (userId) => {
   const db = firebaseConnection.firestore();
@@ -65,6 +66,7 @@ const createTask = async (
  * Start_date: Date object
  * Task_id: string
  * User_id: string
+ * Is_complete: boolean
  */
 const updateTask = async (taskId, newTaskData) => {
   const db = firebaseConnection.firestore();
