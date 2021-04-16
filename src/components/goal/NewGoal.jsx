@@ -1,10 +1,10 @@
 import React, { useState, useContext } from "react";
 import moment from "moment";
+import getIcon from "../global/componentFunctions";
 import NewGoalModal from "../global/Modal";
 import Button from "../global/Button";
 import TextInput from "../global/TextInput";
 import IconButton from "../global/IconButton";
-import AddButton from "../global/AddButton";
 import { createGoal } from "../../services/databaseService";
 import { AuthContext } from "../../services/providers/authProvider";
 
@@ -72,7 +72,15 @@ export default function NewGoal(props) {
 
   return (
     <div className="new-goal">
-      <AddButton onClick={() => setDisplay(true)} />
+      <div
+        className="new-goal__button"
+        onClick={() => setDisplay(true)}
+        onKeyDown={() => setDisplay(true)}
+        role="button"
+        tabIndex="0"
+      >
+        {getIcon("plus")}
+      </div>
       <NewGoalModal
         dismissOnClickOutside
         onCancel={handleCancelNewGoal}
