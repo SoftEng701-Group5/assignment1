@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import CurrentTask from "../components/current-task/CurrentTask";
 import TaskList from "../components/global/TaskList";
+import GoalList from "../components/goal/GoalList";
 import Navbar from "../components/Navbar";
 import { CurrentTaskContext } from "../components/timer-modal/TimerContextProvider";
 
@@ -51,6 +52,19 @@ function DashboardView() {
     });
   }, [refetchTasks]);
 
+  const goals = {
+    goals: {
+      goal1: {
+        id: "task1",
+        content: "701 Meeting",
+        expanded: false,
+        checked: false,
+        date: "1616115764",
+        subTasks: ["subTask1", "subTask2", "subTask3"],
+      },
+    },
+  };
+
   return (
     <>
       <Navbar />
@@ -64,7 +78,7 @@ function DashboardView() {
         <div className="dashboard__placeholder-column">
           <DashboardPlaceholder title="Stats:" />
           <br />
-          <DashboardPlaceholder title="Goals:" />
+          <GoalList goals={goals} />
         </div>
       </div>
     </>
