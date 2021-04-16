@@ -1,5 +1,7 @@
-import React, { useContext } from "react";
+import React, { useState } from "react";
 import Goal from "./Goal";
+import NewGoal from "./NewGoal";
+import GoalInfo from "./GoalInfo";
 import DarkModeContext from "../../services/theme-context";
 
 /**
@@ -9,32 +11,56 @@ import DarkModeContext from "../../services/theme-context";
  */
 
 function GoalList(props) {
-  // const { onGoalClick, goals, onNewGoal } = props;
-   const { goals } = props;
+  const { goals, onNewGoal } = props;
+  const [currentGoal, setCurrentGoal] = useState();
   const { isDarkMode } = React.useContext(DarkModeContext);
+  const [goalModalOpen, setGoalModalOpen] = useState(false);
+
+  const handleGoalClick = (goal) => {
+    if (goal === currentGoal) {
+      setGoalModalOpen(true);
+    } else {
+      setCurrentGoal(goal);
+    }
+  };
+
+  const handleGoalModalClose = () => {
+    setGoalModalOpen(false);
+  };
 
   return (
     <div className={isDarkMode ? "goal-list" : "goal-list light"}>
-      <h1 className="goal-list__title">Today&apos;s goals:</h1>
+      <h1 className="goal-list__title">Goals:</h1>
       <div className="goal-list__content">
         <div className="goal-list__goals">
           {goals.map((g) => (
-            <div key={g.goal_id}>
+            <div key={g.Goal_id}>
               <Goal
-                name={t.Name}
-                onClick={() => onGoalClick(t)}
-                selected={currentgoal && g.goal_id === currentgoal.goal_id}
+                name={g.Name}
+                onClick={() => handleGoalClick(g)}
+                selected={currentGoal && g.Goal_id === currentGoal.Goal_id}
+                endDate={g.End_date}
+                goalId={g.Goal_id}
+                checked={g.Is_complete}
+                description={g.Description}
+                userId={g.User_id}
               />
             </div>
           ))}
         </div>
 
         <div className="add-goal-button-container">
-          {/* <NewGoal onNewGoal={onNewGoal} /> */}
+          <NewGoal onNewGoal={onNewGoal} />
         </div>
       </div>
+
+      <GoalInfo
+        goal={currentGoal}
+        modalOpen={goalModalOpen}
+        onModalClose={handleGoalModalClose}
+      />
     </div>
   );
 }
 
-export default goalList;
+export default GoalList;

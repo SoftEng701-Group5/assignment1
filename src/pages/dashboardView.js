@@ -5,7 +5,7 @@ import GoalList from "../components/goal/GoalList";
 import Navbar from "../components/Navbar";
 import { CurrentTaskContext } from "../components/timer-modal/TimerContextProvider";
 
-import { fetchTasks } from "../services/databaseService";
+import { fetchGoals, fetchTasks } from "../services/databaseService";
 import { AuthContext } from "../services/providers/authProvider";
 import DarkModeContext from "../services/theme-context";
 
@@ -31,8 +31,10 @@ function DashboardView() {
   const { currentUser } = useContext(AuthContext);
   const [, setCurrentTask] = useContext(CurrentTaskContext);
   const [tasks, setTasks] = useState([]);
+  const [goals, setGoals] = useState([]);
   const { isDarkMode } = React.useContext(DarkModeContext);
   const [refetchTasks, setRefetchTasks] = useState(false);
+  const [refetchGoals, setRefetchGoals] = useState(false);
 
   /**
    * When a task is selected from Today's Tasks,
@@ -46,24 +48,18 @@ function DashboardView() {
     setRefetchTasks(!refetchTasks);
   };
 
+  const triggerRefetchGoals = () => {
+    setRefetchGoals(!refetchGoals);
+  };
+
   useEffect(() => {
     fetchTasks(currentUser.uid).then((res) => {
       setTasks(res);
     });
-  }, [refetchTasks]);
-
-  const goals = {
-    goals: {
-      goal1: {
-        id: "task1",
-        content: "701 Meeting",
-        expanded: false,
-        checked: false,
-        date: "1616115764",
-        subTasks: ["subTask1", "subTask2", "subTask3"],
-      },
-    },
-  };
+    fetchGoals(currentUser.uid).then((res) => {
+      setGoals(res);
+    });
+  }, [refetchTasks, refetchGoals]);
 
   return (
     <>
@@ -78,7 +74,7 @@ function DashboardView() {
         <div className="dashboard__placeholder-column">
           <DashboardPlaceholder title="Stats:" />
           <br />
-          <GoalList goals={goals} />
+          <GoalList goals={goals} onNewGoal={triggerRefetchGoals} />
         </div>
       </div>
     </>

@@ -1,12 +1,12 @@
 import React, { useState, useContext } from "react";
 import moment from "moment";
-import NewGoalModal from "./global/Modal";
-import Button from "./global/Button";
-import TextInput from "./global/TextInput";
-import IconButton from "./global/IconButton";
-import AddButton from "./global/AddButton";
-import { createGoal } from "../services/databaseService";
-import { AuthContext } from "../services/providers/authProvider";
+import NewGoalModal from "../global/Modal";
+import Button from "../global/Button";
+import TextInput from "../global/TextInput";
+import IconButton from "../global/IconButton";
+import AddButton from "../global/AddButton";
+import { createGoal } from "../../services/databaseService";
+import { AuthContext } from "../../services/providers/authProvider";
 
 /**
  * This component is used to generate a add goal button("+") that , when clicked, prompts the new goal modal
@@ -18,19 +18,15 @@ export default function NewGoal(props) {
 
   const [display, setDisplay] = useState(false);
   const [name, setName] = useState("");
-  const [label, setLabel] = useState("");
   const [desc, setDesc] = useState("");
-  const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [error, setError] = useState("");
   const { currentUser } = useContext(AuthContext);
 
   // resets the values of all the fields in the modal so they are empty the next time the modal is opened
   function resetValues() {
-    setStartDate("");
     setEndDate("");
     setDesc("");
-    setLabel("");
     setName("");
     setError("");
   }
@@ -43,7 +39,6 @@ export default function NewGoal(props) {
 
   // validates the fields of the newly created goal and makes a request to the database to presist the new goal
   async function handleAddNewGoal() {
-    const stDate = startDate ? moment(startDate, true) : null;
     const edDate = endDate ? moment(endDate, true) : null;
 
     // Validate user input (only goal name is mandatory)
@@ -52,27 +47,12 @@ export default function NewGoal(props) {
       return;
     }
 
-    // Validates the start and end date values(make sure end date is after start date)
-    if (
-      stDate &&
-      edDate &&
-      stDate.isValid() &&
-      edDate.isValid() &&
-      stDate.isAfter(edDate, "day")
-    ) {
-      setError("Start date must be before or on the same day as end date.");
-      return;
-    }
-
     // Persist goal in firebase
     await createGoal(
-      stDate ? stDate.toDate() : null,
-      label,
       desc,
       name,
       currentUser.uid,
-      edDate ? edDate.toDate() : null,
-      "Backlog"
+      edDate ? edDate.toDate() : null
     );
     setDisplay(false);
     onNewGoal();
@@ -91,7 +71,7 @@ export default function NewGoal(props) {
   }
 
   return (
-    <div className="newGoal-container">
+    <div className="new-goal">
       <AddButton onClick={() => setDisplay(true)} />
       <NewGoalModal
         dismissOnClickOutside
@@ -99,63 +79,45 @@ export default function NewGoal(props) {
         show={display}
         handleKeyPress={handleKeyPress}
       >
-        <div className="">
-          <div className="hBox">
-            <TextInput
-              label="Goal Name"
-              textValue={name}
-              onChangeHandler={setName}
-            />
-            <TextInput
-              label="Label"
-              textValue={label}
-              onChangeHandler={setLabel}
-            />
-          </div>
+        <div className="new-goal__container">
+          <TextInput
+            label="Goal Name"
+            textValue={name}
+            onChangeHandler={setName}
+          />
 
           <TextInput
             label="Description"
             textValue={desc}
             onChangeHandler={setDesc}
+            textArea
           />
 
-          <div className="hBox">
-            <TextInput
-              label="Start Date"
-              textValue={startDate}
-              placeholderValue="dd/mm/yyyy"
-              onChangeHandler={setStartDate}
-              type="date"
-            />
+          <TextInput
+            label="Planned to achieve by"
+            textValue={endDate}
+            placeholderValue="dd/mm/yyyy"
+            onChangeHandler={setEndDate}
+            type="date"
+          />
 
-            <TextInput
-              label="End Date"
-              textValue={endDate}
-              placeholderValue="dd/mm/yyyy"
-              onChangeHandler={setEndDate}
-              type="date"
+          <div className="new-goal__container__footer">
+            <IconButton
+              icon="cross"
+              size="48px"
+              onClick={handleCancelNewGoal}
             />
-          </div>
-
-          <div className="hBox">
-            <div className="newGoal-button-component-container">
-              <IconButton
-                icon="cross"
-                size="48px"
-                onClick={handleCancelNewGoal}
+            <div className="new-goal__container__footer__button">
+              <Button
+                text="Add Goal"
+                icon="plus"
+                height="48px"
+                fontSize="22px"
+                handleOnClick={handleAddNewGoal}
               />
             </div>
-            <Button
-              text="Add Goak"
-              icon="plus"
-              height="48px"
-              fontSize="22px"
-              handleOnClick={handleAddNewGoal}
-            />
           </div>
-          <div className="hBox">
-            <h4 className="error-message">{error}</h4>
-          </div>
+          <h4 className="new-goal__container__error-message">{error}</h4>
         </div>
       </NewGoalModal>
     </div>

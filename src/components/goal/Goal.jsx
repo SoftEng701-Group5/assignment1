@@ -1,20 +1,37 @@
 import React, { useState } from "react";
-import DarkModeContext from "../../../services/theme-context";
+import { updateGoal } from "../../services/databaseService";
+import DarkModeContext from "../../services/theme-context";
 
 function Goal(props) {
-  const { name, checked, selected, onClick } = props;
+  const {
+    name,
+    onClick,
+    selected,
+    endDate,
+    goalId,
+    checked,
+    description,
+    userId,
+  } = props;
 
   const [isChecked, setIsChecked] = useState(checked);
   const { isDarkMode } = React.useContext(DarkModeContext);
 
-  const handleCheckBoxClick = () => setIsChecked(!isChecked);
+  const handleCheckBoxClick = () => {
+    const newIsChecked = !isChecked;
+    setIsChecked(newIsChecked);
+    updateGoal(goalId, {
+      Description: description,
+      End_date: endDate,
+      Goal_id: goalId,
+      Is_complete: newIsChecked,
+      Name: name,
+      User_id: userId,
+    });
+  };
 
   return (
-    <div
-      className={`goal${isExpanded ? "--expanded" : ""}  ${
-        isDarkMode ? "" : "light"
-      }`}
-    >
+    <div className={`goal ${isDarkMode ? "" : "light"}`}>
       <div className={`goal__header${selected ? "--selected" : ""}`}>
         <div
           className={`goal__checkbox${isChecked ? "--checked" : ""}`}
@@ -38,4 +55,4 @@ function Goal(props) {
     </div>
   );
 }
-export default goal;
+export default Goal;

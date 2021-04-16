@@ -1,24 +1,22 @@
-.hBox {
-  display: flex;
-  flex-grow: 1;
-  justify-content: center;
-}
+.new-goal {
+  &__container {
+    &__footer {
+      display: flex;
+      flex-grow: 1;
+      justify-content: center;
 
-.hBox > * + * {
-  margin-left: 10px;
-}
+      .icon-button-container {
+        background: $grey-button-bg;
+      }
 
-.newgoal-button-component-container {
-  .icon-button-container {
-    background: $grey-button-bg;
+      &__button {
+        margin-left: 20px;
+      }
+    }
+
+    &__error-message {
+      color: $error-color;
+      text-align: center;
+    }
   }
-}
-
-.newgoal-container {
-  display: flex;
-  flex-grow: 1;
-}
-
-.error-message {
-  color: $error-color;
 }

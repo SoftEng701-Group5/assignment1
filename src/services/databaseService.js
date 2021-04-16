@@ -99,7 +99,7 @@ const fetchGoals = async (userId) => {
     .collection("Goals")
     .where("User_id", "==", userId)
     .get();
-  const goals = data.docs.map((doc) => ({ ...doc.data(), Task_id: doc.id }));
+  const goals = data.docs.map((doc) => ({ ...doc.data(), Goal_id: doc.id }));
   return goals;
 };
 

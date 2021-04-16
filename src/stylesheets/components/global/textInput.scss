@@ -1,33 +1,37 @@
 .text-input {
-	width: 100%;
-	padding: 8px 0;
+  width: 100%;
+  padding: 8px 0;
 
-	&__label {
-		display: block;
-		margin-bottom: 10px;
-	}
+  &__label {
+    display: block;
+    margin-bottom: 10px;
+  }
 
-	&__input {
-		width: 100%;
-		background: $text-input-bg;
-		border-radius: 99px;
-		border: none;
-		outline: none;
-		padding: 10px 15px;
-		color: white;
-		font-size: 1.125em;
+  &__input {
+    width: 100%;
+    background: $text-input-bg;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    padding: 10px 15px;
+    color: white;
+    font-size: 1.125em;
 
-		&--centered {
-			@extend .text-input__input;
-			text-align: center;
-		}
-	}
-
-    &.light {
-        color: black;
-
-        .text-input__input {
-            color: black
-        }
+    &--centered {
+      @extend .text-input__input;
+      text-align: center;
     }
+  }
+
+  &.area {
+    height: 300px;
+  }
+
+  &.light {
+    color: black;
+
+    .text-input__input {
+      color: black;
+    }
+  }
 }
