@@ -19,6 +19,8 @@ const signIn = async (email, password) => {
     return false;
   }
 };
+/* eslint-disable import/no-mutable-exports */
+let signUpError;
 /**
  * Signs the user up to the firebase application.
  * After they have successfully created their account, their first and last names
@@ -44,6 +46,7 @@ const signUp = async (email, password, firstName, lastName) => {
       });
     return true;
   } catch (error) {
+    signUpError = error;
     return false;
   }
 };
@@ -66,4 +69,4 @@ const fetchUserInfo = async (userId) => {
   return user;
 };
 
-export { signOut, signIn, signUp, fetchUserInfo };
+export { signOut, signIn, signUp, signUpError, fetchUserInfo };
