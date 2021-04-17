@@ -5,7 +5,6 @@ import TextInput from "../components/global/TextInput";
 import Button from "../components/global/Button";
 import SignUpBGImage from "../assets/images/SignupImage";
 
-
 import { signUp, signUpError } from "../services/authService";
 import DarkModeContext from "../services/theme-context";
 
