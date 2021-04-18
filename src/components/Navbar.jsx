@@ -6,7 +6,7 @@ import BoardIcon from "../assets/icons/BoardIcon";
 import DashboardIcon from "../assets/icons/DashboardIcon";
 import HomeIcon from "../assets/icons/HomeIcon";
 import DefaultAvatar from "../assets/images/default-avatar.png";
-import { signOut } from "../services/authService";
+import { signOut, updateUserInfo } from "../services/authService";
 import DarkModeContext from "../services/theme-context";
 import { AuthContext } from "../services/providers/authProvider";
 import Button from "./global/Button";
@@ -38,8 +38,15 @@ function Navbar() {
     setDisplaySettings(true);
   };
 
-  const handleSaveSettings = () => {
-    // send updated info to backend
+  const handleSaveSettings = async () => {
+    const newUserData = {
+      First_name: firstName,
+      Last_name: lastName,
+      User_id: currentUser.uid,
+    };
+    // at the moment this change does not propagate to AuthContext
+    // TODO: fix that
+    await updateUserInfo(newUserData, email);
     setDisplaySettings(false);
   };
 
