@@ -57,31 +57,30 @@ export default function LoginView() {
     }
   };
 
-    /**
+  /**
    * Reset password
    */
-     const resetPasswordHandler = async () => {
-      // Process inputs
-      const processedEmail = email.trim();
-  
-      // check if the user entered their email
-      let validReset = true;
-      if (!processedEmail) {
-        setEmailInfoText("Please enter your email address");
-        validReset = false;
+  const resetPasswordHandler = async () => {
+    // Process inputs
+    const processedEmail = email.trim();
+    // check if the user entered their email
+    let validReset = true;
+    if (!processedEmail) {
+      setEmailInfoText("Please enter your email address");
+      validReset = false;
+    }
+
+    if (validReset) {
+      // send reset password email
+      if (await resetPassword(processedEmail)) {
+        alert("Reset Password Email has been sent to your email.");
+      } else {
+        alert("Reset password failed for current email address.");
+
+        setEmail("");
       }
-  
-      if (validReset) {
-        // send reset password email
-        if (await resetPassword(processedEmail)) {
-          alert("Reset Password Email has been sent to your email.");
-        } else {
-          alert("Reset password failed for current email address.");
-  
-          setEmail("");
-        }
-      }
-    };
+    }
+  };
 
   return (
     <>

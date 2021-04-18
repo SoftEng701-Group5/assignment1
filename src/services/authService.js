@@ -84,4 +84,4 @@ const fetchUserInfo = async (userId) => {
   return user;
 };
 
-export { signOut, signIn, signUp, signUpError, resetPassword,fetchUserInfo };
+export { signOut, signIn, signUp, signUpError, resetPassword, fetchUserInfo };
