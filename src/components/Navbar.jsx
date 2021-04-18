@@ -1,29 +1,23 @@
 import React, { useContext, useState } from "react";
 import { useLocation, Link, useHistory } from "react-router-dom";
-import SettingsModal from "./global/Modal";
+import SettingsModal from "./settings-modal/SettingsModal";
 import IconButton from "./global/IconButton";
 import BoardIcon from "../assets/icons/BoardIcon";
 import DashboardIcon from "../assets/icons/DashboardIcon";
 import HomeIcon from "../assets/icons/HomeIcon";
 import DefaultAvatar from "../assets/images/default-avatar.png";
-import { signOut, updateUserInfo } from "../services/authService";
+import { signOut } from "../services/authService";
 import DarkModeContext from "../services/theme-context";
-import { AuthContext } from "../services/providers/authProvider";
-import Button from "./global/Button";
-import TextInput from "./global/TextInput";
+import { SettingsModalShowContext } from "./settings-modal/SettingsContextProvider";
 
 function Navbar() {
   const history = useHistory();
   const [hovering, setHovering] = useState(false);
-  const [displaySettings, setDisplaySettings] = useState(false);
+  const [displaySettings, setDisplaySettings] = useContext(
+    SettingsModalShowContext
+  );
   const location = useLocation();
   const { isDarkMode, setIsDarkMode } = useContext(DarkModeContext);
-  const { currentUser } = useContext(AuthContext);
-
-  // Input fields
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
 
   const signOutHandler = () => {
     signOut();
@@ -31,27 +25,8 @@ function Navbar() {
   };
 
   const settingsHandler = () => {
-    setFirstName(currentUser?.firstName);
-    setLastName(currentUser?.lastName);
-    setEmail(currentUser?.email);
     setHovering(false);
     setDisplaySettings(true);
-  };
-
-  const handleSaveSettings = async () => {
-    const newUserData = {
-      First_name: firstName,
-      Last_name: lastName,
-      User_id: currentUser.uid,
-    };
-    // at the moment this change does not propagate to AuthContext
-    // TODO: fix that
-    await updateUserInfo(newUserData, email);
-    setDisplaySettings(false);
-  };
-
-  const handleCancelSettings = () => {
-    setDisplaySettings(false);
   };
 
   const changeAppTheme = () => {
@@ -107,45 +82,7 @@ function Navbar() {
             size="48px"
             data-testid="nav-settings-icon"
           />
-          <SettingsModal
-            dismissOnClickOutside
-            onCancel={handleCancelSettings}
-            show={displaySettings}
-          >
-            <div className="">
-              <IconButton
-                icon="cross"
-                size="48px"
-                onClick={handleCancelSettings}
-              />
-              <h1>User settings</h1>
-              <TextInput
-                label="First name:"
-                type="firstName"
-                textValue={firstName}
-                onChangeHandler={setFirstName}
-              />
-              <TextInput
-                label="Last name:"
-                type="lastName"
-                textValue={lastName}
-                onChangeHandler={setLastName}
-              />
-              <TextInput
-                label="Email address:"
-                type="email"
-                textValue={email}
-                onChangeHandler={setEmail}
-              />
-              <Button
-                icon="rightArrow"
-                text="Save"
-                height="4rem"
-                fontSize="1.5rem"
-                handleOnClick={handleSaveSettings}
-              />
-            </div>
-          </SettingsModal>
+          {displaySettings && <SettingsModal />}
 
           <IconButton
             className="hover-button"
