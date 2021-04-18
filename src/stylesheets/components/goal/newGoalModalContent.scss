@@ -1,44 +1,44 @@
 .new-goal {
-  &__button {
-    height: 40px;
-    width: 100%;
-    min-width: 80px;
-    background: $grey-button-bg;
-    border-radius: 10px;
-    margin: 20px 0px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
-    &.light {
-      background: $text-input-bg;
-    }
-  }
-
-  &__button:hover {
-    cursor: pointer;
-  }
-
-  &__container {
-    &__footer {
-      display: flex;
-      flex-grow: 1;
-      justify-content: center;
-
-      .icon-button-container {
+    &__button {
+        height: 40px;
+        width: 100%;
+        min-width: 80px;
         background: $grey-button-bg;
-      }
+        border-radius: 10px;
+        margin: 20px 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-      &__button {
-        margin-left: 20px;
-      }
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+        &.light {
+            background: $text-input-bg;
+        }
     }
 
-    &__error-message {
-      color: $error-color;
-      text-align: center;
+    &__button:hover {
+        cursor: pointer;
     }
-  }
+
+    &__container {
+        &__footer {
+            display: flex;
+            flex-grow: 1;
+            justify-content: center;
+
+            .icon-button-container {
+                background: $grey-button-bg;
+            }
+
+            &__button {
+                margin-left: 20px;
+            }
+        }
+
+        &__error-message {
+            color: $error-color;
+            text-align: center;
+        }
+    }
 }

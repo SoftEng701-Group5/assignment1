@@ -1,35 +1,35 @@
 .goal-info {
-  &__header {
-    display: flex;
+    &__header {
+        display: flex;
 
-    &__title {
-      font-size: 2rem;
-      padding: 0px 15px;
+        &__title {
+            font-size: 2rem;
+            padding: 0px 15px;
+        }
+
+        &__icon-button-container {
+            order: 2;
+            margin: 0px 0px 0px auto;
+            height: 3rem;
+            width: 3rem;
+            background: $grey-button-bg;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     }
 
-    &__icon-button-container {
-      order: 2;
-      margin: 0px 0px 0px auto;
-      height: 3rem;
-      width: 3rem;
-      background: $grey-button-bg;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  }
+    &__content {
+        background-color: $text-input-bg;
+        border-radius: 20px;
+        height: 300px;
+        font-size: 1.25 rem;
+        padding: 10px;
 
-  &__content {
-    background-color: $text-input-bg;
-    border-radius: 20px;
-    height: 300px;
-    font-size: 1.25 rem;
-    padding: 10px;
-
-    ::-webkit-scrollbar {
-      width: 0;
-      background: transparent;
+        ::-webkit-scrollbar {
+            width: 0;
+            background: transparent;
+        }
     }
-  }
 }
