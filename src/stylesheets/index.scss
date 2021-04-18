@@ -14,6 +14,10 @@
 @import './dashboard.scss';
 @import './boardView.scss';
 @import './home.scss';
+@import './components/goal/goal.scss';
+@import './components/goal/goalInfoModal.scss';
+@import './components/goal/goalList.scss';
+@import './components/goal/newGoalModalContent.scss';
 
 @import './components/current-task/currentTask.scss';
 @import './components/current-task/currentTaskNotes.scss';
@@ -27,4 +31,4 @@
 @import './components/timer-modal/timerModal.scss';
 @import './components/timer-modal/timerSection.scss';
 
-@import './components//task-board/taskBoardColumn.scss'
+@import './components//task-board/taskBoardColumn.scss';
