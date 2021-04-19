@@ -22,6 +22,7 @@
         
         .task__content--expanded {
             background: $task-content-background-light;
+			overflow: scroll;
         }
     }
 
