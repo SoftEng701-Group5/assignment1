@@ -8,6 +8,12 @@
       margin: 0;
     }
 
+    &__text {
+      &.light {
+        color: black;
+      }
+    }
+
     &__button {
       background: $grey-button-bg;
     }

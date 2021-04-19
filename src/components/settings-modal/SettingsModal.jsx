@@ -45,7 +45,15 @@ export default function SettingsModal() {
       {/* eslint-disable-next-line */}
       <div className={isDarkMode ? "modalContainer" : "modalContainer light"} tabIndex="0">
         <div className="modalContainer__heading">
-          <h1>User settings</h1>
+          <h1
+            className={
+              isDarkMode
+                ? "modalContainer__heading__text"
+                : "modalContainer__heading__text light"
+            }
+          >
+            User settings
+          </h1>
           <IconButton
             className="modalContainer__heading__button "
             icon="cross"
