@@ -6,6 +6,7 @@ function Goal(props) {
   const {
     name,
     onClick,
+    onCheck,
     selected,
     endDate,
     goalId,
@@ -27,7 +28,7 @@ function Goal(props) {
       Is_complete: newIsChecked,
       Name: name,
       User_id: userId,
-    });
+    }).then(onCheck());
   };
 
   return (

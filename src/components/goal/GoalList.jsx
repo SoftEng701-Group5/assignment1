@@ -11,7 +11,7 @@ import DarkModeContext from "../../services/theme-context";
  */
 
 function GoalList(props) {
-  const { goals, onNewGoal } = props;
+  const { goals, onNewGoal, onGoalCheck } = props;
   const [currentGoal, setCurrentGoal] = useState();
   const { isDarkMode } = React.useContext(DarkModeContext);
   const [goalModalOpen, setGoalModalOpen] = useState(false);
@@ -38,6 +38,7 @@ function GoalList(props) {
               <Goal
                 name={g.Name}
                 onClick={() => handleGoalClick(g)}
+                onCheck={onGoalCheck}
                 selected={currentGoal && g.Goal_id === currentGoal.Goal_id}
                 endDate={g.End_date}
                 goalId={g.Goal_id}

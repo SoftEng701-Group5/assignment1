@@ -8,8 +8,13 @@ import { CurrentTaskContext } from "../components/timer-modal/TimerContextProvid
 import {
   fetchGoals,
   fetchTasks,
+<<<<<<< HEAD
   fetchSubtasks,
   fetchTasksCompleted
+=======
+  fetchTasksCompleted,
+  fetchGoalsCompleted,
+>>>>>>> shows correct stats for goals achieved
 } from "../services/databaseService";
 import { AuthContext } from "../services/providers/authProvider";
 import DarkModeContext from "../services/theme-context";
@@ -24,6 +29,7 @@ function DashboardView() {
   const [tasks, setTasks] = useState([]);
   const [subtasks, setSubtasks] = useState([]);
   const [goals, setGoals] = useState([]);
+  const [goalsAchieved, setGoalsAchieved] = useState("?");
   const { isDarkMode } = React.useContext(DarkModeContext);
   const [tasksCompleted, setTasksCompleted] = useState("?");
   const [refetch, setRefetch] = useState(false);
@@ -50,9 +56,11 @@ function DashboardView() {
     fetchGoals(currentUser.uid).then((res) => {
       setGoals(res);
     });
+    fetchGoalsCompleted(currentUser.uid).then((res) => {
+      setGoalsAchieved(res);
+    });
     fetchSubtasks(currentUser.uid).then((res) => {
       setSubtasks(res);
-    });
   }, [refetch]);
 
   return (
@@ -72,9 +80,16 @@ function DashboardView() {
           onNewSubtask={triggerRefetchSubtasks}
         />
         <div className="dashboard__stats-goals-column">
-          <StatsList tasksCompleted={tasksCompleted} />
+          <StatsList
+            tasksCompleted={tasksCompleted}
+            goalsAchieved={goalsAchieved}
+          />
           <br />
-          <GoalList goals={goals} onNewGoal={triggerRefetch} />
+          <GoalList
+            goals={goals}
+            onNewGoal={triggerRefetch}
+            onGoalCheck={triggerRefetch}
+          />
         </div>
       </div>
     </>
