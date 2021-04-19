@@ -45,11 +45,30 @@ function CurrentTask() {
     autoFullScreen: false,
   });
 
+  /**
+   * Helper function to help validate inputted times for the timer, they are only valid if they are non-NaN
+   */
+  function isValidTimes() {
+    if (
+      Number.isNaN(timerConfigValues.workMinutes) ||
+      Number.isNaN(timerConfigValues.workSeconds) ||
+      Number.isNaN(timerConfigValues.breakMinutes) ||
+      Number.isNaN(timerConfigValues.breakSeconds)
+    ) {
+      return false;
+    }
+    return true;
+  }
+
   const handleConfigButtonClicked = () => {
     setShowConfig(!showConfig);
   };
 
   const handleStartButtonClicked = () => {
+    // If not valid, do not start timer
+    if (!isValidTimes()) {
+      return;
+    }
     setShowConfig(false);
     setShowTimer(true);
     if (Number.isNaN(timerConfigValues.workMinutes)) {
@@ -98,6 +117,13 @@ function CurrentTask() {
                 expanded
                 name={currentTask.Name}
                 subtasks={currentTask.Subtasks}
+                endDate={currentTask.End_date}
+                label={currentTask.Label}
+                startDate={currentTask.Start_date}
+                taskId={currentTask.Task_id}
+                checked={currentTask.Is_complete}
+                description={currentTask.Description}
+                userId={currentTask.User_id}
               />
               <CurrentTaskNotes
                 notes={[currentTask.Description]}

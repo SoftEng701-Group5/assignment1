@@ -14,8 +14,12 @@ function HomeView() {
   const { currentUser } = useContext(AuthContext);
   const [, setCurrentTask] = useContext(CurrentTaskContext);
   const [tasks, setTasks] = useState([]);
+  const [refetchTasks, setRefetchTasks] = useState(false);
   const history = useHistory();
   const { isDarkMode } = React.useContext(DarkModeContext);
+  const triggerRefetchTasks = () => {
+    setRefetchTasks(!refetchTasks);
+  };
 
   const getGreeting = () => {
     const myDate = new Date();
@@ -30,12 +34,15 @@ function HomeView() {
     fetchTasks(currentUser.uid).then((res) => {
       setTasks(res);
     });
-  }, []);
+  }, [refetchTasks]);
 
   const handleTaskClick = (task) => {
     history.push("/dashboard");
     setCurrentTask(task);
   };
+
+  // This is to unselect tasks that was selected in dashboard
+  setCurrentTask();
 
   return (
     <>
@@ -56,7 +63,11 @@ function HomeView() {
           />
         </div>
         <div className="home-page--task-list">
-          <TaskList tasks={tasks} onTaskClick={handleTaskClick} />
+          <TaskList
+            tasks={tasks}
+            onNewTask={triggerRefetchTasks}
+            onTaskClick={handleTaskClick}
+          />
         </div>
         <DateTime />
         <HomepageImage />

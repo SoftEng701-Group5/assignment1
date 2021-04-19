@@ -28,7 +28,7 @@ function CurrentTaskNotes(props) {
       }`}
     >
       <div className="current-task-notes__header">
-        <span className="current-task-notes__title">Notes</span>
+        <span className="current-task-notes__title">Description</span>
         <RightChevron handleOnClick={handleIconClick} isRotated={isExpanded} />
       </div>
       <form

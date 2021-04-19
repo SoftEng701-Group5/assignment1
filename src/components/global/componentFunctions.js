@@ -8,6 +8,7 @@ import CrossIcon from "../../assets/icons/CrossIcon";
 import PlayIcon from "../../assets/icons/PlayIcon";
 import PauseIcon from "../../assets/icons/PauseIcon";
 import LogoutIcon from "../../assets/icons/LogoutIcon";
+import ResetIcon from "../../assets/icons/ResetIcon";
 import DarkModeIcon from "../../assets/icons/DarkModeIcon";
 import LightModeIcon from "../../assets/icons/LightModeIcon";
 
@@ -22,6 +23,7 @@ function getIcon(icon) {
     play: PlayIcon,
     pause: PauseIcon,
     logout: LogoutIcon,
+    reset: ResetIcon,
     lightMode: DarkModeIcon,
     darkMode: LightModeIcon,
   };

@@ -50,7 +50,7 @@ export default function LoginView() {
       } else {
         // If authentication is unsuccessful, notify user and reset inputs
         // eslint-disable-next-line no-alert
-        alert("Invalid login");
+        alert("An invalid username or password has been entered.");
 
         setPassword("");
       }
@@ -71,15 +71,22 @@ export default function LoginView() {
           />
         </div>
         <div className="password-container">
-          <TextInput
-            label="Password:"
-            placeholderValue={passwordInfoText}
-            textValue={password}
-            onChangeHandler={setPassword}
-            type="password"
-          />
+          <form onSubmit={loginHandler}>
+            <TextInput
+              label="Password:"
+              placeholderValue={passwordInfoText}
+              textValue={password}
+              onChangeHandler={setPassword}
+              type="password"
+            />
+          </form>
         </div>
-        <Button icon="rightArrow" text="Login" handleOnClick={loginHandler} />
+        <Button
+          type="submit"
+          icon="rightArrow"
+          text="Login"
+          handleOnClick={loginHandler}
+        />
         <div className="login__bottom-text">
           <span>Don&apos;t have an account?</span>
           <Link to="/signup" className="login__bottom-text__link">

@@ -14,6 +14,18 @@ function BoardView() {
   const { isDarkMode } = React.useContext(DarkModeContext);
 
   /**
+   * Called when the sort button is clicked, which toggles the visibility of
+   * the sort list
+   * @param {*} column The column that the sort list belongs to
+   */
+  const onSortButtonClick = (column) => {
+    const newBoardData = boardData;
+    const isOpen = column.sortListOpened;
+    newBoardData.columns[column.id].sortListOpened = !isOpen;
+    setBoardData({ ...newBoardData });
+  };
+
+  /**
    * Called when an item in the column sorting dropdown list is clicked
    * @param {*} column The column which is to be sorted
    * @param {*} sortBy The sorting arrangement selected
@@ -46,6 +58,8 @@ function BoardView() {
     sortedColumn.taskIds = newTaskIds;
     const newBoardData = boardData;
     newBoardData.columns[column] = sortedColumn;
+    const isOpen = newBoardData.columns[column].sortListOpened;
+    newBoardData.columns[column].sortListOpened = !isOpen;
     setBoardData({ ...newBoardData });
   };
 
@@ -138,9 +152,14 @@ function BoardView() {
                   column={column}
                   tasks={tasks}
                   subTasks={boardData.subTasks}
+                  sortListOpened={column.sortListOpened}
+                  onSortButtonClick={onSortButtonClick}
                   handleSortList={onSortListClick}
                 />
-                {!index ? <NewTask /> : null}
+                <div className="add_button_board_view">
+                  {/* passing empty function as onNewTask as there is no need to re-fetch tasks in this view */}
+                  {!index ? <NewTask onNewTask={() => {}} /> : null}{" "}
+                </div>
               </div>
             );
           })}
