@@ -11,7 +11,7 @@ import { SettingsModalShowContext } from "./SettingsContextProvider";
 const modalRoot = document.querySelector("#modal-root");
 
 export default function SettingsModal() {
-  const { currentUser } = useContext(AuthContext);
+  const { currentUser, triggerRefetch } = useContext(AuthContext);
   const { isDarkMode } = useContext(DarkModeContext);
   const [, setShowSettings] = useContext(SettingsModalShowContext);
 
@@ -26,9 +26,8 @@ export default function SettingsModal() {
       Last_name: lastName,
       User_id: currentUser.uid,
     };
-    // at the moment this change does not propagate to AuthContext
-    // TODO: fix that
     await updateUserInfo(newUserData, email);
+    triggerRefetch();
     setShowSettings(false);
   };
 

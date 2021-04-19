@@ -2,8 +2,7 @@ import React, { useState } from "react";
 
 const SettingsModalShowContext = React.createContext(false);
 
-function SettingsContextProvider(props) {
-  const { children } = props;
+function SettingsContextProvider({ children }) {
   const [showModal, setShowModal] = useState(false);
 
   return (
