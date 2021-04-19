@@ -9,6 +9,7 @@ import PlayIcon from "../../assets/icons/PlayIcon";
 import PauseIcon from "../../assets/icons/PauseIcon";
 import ResetIcon from "../../assets/icons/ResetIcon";
 import DarkModeIcon from "../../assets/icons/DarkModeIcon";
+import EditIcon from "../../assets/icons/EditIcon";
 
 function getIcon(icon) {
   const map = {
@@ -22,6 +23,7 @@ function getIcon(icon) {
     pause: PauseIcon,
     reset: ResetIcon,
     lightMode: DarkModeIcon,
+    edit: EditIcon,
   };
   if (!map[icon]) {
     return <div />;
