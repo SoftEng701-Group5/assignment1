@@ -76,7 +76,7 @@ const updateUserInfo = async (newUserData, email) => {
     .where("User_id", "==", newUserData.User_id)
     .get();
   const userDocId = data.docs[0].id;
-  db.collection("Users").doc(userDocId).set(newUserData);
+  await db.collection("Users").doc(userDocId).set(newUserData);
 
   const user = firebaseConnection.auth().currentUser;
   user.updateEmail(email);
