@@ -5,7 +5,7 @@ import HomepageImage from "../assets/images/HomepageImage";
 import DateTime from "../components/DateTime";
 import Navbar from "../components/Navbar";
 import { CurrentTaskContext } from "../components/timer-modal/TimerContextProvider";
-import { fetchTasks } from "../services/databaseService";
+import { fetchTasks, fetchSubtasks } from "../services/databaseService";
 import { AuthContext } from "../services/providers/authProvider";
 import DarkModeContext from "../services/theme-context";
 import TaskList from "../components/global/TaskList";
@@ -14,12 +14,15 @@ function HomeView() {
   const { currentUser } = useContext(AuthContext);
   const [, setCurrentTask] = useContext(CurrentTaskContext);
   const [tasks, setTasks] = useState([]);
+  const [subtasks, setSubtasks] = useState([]);
   const [refetchTasks, setRefetchTasks] = useState(false);
   const history = useHistory();
   const { isDarkMode } = React.useContext(DarkModeContext);
   const triggerRefetchTasks = () => {
     setRefetchTasks(!refetchTasks);
   };
+  const [refetchSubtasks, setRefetchSubtasks] = useState(false);
+  const triggerRefetchSubtasks = () => setRefetchSubtasks(!refetchSubtasks);
 
   const getGreeting = () => {
     const myDate = new Date();
@@ -34,7 +37,8 @@ function HomeView() {
     fetchTasks(currentUser.uid).then((res) => {
       setTasks(res);
     });
-  }, [refetchTasks]);
+    fetchSubtasks(currentUser.uid).then((res) => setSubtasks(res));
+  }, [refetchTasks, refetchSubtasks]);
 
   const handleTaskClick = (task) => {
     history.push("/dashboard");
@@ -65,8 +69,10 @@ function HomeView() {
         <div className="home-page--task-list">
           <TaskList
             tasks={tasks}
+            subtasks={subtasks}
             onNewTask={triggerRefetchTasks}
             onTaskClick={handleTaskClick}
+            onNewSubtask={triggerRefetchSubtasks}
           />
         </div>
         <DateTime />
