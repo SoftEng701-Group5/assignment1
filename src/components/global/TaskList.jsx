@@ -11,7 +11,7 @@ import DarkModeContext from "../../services/theme-context";
  * display task details, and a button to add new tasks.
  */
 function TaskList(props) {
-  const { onTaskClick, tasks, subtasks, onNewTask, onNewSubtask } = props;
+  const { onTaskClick, onTaskCheck, tasks, subtasks, onNewTask, onNewSubtask } = props;
   const [currentTask] = useContext(CurrentTaskContext);
   const { isDarkMode } = React.useContext(DarkModeContext);
 
@@ -34,6 +34,7 @@ function TaskList(props) {
                   <Task
                     name={t.Name}
                     onClick={() => onTaskClick(t)}
+                    onCheck={onTaskCheck}
                     selected={currentTask && t.Task_id === currentTask.Task_id}
                     endDate={t.End_date}
                     label={t.Label}

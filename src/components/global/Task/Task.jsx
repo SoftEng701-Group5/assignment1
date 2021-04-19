@@ -9,6 +9,7 @@ function Task(props) {
   const {
     name,
     onClick,
+    onCheck,
     selected,
     endDate,
     label,
@@ -38,7 +39,7 @@ function Task(props) {
       Task_id: taskId,
       User_id: userId,
       Is_complete: newIsChecked,
-    });
+    }).then(onCheck());
   };
   const handleIconClick = () => setIsExpanded(!isExpanded);
 

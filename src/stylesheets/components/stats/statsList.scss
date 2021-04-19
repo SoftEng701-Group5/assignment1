@@ -1,0 +1,39 @@
+.stats-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    margin-bottom: 20px;
+  }
+
+  &__content {
+    border-radius: 20px;
+    flex: 1;
+  }
+
+  &__stat {
+    display: flex;
+    height: 50px;
+    border-radius: 20px;
+    align-items: center;
+    padding: 0 20px;
+    background-color: $goal-header-background;
+
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  &.light {
+    .stats-list__title {
+      color: black;
+    }
+    .stats-list__stat {
+      background-color: $goal-header-background-light;
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}

@@ -128,6 +128,7 @@ function CurrentTask(props) {
                 description={currentTask.Description}
                 userId={currentTask.User_id}
                 onNewSubtask={onNewSubtask}
+                onCheck={() => {}}
               />
               <CurrentTaskNotes
                 notes={[currentTask.Description]}

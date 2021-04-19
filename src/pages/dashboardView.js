@@ -2,29 +2,17 @@ import React, { useContext, useState, useEffect } from "react";
 import CurrentTask from "../components/current-task/CurrentTask";
 import TaskList from "../components/global/TaskList";
 import GoalList from "../components/goal/GoalList";
+import StatsList from "../components/stats/StatsList";
 import Navbar from "../components/Navbar";
 import { CurrentTaskContext } from "../components/timer-modal/TimerContextProvider";
 import {
   fetchGoals,
   fetchTasks,
   fetchSubtasks,
+  fetchTasksCompleted
 } from "../services/databaseService";
 import { AuthContext } from "../services/providers/authProvider";
 import DarkModeContext from "../services/theme-context";
-
-/**
- * This component represents the placeholder for the Stats and Goals
- * components that can be added through future work
- */
-const DashboardPlaceholder = (props) => {
-  const { title } = props;
-  return (
-    <div className="dashboard__placeholder-section">
-      <h1 className="dashboard__placeholder-title">{title}</h1>
-      <div className="dashboard__placeholder-content" />
-    </div>
-  );
-};
 
 /**
  * This component represents the dashboard page,
@@ -37,9 +25,8 @@ function DashboardView() {
   const [subtasks, setSubtasks] = useState([]);
   const [goals, setGoals] = useState([]);
   const { isDarkMode } = React.useContext(DarkModeContext);
-  const [refetchTasks, setRefetchTasks] = useState(false);
-  const [refetchGoals, setRefetchGoals] = useState(false);
-  const [refetchSubtasks, setRefetchSubtasks] = useState(false);
+  const [tasksCompleted, setTasksCompleted] = useState("?");
+  const [refetch, setRefetch] = useState(false);
 
   /**
    * When a task is selected from Today's Tasks,
@@ -49,19 +36,16 @@ function DashboardView() {
     setCurrentTask(task);
   };
 
-  const triggerRefetchTasks = () => {
-    setRefetchTasks(!refetchTasks);
+  const triggerRefetch = () => {
+    setRefetch(!refetch);
   };
-
-  const triggerRefetchGoals = () => {
-    setRefetchGoals(!refetchGoals);
-  };
-
-  const triggerRefetchSubtasks = () => setRefetchSubtasks(!refetchSubtasks);
 
   useEffect(() => {
     fetchTasks(currentUser.uid).then((res) => {
       setTasks(res);
+    });
+    fetchTasksCompleted(currentUser.uid).then((res) => {
+      setTasksCompleted(res);
     });
     fetchGoals(currentUser.uid).then((res) => {
       setGoals(res);
@@ -69,7 +53,7 @@ function DashboardView() {
     fetchSubtasks(currentUser.uid).then((res) => {
       setSubtasks(res);
     });
-  }, [refetchTasks, refetchGoals, refetchSubtasks]);
+  }, [refetch]);
 
   return (
     <>
@@ -78,7 +62,8 @@ function DashboardView() {
         <TaskList
           tasks={tasks}
           subtasks={subtasks}
-          onNewTask={triggerRefetchTasks}
+          onNewTask={triggerRefetch}
+          onTaskCheck={triggerRefetch}
           onTaskClick={handleTaskClick}
           onNewSubtask={triggerRefetchSubtasks}
         />
@@ -86,10 +71,10 @@ function DashboardView() {
           subtasks={subtasks}
           onNewSubtask={triggerRefetchSubtasks}
         />
-        <div className="dashboard__placeholder-column">
-          <DashboardPlaceholder title="Stats:" />
+        <div className="dashboard__stats-goals-column">
+          <StatsList tasksCompleted={tasksCompleted} />
           <br />
-          <GoalList goals={goals} onNewGoal={triggerRefetchGoals} />
+          <GoalList goals={goals} onNewGoal={triggerRefetch} />
         </div>
       </div>
     </>
