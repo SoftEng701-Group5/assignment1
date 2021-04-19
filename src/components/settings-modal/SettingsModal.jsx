@@ -44,14 +44,18 @@ export default function SettingsModal() {
     >
       {/* eslint-disable-next-line */}
       <div className={isDarkMode ? "modalContainer" : "modalContainer light"} tabIndex="0">
-        <IconButton
-          icon="cross"
-          size="48px"
-          onClick={() => {
-            setShowSettings(false);
-          }}
-        />
-        <h1>User settings</h1>
+        <div className="modalContainer__heading">
+          <h1>User settings</h1>
+          <IconButton
+            className="modalContainer__heading__button"
+            icon="cross"
+            size="48px"
+            onClick={() => {
+              setShowSettings(false);
+            }}
+          />
+        </div>
+
         <TextInput
           label="First name:"
           type="firstName"
@@ -70,13 +74,15 @@ export default function SettingsModal() {
           textValue={email}
           onChangeHandler={setEmail}
         />
-        <Button
-          icon="rightArrow"
-          text="Save"
-          height="4rem"
-          fontSize="1.5rem"
-          handleOnClick={handleSaveSettings}
-        />
+        <div className="modalContainer__actions">
+          <Button
+            icon="rightArrow"
+            text="Save"
+            height="4rem"
+            fontSize="1.5rem"
+            handleOnClick={handleSaveSettings}
+          />
+        </div>
       </div>
     </div>,
     modalRoot
