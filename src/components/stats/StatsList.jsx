@@ -16,11 +16,15 @@ function StatsList(props) {
       <h1 className="stats-list__title">Stats:</h1>
       <div className="stats-list__content">
         <div className="stats-list__stat">
-          {`${tasksCompleted} tasks completed`}
+          {tasksCompleted === 1
+            ? `1 task completed`
+            : `${tasksCompleted} tasks completed`}
         </div>
         <br />
         <div className="stats-list__stat">
-          {`${goalsAchieved} goals achieved`}
+          {goalsAchieved === 1
+            ? `1 goal achieved`
+            : `${goalsAchieved} goals achieved`}
         </div>
       </div>
     </div>
