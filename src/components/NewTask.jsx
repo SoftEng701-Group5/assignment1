@@ -143,6 +143,7 @@ export default function NewTask(props) {
                 icon="cross"
                 size="48px"
                 onClick={handleCancelNewTask}
+                datatestid="modal-close-button"
               />
             </div>
             <Button

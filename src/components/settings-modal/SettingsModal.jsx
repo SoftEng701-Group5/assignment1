@@ -47,7 +47,7 @@ export default function SettingsModal() {
         <div className="modalContainer__heading">
           <h1>User settings</h1>
           <IconButton
-            className="modalContainer__heading__button"
+            className="modalContainer__heading__button "
             icon="cross"
             size="48px"
             onClick={() => {

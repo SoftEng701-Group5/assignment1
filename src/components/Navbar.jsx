@@ -73,31 +73,31 @@ function Navbar() {
       >
         <div
           className={`navbar__account${hovering ? "--hover" : ""}`}
-          data-testid="nav-settings-icon"
+          datatestid="nav-settings-icon"
         >
           <IconButton
-            className="hover-button"
+            className="hover-button "
             icon="settings"
             onClick={settingsHandler}
             size="48px"
-            data-testid="nav-settings-icon"
+            datatestid="nav-settings-icon"
           />
           {displaySettings && <SettingsModal />}
 
           <IconButton
-            className="hover-button"
+            className="hover-button "
             icon={isDarkMode ? "lightMode" : "darkMode"}
             onClick={changeAppTheme}
             size="48px"
-            data-testid="nav-theme-icon"
+            datatestid="nav-theme-icon"
           />
 
           <IconButton
-            className="hover-button"
+            className="hover-button "
             icon="logout"
             onClick={signOutHandler}
             size="48px"
-            data-testid="nav-logout-icon"
+            datatestid="nav-logout-icon"
           />
         </div>
 
