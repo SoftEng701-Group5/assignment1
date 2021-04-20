@@ -3,7 +3,7 @@ import React from "react";
 export default function DarkModeIcon() {
   return (
     <svg
-      style={{ width: "100%", height: "auto", fill: "white" }}
+      style={{ width: "50%", height: "auto", fill: "white" }}
       x="0px"
       y="0px"
       viewBox="0 0 24 24"

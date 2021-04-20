@@ -15,13 +15,20 @@ const IntervalInput = (props) => {
   const [secondsValue, setSecondsValue] = useState("00");
 
   const handleMinutesChanged = (val) => {
-    setMinutesValue(val);
-    onTimeChangeHandler(val, secondsValue);
+    // For minutes, include 0 padding but also allow for more than double digits
+    if (val.charAt(0) === "0" || val.length < 2) {
+      setMinutesValue(`00${val}`.slice(-2));
+      onTimeChangeHandler(`00${val}`.slice(-2), secondsValue);
+    } else {
+      setMinutesValue(val);
+      onTimeChangeHandler(val, secondsValue);
+    }
   };
 
   const handleSecondsChanged = (val) => {
-    setSecondsValue(val);
-    onTimeChangeHandler(minutesValue, val);
+    // Seconds should be restricted to only two digits
+    setSecondsValue(`00${val}`.slice(-2));
+    onTimeChangeHandler(minutesValue, `00${val}`.slice(-2));
   };
 
   return (
@@ -71,6 +78,13 @@ function TimerConfig(props) {
   // Helper function to check if inputs are integers or not, if not, the state is set to NaN
   const validated = (val, field) => {
     if (/^\d+$/.test(val)) {
+      if (field.includes("Seconds") && parseInt(val, 10) > 59) {
+        setTimerConfigValues((prevState) => ({
+          ...prevState,
+          [field]: NaN,
+        }));
+        return false;
+      }
       setTimerConfigValues((prevState) => ({
         ...prevState,
         [field]: parseInt(val, 10),
