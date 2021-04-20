@@ -97,4 +97,12 @@ const updateUserInfo = async (newUserData, email) => {
   user.updateEmail(email);
 };
 
-export { signOut, signIn, signUp, signUpError, resetPassword, fetchUserInfo, updateUserInfo };
+export {
+  signOut,
+  signIn,
+  signUp,
+  signUpError,
+  resetPassword,
+  fetchUserInfo,
+  updateUserInfo,
+};
