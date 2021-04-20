@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useState } from "react";
 import moment from "moment";
 import RightChevron from "../../../assets/icons/RightChevron";
@@ -28,29 +29,22 @@ function Task(props) {
   } = props;
 
   // formats firebase timestamp object into string foe textinput display
-  function formatInitialDates(date) {
-    if (date == null) {
+  function formatInitialDates(dbDate) {
+    if (dbDate == null) {
       return {};
     }
-    const months = [
-      "01",
-      "02",
-      "03",
-      "04",
-      "05",
-      "06",
-      "07",
-      "08",
-      "09",
-      "10",
-      "11",
-      "12",
-    ];
-    date.toDate();
-    const day = date.getDate().toString();
-    const month = months[date.getMonth()];
+    const date = dbDate.toDate();
+    let day = date.getDate().toString();
+    let month = (date.getMonth() + 1).toString();
     const year = date.getFullYear().toString();
-    return `${year} + "-" + ${month} + "-" + ${day}`;
+    if (month.length < 2) {
+      month = '0' + month;
+    }
+    if (day.length < 2) {
+      day = '0' + day;
+    }
+    console.log(year + "-" + month + "-" + day);
+    return year + "-" + month + "-" + day;
   }
 
   const [formattedStartDate, setFormattedStartDate] = useState(

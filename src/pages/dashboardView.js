@@ -70,7 +70,7 @@ function DashboardView() {
           onNewTask={triggerRefetchTasks}
           onTaskClick={handleTaskClick}
         />
-        <CurrentTask />
+        <CurrentTask onNewTask={triggerRefetchTasks} />
         <div className="dashboard__placeholder-column">
           <DashboardPlaceholder title="Stats:" />
           <br />

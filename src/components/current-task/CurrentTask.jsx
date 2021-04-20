@@ -24,7 +24,8 @@ import {
  * with a timer that can be used to complete the current task.
  * Timer configuration is available to the user.
  */
-function CurrentTask() {
+function CurrentTask(props) {
+  const { onNewTask } = props;
   const [currentTask] = useContext(CurrentTaskContext);
   const [, setWorkTimerMemory] = useContext(WorkTimerMemoryContext);
   const [, setBreakTimerMemory] = useContext(BreakTimerMemoryContext);
@@ -124,6 +125,7 @@ function CurrentTask() {
                 checked={currentTask.Is_complete}
                 description={currentTask.Description}
                 userId={currentTask.User_id}
+                onNewTask={onNewTask}
               />
               <CurrentTaskNotes
                 notes={[currentTask.Description]}
@@ -133,7 +135,10 @@ function CurrentTask() {
           )}
 
           {showTimer ? (
-            <CurrentTaskTimer timerConfigValues={timerConfigValues} />
+            <CurrentTaskTimer
+              timerConfigValues={timerConfigValues}
+              onNewTask={onNewTask}
+            />
           ) : (
             <div className="current-task__buttons">
               <Button

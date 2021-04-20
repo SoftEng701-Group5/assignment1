@@ -16,7 +16,8 @@ import DarkModeContext from "../../services/theme-context";
  * The timer can be used when a user wishes to complete a task using the
  * pomodoro technique. Timer configuration is available to the user.
  */
-export default function CurrentTaskTimer() {
+export default function CurrentTaskTimer(props) {
+  const { onNewTask } = props;
   const [workTimer, setWorkTimer] = useContext(WorkTimerContext);
   const [play, setPlay] = useContext(PlayContext);
   const [breakTimer, setBreakTimer] = useContext(BreakTimerContext);
@@ -103,7 +104,7 @@ export default function CurrentTaskTimer() {
     <div
       className={isDarkMode ? "current-task-timer" : "current-task-timer light"}
     >
-      {showModal && <TimerModal />}
+      {showModal && <TimerModal onNewTask={onNewTask} />}
       <div className="current-task-timer__title">
         {workTimer.seconds === 0 ? "Break" : "Work"}
       </div>
