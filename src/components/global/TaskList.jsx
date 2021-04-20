@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import moment from "moment";
 import NewTask from "../NewTask";
 import Task from "./Task/Task";
 import { CurrentTaskContext } from "../timer-modal/TimerContextProvider";
@@ -14,6 +15,12 @@ function TaskList(props) {
   const [currentTask] = useContext(CurrentTaskContext);
   const { isDarkMode } = React.useContext(DarkModeContext);
 
+  const today = new Date().toDateString();
+  const seconds = moment(today, false).toDate().getTime();
+
+  const checkDate = (startTime, endTime) =>
+    seconds <= endTime * 1000 && seconds >= startTime * 1000;
+
   return (
     <div className={isDarkMode ? "task-list" : "task-list light"}>
       <h1 className="task-list__title">Today&apos;s Tasks:</h1>
@@ -21,19 +28,23 @@ function TaskList(props) {
         <div className="task-list__tasks">
           {tasks.map((t) => (
             <div key={t.Task_id}>
-              <Task
-                name={t.Name}
-                onClick={() => onTaskClick(t)}
-                selected={currentTask && t.Task_id === currentTask.Task_id}
-                endDate={t.End_date}
-                label={t.Label}
-                startDate={t.Start_date}
-                taskId={t.Task_id}
-                checked={t.Is_complete}
-                description={t.Description}
-                userId={t.User_id}
-                onNewTask={onNewTask}
-              />
+              {t.Start_date &&
+                t.End_date &&
+                checkDate(t.Start_date.seconds, t.End_date.seconds) && (
+                  <Task
+                    name={t.Name}
+                    onClick={() => onTaskClick(t)}
+                    selected={currentTask && t.Task_id === currentTask.Task_id}
+                    endDate={t.End_date}
+                    label={t.Label}
+                    startDate={t.Start_date}
+                    taskId={t.Task_id}
+                    checked={t.Is_complete}
+                    description={t.Description}
+                    userId={t.User_id}
+                    onNewTask={onNewTask}
+                  />
+                )}
             </div>
           ))}
         </div>

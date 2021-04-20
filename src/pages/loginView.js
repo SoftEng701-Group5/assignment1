@@ -5,7 +5,7 @@ import Button from "../components/global/Button";
 import TextInput from "../components/global/TextInput";
 import LoginImage from "../assets/images/LoginImage";
 
-import { signIn } from "../services/authService";
+import { signIn, resetPassword } from "../services/authService";
 import DarkModeContext from "../services/theme-context";
 
 /**
@@ -57,6 +57,31 @@ export default function LoginView() {
     }
   };
 
+  /**
+   * Reset password
+   */
+  const resetPasswordHandler = async () => {
+    // Process inputs
+    const processedEmail = email.trim();
+    // check if the user entered their email
+    let validReset = true;
+    if (!processedEmail) {
+      setEmailInfoText("Please enter your email address");
+      validReset = false;
+    }
+
+    if (validReset) {
+      // send reset password email
+      if (await resetPassword(processedEmail)) {
+        alert("Reset Password Email has been sent to your email.");
+      } else {
+        alert("Reset password failed for current email address.");
+
+        setEmail("");
+      }
+    }
+  };
+
   return (
     <>
       <div className={isDarkMode ? "login" : "login light"}>
@@ -92,6 +117,15 @@ export default function LoginView() {
           <Link to="/signup" className="login__bottom-text__link">
             Sign Up here
           </Link>
+          <br />
+          <span>Forgot password?</span>
+          <a
+            href="/#"
+            className="login__bottom-text__link"
+            onClick={resetPasswordHandler}
+          >
+            Reset Password
+          </a>
         </div>
       </div>
       <div className="login__background">

@@ -46,12 +46,19 @@ export default function NewTask(props) {
     const stDate = startDate ? moment(startDate, true) : null;
     const edDate = endDate ? moment(endDate, true) : null;
 
-    // Validate user input (only task name is mandatory)
+    // Validate user input (task name, start date and end date are mandatory)
     if (!name) {
       setError("Please add a task name.");
       return;
     }
-
+    if (stDate == null) {
+      setError("Please add a start date.");
+      return;
+    }
+    if (edDate == null) {
+      setError("Please add an end date.");
+      return;
+    }
     // Validates the start and end date values(make sure end date is after start date)
     if (
       stDate &&
@@ -143,6 +150,7 @@ export default function NewTask(props) {
                 icon="cross"
                 size="48px"
                 onClick={handleCancelNewTask}
+                datatestid="modal-close-button"
               />
             </div>
             <Button

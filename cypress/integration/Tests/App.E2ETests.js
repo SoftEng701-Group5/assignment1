@@ -23,7 +23,7 @@ describe("End to End Test", () => {
     cy.get("h1").should("contain", "Welcome");
   });
   it("successfully loads Signup page", () => {
-    cy.get("a").should("contain", "Sign").click();
+    cy.get("a:first").should("contain", "Sign").click();
     cy.url().should("include", "/signup");
     cy.get("h1").should("contain", "Sign Up");
 
@@ -72,7 +72,7 @@ describe("End to End Test", () => {
     // Making sure the add task function renders, but we do not add a task to prevent polluting the database
     cy.get(".add-button-container").click();
     cy.contains("End Date");
-    cy.get(".icon-button-container").click();
+    cy.get("[data-testid=modal-close-button]").click();
   });
 
   it("sets and starts a custom timer", () => {
@@ -84,25 +84,25 @@ describe("End to End Test", () => {
     cy.get(
       ":nth-child(1) > .timer-config__interval-input > :nth-child(1) > .text-input__input--centered"
     )
-      .clear()
+      .clear({ force: true })
       .type("0");
     cy.get(
       ":nth-child(1) > .timer-config__interval-input > :nth-child(3) > .text-input__input--centered"
     )
-      .clear()
+      .clear({ force: true })
       .type("10");
     cy.get(
       ":nth-child(2) > .timer-config__interval-input > :nth-child(1) > .text-input__input--centered"
     )
-      .clear()
+      .clear({ force: true })
       .type("1");
     cy.get(
       ":nth-child(2) > .timer-config__interval-input > :nth-child(3) > .text-input__input--centered"
     )
-      .clear()
+      .clear({ force: true })
       .type("30");
-    cy.get(".timer-config__checkbox").click();
-    cy.get(".current-task__button-container").click();
+    cy.get(".timer-config__checkbox").click({ force: true });
+    cy.get(".current-task__button-container").click({ force: true });
     // Checks if timer starts at correct point, then waits 2 seconds and pauses
     cy.get(".timer-text").should("contain", "00:10");
     cy.get(".timerTitle").should("contain", "Work");
@@ -184,7 +184,7 @@ describe("End to End Test", () => {
   // Log out Test
   it("logs out successfully", () => {
     cy.get(".navbar__useravatar").click();
-    cy.get("[data-testid=nav-logout-icon]").click();
+    cy.get("[data-testid=nav-logout-icon]").click({ force: true });
     cy.contains("Welcome");
   });
 });
