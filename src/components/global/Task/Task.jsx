@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { useState } from "react";
 import moment from "moment";
 import RightChevron from "../../../assets/icons/RightChevron";
@@ -28,6 +27,38 @@ function Task(props) {
     onNewTask,
   } = props;
 
+  // formats firebase timestamp object into string foe textinput display
+  function formatInitialDates(date) {
+    if (date == null) {
+      return {};
+    }
+    const months = [
+      "01",
+      "02",
+      "03",
+      "04",
+      "05",
+      "06",
+      "07",
+      "08",
+      "09",
+      "10",
+      "11",
+      "12",
+    ];
+    date.toDate();
+    const day = date.getDate().toString();
+    const month = months[date.getMonth()];
+    const year = date.getFullYear().toString();
+    return `${year} + "-" + ${month} + "-" + ${day}`;
+  }
+
+  const [formattedStartDate, setFormattedStartDate] = useState(
+    formatInitialDates(startDate)
+  );
+  const [formattedEndDate, setFormattedEndDate] = useState(
+    formatInitialDates(endDate)
+  );
   const [nameState, setName] = useState(name);
   const [labelState, setLabel] = useState(label);
   const [descriptionState, setDesc] = useState(description);
@@ -69,11 +100,13 @@ function Task(props) {
   }
 
   function handleStartDateChange(startDateString) {
+    setFormattedStartDate(startDateString);
     const stDate = startDateString ? moment(startDateString, true) : null;
     setStartDate(stDate);
   }
 
   function handleEndDateChange(endDateString) {
+    setFormattedEndDate(endDateString);
     const edDate = endDateString ? moment(endDateString, true) : null;
     setEndDate(edDate);
   }
@@ -166,16 +199,14 @@ function Task(props) {
               <div className="hBox">
                 <TextInput
                   label="Start Date"
-                  textValue={startDateState}
-                  placeholderValue={startDateState}
+                  textValue={formattedStartDate}
                   onChangeHandler={handleStartDateChange}
                   type="date"
                 />
 
                 <TextInput
                   label="End Date"
-                  textValue={endDateState}
-                  placeholderValue={endDateState}
+                  textValue={formattedEndDate}
                   onChangeHandler={handleEndDateChange}
                   type="date"
                 />
