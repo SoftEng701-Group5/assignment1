@@ -37,6 +37,7 @@ export default function TimerModal(props) {
             (subtask) => subtask.Task_id === currentTask.Task_id
           )}
           onNewSubtask={onNewSubtask}
+          onCheck={() => {}}
         />
         <CurrentTaskNotes notes={[currentTask.Description]} />
       </div>

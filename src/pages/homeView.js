@@ -73,6 +73,7 @@ function HomeView() {
             onNewTask={triggerRefetchTasks}
             onTaskClick={handleTaskClick}
             onNewSubtask={triggerRefetchSubtasks}
+            onTaskCheck={triggerRefetchTasks}
           />
         </div>
         <DateTime />

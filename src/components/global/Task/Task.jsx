@@ -15,6 +15,7 @@ function Task(props) {
   const {
     name,
     onClick,
+    onCheck,
     selected,
     endDate,
     label,
@@ -76,7 +77,7 @@ function Task(props) {
       Task_id: taskId,
       User_id: userId,
       Is_complete: newIsChecked,
-    });
+    }).then(onCheck());
   };
 
   // resets the values of all the fields in the modal so they are empty the next time the modal is opened

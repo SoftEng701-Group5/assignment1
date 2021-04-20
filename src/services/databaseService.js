@@ -24,7 +24,25 @@ const fetchTasks = async (userId) => {
 };
 
 /**
- * A "post" request to the firebase cloud firestore which creates a new task for a specific user
+ * A "get" request to the firebase cloud firestore which returns the number of tasks the user has completed
+ * @param {*} userId Unique user identification as a string. You can get this from currentUser.uid
+ * @returns an integer representing the number of tasks the user has completed
+ */
+const fetchTasksCompleted = async (userId) => {
+  const db = firebaseConnection.firestore();
+  const data = await db
+    .collection("Tasks")
+    .where("User_id", "==", userId)
+    .where("Is_complete", "==", true)
+    .get();
+  if (data.empty) {
+    return 0;
+  }
+  return data.size;
+};
+
+/**
+ * A "post" request to the firebase cloud firestore which creates an new task for a specific user
  * @param {*} startDate Date object
  * @param {*} label string
  * @param {*} description string
@@ -104,6 +122,24 @@ const fetchGoals = async (userId) => {
 };
 
 /**
+ * A "get" request to the firebase cloud firestore which returns the number of goals the user has completed
+ * @param {*} userId Unique user identification as a string. You can get this from currentUser.uid
+ * @returns an integer representing the number of goals the user has completed
+ */
+const fetchGoalsCompleted = async (userId) => {
+  const db = firebaseConnection.firestore();
+  const data = await db
+    .collection("Goals")
+    .where("User_id", "==", userId)
+    .where("Is_complete", "==", true)
+    .get();
+  if (data.empty) {
+    return 0;
+  }
+  return data.size;
+};
+
+/**
  * A "post" request to the firebase cloud firestore which creates an new goal for a specific user
  * @param {*} description string
  * @param {*} name string
@@ -177,10 +213,12 @@ const createSubtask = async (name, taskId, userId) => {
 
 export {
   fetchTasks,
+  fetchTasksCompleted,
   createTask,
   deleteTask,
   updateTask,
   fetchGoals,
+  fetchGoalsCompleted,
   createGoal,
   updateGoal,
   fetchSubtasks,
