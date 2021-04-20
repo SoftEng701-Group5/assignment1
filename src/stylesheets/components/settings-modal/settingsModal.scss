@@ -1,0 +1,30 @@
+.modalContainer {
+  &__heading {
+    align-content: center;
+    display: flex;
+    justify-content: space-between;
+
+    * {
+      margin: 0;
+    }
+
+    &__text {
+      &.light {
+        color: black;
+      }
+    }
+
+    &__button {
+      background: $grey-button-bg;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: center;
+
+    * {
+      margin-bottom: 0;
+    }
+  }
+}

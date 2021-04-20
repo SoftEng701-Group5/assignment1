@@ -11,6 +11,7 @@ export const AuthContext = React.createContext();
  */
 export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
+  const [refetchUser, setRefetchUser] = useState(false);
 
   // Adds an observer to the authentication state of the firebase app
   // When authentication state is change, sets the "currentUser" state to the changed value
@@ -31,10 +32,31 @@ export const AuthProvider = ({ children }) => {
     });
   }, []);
 
+  useEffect(() => {
+    if (currentUser) {
+      let updatedUser;
+
+      fetchUserInfo(currentUser.uid).then((userInfo) => {
+        updatedUser = {
+          ...currentUser,
+          firstName: userInfo.First_name,
+          lastName: userInfo.Last_name,
+        };
+
+        setCurrentUser(updatedUser);
+      });
+    }
+  }, [refetchUser]);
+
+  const triggerRefetch = () => {
+    setRefetchUser(!refetchUser);
+  };
+
   return (
     <AuthContext.Provider
       value={{
         currentUser,
+        triggerRefetch,
       }}
     >
       {children}

@@ -42,6 +42,7 @@
   position: relative;
 }
 .current-task-notes-text-area {
+  overflow: auto;
   color: #ffffff;
   background: transparent;
   width: 100% !important;

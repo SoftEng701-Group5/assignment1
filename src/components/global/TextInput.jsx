@@ -19,6 +19,7 @@ function TextInput(props) {
     textValue,
     placeholderValue,
     onChangeHandler,
+    textArea,
   } = props;
 
   const { isDarkMode } = React.useContext(DarkModeContext);
@@ -29,13 +30,24 @@ function TextInput(props) {
         // eslint-disable-next-line jsx-a11y/label-has-associated-control
         <label className="text-input__label">{label}</label>
       )}
-      <input
-        placeholder={placeholderValue}
-        type={type || "text"}
-        value={textValue}
-        onChange={(e) => onChangeHandler(e.target.value)}
-        className={`text-input__input${centered ? "--centered" : ""}`}
-      />
+      {textArea ? (
+        <textArea
+          placeholder={placeholderValue}
+          type={type || "text"}
+          value={textValue}
+          onChange={(e) => onChangeHandler(e.target.value)}
+          className={`text-input__input${centered ? "--centered" : ""}`}
+          rows={10}
+        />
+      ) : (
+        <input
+          placeholder={placeholderValue}
+          type={type || "text"}
+          value={textValue}
+          onChange={(e) => onChangeHandler(e.target.value)}
+          className={`text-input__input${centered ? "--centered" : ""}`}
+        />
+      )}
     </div>
   );
 }

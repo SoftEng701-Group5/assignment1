@@ -2,7 +2,7 @@ import React from "react";
 import getIcon from "./componentFunctions";
 
 function IconButton(props) {
-  const { className = "", icon, size, onClick } = props;
+  const { className = "", icon, size, onClick, datatestid } = props;
 
   return (
     <div
@@ -12,6 +12,7 @@ function IconButton(props) {
       onKeyDown={() => onClick()}
       role="button"
       tabIndex="0"
+      data-testid={datatestid}
     >
       {getIcon(icon)}
     </div>

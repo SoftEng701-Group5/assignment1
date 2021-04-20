@@ -1,25 +1,32 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useLocation, Link, useHistory } from "react-router-dom";
+import SettingsModal from "./settings-modal/SettingsModal";
+import IconButton from "./global/IconButton";
 import BoardIcon from "../assets/icons/BoardIcon";
 import DashboardIcon from "../assets/icons/DashboardIcon";
 import HomeIcon from "../assets/icons/HomeIcon";
-import SettingsIcon from "../assets/icons/SettingsIcon";
-import DarkModeIcon from "../assets/icons/DarkModeIcon";
-import LogoutIcon from "../assets/icons/LogoutIcon";
 import DefaultAvatar from "../assets/images/default-avatar.png";
 import { signOut } from "../services/authService";
 import DarkModeContext from "../services/theme-context";
-import LightModeIcon from "../assets/icons/LightModeIcon";
+import { SettingsModalShowContext } from "./settings-modal/SettingsContextProvider";
 
 function Navbar() {
   const history = useHistory();
   const [hovering, setHovering] = useState(false);
+  const [displaySettings, setDisplaySettings] = useContext(
+    SettingsModalShowContext
+  );
   const location = useLocation();
-  const { isDarkMode, setIsDarkMode } = React.useContext(DarkModeContext);
+  const { isDarkMode, setIsDarkMode } = useContext(DarkModeContext);
 
   const signOutHandler = () => {
     signOut();
     history.push("/");
+  };
+
+  const settingsHandler = () => {
+    setHovering(false);
+    setDisplaySettings(true);
   };
 
   const changeAppTheme = () => {
@@ -57,34 +64,41 @@ function Navbar() {
       </div>
 
       <div
-        onMouseEnter={() => setHovering(true)}
+        onMouseEnter={() => {
+          if (!displaySettings) {
+            setHovering(true);
+          }
+        }}
         onMouseLeave={() => setHovering(false)}
       >
         <div
           className={`navbar__account${hovering ? "--hover" : ""}`}
-          data-testid="nav-settings-icon"
+          datatestid="nav-settings-icon"
         >
-          <SettingsIcon />
-          <div
-            style={{ width: "50%", height: "100%", margin: "2vh 0" }}
-            tabIndex="-1"
-            role="button"
-            onKeyDown={changeAppTheme}
+          <IconButton
+            className="hover-button "
+            icon="settings"
+            onClick={settingsHandler}
+            size="48px"
+            datatestid="nav-settings-icon"
+          />
+          {displaySettings && <SettingsModal />}
+
+          <IconButton
+            className="hover-button "
+            icon={isDarkMode ? "lightMode" : "darkMode"}
             onClick={changeAppTheme}
-          >
-            {isDarkMode ? <LightModeIcon /> : <DarkModeIcon />}
-          </div>
-          <div
-            style={{ width: "50%", height: "50%", marginBottom: "2vh" }}
-            className="icon-container"
+            size="48px"
+            datatestid="nav-theme-icon"
+          />
+
+          <IconButton
+            className="hover-button "
+            icon="logout"
             onClick={signOutHandler}
-            onKeyDown={signOutHandler}
-            role="button"
-            tabIndex="0"
-            data-testid="nav-logout-icon"
-          >
-            <LogoutIcon />
-          </div>
+            size="48px"
+            datatestid="nav-logout-icon"
+          />
         </div>
 
         <img className="navbar__useravatar" src={DefaultAvatar} alt="avatar" />
