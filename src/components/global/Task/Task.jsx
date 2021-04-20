@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import RightChevron from "../../../assets/icons/RightChevron";
 import DarkModeContext from "../../../services/theme-context";
+import NewSubtask from "../../NewSubtask";
 import Subtask from "./Subtask";
 import { updateTask } from "../../../services/databaseService";
 
@@ -18,6 +19,7 @@ function Task(props) {
     userId,
     expanded,
     subtasks,
+    onNewSubtask,
   } = props;
 
   const [isChecked, setIsChecked] = useState(checked);
@@ -72,12 +74,12 @@ function Task(props) {
         <div className="task__subtask-list">
           {subtasks &&
             subtasks.map((subtask) => (
-              <Subtask
-                key={subtask.id}
-                name={subtask.name}
-                checked={subtask.checked}
-              />
+              <Subtask key={subtask.Subtask_id} name={subtask.Name} />
             ))}
+        </div>
+
+        <div className="task__new-subtask">
+          <NewSubtask taskId={taskId} onNewSubtask={onNewSubtask} />
         </div>
       </div>
     </div>

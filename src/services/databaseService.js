@@ -24,7 +24,7 @@ const fetchTasks = async (userId) => {
 };
 
 /**
- * A "post" request to the firebase cloud firestore which creates an new task for a specific user
+ * A "post" request to the firebase cloud firestore which creates a new task for a specific user
  * @param {*} startDate Date object
  * @param {*} label string
  * @param {*} description string
@@ -138,6 +138,43 @@ const updateGoal = async (goalId, newGoalData) => {
   db.collection("Goals").doc(goalId).set(newGoalData);
 };
 
+/**
+ * A "get" request to the firebase cloud firestore which retrieves all the subtasks for a user.
+ * @param {*} userId Unique user identification (string)
+ * @returns An array of javascript objects that represent subtasks. They have fields:
+ * Name: string
+ * Task_id: string
+ * User_id: string
+ * Subtask_id: string
+ */
+const fetchSubtasks = async (userId) => {
+  const db = firebaseConnection.firestore();
+  const data = await db
+    .collection("Subtasks")
+    .where("User_id", "==", userId)
+    .get();
+  const subtasks = data.docs.map((doc) => ({
+    ...doc.data(),
+    Subtask_id: doc.id,
+  }));
+  return subtasks;
+};
+
+/**
+ * A "post" request to the firebase cloud firestore which creates a new subtask for a specific task and user.
+ * @param {*} name Name of the subtask
+ * @param {*} taskId Unique task identification as a string
+ * @param {*} userId Unique user identification as a string
+ */
+const createSubtask = async (name, taskId, userId) => {
+  const db = firebaseConnection.firestore();
+  db.collection("Subtasks").add({
+    Name: name,
+    Task_id: taskId,
+    User_id: userId,
+  });
+};
+
 export {
   fetchTasks,
   createTask,
@@ -146,4 +183,6 @@ export {
   fetchGoals,
   createGoal,
   updateGoal,
+  fetchSubtasks,
+  createSubtask,
 };
