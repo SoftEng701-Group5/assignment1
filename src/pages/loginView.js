@@ -15,6 +15,7 @@ import DarkModeContext from "../services/theme-context";
 export default function LoginView() {
   const history = useHistory();
 
+  const [successfulLogin, setSuccessfulLogin] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -31,7 +32,6 @@ export default function LoginView() {
     // Process inputs
     const processedEmail = email.trim();
     const processedPassword = password.trim();
-
     // Check if inputs have been provided, notify user it not
     let validLogin = true;
     if (!processedEmail) {
@@ -44,6 +44,7 @@ export default function LoginView() {
     }
 
     if (validLogin) {
+      setSuccessfulLogin(true);
       // If authentication is successful, can go to /home
       if (await signIn(processedEmail, processedPassword)) {
         history.push("/home");
@@ -51,7 +52,7 @@ export default function LoginView() {
         // If authentication is unsuccessful, notify user and reset inputs
         // eslint-disable-next-line no-alert
         alert("An invalid username or password has been entered.");
-
+        setSuccessfulLogin(false);
         setPassword("");
       }
     }
@@ -106,12 +107,16 @@ export default function LoginView() {
             />
           </form>
         </div>
-        <Button
-          type="submit"
-          icon="rightArrow"
-          text="Login"
-          handleOnClick={loginHandler}
-        />
+        {successfulLogin ? (
+          <Button type="submit" icon="rightArrow" text="Login" />
+        ) : (
+          <Button
+            type="submit"
+            icon="rightArrow"
+            text="Login"
+            handleOnClick={loginHandler}
+          />
+        )}
         <div className="login__bottom-text">
           <span>Don&apos;t have an account?</span>
           <Link to="/signup" className="login__bottom-text__link">
