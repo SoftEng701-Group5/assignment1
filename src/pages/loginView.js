@@ -83,11 +83,7 @@ export default function LoginView() {
           </form>
         </div>
         {successfulLogin ? (
-          <Button
-            type="submit"
-            icon="rightArrow"
-            text="Login"
-          />
+          <Button type="submit" icon="rightArrow" text="Login" />
         ) : (
           <Button
             type="submit"
