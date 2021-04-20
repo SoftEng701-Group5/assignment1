@@ -69,4 +69,17 @@ const fetchUserInfo = async (userId) => {
   return user;
 };
 
-export { signOut, signIn, signUp, signUpError, fetchUserInfo };
+const updateUserInfo = async (newUserData, email) => {
+  const db = firebaseConnection.firestore();
+  const data = await db
+    .collection("Users")
+    .where("User_id", "==", newUserData.User_id)
+    .get();
+  const userDocId = data.docs[0].id;
+  await db.collection("Users").doc(userDocId).set(newUserData);
+
+  const user = firebaseConnection.auth().currentUser;
+  user.updateEmail(email);
+};
+
+export { signOut, signIn, signUp, signUpError, fetchUserInfo, updateUserInfo };
