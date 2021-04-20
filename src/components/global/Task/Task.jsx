@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { useState } from "react";
 import moment from "moment";
 import RightChevron from "../../../assets/icons/RightChevron";
@@ -38,13 +37,12 @@ function Task(props) {
     let month = (date.getMonth() + 1).toString();
     const year = date.getFullYear().toString();
     if (month.length < 2) {
-      month = '0' + month;
+      month = `0${month}`;
     }
     if (day.length < 2) {
-      day = '0' + day;
+      day = `0${day}`;
     }
-    console.log(year + "-" + month + "-" + day);
-    return year + "-" + month + "-" + day;
+    return `${year}-${month}-${day}`;
   }
 
   const [formattedStartDate, setFormattedStartDate] = useState(
@@ -68,11 +66,11 @@ function Task(props) {
     const newIsChecked = !isChecked;
     setIsChecked(newIsChecked);
     updateTask(taskId, {
-      Description: descriptionState,
-      End_date: endDateState ? endDateState.toDate() : null,
-      Label: labelState,
-      Name: nameState,
-      Start_date: startDateState ? startDateState.toDate() : null,
+      Description: description,
+      End_date: endDate,
+      Label: label,
+      Name: name,
+      Start_date: startDate,
       Task_id: taskId,
       User_id: userId,
       Is_complete: newIsChecked,
@@ -94,17 +92,23 @@ function Task(props) {
     resetValues();
   }
 
-  // these handlers handle changes in the textinput for dates to set both the formatted date and Date object
-  function handleStartDateChange(startDateString) {
-    setFormattedStartDate(startDateString);
-    const stDate = startDateString ? moment(startDateString, true) : null;
+  // these functions update both the formatted and unformatted dates
+  function updateStartDate(startDateParam) {
+    setFormattedStartDate(startDateParam);
+    const stDate = startDateParam ? moment(startDateParam, true) : null;
     setStartDate(stDate);
   }
 
-  function handleEndDateChange(endDateString) {
-    setFormattedEndDate(endDateString);
-    const edDate = endDateString ? moment(endDateString, true) : null;
+  function updateEndDate(endDateParam) {
+    setFormattedEndDate(endDateParam);
+    const edDate = endDateParam ? moment(endDateParam, true) : null;
     setEndDate(edDate);
+  }
+
+  function handleModalOpen() {
+    updateStartDate(formatInitialDates(startDate));
+    updateEndDate(formatInitialDates(endDate));
+    setDisplay(true);
   }
 
   // validates the fields of the newly edited task and makes a request to the database to update the task
@@ -136,6 +140,7 @@ function Task(props) {
       Start_date: startDateState ? startDateState.toDate() : null,
       Task_id: taskId,
       User_id: userId,
+      Is_complete: isChecked,
     });
     setDisplay(false);
     resetValues();
@@ -165,8 +170,8 @@ function Task(props) {
         <div className="editbutton-container">
           <div
             className="task__editbutton"
-            onClick={() => setDisplay(true)}
-            onKeyDown={() => setDisplay(true)}
+            onClick={() => handleModalOpen()}
+            onKeyDown={() => handleModalOpen()}
             role="button"
             tabIndex="0"
           >
@@ -202,14 +207,14 @@ function Task(props) {
                 <TextInput
                   label="Start Date"
                   textValue={formattedStartDate}
-                  onChangeHandler={handleStartDateChange}
+                  onChangeHandler={updateStartDate}
                   type="date"
                 />
 
                 <TextInput
                   label="End Date"
                   textValue={formattedEndDate}
-                  onChangeHandler={handleEndDateChange}
+                  onChangeHandler={updateEndDate}
                   type="date"
                 />
               </div>
