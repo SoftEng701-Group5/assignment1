@@ -52,7 +52,7 @@ export default function LoginView() {
         // If authentication is unsuccessful, notify user and reset inputs
         // eslint-disable-next-line no-alert
         alert("An invalid username or password has been entered.");
-
+        setSuccessfulLogin(false);
         setPassword("");
       }
     }
