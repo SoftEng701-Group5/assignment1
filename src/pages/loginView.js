@@ -6,6 +6,7 @@ import TextInput from "../components/global/TextInput";
 import LoginImage from "../assets/images/LoginImage";
 
 import { signIn } from "../services/authService";
+import DarkModeContext from "../services/theme-context";
 
 /**
  * This component represents the login page,
@@ -21,6 +22,8 @@ export default function LoginView() {
   // Feedback strings to give user feedback, e.g. Missing email
   const [emailInfoText, setEmailInfoText] = useState("");
   const [passwordInfoText, setPasswordInfoText] = useState("");
+
+  const { isDarkMode } = React.useContext(DarkModeContext);
 
   /**
    * Handles login process
@@ -48,7 +51,7 @@ export default function LoginView() {
       } else {
         // If authentication is unsuccessful, notify user and reset inputs
         // eslint-disable-next-line no-alert
-        alert("Invalid login");
+        alert("An invalid username or password has been entered.");
 
         setPassword("");
       }
@@ -57,7 +60,7 @@ export default function LoginView() {
 
   return (
     <>
-      <div className="login">
+      <div className={isDarkMode ? "login" : "login light"}>
         <h1 className="login__welcome">Welcome</h1>
         <div className="email-container">
           <TextInput
@@ -69,18 +72,29 @@ export default function LoginView() {
           />
         </div>
         <div className="password-container">
-          <TextInput
-            label="Password:"
-            placeholderValue={passwordInfoText}
-            textValue={password}
-            onChangeHandler={setPassword}
-            type="password"
-          />
+          <form onSubmit={loginHandler}>
+            <TextInput
+              label="Password:"
+              placeholderValue={passwordInfoText}
+              textValue={password}
+              onChangeHandler={setPassword}
+              type="password"
+            />
+          </form>
         </div>
         {successfulLogin ? (
-          <Button icon="rightArrow" text="Login" />
+          <Button
+            type="submit"
+            icon="rightArrow"
+            text="Login"
+          />
         ) : (
-          <Button icon="rightArrow" text="Login" handleOnClick={loginHandler} />
+          <Button
+            type="submit"
+            icon="rightArrow"
+            text="Login"
+            handleOnClick={loginHandler}
+          />
         )}
         <div className="login__bottom-text">
           <span>Don&apos;t have an account?</span>

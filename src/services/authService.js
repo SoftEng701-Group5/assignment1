@@ -19,6 +19,8 @@ const signIn = async (email, password) => {
     return false;
   }
 };
+/* eslint-disable import/no-mutable-exports */
+let signUpError;
 /**
  * Signs the user up to the firebase application.
  * After they have successfully created their account, their first and last names
@@ -44,6 +46,7 @@ const signUp = async (email, password, firstName, lastName) => {
       });
     return true;
   } catch (error) {
+    signUpError = error;
     return false;
   }
 };
@@ -66,4 +69,17 @@ const fetchUserInfo = async (userId) => {
   return user;
 };
 
-export { signOut, signIn, signUp, fetchUserInfo };
+const updateUserInfo = async (newUserData, email) => {
+  const db = firebaseConnection.firestore();
+  const data = await db
+    .collection("Users")
+    .where("User_id", "==", newUserData.User_id)
+    .get();
+  const userDocId = data.docs[0].id;
+  await db.collection("Users").doc(userDocId).set(newUserData);
+
+  const user = firebaseConnection.auth().currentUser;
+  user.updateEmail(email);
+};
+
+export { signOut, signIn, signUp, signUpError, fetchUserInfo, updateUserInfo };

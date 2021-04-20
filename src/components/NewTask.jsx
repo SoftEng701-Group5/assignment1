@@ -13,7 +13,9 @@ import { AuthContext } from "../services/providers/authProvider";
  * in which the user can create a new task by filling put the fields and clicking the "add task" button
  * This component also presists the task on the firebase database
  */
-export default function NewTask() {
+export default function NewTask(props) {
+  const { onNewTask } = props;
+
   const [display, setDisplay] = useState(false);
   const [name, setName] = useState("");
   const [label, setLabel] = useState("");
@@ -44,12 +46,19 @@ export default function NewTask() {
     const stDate = startDate ? moment(startDate, true) : null;
     const edDate = endDate ? moment(endDate, true) : null;
 
-    // Validate user input (only task name is mandatory)
+    // Validate user input (task name, start date and end date are mandatory)
     if (!name) {
       setError("Please add a task name.");
       return;
     }
-
+    if (stDate == null) {
+      setError("Please add a start date.");
+      return;
+    }
+    if (edDate == null) {
+      setError("Please add an end date.");
+      return;
+    }
     // Validates the start and end date values(make sure end date is after start date)
     if (
       stDate &&
@@ -69,10 +78,23 @@ export default function NewTask() {
       desc,
       name,
       currentUser.uid,
-      edDate ? edDate.toDate() : null
+      edDate ? edDate.toDate() : null,
+      "Backlog"
     );
     setDisplay(false);
+    onNewTask();
     resetValues();
+  }
+
+  /**
+   * Called for any keypress while user is focused on the button
+   * If the key pressed is enter, the supplied clickHandler function is called
+   * @param event Keypress event
+   */
+  function handleKeyPress(event) {
+    if (event.key === "Enter") {
+      handleAddNewTask();
+    }
   }
 
   return (
@@ -82,6 +104,7 @@ export default function NewTask() {
         dismissOnClickOutside
         onCancel={handleCancelNewTask}
         show={display}
+        handleKeyPress={handleKeyPress}
       >
         <div className="">
           <div className="hBox">
@@ -127,6 +150,7 @@ export default function NewTask() {
                 icon="cross"
                 size="48px"
                 onClick={handleCancelNewTask}
+                datatestid="modal-close-button"
               />
             </div>
             <Button

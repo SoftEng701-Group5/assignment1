@@ -31,6 +31,11 @@ export default function TimerSection() {
   const breakMinutes = Math.floor(breakTimer.seconds / 60);
   const breakSeconds = breakTimer.seconds % 60;
 
+  /* resets timer */
+  const reset = () => {
+    setWorkTimer({ seconds: workTimerMemory.seconds });
+  };
+
   /**
    * timerFormat function takes two parameters
    * m: the minutes
@@ -45,17 +50,24 @@ export default function TimerSection() {
       return "00:00";
     }
 
-    if (m < 10) {
-      timerStr += "0";
+    if (Number.isNaN(m)) {
+      timerStr += "00:";
+    } else {
+      if (m < 10) {
+        timerStr += "0";
+      }
+      timerStr += m;
+      timerStr += ":";
     }
-    timerStr += m;
-    timerStr += ":";
 
-    if (s < 10) {
-      timerStr += "0";
+    if (Number.isNaN(s)) {
+      timerStr += "00";
+    } else {
+      if (s < 10) {
+        timerStr += "0";
+      }
+      timerStr += s;
     }
-    timerStr += s;
-
     return timerStr;
   };
 
@@ -128,6 +140,12 @@ export default function TimerSection() {
           size="5rem"
           type="button"
           onClick={() => setPlay(!play)}
+        />
+        <IconButton
+          size="5rem"
+          icon="reset"
+          type="button"
+          onClick={() => reset()}
         />
         <IconButton
           icon="minimize"

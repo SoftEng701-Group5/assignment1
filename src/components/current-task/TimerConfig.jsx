@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import TextInput from "../global/TextInput";
 import { FullscreenContext } from "../timer-modal/TimerContextProvider";
+import DarkModeContext from "../../services/theme-context";
 
 /**
  * This function handles the configuration of the Timer component used in the
@@ -8,29 +9,40 @@ import { FullscreenContext } from "../timer-modal/TimerContextProvider";
  * and seconds values.
  */
 const IntervalInput = (props) => {
-  const {
-    onMinutesChangeHandler,
-    onSecondsChangeHandler,
-    textValue,
-    title,
-  } = props;
+  const { onTimeChangeHandler, textValue, title, isInvalidTime } = props;
 
   const [minutesValue, setMinutesValue] = useState(textValue);
   const [secondsValue, setSecondsValue] = useState("00");
 
   const handleMinutesChanged = (val) => {
-    setMinutesValue(val);
-    onMinutesChangeHandler(val);
+    // For minutes, include 0 padding but also allow for more than double digits
+    if (val.charAt(0) === "0" || val.length < 2) {
+      setMinutesValue(`00${val}`.slice(-2));
+      onTimeChangeHandler(`00${val}`.slice(-2), secondsValue);
+    } else {
+      setMinutesValue(val);
+      onTimeChangeHandler(val, secondsValue);
+    }
   };
 
   const handleSecondsChanged = (val) => {
-    setSecondsValue(val);
-    onSecondsChangeHandler(val);
+    // Seconds should be restricted to only two digits
+    setSecondsValue(`00${val}`.slice(-2));
+    onTimeChangeHandler(minutesValue, `00${val}`.slice(-2));
   };
 
   return (
     <div>
-      <span>{title}</span>
+      <div className="timer-config__input-header">
+        <span>{title}</span>
+        {isInvalidTime ? (
+          <span className="timer-config__input-warning">
+            *Invalid Time input
+          </span>
+        ) : (
+          <div />
+        )}
+      </div>
       <div className="timer-config__interval-input">
         <TextInput
           centered
@@ -59,31 +71,57 @@ function TimerConfig(props) {
   const { setTimerConfigValues } = props;
 
   const [isChecked, setIsChecked] = useContext(FullscreenContext);
+  const { isDarkMode } = React.useContext(DarkModeContext);
+  const [isInvalidWorkTime, setIsInvalidWorkTime] = useState(false);
+  const [isInvalidBreakTime, setIsInvalidBreakTime] = useState(false);
 
-  const handleWorkMinutesChanged = (val) => {
+  // Helper function to check if inputs are integers or not, if not, the state is set to NaN
+  const validated = (val, field) => {
+    if (/^\d+$/.test(val)) {
+      if (field.includes("Seconds") && parseInt(val, 10) > 59) {
+        setTimerConfigValues((prevState) => ({
+          ...prevState,
+          [field]: NaN,
+        }));
+        return false;
+      }
+      setTimerConfigValues((prevState) => ({
+        ...prevState,
+        [field]: parseInt(val, 10),
+      }));
+      return true;
+    }
     setTimerConfigValues((prevState) => ({
       ...prevState,
-      workMinutes: parseInt(val, 10),
+      [field]: NaN,
     }));
+    return false;
   };
-  const handleWorkSecondsChanged = (val) => {
-    setTimerConfigValues((prevState) => ({
-      ...prevState,
-      workSeconds: parseInt(val, 10),
-    }));
+
+  // When the work time has changed, validate the input values and decide if a warning is needed or not
+  const handleWorkTimeChanged = (minutes, seconds) => {
+    if (
+      validated(minutes, "workMinutes") &&
+      validated(seconds, "workSeconds")
+    ) {
+      setIsInvalidWorkTime(false);
+    } else {
+      setIsInvalidWorkTime(true);
+    }
   };
-  const handleBreakMinutesChanged = (val) => {
-    setTimerConfigValues((prevState) => ({
-      ...prevState,
-      breakMinutes: parseInt(val, 10),
-    }));
+
+  // When the break time has changed, validate the input values and decide if a warning is needed or not
+  const handleBreakTimeChanged = (minutes, seconds) => {
+    if (
+      validated(minutes, "breakMinutes") &&
+      validated(seconds, "breakSeconds")
+    ) {
+      setIsInvalidBreakTime(false);
+    } else {
+      setIsInvalidBreakTime(true);
+    }
   };
-  const handleBreakSecondsChanged = (val) => {
-    setTimerConfigValues((prevState) => ({
-      ...prevState,
-      breakSeconds: parseInt(val, 10),
-    }));
-  };
+
   const handleCheckBoxClick = () => {
     setIsChecked(!isChecked);
     setTimerConfigValues((prevState) => ({
@@ -93,18 +131,18 @@ function TimerConfig(props) {
   };
 
   return (
-    <div className="timer-config">
+    <div className={isDarkMode ? "timer-config" : "timer-config light"}>
       <IntervalInput
         title="Work Interval"
         textValue="25"
-        onMinutesChangeHandler={handleWorkMinutesChanged}
-        onSecondsChangeHandler={handleWorkSecondsChanged}
+        onTimeChangeHandler={handleWorkTimeChanged}
+        isInvalidTime={isInvalidWorkTime}
       />
       <IntervalInput
         title="Break Interval"
         textValue="05"
-        onMinutesChangeHandler={handleBreakMinutesChanged}
-        onSecondsChangeHandler={handleBreakSecondsChanged}
+        onTimeChangeHandler={handleBreakTimeChanged}
+        isInvalidTime={isInvalidBreakTime}
       />
       <div className="timer-config__fullscreen-field">
         <div

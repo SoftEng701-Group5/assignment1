@@ -4,6 +4,7 @@ import Task from "../global/Task/Task";
 import CurrentTaskNotes from "../current-task/CurrentTaskNotes";
 import TimerSection from "./TimerSection";
 import { CurrentTaskContext } from "./TimerContextProvider";
+import DarkModeContext from "../../services/theme-context";
 
 const modalRoot = document.querySelector("#modal-root");
 
@@ -15,12 +16,23 @@ const modalRoot = document.querySelector("#modal-root");
  */
 export default function TimerModal() {
   const [currentTask] = useContext(CurrentTaskContext);
+  const { isDarkMode } = useContext(DarkModeContext);
 
   return ReactDOM.createPortal(
-    <div className="timer-modal">
+    <div className={isDarkMode ? "timer-modal" : "timer-modal light"}>
       {/* Components are displayed here */}
       <div className="timer-modal__info">
-        <Task name={currentTask.Name} subTasks={currentTask.Subtasks} />
+        <Task
+          endDate={currentTask.End_date}
+          label={currentTask.Label}
+          startDate={currentTask.Start_date}
+          taskId={currentTask.Task_id}
+          checked={currentTask.Is_complete}
+          description={currentTask.Description}
+          userId={currentTask.User_id}
+          name={currentTask.Name}
+          subTasks={currentTask.Subtasks}
+        />
         <CurrentTaskNotes notes={[currentTask.Description]} />
       </div>
       <div className="timer-modal__timer">
