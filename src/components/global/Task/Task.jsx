@@ -169,6 +169,24 @@ function Task(props) {
       }`}
     >
       <div className={`task__header${selected ? "--selected" : ""}`}>
+        <div
+          className={`task__checkbox${isChecked ? "--checked" : ""}`}
+          onClick={handleCheckBoxClick}
+          onKeyDown={handleCheckBoxClick}
+          role="checkbox"
+          aria-label="checkbox"
+          tabIndex="0"
+          aria-checked={isChecked}
+        />
+        <span
+          className={`task__title${isChecked ? "--checked" : ""}`}
+          onClick={onClick}
+          onKeyDown={onClick}
+          role="button"
+          tabIndex="0"
+        >
+          {name}
+        </span>
         <div className="editbutton-container">
           <div
             className="task__editbutton"
@@ -242,24 +260,6 @@ function Task(props) {
             </div>
           </EditTaskModal>
         </div>
-        <div
-          className={`task__checkbox${isChecked ? "--checked" : ""}`}
-          onClick={handleCheckBoxClick}
-          onKeyDown={handleCheckBoxClick}
-          role="checkbox"
-          aria-label="checkbox"
-          tabIndex="0"
-          aria-checked={isChecked}
-        />
-        <span
-          className={`task__title${isChecked ? "--checked" : ""}`}
-          onClick={onClick}
-          onKeyDown={onClick}
-          role="button"
-          tabIndex="0"
-        >
-          {name}
-        </span>
         <RightChevron handleOnClick={handleIconClick} isRotated={isExpanded} />
       </div>
 
