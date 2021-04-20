@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import moment from "moment";
 import RightChevron from "../../../assets/icons/RightChevron";
 import DarkModeContext from "../../../services/theme-context";
+import NewSubtask from "../../NewSubtask";
 import Subtask from "./Subtask";
 import { updateTask } from "../../../services/databaseService";
 import getIcon from "../componentFunctions";
@@ -25,6 +26,7 @@ function Task(props) {
     expanded,
     subtasks,
     onNewTask,
+    onNewSubtask,
   } = props;
 
   // formats firebase timestamp object into string foe textinput display
@@ -265,12 +267,12 @@ function Task(props) {
         <div className="task__subtask-list">
           {subtasks &&
             subtasks.map((subtask) => (
-              <Subtask
-                key={subtask.id}
-                name={subtask.name}
-                checked={subtask.checked}
-              />
+              <Subtask key={subtask.Subtask_id} name={subtask.Name} />
             ))}
+        </div>
+
+        <div className="task__new-subtask">
+          <NewSubtask taskId={taskId} onNewSubtask={onNewSubtask} />
         </div>
       </div>
     </div>

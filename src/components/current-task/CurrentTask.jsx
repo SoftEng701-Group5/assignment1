@@ -25,7 +25,7 @@ import {
  * Timer configuration is available to the user.
  */
 function CurrentTask(props) {
-  const { onNewTask } = props;
+  const { subtasks, onNewSubtask, onNewTask } = props;
   const [currentTask] = useContext(CurrentTaskContext);
   const [, setWorkTimerMemory] = useContext(WorkTimerMemoryContext);
   const [, setBreakTimerMemory] = useContext(BreakTimerMemoryContext);
@@ -117,7 +117,9 @@ function CurrentTask(props) {
               <Task
                 expanded
                 name={currentTask.Name}
-                subtasks={currentTask.Subtasks}
+                subtasks={subtasks.filter(
+                  (subtask) => subtask.Task_id === currentTask.Task_id
+                )}
                 endDate={currentTask.End_date}
                 label={currentTask.Label}
                 startDate={currentTask.Start_date}
@@ -126,6 +128,7 @@ function CurrentTask(props) {
                 description={currentTask.Description}
                 userId={currentTask.User_id}
                 onNewTask={onNewTask}
+                onNewSubtask={onNewSubtask}
               />
               <CurrentTaskNotes
                 notes={[currentTask.Description]}
@@ -138,6 +141,8 @@ function CurrentTask(props) {
             <CurrentTaskTimer
               timerConfigValues={timerConfigValues}
               onNewTask={onNewTask}
+              subtasks={subtasks}
+              onNewSubtask={onNewSubtask}
             />
           ) : (
             <div className="current-task__buttons">

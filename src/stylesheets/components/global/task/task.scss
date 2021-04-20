@@ -62,4 +62,13 @@
 		text-decoration: line-through;
 		font-style: italic;
 	}
+
+	&__content--expanded {
+		overflow: auto;
+	}
+
+	&__new-subtask {
+		display: flex;
+		justify-content: center;
+	}
 }
