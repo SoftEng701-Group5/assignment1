@@ -85,6 +85,7 @@ function Task(props) {
     });
   };
 
+  // resets the values of all the fields in the modal so they are empty the next time the modal is opened
   function resetValues() {
     setStartDate(startDateState);
     setEndDate(endDateState);
@@ -99,6 +100,7 @@ function Task(props) {
     resetValues();
   }
 
+  // these handlers handle changes in the textinput for dates to set both the formatted date and Date object
   function handleStartDateChange(startDateString) {
     setFormattedStartDate(startDateString);
     const stDate = startDateString ? moment(startDateString, true) : null;
@@ -111,6 +113,7 @@ function Task(props) {
     setEndDate(edDate);
   }
 
+  // validates the fields of the newly edited task and makes a request to the database to update the task
   function handleEditTask() {
     // Validate user input (only task name is mandatory)
     if (!name) {
@@ -145,6 +148,11 @@ function Task(props) {
     onNewTask();
   }
 
+  /**
+   * Called for any keypress while user is focused on the button
+   * If the key pressed is enter, the supplied clickHandler function is called
+   * @param event Keypress event
+   */
   function handleKeyPress(event) {
     if (event.key === "Enter") {
       handleEditTask();
