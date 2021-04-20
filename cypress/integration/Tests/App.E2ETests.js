@@ -23,7 +23,7 @@ describe("End to End Test", () => {
     cy.get("h1").should("contain", "Welcome");
   });
   it("successfully loads Signup page", () => {
-    cy.get("a").should("contain", "Sign").click();
+    cy.get("a:first").should("contain", "Sign").click();
     cy.url().should("include", "/signup");
     cy.get("h1").should("contain", "Sign Up");
 
