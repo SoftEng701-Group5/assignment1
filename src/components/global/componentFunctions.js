@@ -24,8 +24,8 @@ function getIcon(icon) {
     pause: PauseIcon,
     logout: LogoutIcon,
     reset: ResetIcon,
-    lightMode: DarkModeIcon,
-    darkMode: LightModeIcon,
+    lightMode: LightModeIcon,
+    darkMode: DarkModeIcon,
   };
   if (!map[icon]) {
     return <div />;
