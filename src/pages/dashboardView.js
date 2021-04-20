@@ -85,6 +85,7 @@ function DashboardView() {
         <CurrentTask
           subtasks={subtasks}
           onNewSubtask={triggerRefetchSubtasks}
+          onNewTask={triggerRefetchTasks}
         />
         <div className="dashboard__placeholder-column">
           <DashboardPlaceholder title="Stats:" />

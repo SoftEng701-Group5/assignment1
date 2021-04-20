@@ -10,6 +10,7 @@ import PauseIcon from "../../assets/icons/PauseIcon";
 import LogoutIcon from "../../assets/icons/LogoutIcon";
 import ResetIcon from "../../assets/icons/ResetIcon";
 import DarkModeIcon from "../../assets/icons/DarkModeIcon";
+import EditIcon from "../../assets/icons/EditIcon";
 import LightModeIcon from "../../assets/icons/LightModeIcon";
 
 function getIcon(icon) {
@@ -24,6 +25,7 @@ function getIcon(icon) {
     pause: PauseIcon,
     logout: LogoutIcon,
     reset: ResetIcon,
+    edit: EditIcon,
     lightMode: LightModeIcon,
     darkMode: DarkModeIcon,
   };

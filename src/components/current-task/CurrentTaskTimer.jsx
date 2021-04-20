@@ -17,7 +17,7 @@ import DarkModeContext from "../../services/theme-context";
  * pomodoro technique. Timer configuration is available to the user.
  */
 export default function CurrentTaskTimer(props) {
-  const { subtasks, onNewSubtask } = props;
+  const { subtasks, onNewSubtask, onNewTask } = props;
   const [workTimer, setWorkTimer] = useContext(WorkTimerContext);
   const [play, setPlay] = useContext(PlayContext);
   const [breakTimer, setBreakTimer] = useContext(BreakTimerContext);
@@ -105,7 +105,11 @@ export default function CurrentTaskTimer(props) {
       className={isDarkMode ? "current-task-timer" : "current-task-timer light"}
     >
       {showModal && (
-        <TimerModal subtasks={subtasks} onNewSubtask={onNewSubtask} />
+        <TimerModal
+          onNewTask={onNewTask}
+          subtasks={subtasks}
+          onNewSubtask={onNewSubtask}
+        />
       )}
       <div className="current-task-timer__title">
         {workTimer.seconds === 0 ? "Break" : "Work"}

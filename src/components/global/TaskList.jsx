@@ -42,6 +42,7 @@ function TaskList(props) {
                     checked={t.Is_complete}
                     description={t.Description}
                     userId={t.User_id}
+                    onNewTask={onNewTask}
                     subtasks={subtasks.filter(
                       (subtask) => subtask.Task_id === t.Task_id
                     )}
