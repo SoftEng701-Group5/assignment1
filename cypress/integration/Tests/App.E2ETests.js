@@ -70,7 +70,7 @@ describe("End to End Test", () => {
     cy.contains("This is a test task");
 
     // Making sure the add task function renders, but we do not add a task to prevent polluting the database
-    cy.get(".add-button-container").click();
+    cy.get(".add-task-button-container").click();
     cy.contains("End Date");
     cy.get("[data-testid=modal-close-button]").click();
   });
