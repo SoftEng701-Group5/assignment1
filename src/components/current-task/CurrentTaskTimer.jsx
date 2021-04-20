@@ -105,7 +105,11 @@ export default function CurrentTaskTimer(props) {
       className={isDarkMode ? "current-task-timer" : "current-task-timer light"}
     >
       {showModal && (
-        <TimerModal onNewTask={onNewTask} subtasks={subtasks} onNewSubtask={onNewSubtask} />
+        <TimerModal 
+          onNewTask={onNewTask} 
+          subtasks={subtasks} 
+          onNewSubtask={onNewSubtask} 
+        />
       )}
       <div className="current-task-timer__title">
         {workTimer.seconds === 0 ? "Break" : "Work"}
