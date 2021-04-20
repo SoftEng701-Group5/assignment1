@@ -14,7 +14,8 @@ const modalRoot = document.querySelector("#modal-root");
  * @returns an overlayed timer modal component with a Task,
  * CurrentTaskNotes, and Timer Section component.
  */
-export default function TimerModal() {
+export default function TimerModal(props) {
+  const { subtasks, onNewSubtask } = props;
   const [currentTask] = useContext(CurrentTaskContext);
   const { isDarkMode } = useContext(DarkModeContext);
 
@@ -31,7 +32,10 @@ export default function TimerModal() {
           description={currentTask.Description}
           userId={currentTask.User_id}
           name={currentTask.Name}
-          subTasks={currentTask.Subtasks}
+          subtasks={subtasks.filter(
+            (subtask) => subtask.Task_id === currentTask.Task_id
+          )}
+          onNewSubtask={onNewSubtask}
         />
         <CurrentTaskNotes notes={[currentTask.Description]} />
       </div>

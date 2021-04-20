@@ -137,7 +137,11 @@ function CurrentTask(props) {
           )}
 
           {showTimer ? (
-            <CurrentTaskTimer timerConfigValues={timerConfigValues} />
+            <CurrentTaskTimer
+              timerConfigValues={timerConfigValues}
+              subtasks={subtasks}
+              onNewSubtask={onNewSubtask}
+            />
           ) : (
             <div className="current-task__buttons">
               <Button
