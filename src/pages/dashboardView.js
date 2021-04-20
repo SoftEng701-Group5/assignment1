@@ -8,13 +8,9 @@ import { CurrentTaskContext } from "../components/timer-modal/TimerContextProvid
 import {
   fetchGoals,
   fetchTasks,
-<<<<<<< HEAD
   fetchSubtasks,
-  fetchTasksCompleted
-=======
   fetchTasksCompleted,
   fetchGoalsCompleted,
->>>>>>> shows correct stats for goals achieved
 } from "../services/databaseService";
 import { AuthContext } from "../services/providers/authProvider";
 import DarkModeContext from "../services/theme-context";
@@ -26,13 +22,18 @@ import DarkModeContext from "../services/theme-context";
 function DashboardView() {
   const { currentUser } = useContext(AuthContext);
   const [, setCurrentTask] = useContext(CurrentTaskContext);
+  const { isDarkMode } = React.useContext(DarkModeContext);
+
   const [tasks, setTasks] = useState([]);
   const [subtasks, setSubtasks] = useState([]);
   const [goals, setGoals] = useState([]);
-  const [goalsAchieved, setGoalsAchieved] = useState("?");
-  const { isDarkMode } = React.useContext(DarkModeContext);
+
   const [tasksCompleted, setTasksCompleted] = useState("?");
-  const [refetch, setRefetch] = useState(false);
+  const [goalsAchieved, setGoalsAchieved] = useState("?");
+
+  const [refetchTasks, setRefetchTasks] = useState(false);
+  const [refetchGoals, setRefetchGoals] = useState(false);
+  const [refetchSubtasks, setRefetchSubtasks] = useState(false);
 
   /**
    * When a task is selected from Today's Tasks,
@@ -42,8 +43,16 @@ function DashboardView() {
     setCurrentTask(task);
   };
 
-  const triggerRefetch = () => {
-    setRefetch(!refetch);
+  const triggerRefetchTasks = () => {
+    setRefetchTasks(!refetchTasks);
+  };
+
+  const triggerRefetchGoals = () => {
+    setRefetchGoals(!refetchGoals);
+  };
+
+  const triggerRefetchSubtasks = () => {
+    setRefetchSubtasks(!refetchSubtasks);
   };
 
   useEffect(() => {
@@ -53,15 +62,22 @@ function DashboardView() {
     fetchTasksCompleted(currentUser.uid).then((res) => {
       setTasksCompleted(res);
     });
+  }, [refetchTasks]);
+
+  useEffect(() => {
     fetchGoals(currentUser.uid).then((res) => {
       setGoals(res);
     });
     fetchGoalsCompleted(currentUser.uid).then((res) => {
       setGoalsAchieved(res);
     });
+  }, [refetchGoals]);
+
+  useEffect(() => {
     fetchSubtasks(currentUser.uid).then((res) => {
       setSubtasks(res);
-  }, [refetch]);
+    });
+  }, [refetchSubtasks]);
 
   return (
     <>
@@ -70,8 +86,8 @@ function DashboardView() {
         <TaskList
           tasks={tasks}
           subtasks={subtasks}
-          onNewTask={triggerRefetch}
-          onTaskCheck={triggerRefetch}
+          onNewTask={triggerRefetchTasks}
+          onTaskCheck={triggerRefetchTasks}
           onTaskClick={handleTaskClick}
           onNewSubtask={triggerRefetchSubtasks}
         />
@@ -87,8 +103,8 @@ function DashboardView() {
           <br />
           <GoalList
             goals={goals}
-            onNewGoal={triggerRefetch}
-            onGoalCheck={triggerRefetch}
+            onNewGoal={triggerRefetchGoals}
+            onGoalCheck={triggerRefetchGoals}
           />
         </div>
       </div>
