@@ -32,6 +32,7 @@ function TaskList(props) {
                 checked={t.Is_complete}
                 description={t.Description}
                 userId={t.User_id}
+                onNewTask={onNewTask}
               />
             </div>
           ))}

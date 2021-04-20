@@ -25,6 +25,22 @@
         }
     }
 
+.editbutton-container {
+	display: flex;
+	flex-grow: 0;
+}
+
+	&__editbutton {
+		width: 20px;
+		height: 20px;
+		background: transparent;
+		margin-right: 16px;
+	}
+
+	&__editbutton:hover {
+		cursor: pointer;
+	}
+
 	&__checkbox,
 	&__checkbox--checked {
 		width: 25px;

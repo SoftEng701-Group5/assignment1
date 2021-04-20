@@ -9,7 +9,7 @@ function EditIcon() {
       x="0px"
       y="0px"
       viewBox="0 0 330 330"
-      style={{ height: "50%", fill: "white" }}
+      style={{ height: "100%", fill: "white" }}
     >
       <g id="XMLID_23_">
         <path
