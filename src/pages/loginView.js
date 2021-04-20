@@ -4,7 +4,6 @@ import firebase from "firebase";
 import Button from "../components/global/Button";
 import TextInput from "../components/global/TextInput";
 import LoginImage from "../assets/images/LoginImage";
-
 import { signIn, resetPassword } from "../services/authService";
 import DarkModeContext from "../services/theme-context";
 
