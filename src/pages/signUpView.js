@@ -79,7 +79,7 @@ export default function SignUpView() {
         // If signup is unsuccessful, notify user and reset inputs
         // eslint-disable-next-line no-alert
         alert(signUpError);
-
+        setSuccessfulSignUp(false);
         setFirstName("");
         setLastName("");
         setEmail("");
