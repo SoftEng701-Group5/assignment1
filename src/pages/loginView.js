@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-
+import firebase from "firebase";
 import Button from "../components/global/Button";
 import TextInput from "../components/global/TextInput";
 import LoginImage from "../assets/images/LoginImage";
-
 import { signIn } from "../services/authService";
 import DarkModeContext from "../services/theme-context";
 
@@ -12,6 +11,8 @@ import DarkModeContext from "../services/theme-context";
  * This component represents the login page,
  * and should contain all elements present in this page
  */
+
+const provider = new firebase.auth.GoogleAuthProvider();
 export default function LoginView() {
   const history = useHistory();
 
@@ -31,7 +32,6 @@ export default function LoginView() {
     // Process inputs
     const processedEmail = email.trim();
     const processedPassword = password.trim();
-
     // Check if inputs have been provided, notify user it not
     let validLogin = true;
     if (!processedEmail) {
@@ -55,6 +55,21 @@ export default function LoginView() {
         setPassword("");
       }
     }
+  };
+
+  /**
+   * handle google authentication
+   */
+  const googleLoginHandler = async () => {
+    firebase
+      .auth()
+      .signInWithPopup(provider)
+      // eslint-disable-next-line no-unused-vars
+      .then((result) => {
+        history.push("/home");
+      })
+      // eslint-disable-next-line no-unused-vars
+      .catch((error) => {});
   };
 
   return (
@@ -87,6 +102,14 @@ export default function LoginView() {
           text="Login"
           handleOnClick={loginHandler}
         />
+
+        <Button
+          type="submit"
+          icon="rightArrow"
+          text="Google Login"
+          handleOnClick={googleLoginHandler}
+        />
+
         <div className="login__bottom-text">
           <span>Don&apos;t have an account?</span>
           <Link to="/signup" className="login__bottom-text__link">

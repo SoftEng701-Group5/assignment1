@@ -1,7 +1,9 @@
 import firebaseConnection from "./firebase";
+
 /**
  * Signs the user out of the firebase application
  */
+
 const signOut = () => {
   firebaseConnection.auth().signOut();
 };
@@ -19,6 +21,7 @@ const signIn = async (email, password) => {
     return false;
   }
 };
+
 /* eslint-disable import/no-mutable-exports */
 let signUpError;
 /**
