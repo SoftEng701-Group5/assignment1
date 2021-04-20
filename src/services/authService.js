@@ -51,6 +51,21 @@ const signUp = async (email, password, firstName, lastName) => {
   }
 };
 
+// Reset Password
+const resetPassword = async (email) => {
+  try {
+    await firebaseConnection
+      .auth()
+      .sendPasswordResetEmail(email)
+      .then(() => {
+        // email sent
+      });
+    return true;
+  } catch (error) {
+    return false;
+  }
+};
+
 /**
  * A "get" request to the firebase cloud firestore which retrieves the first and last name for a specific user
  * @param {*} userId Unique user identifier as a string. You can get this from currentUser.uid
@@ -82,4 +97,12 @@ const updateUserInfo = async (newUserData, email) => {
   user.updateEmail(email);
 };
 
-export { signOut, signIn, signUp, signUpError, fetchUserInfo, updateUserInfo };
+export {
+  signOut,
+  signIn,
+  signUp,
+  signUpError,
+  resetPassword,
+  fetchUserInfo,
+  updateUserInfo,
+};
